@@ -33,6 +33,10 @@ body {
     background-color: #fff;
 }
 main{
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
+}
+
+p{
+    text-align: justify;
 }
