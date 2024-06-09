@@ -1,14 +1,14 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: DejaVu Sans Mono, Helvetica, sans-serif;
     margin: 0px;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #000;
 }
 .menuPrincipal{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(89, 29, 145);
+    background-color: #8237a3;
     height: 5vh;
 }
 .listaNavegacao{
@@ -28,15 +28,23 @@ body {
 }
 
 .menuPrincipal ul a:hover{
-    color: rgb(89, 29, 145);
+    color: #00e300;
     
-    background-color: #fff;
+    background-color: #000;
 }
 main{
     width: 50%;
     margin: 0 auto;
+    color: #f7f7f7;
 }
-
 p{
     text-align: justify;
+}
+
+a:hover{
+    color: #00e300;
+
+}
+h1{
+    color: #00e300;
 }
