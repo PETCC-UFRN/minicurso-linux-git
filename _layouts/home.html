@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/assets/estilos/styleMain.css">
+    </head>
+    <body id="home">
+        {% include nav.html %}
+        <div>
+            <main>
+                {{ content }}
+                {% include dias_e_temas.html %}
+            </main>
+        </div>
+    </body>
+</html>
