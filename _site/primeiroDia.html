@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minicurso de Linux e Git</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/assets/estilos/styleMain.css">
+    </head>
+    <body class="oldschool">
+        <header>
+    <nav class="oldschoolnav">
+        <ul class="listaNavegacao">
+            <li>
+                <a href="index" style="text-decoration:none;">./Home</a>
+            </li>
+            <li>
+                <a href="licoes" style="text-decoration:none;">Lições</a>
+            </li> 
+            <li>
+                <a href="sobre" style="text-decoration:none;">Sobre</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+        <div>
+            <main>
+                
+<h2 id="1ᵒ-dia-linux">1ᵒ Dia (Linux)</h2>
+
+<h3 id="unix-e-linux">Unix e Linux</h3>
+
+<ul>
+  <li><strong>Introdução e burocracia básica</strong> (5min)
+    <blockquote>
+      <ul>
+        <li>Boas vindas</li>
+        <li>Certificado</li>
+        <li>Exercícios e sistema de pontuação</li>
+        <li>Visão geral do curso</li>
+        <li>Agradecimentos</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>5min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Um pouco sobre Linux e Unix</strong> (5min)
+    <blockquote>
+      <ul>
+        <li>Família Unix e Unix-Like</li>
+        <li>O que é GNU/Linux?</li>
+        <li>BSD’s</li>
+        <li>Alguns sabores e suas diferenças</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>10min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Introdução a hierarquia de arquivos</strong> (5min)
+    <blockquote>
+      <ul>
+        <li>Visão geral de como um sistema Unix é organizado</li>
+        <li>Pasta <code class="language-plaintext highlighter-rouge">/</code></li>
+        <li>Introduzindo a ideia de navegar</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>15min</strong></p>
+</blockquote>
+
+<hr />
+
+<h3 id="shell">Shell</h3>
+
+<ul>
+  <li><strong>Introdução ao Shell</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Shell vs Terminal vs Emulador de terminal</li>
+        <li>Bash, Zsh &amp; Fish</li>
+        <li>Primeiros passos
+          <ul>
+            <li>Comando <code class="language-plaintext highlighter-rouge">pwd</code> e caminhos absolutos</li>
+            <li>Comando <code class="language-plaintext highlighter-rouge">date</code> e <code class="language-plaintext highlighter-rouge">echo</code></li>
+          </ul>
+        </li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>25min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Navegando com o Shell</strong> (15min)
+    <blockquote>
+      <ul>
+        <li>Relative paths e o comando <code class="language-plaintext highlighter-rouge">ls</code></li>
+        <li>Comando <code class="language-plaintext highlighter-rouge">cd</code></li>
+        <li>Uso do &lt;Tab&gt;</li>
+        <li>Criando e apagando diretórios/arquivos</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>45min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Opções e argumentos de comando</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Argumentos</li>
+        <li>Opções e flags</li>
+        <li>Sequênciando comandos</li>
+        <li>Comando <code class="language-plaintext highlighter-rouge">ls -F</code></li>
+        <li><em>Parêntese sobre extensões de arquivo</em></li>
+        <li>Comando <code class="language-plaintext highlighter-rouge">file</code></li>
+        <li>Comando <code class="language-plaintext highlighter-rouge">ls -l</code></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>55min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Introdução a ideia de permissões</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Ensinando a ler o <code class="language-plaintext highlighter-rouge">ls -l</code></li>
+        <li>Lendo arquivos (<code class="language-plaintext highlighter-rouge">cat</code>, <code class="language-plaintext highlighter-rouge">less</code>, <code class="language-plaintext highlighter-rouge">more</code>, <code class="language-plaintext highlighter-rouge">head</code>, <code class="language-plaintext highlighter-rouge">tail</code>)</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>1h05min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Como investigar comandos</strong> (5min)
+    <blockquote>
+      <ul>
+        <li>Flag <code class="language-plaintext highlighter-rouge">--help</code></li>
+        <li>Manual <code class="language-plaintext highlighter-rouge">man</code></li>
+        <li>Como ler o manual</li>
+        <li>To long didn’t read (<code class="language-plaintext highlighter-rouge">tldr</code>)</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>1h10min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Comandos de busca</strong> (5min)
+    <blockquote>
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">grep</code></li>
+        <li><code class="language-plaintext highlighter-rouge">find</code></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>1h15min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Streams</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Conceito de <code class="language-plaintext highlighter-rouge">input</code>, <code class="language-plaintext highlighter-rouge">output</code></li>
+        <li>Variável <code class="language-plaintext highlighter-rouge">$?</code></li>
+        <li>Streams <code class="language-plaintext highlighter-rouge">stdin</code>, <code class="language-plaintext highlighter-rouge">stdout</code>, <code class="language-plaintext highlighter-rouge">stderr</code></li>
+        <li>Redirecionando streams com <code class="language-plaintext highlighter-rouge">&gt;</code> e <code class="language-plaintext highlighter-rouge">&gt;&gt;</code></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>1h25min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Combinando comandos</strong> (20min)
+    <blockquote>
+      <ul>
+        <li>Operador <code class="language-plaintext highlighter-rouge">;</code></li>
+        <li>Operador <code class="language-plaintext highlighter-rouge">|</code></li>
+        <li>Conjunção <code class="language-plaintext highlighter-rouge">&amp;&amp;</code></li>
+        <li>Disjunção <code class="language-plaintext highlighter-rouge">||</code></li>
+        <li>Curto-circuito de operadores</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>1h45min</strong></p>
+</blockquote>
+
+<ul>
+  <li><a href="https://hackmd.io/@Dio720/shell-petcc#Quest%C3%A3o-1"><strong>Shell$1-2</strong></a> (30min)
+    <blockquote>
+      <ul>
+        <li>Tempo para os alunos resolverem <strong>(20min)</strong></li>
+        <li>Resolução <strong>(10min)</strong></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>2h20min</strong></p>
+</blockquote>
+
+<hr />
+<h3 id="unix-e-linux--shell">Unix e Linux &amp; Shell</h3>
+
+<ul>
+  <li><strong>Expandidno a ideia de comando</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Comando <code class="language-plaintext highlighter-rouge">which</code></li>
+        <li>Comando <code class="language-plaintext highlighter-rouge">whereis</code></li>
+        <li>Váriáveis de ambiente</li>
+        <li>Váriavel <code class="language-plaintext highlighter-rouge">$PATH</code></li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>2h30min</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Instalando e gerenciando aplicativos</strong> (10min)
+    <blockquote>
+      <ul>
+        <li>Aprofundando um pouco mais em como funciona a hierarquia de arquivos.</li>
+        <li>Como instalar programas manualmente.</li>
+        <li>O que são gerenciadores de pacote.</li>
+        <li>Como instalar através de um gerenciador de pacotes.</li>
+        <li>Demonstração.</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<blockquote>
+  <h2 id="2h40min"><strong>2h40min</strong></h2>
+</blockquote>
+
+<ul>
+  <li><strong>Lanche</strong> (20min)</li>
+  <li><a href="https://hackmd.io/@Dio720/shell-petcc#Quest%C3%A3o-11"><strong>Shell#1-?</strong></a> (50min)</li>
+  <li><a href=""><strong>Unix e Linux#1-?</strong></a> (10min)</li>
+</ul>
+
+<blockquote>
+  <p><strong>4h</strong></p>
+</blockquote>
+
+<hr />
+
+                <section>
+    <h1> Dias e Temas </h1>
+    <div class="dias_e_temas">
+        <ul>
+            <li> 1º dia : <a href="primeiroDia">Unix e Linux</a></li>
+        
+            <li>  2º dia  : <a href="segundoDia"> Linux e shell</a></li>
+            <li>  3º dia : <a href="terceiroDia"> Linux e git</a></li>
+       
+            <li>  4º dia : <a href="quartoDia"> git: branch</a></li>
+            <li>  5º dia : <a href="quintoDia"> git: branch</a></li>
+        </ul>
+    </div>
+</section>
+            </main>
+        </div>
+    </body>
+</html>
