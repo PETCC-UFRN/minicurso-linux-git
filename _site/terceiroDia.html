@@ -138,8 +138,9 @@
 
 <h2 id="introdução-a-plataformas-de-hospedagem-remota">Introdução a plataformas de hospedagem remota</h2>
 <h3 id="gancho-com-a-parte-de-versionadores">Gancho com a parte de versionadores</h3>
-<p>A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota. 
-Essas plataformas permitem que você armazene, compartilhe e colabore em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para gerenciamento de projetos, integração contínua, e muito mais.</p>
+<p>A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota.</p>
+
+<p>Essas plataformas permitem que você armazene, compartilhe e colabore em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para gerenciamento de projetos, integração contínua, e muito mais.</p>
 
 <h3 id="algumas-diferentes-plataformas-gitlab-bitbucket-codeberg">Algumas diferentes plataformas: GitLab, BitBucket, Codeberg.</h3>
 <p>Existem várias plataformas de hospedagem remota que suportam Git, cada uma com suas características únicas.</p>
@@ -168,99 +169,83 @@ Essas plataformas permitem que você armazene, compartilhe e colabore em projeto
   </li>
   <li><strong>GitHub</strong>
     <ul>
-      <li>GitHub é uma plataforma de hospedagem remota para repositórios Git.</li>
-      <li>Oferece uma interface web amigável e ferramentas adicionais para colaboração e gerenciamento de projetos.</li>
-      <li>Permite hospedagem de repositórios públicos e privados.</li>
+      <li>Hospedagem de Repositórios</li>
+      <li>Se utiliza do git para fazer o controle de versão dos respositórios hospedados</li>
+      <li>Comunidade ativa</li>
+      <li>Vários outros serviços</li>
+      <li>Um dos maiores repositórios de projetos open source do mundo</li>
     </ul>
   </li>
 </ul>
 
-<blockquote>
-  <p>Momento de Criação da conta no Github** (20min)</p>
-</blockquote>
+<div style=" border:2px solid green;">
+Momento de Criação da conta no Github
+</div>
 
+<h2 id="chave-ssh">Chave SSH</h2>
+
+<h3 id="para-que-serve-a-chave-ssh">Para que serve a chave SSH?**</h3>
+
+<p>As chaves SSH (Secure Shell) são utilizadas para autenticar conexões seguras entre computadores, permitindo uma comunicação criptografada. Elas substituem a necessidade de senhas tradicionais, proporcionando uma maneira mais segura e conveniente de acessar sistemas remotos e serviços, como repositórios Git.</p>
+
+<p>Ao configurar uma chave SSH, você cria um par de chaves: uma chave privada, que deve ser mantida em segredo no seu computador, e uma chave pública, que é adicionada ao servidor ou serviço remoto. Quando uma conexão é iniciada, o servidor usa a chave pública para verificar a identidade do usuário, sem que a chave privada precise ser transmitida pela rede, garantindo assim a segurança.</p>
+
+<p>No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores enviem (push) e busquem (pull) alterações de forma segura, sem precisar digitar senhas repetidamente.</p>
+
+<div style=" border:2px solid green;">
+Criaçao da chave SSH, em conjunto com os alunos.
+</div>
+
+<h1 id="workflow-e-primeiro-repositório">Workflow e primeiro repositório</h1>
+
+<h2 id="um-pouco-mais-sobre-git">Um pouco mais sobre Git</h2>
 <ul>
-  <li><strong>Chave SSH</strong> (15min)
-    <blockquote>
-      <ul>
-        <li>Explicando para que serve a chave SSH</li>
-        <li>Se conectando  remotamente a outra máquina.</li>
-        <li>Criaçao da chave SSH, em conjunto com os alunos.</li>
-        <li>Usando a chave para se conectar ao Github.</li>
-      </ul>
-    </blockquote>
+  <li>Como ele lida com informações.
+      O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.
+    <h3 id="workflow-básico">Workflow básico</h3>
+    <p>1) Você <strong>modifica arquivos</strong> na sua árvore de trabalho</p>
   </li>
 </ul>
 
-<blockquote>
-  <p><strong>1h45min</strong></p>
-</blockquote>
+<p>2) Você <strong>seleciona apenas as mudanças que você quer</strong> que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area</p>
 
+<p>3) Você <strong>faz um commit</strong>: os arquivos como eles estão na staging area são armazenados em forma de snapshot permanentemente no seu diretório  Git.</p>
+
+<p><img src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%" /></p>
+
+<p>Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:</p>
 <ul>
-  <li><strong>Lanche/Descanso</strong> (20min)</li>
+  <li>modified</li>
+  <li>staged</li>
+  <li>commited</li>
 </ul>
 
-<blockquote>
-  <p><strong>2h05min</strong></p>
-</blockquote>
+<h2 id="criando-o-primeiro-repositório">Criando o primeiro repositório</h2>
+
+<h3 id="criando-o-repositório-remoto-no-github">Criando o repositório remoto no github.</h3>
+<ul>
+  <li>Seguindo os passos dados pelo github.</li>
+  <li><code class="language-plaintext highlighter-rouge">init, remote add, add, commit, push</code>.</li>
+  <li>O nome do reposittório que eles devem criar é <code class="language-plaintext highlighter-rouge">projeto 01</code> - que será utilizado no exercício de fixação</li>
+</ul>
 
 <hr />
-<h3 id="workflow-e-primeiro-repositório">Workflow e primeiro repositório</h3>
+<h2 id="comandos-e-práticas-do-git">Comandos e Práticas do Git</h2>
 
-<ul>
-  <li><strong>Um pouco mais sobre Git</strong> (10min)
-    <blockquote>
-      <ul>
-        <li>Como ele lida com informações.</li>
-        <li>Workflow básico (téorico, sem incluir branches).</li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
+<h3 id="lidando-com-o-git-30min">Lidando com o git** (30min)</h3>
+<p>1) Verificando o status dos arquivos <code class="language-plaintext highlighter-rouge">git status</code>.</p>
 
-<blockquote>
-  <p><strong>2h15min</strong></p>
-</blockquote>
+<p>2) Entendendo o staging area.</p>
 
-<ul>
-  <li><strong>Criando o primeiro repositório</strong> (15min)
-    <blockquote>
-      <ul>
-        <li>Criando o reposítorio remoto no github.</li>
-        <li>Seguindo os passos dados pelo github.</li>
-        <li><code class="language-plaintext highlighter-rouge">init, remote add, add, commit, push</code>.</li>
-        <li>O nome do reposittório que eles devem criar é <code class="language-plaintext highlighter-rouge">projeto 01</code> - que será utilizado no exercício de fixação</li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
+<p>3) Rastreando arquivos novos e modificados <code class="language-plaintext highlighter-rouge">git add</code>.</p>
 
-<blockquote>
-  <p><strong>2h30min</strong></p>
-</blockquote>
+<p>4) Fazendo o <strong>commit</strong> do que foi feito <code class="language-plaintext highlighter-rouge">git commit</code>.</p>
 
-<hr />
-<h3 id="comandos-e-práticas-do-git">Comandos e Práticas do Git</h3>
+<p>5) Como ver todos os commit feitos com <code class="language-plaintext highlighter-rouge">git log</code></p>
 
-<ul>
-  <li><strong>Lidando com o git</strong> (30min)
-    <blockquote>
-      <ul>
-        <li>Verificando o status dos arquivos <code class="language-plaintext highlighter-rouge">git status</code>.</li>
-        <li>Entendendo o staging area.</li>
-        <li>Rastreando arquivos novos e modificados <code class="language-plaintext highlighter-rouge">git add</code>.</li>
-        <li>Fazendo o <strong>commit</strong> do que foi feito <code class="language-plaintext highlighter-rouge">git commit</code>.</li>
-        <li>Como ver todos os commit feitos com <code class="language-plaintext highlighter-rouge">git log</code></li>
-        <li>Subindo alterações para o repositório remoto <code class="language-plaintext highlighter-rouge">git push</code></li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
+<p>6) Subindo alterações para o repositório remoto <code class="language-plaintext highlighter-rouge">git push</code></p>
 
-<blockquote>
-  <p><strong>3h</strong></p>
-</blockquote>
-
+<h1 id="exercícios">Exercícios</h1>
 <ul>
   <li><a href="https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?view#Exerc%C3%ADcio-11"><strong>Git$1</strong></a> (20min)
     <blockquote>

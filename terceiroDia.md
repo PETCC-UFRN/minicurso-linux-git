@@ -102,6 +102,7 @@ O Git, em geral, apenas **adiciona** informações. É difícil que o sistema ap
 ## Introdução a plataformas de hospedagem remota 
 ### Gancho com a parte de versionadores
 A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota. 
+
 Essas plataformas permitem que você armazene, compartilhe e colabore em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para gerenciamento de projetos, integração contínua, e muito mais.
 
 ### Algumas diferentes plataformas: GitLab, BitBucket, Codeberg.
@@ -123,56 +124,79 @@ Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a me
     - Funciona localmente, independentemente de uma plataforma de hospedagem remota.
 
 - **GitHub**
-    - GitHub é uma plataforma de hospedagem remota para repositórios Git.
-    - Oferece uma interface web amigável e ferramentas adicionais para colaboração e gerenciamento de projetos.
-    - Permite hospedagem de repositórios públicos e privados.
+    - Hospedagem de Repositórios
+    - Se utiliza do git para fazer o controle de versão dos respositórios hospedados
+    - Comunidade ativa
+    - Vários outros serviços
+    - Um dos maiores repositórios de projetos open source do mundo
 
 
-> Momento de Criação da conta no Github** (20min)
+<div style=" border:2px solid green;">
+Momento de Criação da conta no Github
+</div> 
 
 
-- **Chave SSH** (15min)
-    > - Explicando para que serve a chave SSH
-    > - Se conectando  remotamente a outra máquina.
-    > - Criaçao da chave SSH, em conjunto com os alunos.
-    > - Usando a chave para se conectar ao Github.
+## Chave SSH
 
-> **1h45min**
+### Para que serve a chave SSH?**
 
-- **Lanche/Descanso** (20min)
+As chaves SSH (Secure Shell) são utilizadas para autenticar conexões seguras entre computadores, permitindo uma comunicação criptografada. Elas substituem a necessidade de senhas tradicionais, proporcionando uma maneira mais segura e conveniente de acessar sistemas remotos e serviços, como repositórios Git.
 
-> **2h05min**
+Ao configurar uma chave SSH, você cria um par de chaves: uma chave privada, que deve ser mantida em segredo no seu computador, e uma chave pública, que é adicionada ao servidor ou serviço remoto. Quando uma conexão é iniciada, o servidor usa a chave pública para verificar a identidade do usuário, sem que a chave privada precise ser transmitida pela rede, garantindo assim a segurança.
+
+No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores enviem (push) e busquem (pull) alterações de forma segura, sem precisar digitar senhas repetidamente.
+
+
+<div style=" border:2px solid green;">
+Criaçao da chave SSH, em conjunto com os alunos.
+</div> 
+
+
+# Workflow e primeiro repositório
+
+## Um pouco mais sobre Git
+- Como ele lida com informações.
+        O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.
+### Workflow básico
+1) Você **modifica arquivos** na sua árvore de trabalho
+
+2) Você **seleciona apenas as mudanças que você quer** que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area
+
+3) Você **faz um commit**: os arquivos como eles estão na staging area são armazenados em forma de snapshot permanentemente no seu diretório  Git.
+
+<img src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
+
+Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
+* modified
+* staged
+* commited
+
+
+## Criando o primeiro repositório 
+
+### Criando o repositório remoto no github.
+- Seguindo os passos dados pelo github.
+- `init, remote add, add, commit, push`.
+- O nome do reposittório que eles devem criar é `projeto 01` - que será utilizado no exercício de fixação
 
 ---
-### Workflow e primeiro repositório
+## Comandos e Práticas do Git
 
-- **Um pouco mais sobre Git** (10min)
-    > - Como ele lida com informações.
-    > - Workflow básico (téorico, sem incluir branches).
+### Lidando com o git** (30min)
+1) Verificando o status dos arquivos `git status`.
 
-> **2h15min**
+2) Entendendo o staging area.
 
-- **Criando o primeiro repositório** (15min)
-    > - Criando o reposítorio remoto no github.
-    > - Seguindo os passos dados pelo github.
-    > - `init, remote add, add, commit, push`.
-    > - O nome do reposittório que eles devem criar é `projeto 01` - que será utilizado no exercício de fixação
+3) Rastreando arquivos novos e modificados `git add`.
 
-> **2h30min**
+4) Fazendo o **commit** do que foi feito `git commit`.
 
----
-### Comandos e Práticas do Git
+5) Como ver todos os commit feitos com `git log`
 
-- **Lidando com o git** (30min)
-    > - Verificando o status dos arquivos `git status`.
-    > - Entendendo o staging area.
-    > - Rastreando arquivos novos e modificados `git add`.
-    > - Fazendo o **commit** do que foi feito `git commit`.
-    > - Como ver todos os commit feitos com `git log`
-    > - Subindo alterações para o repositório remoto `git push`
+6) Subindo alterações para o repositório remoto `git push`
 
-> **3h**
 
+# Exercícios
 - [**Git$1**](https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?view#Exerc%C3%ADcio-11) (20min) 
     > - Exercício utilizando `git status`, `git commit`, `git add`, `git log` e `git push`.
     > - Projeto para criar 2 capítulos de uma história.
