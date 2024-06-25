@@ -1,11 +1,25 @@
 ---
 layout: sobre
-title: Minicurso de Linux e Git
+title: Sobre o Minicurso
 ---
 
 # {{ page.title }}
 
-As aulas ensinam tudo sobre tópicos avançados dentro do CS, a partir de sistemas operacionais ao aprendizado de máquina, mas há um assunto crítico que raramente é abordado, e, em vez disso, é deixado para os alunos descobrirem por conta própria: proficiência com suas ferramentas. Vamos te ensinar como dominar a linha de comando, usar um poderoso editor de texto, use recursos sofisticados de sistemas de controle de versão, e muito mais!
-\
-\
-Os alunos passam centenas de horas usando essas ferramentas ao longo de suas educação (e milhares ao longo da carreira), por isso faz sentido fazer o Experimente o mais fluido e sem atrito possível. Dominar essas ferramentas não apenas permite que você gaste menos tempo descobrindo como dobrar suas ferramentas para sua vontade, mas também permite que você resolva problemas que antes pareceriam impossivelmente complexo.
+
+## Sobre as aulas
+
+As aulas do nosso curso visam familiarizar os alunos com o sistema operacional ***Linux*** e a temida **linha de comando** bem como com a ferramenta de gerenciamento de versões ***Git***. Muitos hoje em dia abominam a ideia de largar a GUI (interface gráfica) para mexer no computador, imaginando que digitar comandos em um terminal é algo datado, que os desenvolvedores mais experientes utilizam apenas por nostalgia ou estética. Entretanto, nosso minicurso tem como objetivo apresentar a melhor ferramenta na hora de conversar com um computador: o teclado! Ao digitar comandos ao invés de clicar em botões programados em uma interface, o usuário possui muito mais liberdade e uma real noção do que está fazendo, sendo o domínio da linha de comando essencial para qualquer desenvolvedor.
+
+
+Na parte de Git, o aluno aprenderá como funciona a ferramenta e terá respostas para perguntas famosas como **o que é um "commit"?** ou **qual a diferença de Git e GitHub?**, bem como aprenderá a trabalhar junto com colegas em projetos envolvendo código.
+
+## Sobre quem ministra as aulas
+
+O Minicurso de Linux e Git é um projeto do PETCC, e as aulas serão ministradas pelos Petianos:
+
+- Vinícius de Lima
+- Ana Paula Lima
+- Marina Medeiros
+- Adriel Costa
+- José Ivo Schwade
+
