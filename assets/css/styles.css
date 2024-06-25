@@ -23,13 +23,6 @@ body {
     margin-left: 32px;
 }
 
-.dias_e_temas a{
-    color: #a6e3a1;
-}
-.dias_e_temas a:hover{
-    color: #fff;
-}
-
 .menuPrincipal ul a{
     color: #11111b;
     text-decoration: none;
@@ -61,18 +54,6 @@ body {
     color: #fff;
 }
 
-.oldschool a{
-    color:#a6e3a1;
-}
-
-.oldschool a:hover{
-    color:#fff;
-}
-
-.oldschoolnav ul a:hover{
-    color:#ffff;
-}
-
 .oldschool h1{
     color: #00e300;
 }
@@ -88,11 +69,11 @@ body {
     background-color: #000;
 }
 
-#licoes_content a{
+a{
     color:#a6e3a1;
 }
 
-#licoes_content a:hover{
+a:hover{
     color:#fff;
 }
 
