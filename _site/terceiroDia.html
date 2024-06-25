@@ -178,10 +178,6 @@
   </li>
 </ul>
 
-<div style=" border:2px solid green;">
-Momento de Criação da conta no Github
-</div>
-
 <h2 id="chave-ssh">Chave SSH</h2>
 
 <h3 id="para-que-serve-a-chave-ssh">Para que serve a chave SSH?**</h3>
@@ -192,20 +188,17 @@ Momento de Criação da conta no Github
 
 <p>No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores enviem (push) e busquem (pull) alterações de forma segura, sem precisar digitar senhas repetidamente.</p>
 
-<div style=" border:2px solid green;">
-Criaçao da chave SSH, em conjunto com os alunos.
-</div>
-
 <h1 id="workflow-e-primeiro-repositório">Workflow e primeiro repositório</h1>
 
 <h2 id="um-pouco-mais-sobre-git">Um pouco mais sobre Git</h2>
 <ul>
   <li>Como ele lida com informações.
-      O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.
-    <h3 id="workflow-básico">Workflow básico</h3>
-    <p>1) Você <strong>modifica arquivos</strong> na sua árvore de trabalho</p>
-  </li>
+      O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.</li>
 </ul>
+
+<h3 id="workflow-básico">Workflow básico</h3>
+
+<p>1) Você <strong>modifica arquivos</strong> na sua árvore de trabalho</p>
 
 <p>2) Você <strong>seleciona apenas as mudanças que você quer</strong> que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area</p>
 
@@ -220,66 +213,56 @@ Criaçao da chave SSH, em conjunto com os alunos.
   <li>commited</li>
 </ul>
 
-<h2 id="criando-o-primeiro-repositório">Criando o primeiro repositório</h2>
-
-<h3 id="criando-o-repositório-remoto-no-github">Criando o repositório remoto no github.</h3>
-<ul>
-  <li>Seguindo os passos dados pelo github.</li>
-  <li><code class="language-plaintext highlighter-rouge">init, remote add, add, commit, push</code>.</li>
-  <li>O nome do reposittório que eles devem criar é <code class="language-plaintext highlighter-rouge">projeto 01</code> - que será utilizado no exercício de fixação</li>
-</ul>
-
-<hr />
 <h2 id="comandos-e-práticas-do-git">Comandos e Práticas do Git</h2>
 
-<h3 id="lidando-com-o-git-30min">Lidando com o git** (30min)</h3>
-<p>1) Verificando o status dos arquivos <code class="language-plaintext highlighter-rouge">git status</code>.</p>
+<h3 id="lidando-com-o-git">Lidando com o git</h3>
 
-<p>2) Entendendo o staging area.</p>
+<ul>
+  <li>Verificando o status dos arquivos <code class="language-plaintext highlighter-rouge">git status</code>.</li>
+</ul>
 
-<p>3) Rastreando arquivos novos e modificados <code class="language-plaintext highlighter-rouge">git add</code>.</p>
+<p>A principal ferramenta que você vai usar para determinar quais arquivos estão em qual estado é o comando git status.</p>
 
-<p>4) Fazendo o <strong>commit</strong> do que foi feito <code class="language-plaintext highlighter-rouge">git commit</code>.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$ </span>git status
+    On branch master
+    Your branch is up-to-date with <span class="s1">'origin/master'</span><span class="nb">.</span>
+    nothing to commit, working directory clean
+</code></pre></div></div>
+<p>Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo README. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:</p>
 
-<p>5) Como ver todos os commit feitos com <code class="language-plaintext highlighter-rouge">git log</code></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'My Project'</span> <span class="o">&gt;</span> README
+    <span class="nv">$ </span>git status
+    On branch master
+    Your branch is up-to-date with <span class="s1">'origin/master'</span><span class="nb">.</span>
+    Untracked files:
+    <span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to include <span class="k">in </span>what will be committed<span class="o">)</span>
 
-<p>6) Subindo alterações para o repositório remoto <code class="language-plaintext highlighter-rouge">git push</code></p>
+        README
+
+    nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">"git add"</span> to track<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Nós queremos incluir esse arquivo README, então vamos rastreá-lo.</p>
+
+<ul>
+  <li>
+    <p>Entendendo o staging area.</p>
+  </li>
+  <li>
+    <p>Rastreando arquivos novos e modificados <code class="language-plaintext highlighter-rouge">git add</code>.</p>
+  </li>
+  <li>
+    <p>Fazendo o <strong>commit</strong> do que foi feito <code class="language-plaintext highlighter-rouge">git commit</code>.</p>
+  </li>
+  <li>
+    <p>Como ver todos os commit feitos com <code class="language-plaintext highlighter-rouge">git log</code></p>
+  </li>
+  <li>
+    <p>Subindo alterações para o repositório remoto <code class="language-plaintext highlighter-rouge">git push</code></p>
+  </li>
+</ul>
 
 <h1 id="exercícios">Exercícios</h1>
-<ul>
-  <li><a href="https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?view#Exerc%C3%ADcio-11"><strong>Git$1</strong></a> (20min)
-    <blockquote>
-      <ul>
-        <li>Exercício utilizando <code class="language-plaintext highlighter-rouge">git status</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, <code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git log</code> e <code class="language-plaintext highlighter-rouge">git push</code>.</li>
-        <li>Projeto para criar 2 capítulos de uma história.</li>
-        <li>Tempo para os alunos resolverem. <strong>(20min)</strong></li>
-        <li>Resolução. <strong>(10min)</strong></li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
-
-<blockquote>
-  <p><strong>3h20min</strong></p>
-</blockquote>
-
-<ul>
-  <li><a href="https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?both#Exerc%C3%ADcio-1-1"><strong>Git#1</strong></a> (20min)
-    <blockquote>
-      <ul>
-        <li>Exercício utilizando <code class="language-plaintext highlighter-rouge">git status</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, <code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git log</code>, <code class="language-plaintext highlighter-rouge">git push</code> e <code class="language-plaintext highlighter-rouge">git remote</code></li>
-        <li>Projeto para criar uma biografia engraçada.</li>
-        <li>Tempo para os alunos resolverem <strong>(30min)</strong></li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
-
-<blockquote>
-  <p><strong>3h50min</strong></p>
-</blockquote>
-
-<hr />
 
                 </div>
                 <section>

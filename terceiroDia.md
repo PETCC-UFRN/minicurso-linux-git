@@ -131,10 +131,6 @@ Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a me
     - Um dos maiores repositórios de projetos open source do mundo
 
 
-<div style=" border:2px solid green;">
-Momento de Criação da conta no Github
-</div> 
-
 
 ## Chave SSH
 
@@ -147,9 +143,6 @@ Ao configurar uma chave SSH, você cria um par de chaves: uma chave privada, que
 No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores enviem (push) e busquem (pull) alterações de forma segura, sem precisar digitar senhas repetidamente.
 
 
-<div style=" border:2px solid green;">
-Criaçao da chave SSH, em conjunto com os alunos.
-</div> 
 
 
 # Workflow e primeiro repositório
@@ -157,7 +150,9 @@ Criaçao da chave SSH, em conjunto com os alunos.
 ## Um pouco mais sobre Git
 - Como ele lida com informações.
         O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.
+
 ### Workflow básico
+
 1) Você **modifica arquivos** na sua árvore de trabalho
 
 2) Você **seleciona apenas as mudanças que você quer** que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area
@@ -172,44 +167,47 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 * commited
 
 
-## Criando o primeiro repositório 
-
-### Criando o repositório remoto no github.
-- Seguindo os passos dados pelo github.
-- `init, remote add, add, commit, push`.
-- O nome do reposittório que eles devem criar é `projeto 01` - que será utilizado no exercício de fixação
-
----
 ## Comandos e Práticas do Git
 
-### Lidando com o git** (30min)
-1) Verificando o status dos arquivos `git status`.
+### Lidando com o git
 
-2) Entendendo o staging area.
+- Verificando o status dos arquivos `git status`.
+    
+A principal ferramenta que você vai usar para determinar quais arquivos estão em qual estado é o comando git status.
 
-3) Rastreando arquivos novos e modificados `git add`.
+```sh
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    nothing to commit, working directory clean
+```
+Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo README. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
-4) Fazendo o **commit** do que foi feito `git commit`.
+```sh
+    $ echo 'My Project' > README
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
 
-5) Como ver todos os commit feitos com `git log`
+        README
 
-6) Subindo alterações para o repositório remoto `git push`
+    nothing added to commit but untracked files present (use "git add" to track)
+```
+
+
+Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
+
+- Entendendo o staging area.
+
+- Rastreando arquivos novos e modificados `git add`.
+
+- Fazendo o **commit** do que foi feito `git commit`.
+
+- Como ver todos os commit feitos com `git log`
+
+- Subindo alterações para o repositório remoto `git push`
 
 
 # Exercícios
-- [**Git$1**](https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?view#Exerc%C3%ADcio-11) (20min) 
-    > - Exercício utilizando `git status`, `git commit`, `git add`, `git log` e `git push`.
-    > - Projeto para criar 2 capítulos de uma história.
-    > - Tempo para os alunos resolverem. **(20min)**
-    > - Resolução. **(10min)**
-
-> **3h20min**
-
-- [**Git#1**](https://hackmd.io/K-KTS27ITaOj5rhVWp66zg?both#Exerc%C3%ADcio-1-1) (20min) 
-    > - Exercício utilizando `git status`, `git commit`, `git add`, `git log`, `git push` e `git remote`
-    > - Projeto para criar uma biografia engraçada.
-    > - Tempo para os alunos resolverem **(30min)**
-
-> **3h50min**
-
----
