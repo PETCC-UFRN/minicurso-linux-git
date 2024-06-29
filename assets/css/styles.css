@@ -1,3 +1,7 @@
+/* Copyright (c) 2017 Anish Athalye */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
 a{
     text-decoration:none;
 }
@@ -88,4 +92,33 @@ p{
 
 h1{
     color: #cdd6f4;
+}
+/* Define a common font family for code elements */
+pre, code {
+  font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+}
+
+/* Style for inline code elements */
+code {
+    border-radius: 3px; /* Rounded corners for the code block */
+    padding: 0 0.2rem; /* Padding inside the code block */
+    font-size: 12pt; /* Adjust font size */
+}
+
+/* Style for block code elements */
+pre {
+    color: #00e300; /* Text color of the code block */
+    margin: 1rem; /* Margin around the code block */
+    padding: 0.5rem 0.7rem; /* Padding inside the code block */
+    border: 1px dashed #444; /* Border style of the code block */
+    font-size: 12pt; /* Adjust font size */
+    overflow-x: auto; /* Allow horizontal scrolling for overflow */
+}
+
+/* Style for code elements inside pre */
+pre code {
+    color: inherit; /* Inherit text color from the parent pre element */
+    background: none; /* No background color (inherit or specify a color) */
+    font-size: 100%; /* Reset font size to default */
+    padding: 0; /* Reset padding */
 }
