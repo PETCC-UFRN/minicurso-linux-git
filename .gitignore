@@ -1,2 +1,2 @@
 # Ignora os arquivos do site local do jekyll
-*_site/
+_site/
