@@ -105,7 +105,8 @@ body {
 }
 .layoutGit h3{
     color: #F05033;
-    font-size: 2em;
+    font-size: 1em;
+    text-align: center;
     margin-top: 15px;
     margin-bottom: 10px; 
     
@@ -115,6 +116,16 @@ body {
     text-decoration: underline;
     margin-bottom: 5px; 
 }
+.layoutGit h5{
+    color: #f0f4ff; /* Branco ou outra cor clara */
+    background-color: #3C2D00; 
+   
+    text-decoration: underline;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
 .layoutGit p{
     color: #f0f4ff;
     line-height: 1.6;
@@ -122,7 +133,7 @@ body {
 }
 
 .layoutGit ul li {
-    color: #030829;
+    color:  #f0f4ff;
     margin-bottom: 5px; 
     padding-left: 20px; 
   }
