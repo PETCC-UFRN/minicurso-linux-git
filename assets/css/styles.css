@@ -122,3 +122,6 @@ pre code {
     font-size: 100%; /* Reset font size to default */
     padding: 0; /* Reset padding */
 }
+
+/* TODO: Mudar a estilização das tabelas geradas pelo markdown */
+/* TODO: Centralizar as tabelas geradas pelo markdown */
