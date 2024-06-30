@@ -122,6 +122,8 @@ Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 [user@hostname ~]$ echo Hello\ World
 ```
 
+<!-- FIX: Não está muito boa essa parte, dar uma olhada --->
+
 O que acabamos de presenciar aqui são **inputs** e **outputs** de um programa, o input é o argumento que você deu para determinado programa e o output é a resposta que você recebeu.
 
 Imagine que estamos de volta num restaurante sem botões e qr code. Aqui, o input é como fazer seu pedido ao garçom, você pode especificar não apenas o prato que deseja, mas também detalhes como o ponto da carne, ausência de algum ingrediente ao qual você é alérgico, ou até mesmo pedir acompanhamentos extras. Esse pedido, ou comando, é passado ao garçom, que aqui atua como uma interface entre você (o usuário) e a cozinha (o sistema operacional ou o programa em execução).
@@ -249,16 +251,43 @@ E... pronto! A pasta agora não existe mais no computador, e você está pronto 
 
 ### Opções e argumentos de comando
 
-#### Filosofia Suckless
+#### Filosofia Suckless: Programas simples e combináveis
 
-No tópico anterior executamos uma sequência indiscriminada de comandos para realizar
-uma tarefa relativamente simples, onde cada comando teve seu próposito bem específico.
+No Linux, e mais geralmente, no próprio Unix, cada programa e comando segue a filosofia de cumprir um
+único propósito, e cabe ao próprio usuário combinar esses comandos para realizar a tarefa que ele deseja.
+Por exemplo, não faria sentido um comando específico para mandar um email, que ao mesmo tempo encomenda
+um tênis no varejo (se isso é uma necessidade específica sua). É muito mais prático, e faz muito mais sentido
+existir um programa que envia emails e um que encomenda coisas na internet, visto que, diversos usuários vão
+usar o sistema de maneiras diferentes.
 
-Recapitulando, um pouco, usamos diversos comandos com uma extra informação, para que eles realizassem uma tarefa em específico, por exemplo, o `cd` com o dietório que queriamos ir, o `ls` com o diretório que queremos listar, e o `echo` com alguma mensagem especial que queriamos "echoar". Perceba que mesmo sem receber nenhuma informação eles funcionam normalmente, apenas sem ter o resultado que você desejou -- Mas e o comando `date`, `cal` e `pwd` que também vimos? Eles não vão funcionar se tentarmos passar o que chamamos de argumento para esses comandos.
+Mas também, seria interessante que seu programa mudasse ligeiramente
+seu comportamento padrão para se moldar a uma necessidade que não foge necessáriamente do próposito principal
+do comando. Pois, talvez você só quissese mandar um email para uma pessoa diferente ou para múltiplas pessoas,
+seu  próposito inicial (mandar um email) não mudou, mas o comportamento do programa sim. Nesse sentido, é
+conveniente para nós usuários e programadores, mudar ligeiramente o que o nosso comando faz, por isso urge
+a necessidade de opções de comando.
 
-Essa careterísitica vária de comando para comando assim como o que chamamos de opções de comanos, que são configurações específicas que podemos fazer que altera o comportamento padrão do comando, e eles sempre começam com um '-' antes do nome. Por exemplo:
+#### Opções de comando
 
-Teste o comando `ls` com a opção`-F` (abreviação para `--classify`), que especifica o tipo de cada arquivo listado:
+No tópico anterior executamos uma sequência indiscriminada de comandos para realizar uma tarefa relativamente simples.
+Mas mesmo, assim executamos diversos passos só para remover todos os arquivos de uma pasta para depois removê-la por
+completo, então, talvez seja conveniente para você usar o `rm` (remove) para remover tudo logo de uma vez sem mais nem menos. E ele, de fato tem uma opção que faz isso, e você pode invocar essa opção da seguinte maneira:
+
+```sh
+[user@hostname ~]$ rm --recursive minicurso_linux_git
+                      ^
+                      └ Todos (99.8%) dos comandos do unix começam com um '-' antes da opção
+```
+
+Assim seu programa já vai deletar a pasta por inteiro, independente de ter arquivos dentro ou não. Além disso, existe uma certa
+tendência de nós programadores querermos gastar pouca tinta em tudo que a gente escreve, então (90%) das opções que a gente mais
+usa tem uma abreviação, nesse caso, a abreviação é `-r`.
+
+##### Opções de comando do `ls`
+
+Essas opções váriam de comando para comando, então que tal explorar algumas opções de comando que existem para, provavelmente, o comando mais customisável  que temos. O `ls`.
+
+Teste o comando `ls` com a opção `-F` (abreviação para `--classify`), que especifica o tipo de cada arquivo listado:
 
 ```sh
 [user@hostname ~]$ ls -F
@@ -270,7 +299,7 @@ arquivo estamos vendo, isto é, o `/` é para diretórios, `*` é para arquivos
 executáveis e o `@` são links para outros arquivos (ou atalhos, mais sobre
 isso no futuro).
 
-#### Dotfiles
+#### Parênteses sobre dotfiles
 
 Outra opção que usamos muito em conjunto com o `ls` é a opção `-a/--all`,
 que lista os arquivos "ocultos" do seu computador, conhecidos mais comumente
@@ -292,20 +321,51 @@ diff --color=auto <(ls) <(ls -a)
 
 ### Como investigar comandos
 
-O Linux vem com ferramentas que podem ser utilizadas quando se quer saber mais sobre um comando, sem ter que ficar pesquisando na internet toda hora. Usando o comando `man`, é possível ver o manual de um comando. Até para comandos mais simples, há uma quantidade absurda de informação, mas não se desespere, vamos dar uma olhada em cada parte do manual:
+A gente já explorou e aprendeu um belo punhado de comandos e opções, e conforme formos aprendendo mais, vai se tornar impraticável lembrar de todos. Por isso
+O Linux vem com ferramentas que podem ser utilizadas quando se quer saber mais sobre um comando, sem ter que depender da internet ou magos da computação toda hora.
+Logo, podemos consultar o comportamento e a documentação de um comando usando o `man` (**MAN**ual). Até para comandos mais simples, há uma quantidade absurda de informação, mas não se desespere, vamos dar uma olhada em cada parte do manual:
 
-<div style="text-align: center;">
-<img alt="Uma explicação sobre o que mostra o comando 'man'" src="https://hackmd.io/_uploads/ryhfmIdUR.png" width="80%">
-</div>
-<br>
+<pre>
+    <code>
+LS(1)                                User Commands                                     LS(1)
 
-O manual de um comando tem tudo que é necessário para se entender como um comando funciona e como ele pode se utilizado. Com o conhecimento adquirido até agora, podemos entender perfeitamente as seções vermelha e verde da imagem, mas a seção azul pode ser um pouco confusa, pois mostra todas as **flags** que podem ser utilizadas com o comando.
+<span style="text-decoration: underline; text-decoration-color: red;">NAME</span> <span style="color: red;">Essa seção mostra o nome do comando e diz brevemente o que ele faz</span>
+       ls - list directory contents
+
+<span style="text-decoration: underline; text-decoration-color: yellow;">SYNOPSIS</span> <span style="color: yellow;">Essa seção mostra como se usa o comando</span>
+       ls <span style="color: yellow">[</span>OPTION<span style="color: yellow">]...</span> [FILE]...
+       <span style="color: yellow">Os colchetes nos dizem que determinado argumento é opcional, e os pontinhos dizem que
+       podem ser diversos argumentos. Nesse caso, ele está dizendo que pode receber várias
+       opções e arquivos</span>
+
+<span style="text-decoration: underline; text-decoration-color: blue;">DESCRIPTION</span> <span style="color: blue">Essa seção mostra uma descrição detalhada do programa e quais são as opções dele</span>
+       List information about the FILEs (the current directory by default).  
+       Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+...
+
+       -F, --classify[=WHEN]
+              append indicator (one of */=>@|) to entries WHEN
+...
+    </code>
+</pre>
+
+O manual de um comando tem tudo que é necessário para se entender como um comando funciona e como ele pode se utilizado.
+Portanto, é muito importante se familiarizar com sua interface e sempre recorrer a ele quando estivermos querendo aprender
+algo novo, apesar de as vezes ser difícil de entender... (a galera que escreveu não é lá muito pedagógica :P).
 
 ## Permissões, leitura e busca em/de arquivos
 
 ### Long listing format e permissões
 
-Uma flag muito utilizada com o comando `ls` é a flag `-l`
+Continuando nossa exploração, uma opção muito utilizada com o comando `ls` é o `-l`
 (**L**ong listing format), que lista uma série de informações extra sobre o conteúdo
 de um diretório. Vejamos um exemplo:
 
@@ -330,7 +390,7 @@ Corresponde a:
 
 | Campo                                                                                                                  | Significado                                            |
 |:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| **downloads**                                                                                                          | nome do arquivo                                        |
+| **downloads**                                                                                                          | Nome do arquivo                                        |
 |<span style="color: magenta;">Jun 28 09:33</span>.                                                                      | Última modificação                                     |
 |<span style="color: brown;">4096</span>                                                                                 | O tamanho do arquivo em bytes                          |
 |<span style="color: cyan;">user</span>                                                                                  | O **grupo de usuário** ao qual o arquivo pertence      |
