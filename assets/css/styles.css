@@ -38,18 +38,34 @@ body {
     color: #cdd6f4;
 }
 
+.navgit,
 .oldschoolnav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #00e300;
     height: 5vh;
 }
+
+.oldschoolnav{
+    background-color: #00e300;
+
+}
+
+.navgit{
+    background-color: #F05033;
+}
+
+.navgit ul a,
 .oldschoolnav ul a{
-    color: #000;
     text-decoration: none;
     padding: 5px;
     font-weight: bolder;
+}
+.oldschoolnav ul a{
+    color: #000;
+}
+.navgit ul a{
+    color: #ffffff;
 }
 
 .oldschool main{
@@ -72,7 +88,48 @@ body {
     padding: 0;
     background-color: #000;
 }
+.layoutGit{
+    background-color: #020728;
+    color: #f0f4ff;
+}
+.layoutGit h1{
+    color: #f0f4ff;
+}
+.layoutGit h2{
+    background-color: #3C2D00; 
+    color: #f0f4ff; 
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.layoutGit h3{
+    color: #F05033;
+    font-size: 2em;
+    margin-top: 15px;
+    margin-bottom: 10px; 
+    
+}
+.layoutGit h4{
+    color: #f0f4ff;
+    text-decoration: underline;
+    margin-bottom: 5px; 
+}
+.layoutGit p{
+    color: #f0f4ff;
+    line-height: 1.6;
+    margin-bottom: 15px; 
+}
 
+.layoutGit ul li {
+    color: #030829;
+    margin-bottom: 5px; 
+    padding-left: 20px; 
+  }
+
+.navgit a:hover{
+    color: #000;
+}
 a{
     color:#a6e3a1;
 }
