@@ -4,7 +4,7 @@ title: Minicurso de Linux e Git
 ---
 # 1ᵒ Dia
 
-## Sumário
+## Tabela de conteúdos
 
 [TOC]
 
@@ -153,7 +153,12 @@ Que nem o Windows, um Unix-Like organiza seus arquivos no que é chamado de Estr
 
 A principal diferença filosófica entre o sistema de arquivos fundado pelo Unix é que, ao contrário do Windows, que tem um arvóre de arquivos diferente para cada dispositivo de armazenamento, um Unix-like tem apenas uma árvore, que independe da quantidade de dispositivos de armazenamento conectados ao computador.
 
-Além disso, vale ressaltar, que o sistema de arquivos não é capaz de diferenciar entre tipos diferentes de arquivo, ele não impõe nenhuma estrutura a ser seguida por esses arquivos, o significado dos bytes que ali estão sendo armazenados dependem única e exclusivamente dos programas que lidam e interpretam com esse arquivo. Isso não é apenas verdade para arquivos genéricos, mas também para caracteres digitados no seu teclado, dispositivos conectados e tudo que você pode imaginar.
+Além disso, vale ressaltar, que o sistema de arquivos não é capaz de diferenciar entre formatos diferentes de arquivo (`.pdf`, `.rar`, `.qualquercoisa`), ele não impõe nenhuma estrutura a ser seguida por esses arquivos, o significado dos bytes que ali estão sendo armazenados dependem única e exclusivamente dos programas que lidam e interpretam com esse arquivo. Isso não é apenas verdade para arquivos genéricos, mas também para caracteres digitados no seu teclado, dispositivos conectados e tudo que você pode imaginar.
+
+Existem sim casos especiais de arquivo, como diretórios e links simbólicos (mais sobre no futuro), mas eles
+não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
+
+![imagem6](./assets/images/linux_dia1_imagem6.jpg)
 
 #### Current working directory
 
@@ -251,14 +256,14 @@ E... pronto! A pasta agora não existe mais no computador, e você está pronto 
 
 ### Opções e argumentos de comando
 
-#### Filosofia Suckless: Programas simples e combináveis
+#### Filosofia Unix: Programas simples e combináveis
 
 No Linux, e mais geralmente, no próprio Unix, cada programa e comando segue a filosofia de cumprir um
-único propósito, e cabe ao próprio usuário combinar esses comandos para realizar a tarefa que ele deseja.
-Por exemplo, não faria sentido um comando específico para mandar um email, que ao mesmo tempo encomenda
-um tênis no varejo (se isso é uma necessidade específica sua). É muito mais prático, e faz muito mais sentido
-existir um programa que envia emails e um que encomenda coisas na internet, visto que, diversos usuários vão
-usar o sistema de maneiras diferentes.
+único propósito e cumprir bem esse propósito, e cabe ao próprio usuário combinar esses comandos para
+realizar a tarefa que ele deseja. Por exemplo, não faria sentido um comando específico para mandar um
+email, que ao mesmo tempo encomenda um tênis no varejo (se isso é uma necessidade específica sua). É muito
+mais prático, e faz muito mais sentido existir um programa que envia emails e um que encomenda coisas na
+internet, visto que, diversos usuários vão usar o sistema de maneiras diferentes.
 
 Mas também, seria interessante que seu programa mudasse ligeiramente
 seu comportamento padrão para se moldar a uma necessidade que não foge necessáriamente do próposito principal
@@ -266,6 +271,11 @@ do comando. Pois, talvez você só quissese mandar um email para uma pessoa dife
 seu  próposito inicial (mandar um email) não mudou, mas o comportamento do programa sim. Nesse sentido, é
 conveniente para nós usuários e programadores, mudar ligeiramente o que o nosso comando faz, por isso urge
 a necessidade de opções de comando.
+
+##### Excerto dessa filosofia
+
+- Todo programa deve fazer UMA coisa bem.
+- Esperar que a saída desse programa seja a entrada de outro, mesmo que esse seja desconhecido.
 
 #### Opções de comando
 
@@ -426,13 +436,260 @@ O conceito de super usuário, ou root, no Linux é muito semelhante ao conceito 
 
 #### Lendo o conteúdo de arquivos de texto
 
+Até o momento aprendemos diversas ferramentas relacionadas a manipulação de arquivos, sabemos criar,
+deletar, copiar e deletar até mesmo modificar o comportamento dos comandos. Logo, é dada hora de
+finalmente ler os nossos arquivos.
+
+E para cumprir tal objetivo, existem muitas oções já pré-instaladas que tem seu próprio uso.
+Vamos explorar algumas:
+
+(Sinta-se convidado(a) a pular a explicação de cada um e já olhar direto no manual ;))
+
+- Comando `cat` (con**CAT**enate):
+
+O comando cat lê um ou mais arquivos e copia o conteúdo deles para o output padrão.
+
+```
+ cat [OPTION]... [FILE]...
+```
+
+Note que se você tentar em um arquivo muito grande, você não vai ser capaz de ler tudo sem scrollar
+manualmente usando o mouse.
+
+- Comando `less`  e `more` (**Less** is **More**):
+
+O `less` foi desenvolvido para ser uma substituição do antigo programa do Unix chamado `more`. Ambos fazem
+a mesma coisa, e eles caem na categoria que chamamos de *pagers*, que são programas que permitem uma melhor
+visualização de longos documentos de texto em contrapartida com o `cat` que não lhe mostra muito.
+
+```
+less [options] file ...
+```
+
+- Comando `head` and `tail`:
+
+As vezes não queremos toda informação de um arquivo, talvez as primeiras ou últimas linhas de um arquivo
+já bastam dependendo da necessidade. Nesse sentido, o `head` e o `tail` servem exatamente para esse
+próposito, onde por padrão eles exibem as primeiras 10 e últimas linhas de um arquivo, respectivamente.
+
+```
+head [OPTION]... [FILE]...
+```
+
+```
+tail [OPTION]... [FILE]...
+```
+
+A quantidade de linhas que ele vai exibir pode ser ajustada com a opção `-n/-lines=[-]`.
+
+## Links simbólicos e links físicos
+
+### Links simbólicos (sym-links)
+
+Enquanto nós exploramos o sistema, é bem provável se deparar com a seguinte listagem de diretório (por exemplo, `ls -l /lib`):
+
+```
+lrwxrwxrwx 1 root root 7 Apr  7 15:02 /lib -> usr/lib
+```
+
+Note como a primeira letra da listagem é 'l' e o arquivo parece ter dois nomes? Isso é um caso especial do
+que chamamos de link simbólico, no windows é equivalente ao que chamamos de atalho e funciona exatamente
+do mesmo jeito. A utilidade disso agora parece ser dúbia, mas você não imagina o quanto pode ser útil,
+principalmente no que diz respeito a instalação de programas (mais sobre isso no futuro).
+
+Você pode criar um sym-link para seu arquivo favorito da seguinte forma
+
+```
+ln -s <alvo> <link>
+```
+
+Se você apagar o link que você criou, o alvo persistirá intacto, mas se você apagar o arquivo original, o
+seu link vai ficar inutilizado.
+
+### Links físicos (hard-links)
+
+Os hard-links, eram uma alternativa mais antiga que surgiu lá nos primeiros Unix, e eles tem uma série de
+restrições comparadas ao sym-links. Dentre as quais:
+
+- Os hard-links são indistinguíves do arquivo original, isto é, se você apagar um você apaga o outro.
+- Um hard-link não pode referenciar um diretório.
+
+As boas práticas de hoje em dia, tendêm a preferir o uso de sym-links, então fique atento(a)! Você pode
+criar um hard-link da seguinte maneira:
+
+```
+ln <alvo> <link>
+```
+
+## Comandos de Busca
+
+### `find` - Imprime arquivos cujo correspondem a um padrão
+
+Agora que você já sabe navegar no seu sistema com `cd`, `ls`, `pwd` e etc, quero lhe convidar a aprender
+a usar mais um comando que pode ser muito útil na sua navegação e em diversas outras aplicações.
+Imagine que você esqueceu onde estáva seu diretório com todas as suas atividades deste minicurso, mas
+ao menos você lembra que o nome desse diretório era com "minicurso_linux_git", o comando `find` é uma
+solução para esse e outros tipos de problema e você pode usá-lo da seguinte forma:
+
+```
+find [starting-point...] [expression]
+```
+
+```
+# Procura todos os diretórios nomeados minicurso_linux_git
+find . -name minicurso_linux_git -type d
+```
+
+Note que a expressão que você está procurando é opcional, então se você usar apenas `find` ele vai listar
+loucamente todos os arquivos de todas as pastas a partir do seu diretório atual (teste!).
+
+### `grep` - Imprime linhas que correspondem a um padrão
+
+Encontrar arquivos pelo nome pode ser muito útil, mas imagine que além de estar procurando o arquivo, você
+está procurando por alguma linha específica nesse arquivo, por exemplo, um arquivo de código gigantesco de
+10 mil linhas e você precisa achar quando uma váriavél foi declarada. Você pode usar o `grep` da seguinte forma:  
+
+```
+grep [OPTION...] PATTERNS [FILE...]
+```
+
+Algumas opções úteis do `grep` são:
+
+- `-i`, diz para o `grep` ignorar a diferença entre letras maiúsculas e minúsculas.
+- `-v`, diz para o `grep` imprimir apenas aquelas linhas que não correspondem ao padrão.
+
+## Redirecionando e combinando comandos
+
+### Standard Input, Output e Error
+
+A maioria dos programas que usamos até agora produzem uma saída (output) de algum tipo. E essa saída
+geralmente consiste em dois tipos:
+
+- O resultado do programa, o que era esperado ele fazer.
+- Mensagens de error, ou mensagens descritivas sobre algo que ele fez ou está fazendo.
+
+[Relembrando um dos mantras do Unix em que "tudo é arquivo"](#navegando-com-o-shell), programas como o `ls` na verdade mandam seus
+resultados para um tipo especial de arquivo chamado ***standard output*** (também conhecido como *stdout*)
+e sua mensagem de error para outro tipo especial de arquivo chamado ***standard error*** (*stderr*). Por
+padrão tanto ou *stdout* quanto o *stderr* são associados a janela do seu programa e não são salvos no seu disco.
+
+Além disso, a maioria dos programas recebem entrada de outro tipo especial de arquivo chamado ***standard input*** (*stdin*), que é associado ao arquivo seu teclado.
+
+### Redirecionando o Standard Output e Standard Error
+
+[Lembra do que eu falei sobre a filosofia do unix?](#filosofia-unix-programas-simples-e-combináveis).
+Naturalmente, podemos mudar um pouco o comportamento do *standard output* e *error* e mandá-los para
+outro arquivo sem ser o seu terminal, para fazer isso, basta usar o operador `>` seguido pelo nome do
+arquivo. Por exemplo:
+
+- Para redirecionar a *stdout*:
+
+```
+ls -l /usr/bin > ls-output.txt
+```
+
+Note que se o `ls` emitir erros, eles vão continuar imprimindo na tela, tente:
+
+```
+ls -l /bin/usr > ls-output.txt
+```
+
+- Para redirecionar a *stderr*:
+
+```
+ls -l /usr/bin 2> ls-error.txt
+```
+
+Ao fazer isso o sistema automaticamente cria o arquivo, se não existir, e se existir, ele é sobrescrito.
+Mas e se não quisermos que nosso arquivo seja sobrescrito?
+
+Podemos usar o operador `>>` para anexar a saída do programa ao final do arquivo. Fazemos isso da seguinte maneira:
+
+```
+ls -l /usr/bin >> ls-output.txt
+```
+
+---
+
+**Ainda não acredita que é tudo arquivo?**
+
+Digite `tty` no seu terminal, esse comando vai te retornar o arquivo do seu terminal atual que está
+associado ao *stdin* (o *stdout* e *stderr* também) são associados a esse mesmo arquivo por padrão.
+Abra outro terminal e redirecione a saída do `date` para o endereço do arquivo dado pelo comando `tty`.
+
+---
+
+### Redirecionando o Standard Input e wildcards
+
+[Lembra do `cat`?](#lendo-o-conteúdo-de-arquivos-de-texto), ele geralmente é usado para mostrar o
+conteúdo de pequenos arquivos de texto. Mas como ele aceita mais de um arquivo como argumento, ele também
+é usado para juntar o conteúdo de diversos arquivos. Imagine agora, que você anda escrevendo um livro
+em que o conteúdo dele é separado em diversos arquivos por exemplo:
+
+```
+capitulo.1.1
+capitulo.1.2
+capitulo.2.2
+⋮
+capitulo.15.3
+```
+
+Você pode juntar o conteúdo de todos os arquivos, numa versão completa do livro assim:
+
+```
+cat capitulo* > meulivro.pdf
+```
+
+Assim como o `>` esse asterisco (`*`) é interpretado e expandido pelo shell, e informalmente é como se você dissesse para ele "cateia" tudo que começa "capitulo" e manda isso pro "meulivro.pdf". Esse asterisco é o
+que chamamos de wildcard (ou cartas coringa), e você pode usar em qualquer parte da sua entrada se quiser e
+pode usar mais de um, por exemplo:
+
+```
+ls Do*n*
+```
+
+(Se você tiver a pasta Downloads e Documentos no seu computador, o `ls` vai listar as duas)
+
+Tá, mas o que isso tem a ver com o redirecionamento do *stdin*?
+
+E se você tentar o `cat` sem argumentos? A princípio parece que nada acontece, mas ele está fazendo
+exatamente o que é suposto a fazer.
+
+Se você usar o `cat` sem argumentos, ele lê do *stdin*, visto que o *stdin* é associado por padrão ao seu
+teclado, e está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
+
+```
+[user@hostname ~]$ cat
+O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
+O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar 
+```
+
+Agora, tecle \<Ctrl-d> (segure a tecla Ctrl e aperte "d") para dizer para o `cat` que você chegou no
+fim do arquivo (**E**nd **O**f **F**ile - EOF) no *standard input*. Como o *standard output* também é o
+terminal pro padrão, o `cat` apenas copia os o *stdin* para o *stdout*. A gente pode usar comportamento
+para escrever coisas num arquivo, por exemplo:
+
+```
+[user@hostname ~]$ cat > sabiá.txt
+O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
+```
+
+(Não esqueça do \<Ctrl-d>!)
+
+---
+
+**Exercício!**
+
+Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
+
+---
+
+### Combinando comandos
+
 <!--
-    - TODO: Leitura de arquivos:
-        - Apreciando o man
-        - cat, less, more, head, tail
-    - TODO: HardLinks, symlinks
-    - TODO: Comandos de busca:
-        - grep, find
-        - Um pouco sobre wildcards
-    - TODO: Redirecionando e combinando comandos
+    - TODO: Combinando comandos usando redirecionamento de arquivos
+    - TODO: Combinando comandos usnado Pipelines `|`
+    - TODO: Disjunção `||` e conjunção `&&`
+    - TODO: Curto circuito de operadores
+    - TODO: Colocar os exercícios aqui
 -->
