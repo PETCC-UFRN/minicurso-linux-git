@@ -256,34 +256,21 @@ isso no futuro).
 
 Outra opção que usamos muito em conjunto com o `ls` é a opção `-a/--all`,
 que lista os arquivos "ocultos" do seu computador, conhecidos mais comumente
-como *dotfiles*. São chamados
-
-### Long listing format e permissões
-
-Uma flag muito utilizada com o comando `ls` é a flag`-l`
-(**L**ong listing format), que lista uma série de informações sobre o conteúdo
-de um diretório. Vejamos um exemplo:
+como *dotfiles*. São chamados assim por começarem com um `.` no início do nome. Para descobrir o que são *dotfiles* tente, por exemplo, rodar o comando `ls` primeiro sem e depois com a opção `-a/--all` no seu *home directory*.
 
 ```sh
-[user@hostname ~]
-total 28
-drwxr-xr-x 7 user user 4096 Jun 28 07:32 escola
-drwxr-xr-x 5 user user 4096 Jun 28 09:33 downloads
--rwxr-xr-x 1 user user 4096 May 15 19:35 Minecraft
--rwxr-xr-x 1 user user   69 Jun 10 19:23 'Pequeno Príncipe.pdf'
+[user@hostname ~]$ ls ~
 ```
 
-Da direita para a esquerda, temos algumas informações:
+```sh
+[user@hostname ~]$ ls -a ~
+```
 
-- O nome do arquivo.
-- A data de criação.
-- O tamanho do arquivo em bytes.
-- O **grupo** ao qual o arquivo pertence.
-- O **autor** do arquivo.
-- O número de **hardlinks** (mais sobre isso no futuro).
-- As **permissões** do arquivo (Da esquerda pra direita: autor, grupo e usuário genérico).
+Provavelmente deve ter aparecido milhões mais arquivos e diretórios, e provavelmente todos começam com `.`, inclusive os diretórios especiais `.` e `..`, se quiser ver mais detalhadamente as diferenças teste o comando `diff` com as seguintes opções:
 
-Muitas dessas informações ainda são difíceis de entender, mas vamos por partes:
+```sh
+diff --color=auto <(ls) <(ls -a)
+```
 
 ### Como investigar comandos
 
@@ -298,13 +285,48 @@ O manual de um comando tem tudo que é necessário para se entender como um coma
 
 ## Permissões
 
-O Linux possui um sistema de permissões separadas por três categorias: permissão de escrita (**w**), permissão de leitura (**r**) e permissão de execução (**x**).
+### Long listing format e permissões
 
-Dependendo do seu tipo de usuário, você pode ter mais ou menos permissões. No caso do **ls -l**, temos os três tipos:
+Uma flag muito utilizada com o comando `ls` é a flag `-l`
+(**L**ong listing format), que lista uma série de informações extra sobre o conteúdo
+de um diretório. Vejamos um exemplo:
 
-- Autor do arquivo, Grupo do arquivo e Usuário genérico.
+```sh
+[user@hostname ~]
+total 28
+drwxr-xr-x 7 user user 4096 Jun 28 07:32 escola
+drwxr-xr-x 5 user user 4096 Jun 28 09:33 downloads
+-rwxr-xr-x 1 user user 4096 May 15 19:35 Minecraft
+-rwxr-xr-x 1 user user   69 Jun 10 19:23 'Pequeno Príncipe.epub'
+```
 
-Intuitivamente, quem costuma ter mais permissões sobre um arquivo é o seu autor, e quem costuma ter menos permissões é o usuário genérico. Vamos dizer por exemplo que exista um grupo de programadores trabalhando em um projeto, sendo um desses programadores o autor.
+Onde, da direita para esquerda:
+
+<pre>
+<code>
+<b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span> <span style="color: green;">5</span> <span style="color: orange;">user </span><span style="color: aquamarine;">user </span><span style="color: brown;">4096 </span><span style="color: magenta;">Jun 28 09:33</span> downloads
+</code>
+</pre>
+
+- O nome do arquivo: **downloads**.
+- A data de última modificação: <span style="color: magenta;">Jun 28 09:33</span>.
+- O tamanho do arquivo em bytes: <span style="color: brown;">4096</span>
+- O **grupo de usuário** ao qual o arquivo pertence: <span style="color: cyan;">user</span>.
+- O **autor** do arquivo: <span style="color: orange">user</span>.
+- O número de **hardlinks** (mais sobre isso no futuro): <span style="color: green;">5</span>.
+- Agora da esquerda para direita:
+  - O tipo do arquivo: **d** (directory).
+  - As permissões do usuário atual: <span style="color: yellow">rwx</span>.
+  - As permissões do grupo de usuário: <span style="color: red;">r-x</span>.
+  - As permissões de outros usuários: <span style="color: blue;">r-x</span>.
+
+O Linux possui um sistema de permissões separadas por três categorias: permissão de escrita (`w`), permissão de leitura (`r`) e permissão de execução (`x`).
+
+Dependendo do seu tipo de usuário, você pode ter mais ou menos permissões. No caso do `ls -l`, temos os três tipos:
+
+- Autor do arquivo, Grupo do arquivo e outros.
+
+Intuitivamente, quem costuma ter mais permissões sobre um arquivo é o seu autor, e quem costuma ter menos permissões é outros usuários. Vamos dizer por exemplo que exista um grupo de programadores trabalhando em um projeto, sendo um desses programadores o autor.
 
 O autor será responsável por testar a aplicação principal do projeto, portanto ele terá as permissões **w**, **r** e **x** (escrita, leitura e execução).
 
@@ -314,9 +336,15 @@ Já o usuário genérico pode apenas ver projeto, pois ele ainda não está term
 
 Agora que entendemos a ideia geral das permissões no Linux, vamos a um conceito que será muito utilizado em toda sua trajetória nesse sistema: o **super usuário**.
 
-O conceito de super usuário, ou root, no Linux é muito semelhante ao conceito de administrador no Windows. Você utiliza do super usuário para realizar mudanças no sistema como instalar arquivos, mudar permissões, etc. Entretanto, o usuário root deve ser usado pontualmente, pois o uso indevido pode danificar o sistema de diversas formas, justamente por não ter permissões para pará-lo. Você pode utilizar um comando como super usuário utilizando o prefixo **sudo** (que significa **S**uper **U**ser **Do**), porém é necessário saber a senha do computador.
+O conceito de super usuário, ou root, no Linux é muito semelhante ao conceito de administrador no Windows. Você utiliza do super usuário para realizar mudanças no sistema como instalar arquivos, mudar permissões, etc. Entretanto, o usuário root deve ser usado pontualmente, pois o uso indevido pode danificar o sistema de diversas formas, justamente por não ter permissões para pará-lo. Você pode utilizar um comando como super usuário utilizando o prefixo `sudo` (que significa **S**uper **U**ser **Do**), porém é necessário saber a senha do computador.
 
-## Hardlinks e Symlinks
-
-TO-DO
-
+<!--
+    - TODO: Leitura de arquivos:
+        - Apreciando o man
+        - cat, less, more, head, tail
+    - TODO: HardLinks, symlinks
+    - TODO: Comandos de busca:
+        - grep, find
+        - Um pouco sobre wildcards
+    - TODO: Redirecionando e combinando comandos
+-->
