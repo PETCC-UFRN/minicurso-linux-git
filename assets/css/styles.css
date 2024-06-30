@@ -1,22 +1,23 @@
 /* Copyright (c) 2017 Anish Athalye */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 a{
     text-decoration:none;
 }
 
 body {
-    font-family: DejaVu Sans Mono, Helvetica, sans-serif;
+    font-family: Lato, sans-serif;
     margin: 0px;
     padding: 0;
-    background-color: #24273a;
+    background-color: #161824;
 }
 .menuPrincipal{
+    font-family: Source Code Pro, sans-serif;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f38ba8;
+    background-color: #4C527C;
     height: 5vh;
 }
 .listaNavegacao{
@@ -33,9 +34,12 @@ body {
     padding: 5px;
     font-weight: bolder;
 }
+.menuPrincipal .listaNavegacao li a {
+    color: #FEFEFE;
+}
 
 .menuPrincipal ul a:hover{
-    color: #cdd6f4;
+    color: #010525;
 }
 
 .navgit,
@@ -79,11 +83,11 @@ body {
 }
 
 .oldschool p{
-    text-align: justify;
+    text-align: start;
 }
 
 .oldschool{
-    font-family: DejaVu Sans Mono, Helvetica, sans-serif;
+    font-family: monospace, Helvetica, sans-serif;
     margin: 0px;
     padding: 0;
     background-color: #000;
@@ -148,23 +152,25 @@ p{
 }
 
 h1{
-    color: #cdd6f4;
+    color: #E8EAEF;
 }
 /* Define a common font family for code elements */
-pre, code {
+.oldschool pre, code {
   font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
 }
 
 /* Style for inline code elements */
-code {
+.oldschool code {
+    background: #1a1a1a; /* color for the background that the letter is inside */
     border-radius: 3px; /* Rounded corners for the code block */
     padding: 0 0.2rem; /* Padding inside the code block */
     font-size: 12pt; /* Adjust font size */
 }
 
 /* Style for block code elements */
-pre {
+.oldschool pre {
     color: #00e300; /* Text color of the code block */
+    background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
     padding: 0.5rem 0.7rem; /* Padding inside the code block */
     border: 1px dashed #444; /* Border style of the code block */
@@ -173,7 +179,7 @@ pre {
 }
 
 /* Style for code elements inside pre */
-pre code {
+.oldschool pre code {
     color: inherit; /* Inherit text color from the parent pre element */
     background: none; /* No background color (inherit or specify a color) */
     font-size: 100%; /* Reset font size to default */
