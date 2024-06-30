@@ -183,14 +183,18 @@ Além disso, vale ressaltar, que o sistema de arquivos não é capaz de diferenc
 Existem sim casos especiais de arquivo, como diretórios e links simbólicos (mais sobre no futuro), mas eles
 não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
-![imagem6](./assets/images/linux_dia1_imagem6.jpg)
+<!--![imagem6](./assets/images/linux_dia1_imagem6.jpg)-->
+<div style="text-align: center;">
+<img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem6.jpg" width="80%">
+</div>
+<br>
 
 #### Current working directory
 
 O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**
 
 <div style="text-align: center;">
-<img alt="Imagem exemplo de um sistema de arquivos do Linunx" src="assets/images/linux_dia1_imagem5.png" width="80%">
+<img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem5.png" width="80%">
 </div>
 <br>
 
