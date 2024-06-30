@@ -38,7 +38,7 @@ Ao lado das distribuições Linux, existem os sistemas operacionais [BSD](https:
 
 Os sistemas BSD e as distribuições Linux compartilham muitas das filosofias básicas de sistemas Unix-like, mas cada família tem suas próprias comunidades, filosofias de desenvolvimento, e escolhas técnicas que os diferenciam significativamente.
 
-## Shell
+## Uso básico do Shell
 
 ### Intro
 
@@ -193,7 +193,7 @@ Os dois pontos representam o **diretório anterior** de forma relativa, e podem 
 
 Também temos o caminho relativo `.` que representa o **diretório atual**. Na parte de navegação de arquivos esse caminho não é tão interessante, mas é crucial quando estamos tratando de **executar comandos**.
 
-#### Listando e criando diretórios
+#### Listando, criando diretórios e arquivos
 
 Podemos manipular diretórios e arquivos a partir de comandos:
 
@@ -220,21 +220,39 @@ Com o comando `ls` (**L**i**s**t), é possível listar todo o conteúdo de um di
 
 ```sh
 [user@hostname minicurso_linux_git]$ ls
-anotacoes.txt  selfie.jpg
+anotacoes.txt  foto-do-quadro.jpg  
 ```
 
-Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Você move os arquivos para um *pen-drive*, deixando a pasta agora vazia, e então decide removê-la, utilizando o comando `rmdir` (**R**e**m**ove **Dir**ectory)(note que o comando só funciona se a pasta estiver vazia):
+Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Você copia os arquivos para um *pen-drive* usando o comando `cp` (**C**o**P**y)):
 
 ```sh
 [user@hostname minicurso_linux_git]$ cd ..
-[user@hostname escola]$ rmdir minicurso_linux_git
+[user@hostname ~]$ cp minicurso_linux_git pen-drive
+```
+
+e então decide removê-la, utilizando o comando `rm` (**R**e**M**ove), você deleta cada arquivo:
+
+```sh
+[user@hostname ~]$ cd minicurso_linux_git
+[user@hostname minicurso_linux_git]$ rm anotacoes.txt foto-do-quadro.jpg
+[user@hostname minicurso_linux_git]$ ls
+```
+
+E agora, não resta mais nenhum arquivo na pasta e você pode finalmente removê-la com o comando `rmdir` (**R**e**M**ove **DIR**ectory).
+
+```sh
+[user@hostname minicurso_linux_git]$ cd ..
+[user@hostname ~]$ rmdir minicurso_linux_git
 ```
 
 E... pronto! A pasta agora não existe mais no computador, e você está pronto para iniciar um novo ciclo.
 
-Agora que começamos a ver todos esses comandos, provavelmente uma dúvida veio à sua mente: e se eu precisar utilizar um comando que eu não sei ainda o que faz?
-
 ### Opções e argumentos de comando
+
+#### Filosofia Suckless
+
+No tópico anterior executamos uma sequência indiscriminada de comandos para realizar
+uma tarefa relativamente simples, onde cada comando teve seu próposito bem específico.
 
 Recapitulando, um pouco, usamos diversos comandos com uma extra informação, para que eles realizassem uma tarefa em específico, por exemplo, o `cd` com o dietório que queriamos ir, o `ls` com o diretório que queremos listar, e o `echo` com alguma mensagem especial que queriamos "echoar". Perceba que mesmo sem receber nenhuma informação eles funcionam normalmente, apenas sem ter o resultado que você desejou -- Mas e o comando `date`, `cal` e `pwd` que também vimos? Eles não vão funcionar se tentarmos passar o que chamamos de argumento para esses comandos.
 
@@ -283,7 +301,7 @@ O Linux vem com ferramentas que podem ser utilizadas quando se quer saber mais s
 
 O manual de um comando tem tudo que é necessário para se entender como um comando funciona e como ele pode se utilizado. Com o conhecimento adquirido até agora, podemos entender perfeitamente as seções vermelha e verde da imagem, mas a seção azul pode ser um pouco confusa, pois mostra todas as **flags** que podem ser utilizadas com o comando.
 
-## Permissões
+## Permissões, leitura e busca em/de arquivos
 
 ### Long listing format e permissões
 
@@ -300,7 +318,7 @@ drwxr-xr-x 5 user user 4096 Jun 28 09:33 downloads
 -rwxr-xr-x 1 user user   69 Jun 10 19:23 'Pequeno Príncipe.epub'
 ```
 
-Onde, da direita para esquerda:
+Onde, por exemplo:
 
 <pre>
 <code>
@@ -308,13 +326,19 @@ Onde, da direita para esquerda:
 </code>
 </pre>
 
-- O nome do arquivo: **downloads**.
-- A data de última modificação: <span style="color: magenta;">Jun 28 09:33</span>.
-- O tamanho do arquivo em bytes: <span style="color: brown;">4096</span>
-- O **grupo de usuário** ao qual o arquivo pertence: <span style="color: cyan;">user</span>.
-- O **autor** do arquivo: <span style="color: orange">user</span>.
-- O número de **hardlinks** (mais sobre isso no futuro): <span style="color: green;">5</span>.
-- Agora da esquerda para direita:
+Corresponde a:
+
+| Campo                                                                                                                  | Significado                                            |
+|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
+| **downloads**                                                                                                          | nome do arquivo                                        |
+|<span style="color: magenta;">Jun 28 09:33</span>.                                                                      | Última modificação                                     |
+|<span style="color: brown;">4096</span>                                                                                 | O tamanho do arquivo em bytes                          |
+|<span style="color: cyan;">user</span>                                                                                  | O **grupo de usuário** ao qual o arquivo pertence      |
+|<span style="color: orange">user</span>                                                                                 | O **dono** do arquivo                                  |
+|<span style="color: green;">5</span>                                                                                    | O número de hardlinks (mais sobre isso no futuro)      |
+|<b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span> | As permissões de acesso do arquivo e o tipo do arquivo |
+
+- As permissões de acesso e o tipo de arquivo em detalhes:
   - O tipo do arquivo: **d** (directory).
   - As permissões do usuário atual: <span style="color: yellow">rwx</span>.
   - As permissões do grupo de usuário: <span style="color: red;">r-x</span>.
@@ -337,6 +361,10 @@ Já o usuário genérico pode apenas ver projeto, pois ele ainda não está term
 Agora que entendemos a ideia geral das permissões no Linux, vamos a um conceito que será muito utilizado em toda sua trajetória nesse sistema: o **super usuário**.
 
 O conceito de super usuário, ou root, no Linux é muito semelhante ao conceito de administrador no Windows. Você utiliza do super usuário para realizar mudanças no sistema como instalar arquivos, mudar permissões, etc. Entretanto, o usuário root deve ser usado pontualmente, pois o uso indevido pode danificar o sistema de diversas formas, justamente por não ter permissões para pará-lo. Você pode utilizar um comando como super usuário utilizando o prefixo `sudo` (que significa **S**uper **U**ser **Do**), porém é necessário saber a senha do computador.
+
+### Lendo arquivos
+
+#### Lendo o conteúdo de arquivos de texto
 
 <!--
     - TODO: Leitura de arquivos:
