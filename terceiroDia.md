@@ -1,5 +1,5 @@
 ---
-layout: licoes
+layout: layoutGit
 title: Minicurso de Linux e Git
 ---
 
