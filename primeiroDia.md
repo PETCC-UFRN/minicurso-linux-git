@@ -6,7 +6,32 @@ title: Minicurso de Linux e Git
 
 ## Tabela de conteúdos
 
-[TOC]
+<!--toc:start-->
+- [Introdução](#introdução)
+  - [O que é o Linux?](#o-que-é-o-linux)
+  - [Família Unix e Unix-Like](#família-unix-e-unix-like)
+  - [Distros](#distros)
+- [Uso básico do Shell](#uso-básico-do-shell)
+  - [Intro](#intro)
+  - [Primeiros passos](#primeiros-passos)
+  - [Navegando com o Shell](#navegando-com-o-shell)
+  - [Opções e argumentos de comando](#opções-e-argumentos-de-comando)
+  - [Como investigar comandos](#como-investigar-comandos)
+- [Permissões, leitura e busca em/de arquivos](#permissões-leitura-e-busca-emde-arquivos)
+  - [Long listing format e permissões](#long-listing-format-e-permissões)
+  - [Lendo arquivos](#lendo-arquivos)
+- [Links simbólicos e links físicos](#links-simbólicos-e-links-físicos)
+- [Comandos de Busca](#comandos-de-busca)
+  - [`find` - Imprime arquivos cujo correspondem a um padrão](#find-imprime-arquivos-cujo-correspondem-a-um-padrão)
+  - [`grep` - Imprime linhas que correspondem a um padrão](#grep-imprime-linhas-que-correspondem-a-um-padrão)
+- [Redirecionando e combinando comandos](#redirecionando-e-combinando-comandos)
+  - [Standard Input, Output e Error](#standard-input-output-e-error)
+  - [Redirecionando o Standard Output e Standard Error](#redirecionando-o-standard-output-e-standard-error)
+  - [Redirecionando o Standard Input e wildcards](#redirecionando-o-standard-input-e-wildcards)
+  - [Combinando comandos](#combinando-comandos)
+  - [Operadores lógicos no shell](#operadores-lógicos-no-shell)
+- [Exercícios](#exercícios)
+<!--toc:end-->
 
 ## Introdução
 
@@ -685,6 +710,16 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 ---
 
 ### Combinando comandos
+
+#### Combinando comandos com o redirecionamento de arquivos
+
+#### Combinando comandos usando pipelines
+
+### Operadores lógicos no shell
+
+#### Curto circuito de operadores
+
+## Exercícios
 
 <!--
     - TODO: Combinando comandos usando redirecionamento de arquivos
