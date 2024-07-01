@@ -723,12 +723,177 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 #### Curto circuito de operadores
 
-## Exercícios
-
 <!--
     - TODO: Combinando comandos usando redirecionamento de arquivos
     - TODO: Combinando comandos usnado Pipelines `|`
     - TODO: Disjunção `||` e conjunção `&&`
     - TODO: Curto circuito de operadores
-    - TODO: Colocar os exercícios aqui
 -->
+## Exercícios
+
+### Exercícios de fixação
+
+#### Questão 1
+
+ 1. Para este curso, você precisa usar um shell Unix, como Bash, ZSH ou Fish. Para garantir que você está executando um shell adequado, tente o comando `echo $SHELL`. Se aparecer algo como `/bin/bash`, `/usr/bin/zsh` ou `usr/bin/fish`, significa que você está usando o programa certo.
+ 2. Crie um novo diretório chamado `petcc` em `/tmp`.
+ 3. Pesquise sobre o programa `touch`. O programa `man` é seu amigo.
+ 4. Use o `touch` para criar um novo arquivo chamado `dimap` em `petcc`.
+ 5. Escreva o seguinte nesse arquivo, uma linha de cada vez:
+
+    ```
+    #!/bin/sh
+    curl --head --silent https://missing.csail.mit.edu
+    ```
+
+ 6. Tente executar o arquivo, ou seja, digite o caminho para o script (`./dimap`) no seu shell e pressione Enter. Entenda por que não funciona consultando a saída de `ls` (dica: olhe para os bits de permissão do arquivo).
+ 7. Execute o comando iniciando explicitamente o interpretador `sh` e fornecendo o arquivo `dimap` como o primeiro argumento, ou seja, `sh dimap`. Por que isso funciona enquanto `./dimap` não funcionou?
+ 8. Pesquise sobre o programa `chmod` (por exemplo, use `man chmod`).
+ 9. Use `chmod` para possibilitar a execução do comando `./dimap` em vez de ter que digitar `sh dimap`. Como o shell sabe que o arquivo deve ser interpretado usando `sh`? Veja esta página sobre a linha [shebang](https://pt.wikipedia.org/wiki/Shebang_(Unix)) para mais informações.
+ 10. Use `|` e `>` para gravar a data de "last-modified" obtida pelo `dimap` em um arquivo chamado `last-modified.txt` no seu `/home/`.
+
+ > Exercício retirado do curso `./missing-semester`
+
+#### Questão 2
+
+1. Use o comando `find` para listar todos os arquivos em `/var/log` que terminam com `.log`.
+2. Redirecione o output desse comando para um arquivo com nome de `logs_found.txt` em `/tmp/petcc`.
+3. Investigue o `grep` usando o `man` para descobrir uma forma de listar todas as ocorrências da palavra "error" dos arquivos que terminam com `.log` em `/var/log`.
+4. Redirecione o output desse comando para um outro arquivo com o nome de `errors_found.txt`, também em `/tmp/petcc`.
+4. No diretório `/tmp/petcc`, crie um arquivo chamado `log_monitor.sh`.
+5. Adicione linha por linha o seguinte conteúdo:
+
+    ```bash
+    #!/bin/bash
+    echo "Monitorando logs do sistema..."
+    ```
+
+6. Use os comandos que descobriu para preencher o script da seguinte forma:
+
+    ```bash
+    # ... O que já tinha ...
+    echo "Listando logs em /tmp/petcc/logs_found.txt"
+    # Comando usando find
+    echo "Listando erros encontrados em /tmp/petcc/errors_found.txt"
+    # Comando usando grep
+    echo -n "Quantidade de erros encontrados: " 
+    ```
+
+7. Por último, investigue o comando `wc` usando o `man`.
+8. Adicione uma última linha no script, que exibe a quantidade de erros que o `grep` encontrou.
+
+### Exercícios Obrigatórios
+
+#### Questão 0 (Dificuldade: Fácil)
+
+1. Crie o diretório `/tmp/petcc`.
+
+2. Dentro desse diretório, crie a pasta `exercícios`.
+
+Para cada exercício, a partir desse, crie uma pasta para tal com o nome que preferir, mas que seja ordenado em ordem léxicográfica. Exemplo:
+
+```
+ex001
+ex002
+⋮
+```
+
+Dentro dos diretórios crie os arquivos necessários.
+
+#### Questão 1 (Dificuldade: Fácil)
+
+1. Crie um diretório, com o nome que preferir, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
+2. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/answer.sh`.
+
+#### Questão 2 (Dificuldade: Fácil)
+
+1. Crie um diretório chamado `mydir`.
+2. Dentro desse diretório, crie um arquivo chamado `mytext.txt`.
+3. Use o comando `echo` para adicionar a frase "Hello, World!" ao arquivo `mytext.txt`.
+4. Use o comando `cat` para exibir o conteúdo do arquio `mytext.txt`.
+5. Use o comando `cp` para copiar o arquivo `mytext.txt` para um novo arquivo chamado `mytext_copy.txt`.
+6. Use o comando `rm` para remover o arquivo `mytext.txt`.
+7. Verifique se o arquivo `mytext.txt` foi removido usando o comando `ls`.
+8. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/resposta.sh`.
+
+#### Questão 3 (Dificuldade: Média)
+
+1. Em uma linha digite a combinação de comando que cria um diretório chamado `myfolder` em `/tmp` e, somente se esse diretório tenha sido criado com sucesso, crie um arquivo chamado `myinfo.txt`.
+3. Escreva essa linha de comando no arquivo `/tmp/petcc/ex003/resposta.sh`
+
+#### Questão 4 (Dificuldade: Média)
+
+1. Use o comando `find` para listar todos os arquivos em `/usr/bin` que começam com `g`.
+2. Redirecione a saída desse comando para um arquivo chamado `g_files.txt` em `/tmp/mydir`.
+3. Use o comando `grep` para encontrar todas as ocorrências da palavra "get" nos arquivos em `/usr/bin`.
+4. Redirecione a saída desse comando para um arquivo chamado `get_occurrences.txt` em `/tmp/petcc/ex004`.
+5. Digite a sequência de comandos usada no arquivo `/tmp/petcc/ex004/resposta.sh`
+
+#### Questão 5 (Dificuldade: Média)
+
+1. Copie os arquivos de todos os exercícios para o um diretório dentro de `/tmp/petcc/ex005`.
+2. Tente deletar o diretório que você criou com `rmdir`.
+3. Por quê não deu certo? Investigue o manual (`man`) e descubra a resposta.
+    > Dica: dê uma olhada no comando `rm`.
+4. Use o `echo` para redirecionar a resposta para o arquivo de texto chamado `/tmp/petcc/ex004/resposta.sh`.
+5. Delete o diretório que você criou inicialmente.
+
+#### Questão 6 (Dificuldade: Média)
+
+1. No diretório `/tmp/petcc`, crie um arquivo chamado `sys_info.sh`.
+2. Adicione o seguinte conteúdo ao arquivo `sys_info.sh`, uma linha de cada vez:
+
+```bash
+#!/bin/bash
+echo "Informações do Sistema:"
+uname -a
+df -h
+free -m
+```
+
+3. Use chmod para tornar o arquivo sistema_info.sh executável.
+4. Execute o comando novamente digitando `./sys_info.sh` e pressione Enter.
+5. Pesquise sobre os comandos `uname`, `df` e `free` utilizando o programa `man`.
+6. Adicione um comentário explicativo para cada comando no arquivo `resposta.txt`para descrever o que cada um faz.
+7. Execute o script novamente para verificar se tudo está funcionando conforme esperado.
+8. Crie um link simbólico do arquivo `sys_info.sh` para o diretório `/usr/local/bin` e tente executá-lo de outro lugar apenas com `sys_info.sh`.
+
+#### Questão 7 (Dificuldade: Difícil)
+
+Em programas em C que envolvem muitos arquivos é comum querermos configurar nosso projeto de uma determinada maneira que fique fácil gerenciar multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
+
+Imagine que você sempre organiza seu projeto baseado nessa estrutura.
+
+```
+.
+├── build
+├── test
+├── lib
+│   └── text_color.h
+├── src
+│   ├── include
+│   │   └── header.h
+│   └── main.c
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
+```
+
+1. No diretório `/tmp/petcc/ex006`, crie o arquivo `c_project_cfg.sh`.
+2. Dentro desse arquivo, adicione a seguinte linha.
+
+    ```sh
+    #!/bin/bash
+    ```
+
+3. Após essa linha anexe os comandos necessários para criar a estrutura do projeto acima.
+Seu arquivo no final deve ficar assim:
+
+    ```sh
+    #!/bin/bash
+    # Comando 1
+    # Comando 2
+    # Comando 3
+    ```
+
+4. Para escrever linhas no arquivo use apenas comandos de redirecionamento, escreva quais foram esses comandos no `/tmp/petcc/ex006/answer.txt`
