@@ -8,6 +8,7 @@ title: Minicurso de Linux e Git
 
 
 # 3ᵒ Dia 
+<div style="background:yellow; color: red;"> Faltando a parte de processos e compactação de arquivos </div>
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
@@ -206,9 +207,9 @@ Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
 
 ##### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
-
+```sh
     $ git add README
-    
+``` 
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
 
     $ git status
@@ -308,5 +309,88 @@ Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos
 Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 
+# Exercícios 
 
-<!--Primeiro exercício usando git commit-->
+## Exercícios de fixação ($)
+
+### Exercício 1 ($)
+   
+1. Navegue até a pasta projeto01 que você criou e conectou remotamente.
+
+2. Crie um arquivo aventuras.txt, dentro da pasta onde está o seu reepositório local(projeto01),por enquanto não escreva nada dentro.
+
+3. Faça git status e note que existem mudaças para serem registradas. 
+
+4. Adicione essa mudaça, que é a criação do arquivo historia, na standing área utilizando o comando aprendido.
+
+5. Agora é hora de fazer o commit, digite a seguinte mensagem neste commit "Criei o arquivo historia"
+
+6. Agora escreva o primeiro capítulo, depois adicione ao staging area e faça um commit com a mensagem "adicionei o  capítulo 01".
+
+7. Agora você pode fazer outro capítulo salvar e depois fazer o mesmo processo do passo 6. 
+   > Missão: faça 3 capítulos e a cada capítulo faça um commit.
+
+8. Agora é hora de enviar os arquivos e os commits para o repositório remoto. Utilize o comando aprendido.
+
+# Exercícios obrigatórios (#)
+
+## Exercício 1 (#)
+
+1. Crie uma pasta nova em seu computador com o seguinte nome "projeto02"
+
+2. Acesse-a pelo seu terminal utilizando os comando aprendidos no dia anterior.
+
+3. Execute o comando para inicializar o git dentro da pasta/diretório.
+    > Dica: este comando cria uma pasta oculta chamada ".git" no diretório
+
+4. Crie um arquivo chamado `biografia<numero de matrícula>.txt` e escreva algumas linhas.
+     > Dica: Meu número de matrícula é 20005425 , logo meu arquivo terá o seguinte nome: "biografia20005425.txt"
+     > Escrevam algo engraçado, pois a melhor biografia será lida no último dia do nosso minicurso e o vencedor ganhará uma surpresa. 
+
+5. Adicione o arquivo `biografia<numero de matrícula>.txt` ao repositório Git utilizando o comando que coloca as alterações na staging área
+    > Dica: antes de fazer o comando, execute git status e analise o que precisa ser trackeado e o que foi modificado.
+
+6. Faça um commit com uma mensagem descritiva dizendo que que você criou o arquivo com a sua biografia.
+
+7. Vá até o arquivo novamente e acrescente seu nome e salve.
+
+8. Adicione a alteração ao repositório Git utilizando o comando que coloca as alterações na staging área.
+
+9. Faça um commit com a seguinte mensagem "coloquei meu nome no arquivo".
+
+8. Digite o comando que visualiza todos os commits feitos e veja o seu histórico de commits.
+
+9. Crie um repositório vazio no github com o nome projeto01
+10. Faça o comando para conectar o seu repositório local com o seu repositório remoto criado
+11. Depois ulilize o comando que sobe os arquivos do projeto local para o seu repositório remoto.
+> Para saber se tudo deu certo, basta olhar os seus commits no repositório do github e analisar se a sua biografia está escrita com o seu nome abaixo.
+
+
+
+## Exercício 2 (#)
+   
+1. Escolha a sua dupla para esta grande aventura.
+
+2. Acesse o GitHub e apenas o componente 'A' deve criar um novo repositório no github com o nome projeto03 e criar um arquivo chamado historia_<numero de matricula de A>_<numero de matricula de A>.txt.
+
+3. Agora ambos têm que clonar o projeto em seus computadores.
+   > O aluno B deve pesquisar na barra de pesquisa pelo usuário do aluno A e acessar o repositório criado, para poder clonar.
+   
+4. Uma vez que ambos clonaram o repositório é hora de criar a história em conjunto.
+
+5. Um dos alunos deve escrever o primeiro capítulo. Vamos chamar o aluno A.
+   > Dica: Escrever capítulo > salvar > add > commit > push
+6. Agora o aluno B deve atualizar o repositório, puxando as alterações que foram subidas pelo outro aluno para o repositório remoto utilizando o comando aprendido em aula.
+   > Assim, antes de o aluno B escrever o capítulo 2, ele vai ter o capitulo 1 no documento já no seu repositório local.
+
+7. Hora do aluno B escrever o próximo capítulo.
+
+8. Agora o aluno A fará o mesmo que o B fez no passo 5 .
+   > Puxar as alterações que foram subidas pelo outro aluno para o repositório remoto
+   > Depois o aluno A terá que escrever o próximo capítulo.
+
+9. Missão: escrever até o capítulo 5.
+
+---
+
+
