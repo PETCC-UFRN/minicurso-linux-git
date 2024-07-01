@@ -23,19 +23,19 @@ Versionadores são sistemas que registram alterações em um arquivo ou conjunto
 
 #### Tipos de Versionadores
 
-#### 1. Sistemas Locais
+##### 1. Sistemas Locais
 
 Utilizam um banco de dados simples para manter todas as alterações nos arquivos sob controle de versão.
 
 <img src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
 
-#### 2. Sistemas Centralizados
+##### 2. Sistemas Centralizados
 
 Têm um único servidor que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
 Desvantagens incluem a necessidade de estar sempre conectado ao servidor e a paralisação em caso de falha do servidor.
 <img src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
-#### Vantagens dos Sistemas Centralizados
+**Vantagens dos Sistemas Centralizados**
 
 Simples de utilizar, ideal para equipes pequenas.
 
@@ -44,7 +44,7 @@ Utilizados por plataformas como a Wikipédia.
 <img src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
 
 
-#### 3. Sistemas Distribuídos
+##### 3. Sistemas Distribuídos
 
 Cada cliente possui uma cópia completa do repositório, funcionando como um backup completo de todos os dados.
 
@@ -52,7 +52,7 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 <img src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
-#### Vantagens dos Sistemas Distribuídos
+**Vantagens dos Sistemas Distribuídos**
 
 **Escalabilidade:** Suporta um grande número de colaboradores.
 
@@ -139,7 +139,7 @@ Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a me
 
 ### Chave SSH
 
-#### Para que serve a chave SSH?**
+#### Para que serve a chave SSH?
 
 As chaves SSH (Secure Shell) são utilizadas para autenticar conexões seguras entre computadores, permitindo uma comunicação criptografada. Elas substituem a necessidade de senhas tradicionais, proporcionando uma maneira mais segura e conveniente de acessar sistemas remotos e serviços, como repositórios Git.
 
@@ -203,15 +203,110 @@ Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo RE
 
 Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
 
-##### Entendendo o staging area.
 
-##### Rastreando arquivos novos e modificados `git add`.
+##### Rastreando arquivos novos 
+Para começar a rastrear um novo arquivo, você deve usar o comando git add
+
+    $ git add README
+    
+Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
+
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README
+        
+É possível saber que o arquivo está preparado porque ele aparece sob o título “Changes to be committed”. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
+
+#### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
+Vamos modificar um arquivo que já está sendo rastreado.
+
+Se modificarmos o CONTRIBUTING.md que já era rastreado, e executarmos o `git status`, teremos isso:
+
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   CONTRIBUTING.md
+        
+Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
+
+Para isso, vamos usar o `git add`.
+
+Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao próximo commit”.
+
+    $ git add CONTRIBUTING.md
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes to be committed:
+      (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README
+        modified:   CONTRIBUTING.md
+        
 
 ##### Fazendo o **commit** do que foi feito `git commit`.
+Agora que a área de stage está preparada, podemos fazer commit nas alterações.
 
+O jeito mais simples de fazer commit é digitar o seguinte comando:
+
+    $ git commit
+
+e adicionar uma mensagem no editor de texto.
+
+Alternativamente, podemos fazer:
+
+    $ git commit -m "mensagem"
+    
+Lembre-se de que o commit grava o snapshot que você deixou na área de stage. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
 ##### Como ver todos os commit feitos com `git log`
 
+É um comando feito para exibir os históricos de commits do projeto.
+
+Aparece nome, hora, data e a mensagem relacionada a cada commit.
+
+    $ git log
+    commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+    Author: Jane Doe <jane.doe@example.com>
+    Date:   Fri Jun 30 14:32:16 2024 +0000
+
+        Corrigido bug no módulo de autenticação de usuários
+
+    commit 3ad45c37a9f1b251545b8b2f4a3db7b683ed8e53
+    Author: John Smith <john.smith@example.com>
+    Date:   Thu Jun 29 09:12:10 2024 +0000
+
+        Adicionada nova funcionalidade para exportar dados como CSV
+
+**Uma flag eficiente**
+    
+    $git log --oneline
+
+    $ git log --oneline
+    9fceb02 (HEAD -> main) Corrigido bug no módulo de autenticação de usuários
+    3ad45c3 Adicionada nova funcionalidade para exportar dados como CSV
+    b75f610 Atualizado README com instruções de instalação
+    c1b4d83 Commit inicial com arquivos de configuração do projeto   
+
 ##### Subindo alterações para o repositório remoto `git push`
+Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos fazer:
+
+    $ git push 
+    
+Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 
-## Exercícios
+
+<!--Primeiro exercício usando git commit-->

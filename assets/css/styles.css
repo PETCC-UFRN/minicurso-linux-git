@@ -105,7 +105,7 @@ body {
 }
 .layoutGit h3{
     color: #F05033;
-    font-size: 1em;
+    font-size: 1.4em;
     text-align: center;
     margin-top: 15px;
     margin-bottom: 10px; 
@@ -113,18 +113,26 @@ body {
 }
 .layoutGit h4{
     color: #f0f4ff;
-    text-decoration: underline;
-    margin-bottom: 5px; 
+    background-color: #F05033; /* Fundo destacável */
+    padding: 8px; /* Padding moderado */
+    margin-bottom: 10px; 
+    font-size: 1.2em; /* Tamanho moderado */
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    text-align: left; /* Alinhamento à esquerda */
+    font-weight: bold; /* Peso da fonte alto */
 }
 .layoutGit h5{
-    color: #f0f4ff; /* Branco ou outra cor clara */
-    background-color: #3C2D00; 
-   
-    text-decoration: underline;
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    color: #3C2D00; /* Cor escura */
+    background-color: #f0f4ff; /* Fundo claro */
+    text-decoration: none; /* Sem sublinhado */
+    padding: 5px; /* Padding ajustado */
+    margin-top: 15px; /* Margem superior ajustada */
+    margin-bottom: 10px; /* Margem inferior ajustada */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 1em; /* Tamanho de fonte padrão */
+    font-weight: normal; /* Peso da fonte normal */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    text-align: center; /* Centralização do texto */
 }
 .layoutGit p{
     color: #f0f4ff;
