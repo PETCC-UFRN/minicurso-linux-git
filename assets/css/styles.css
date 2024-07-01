@@ -174,7 +174,7 @@ h1{
     color: #E8EAEF;
 }
 /* Define a common font family for code elements */
-.oldschool pre, code {
+.layoutGit pre, code ,.oldschool pre, code {
   font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
 }
 
@@ -187,7 +187,7 @@ h1{
 }
 
 /* Style for block code elements */
-.oldschool pre {
+.layoutGit pre, .oldschool pre {
     color: #00e300; /* Text color of the code block */
     background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
@@ -198,7 +198,7 @@ h1{
 }
 
 /* Style for code elements inside pre */
-.oldschool pre code {
+.layoutGit pre code ,.oldschool pre code {
     color: inherit; /* Inherit text color from the parent pre element */
     background: none; /* No background color (inherit or specify a color) */
     font-size: 100%; /* Reset font size to default */

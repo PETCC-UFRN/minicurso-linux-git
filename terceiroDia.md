@@ -206,9 +206,9 @@ Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
 
 ##### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
-
+```sh
     $ git add README
-    
+``` 
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
 
     $ git status
