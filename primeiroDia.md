@@ -149,9 +149,14 @@ Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 
 <!-- FIX: Não está muito boa essa parte, dar uma olhada --->
 
-O que acabamos de presenciar aqui são **inputs** e **outputs** de um programa, o input é o argumento que você deu para determinado programa e o output é a resposta que você recebeu.
+O que acabamos de presenciar aqui são **inputs** e **outputs** de um programa, o input é o argumento que você
+deu para determinado programa e o output é a resposta que você recebeu.
 
-Imagine que estamos de volta num restaurante sem botões e qr code. Aqui, o input é como fazer seu pedido ao garçom, você pode especificar não apenas o prato que deseja, mas também detalhes como o ponto da carne, ausência de algum ingrediente ao qual você é alérgico, ou até mesmo pedir acompanhamentos extras. Esse pedido, ou comando, é passado ao garçom, que aqui atua como uma interface entre você (o usuário) e a cozinha (o sistema operacional ou o programa em execução).
+Imagine que estamos de volta num restaurante sem botões e qr code. Aqui, o input é como fazer seu pedido ao
+garçom, você pode especificar não apenas o prato que deseja, mas também detalhes como o ponto da carne,
+ausência de algum ingrediente ao qual você é alérgico, ou até mesmo pedir acompanhamentos extras. Esse pedido,
+ou comando, é passado ao garçom, que aqui atua como uma interface entre você (o usuário) e a cozinha (o
+sistema operacional ou o programa em execução).
 
 O output, por outro lado, é o prato que você recebe após a cozinha processar seu pedido. Assim como em um sistema de computador, o output depende diretamente do input: se você pedir uma pizza de calabresa, não receberá uma feijoada (provavelmente :P).
 
