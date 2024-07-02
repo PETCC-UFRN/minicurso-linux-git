@@ -124,9 +124,75 @@ compilar o executável do programa, as vezes vamos baixar só o executável, enf
 programa. O que precisa ser feito, provavelmente (95% das vezes) vai estar na documentação do que você quer
 instalar.
 
-### Usando gerenciadores de pacote
+### Gerenciadores de pacote
 
-<!-- TODO: Instalando programas com gerenciadores de pacotes 
+Existem maneiras mais simples de instalar coisas no seu sistema sem ter que fazer o download do programa na
+internet, compilá-lo e adicioná-lo ao `PATH`, mas você vai precisar de permissões de superusuário para
+conseguir fazer isso, a maneira, sem dúvidas, mais utilizada hoje em dia é utilizando o gerenciador de
+pacote da sua distribuição Linux.
+
+Esses gerenciadores de pacote abstraem o processo de baixar da internet, instalar, atualizar (se futuramente houver atualização), pesquisar programas, e desinstalá-los, no alcance de um comando.
+Essa, inclusive, é uma das grandes vantagens de usar o Linux no âmbito da computação, o processo de
+configurar programas e suas depedências é muito fácil e você tem total autonomia para investigar e resolver
+problemas que possam vir a aparecer.
+
+Como mencionado anteriormente o uso do gerenciador de pacote vária de distribuição para distribuição, mas
+vamos pegar como exemplo o gerenciador de pacote da distruibuição que originou o Ubuntu, o Debian.
+
+#### Exemplo com o uso do `apt`
+
+Distribuições que nasceram do Debian, como o Ubuntu, usam o gerenciador de pacotes chamado `apt`, que nada
+mais é que um programa que vem instalado no computador assim como todos os outros que vimos até agora.
+Logo, podemos investigar seu uso usando o `man` como amigo
+
+Mas se estiver com preguiça de ler o `man`, aqui vai uma ajudinha:
+
+##### TL;DR (To Long Didn't Read the manual)
+
+- **Atualizar a lista de pacotes**: Este comando atualiza a lista de pacotes disponíveis a partir dos
+repositórios configurados.
+
+  ```bash
+  sudo apt update
+  ```
+
+- **Instalar um pacote**: Para instalar um pacote, você usa o sub-comando `install` seguido do nome do
+pacote.
+
+  ```bash
+  sudo apt install nome-do-pacote
+  ```
+
+- **Remover um pacote**: Para remover um pacote, você usa o sub-comando `remove`.
+
+  ```bash
+  sudo apt remove nome-do-pacote
+  ```
+
+- **Atualizar todos os pacotes instalados**: Este comando atualiza todos os pacotes instalados para as
+versões mais recentes disponíveis nos banco de dados do gerenciador.
+
+  ```bash
+  sudo apt upgrade
+  ```
+
+- **Pesquisar por um pacote**: Você pode usar o `search` para procurar pacotes específicos.
+
+  ```bash
+  apt search termo-de-busca
+  ```
+
+- **Limpar pacotes desnecessários**: Após uma atualização ou remoção de pacotes, você pode liberar espaço
+removendo pacotes que não são mais necessários.
+
+  ```bash
+  sudo apt autoremove
+  ```
+
+Na maioria das distribuições, vão existir comandos ou combinações de comandos equivalentes aos do `apt` e
+e conforme o uso esse processo de instalação, atualização e remoção se torna bem natural.
+
+<!-- 
      TODO: Ideia de scripts e editores de texto
      TODO: Lidando formalmente com scripts a partir de editores de texto
      TODO: Exercícios (existem vários relacionados na internet e em livros, esse vai ser mais fácil :amem:)
