@@ -6,15 +6,29 @@ title: Minicurso de Linux e Git
 
 # 2ᵒ Dia
 
-## Tabela de conteúdos
+<!--toc:start-->
+- [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)
+  - [Aliases](#aliases)
+  - [Vendo um comando como arquivo](#vendo-um-comando-como-arquivo)
+- [Instalando programas no Linux](#instalando-programas-no-linux)
+  - [Manualmente](#manualmente)
+  - [Gerenciadores de pacote](#gerenciadores-de-pacote)
+- [Shell scripting e editores de texto](#shell-scripting-e-editores-de-texto)
+  - [Escolhendo um editor de texto](#escolhendo-um-editor-de-texto)
+  - [Variáveis](#variáveis)
+  - [Condicionais](#condicionais)
+  - [Funções](#funções)
+  - [Loops](#loops)
+- [Exercícios](#exercícios)
+<!--toc:end-->
 
-[TOC]
+## Tabela de conteúdos
 
 ## Expandindo a ideia de comandos
 
 ### Aliases
 
-No decorrer do dia anterior, espero que tenham notado que a maioria dos comandos é uma abreviação de alguma
+No decorrer do dia anterior, espero que tenha notado que a maioria dos comandos é uma abreviação de alguma
 palavra em inglês, que passa uma ideia inicial do que determinado comando faz, por exemplo: temos os `ls`
 que significa **L**i**S**t, o `cp` que significa **C**o**P**y, o `rm` que significa **R**e**M**ove e assim
 por diante. Mas, espero que seja fácil de notar que se é uma coisa que você usa muito, é inconveniente
@@ -145,9 +159,9 @@ Distribuições que nasceram do Debian, como o Ubuntu, usam o gerenciador de pac
 mais é que um programa que vem instalado no computador assim como todos os outros que vimos até agora.
 Logo, podemos investigar seu uso usando o `man` como amigo
 
-Mas se estiver com preguiça de ler o `man`, aqui vai uma ajudinha:
-
 ##### TL;DR (To Long Didn't Read the manual)
+
+Mas se estiver com preguiça de ler o `man`, aqui vai uma ajudinha:
 
 - **Atualizar a lista de pacotes**: Este comando atualiza a lista de pacotes disponíveis a partir dos
 repositórios configurados.
@@ -192,8 +206,62 @@ removendo pacotes que não são mais necessários.
 Na maioria das distribuições, vão existir comandos ou combinações de comandos equivalentes aos do `apt` e
 e conforme o uso esse processo de instalação, atualização e remoção se torna bem natural.
 
+## Shell scripting e editores de texto
+
+Recapitulando um pouco, vimos bastante sobre shell, diferentes formas de como combinar comandos, abrevia-los e nos
+exercícios do dia anterior vocês escreveram em diversos arquivos determinadas sequências de comandos e depois foram
+capazes de realizar alguma ação. Nesse tópico, quero formalizar o que foi feito e expandir um pouco mais esse escopo.
+
+Um shell é uma linguagem de programação, mais específicamente uma linguagem de scripting assim como Python, Ruby e outras. Por ser uma linguagem de programação, um script em shell nada mais é do que uma sequência de comandos que
+existem no seu computador escritos num arquivo linha por linha, e quando você executa o arquivo, seu sistema invoca o
+shell para interpretar o que ali foi escrito.
+
+Com o que já vimos, somos plenamente capazes de escrever scripts simples, mas ainda falta dar mais alguns passos de
+complexidade e aprender ferramentas que nos permitam trabalhar de maneira mais confortável, isto é, escrever em arquivos
+sem depender de redirecionamento de streams (*stdin*, *stdout*, *stderr*) ou combinação de comandos. Para conseguir
+fazer isso precisamos escolher o nosso editor de texto favorito e colocar a mão na massa.
+
+### Escolhendo um editor de texto
+
+Provavelmente, seu sistema Linux já veio com alguns editores de texto para experimentar, uns mais difícies de aprender
+do que outros, mas todos com suas próprias especialidades.
+
+- [(neo)](https://neovim.io/)[**vim**](https://www.vim.org/) (**V**i **IM**proved): Pessoalmente, meu favorito, mas com certeza dos que vou listar a diante o mais
+    difícil para começar a usar. Entretanto, passado a curva de aprendizado inicial, é com certeza um dos editores de
+    texto mais prazerosos de se usar. A lógica de modos de teclado, configuração (isso se for o neovim), e os atalhos
+    pré-configurado tornam a escrita muito produtiva e divertida.
+
+- [**vscode**](https://code.visualstudio.com/) (**V**isual **S**tudio **CODE**): Todo programador já usou pelo menos ou vai usar alguma vez na vida o
+    vscode, é um editor de texto da Microsoft, muito configurável e facílimo de começar usar, além de já vim com vários
+    recursos que abstraem sua configuração e recursos para diferentes tipos de linguagem. Enquanto essa abstração eu
+    considero sua maior vantagem, também considero sua maior desvantagem, visto que pode ser muito estressante
+    solucionar problemas sem conseguir enxergar muito bem a sua causa.
+
+- [**GNU nano**](https://www.nano-editor.org/): Assim como vim, é editor de texto leve que roda no terminal, porém sua proposta é se manter simples.
+    Logo, você não consegue configurar extensivamente o editor, mas é muito fácil de começar a usá-lo devido a sua
+    interface informativa e pouca complexidade envolvendo o teclado.
+
+Existem também muitos outros editores de texto muito populares, mas que infelizmente não tenho experiência o bastante
+usando-os para te ajudar nessa jornada. Entretanto, aqui estão alguns deles:
+
+- [**GNU emacs**](https://www.gnu.org/software/emacs/)
+- [**Sublime Text**](https://www.gnu.org/software/emacs/)
+- [**Zed**](https://zed.dev/)
+- [**Notepad++**](https://notepad-plus-plus.org/downloads/)
+
+Entre outros...
+
+### Variáveis
+
+### Condicionais
+
+### Funções
+
+### Loops
+
+## Exercícios
+
 <!-- 
-     TODO: Ideia de scripts e editores de texto
-     TODO: Lidando formalmente com scripts a partir de editores de texto
+     TODO: Variáveis, Condicionais, Funções e loops 
      TODO: Exercícios (existem vários relacionados na internet e em livros, esse vai ser mais fácil :amem:)
 --->
