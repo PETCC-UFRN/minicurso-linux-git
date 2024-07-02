@@ -175,6 +175,28 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 ### Comandos e Práticas do Git
 
 #### Lidando com o git
+##### Inicializando o git no repositório `git init`.
+
+
+    $ cd new_repository
+    $ git init
+
+Agora, temos um subdiretório chamado .git que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. Nada em seu projeto é monitorado ainda.
+```sh
+$ cd OneDrive/Documentos/projeto
+/OneDrive/Documentos/projeto$ git init
+Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
+```
+**Gravando alterações em seu repositório**
+
+Cada arquivo em seu repsitório pode estar em um dos seguintes estados: rastreado e não-rastreado. Arquivos rastreados são arquivos que foram incluídos no último snapshot; eles podem ser não modificados, modificados ou preparados (adicionados ao stage). Em resumo, arquivos rastreados são os arquivos que o Git conhece.
+
+Quando você clona um repositório pela primeira vez, todos os seus arquivos serão rastreados e não modificados já, que o Git acabou de obtê-los e você ainda não editou nada.
+
+Assim que você edita alguns arquivos, Git os considera modificados, porque você os editou desde o seu último commit. Você prepara os arquivos editados e então faz commit das suas alterações, e o ciclo se repete.
+
+![image](https://hackmd.io/_uploads/SJWWiARzC.png)
+
 
 ##### Verificando o status dos arquivos `git status`.
     
