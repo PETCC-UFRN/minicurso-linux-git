@@ -75,3 +75,59 @@ nós podemos ver o valor que ela armazena digitando a seguinte linha:
 
 A saída pode parecer estranha, mas isso representa vários diretórios separados `:`, e o shell vai em cada um
 deles procurando o que você digitou no terminal.
+
+## Instalando programas no Linux
+
+### Manualmente
+
+Agora que já sabemos o que de fato são os comandos que utilizamos no terminal e como o shell busca esses
+comandos, nós somos (finalmente) capazes de instalar quer programa no nosso computador, e a ideia é
+bem intuitiva:
+
+1. Primeiro, a gente pega nosso executável pra colocar no `$PATH`:
+
+    <div style="text-align: center;">
+    <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia2_imagem1.jpeg" width="80%">
+    </div>
+    <br>
+
+2. Segundo, a gente quer colocar o executável em dos diretórios do `$PATH`:
+
+    <div style="text-align: center;">
+    <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia2_imagem2.jpeg" width="80%">
+    </div>
+    <br>
+
+3. Terceiro, **a gente coloca ele `$PATH`**!!!:
+
+    <div style="text-align: center;">
+    <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia2_imagem3.jpeg" width="80%">
+    </div>
+    <br>
+
+4. **E pronto!!!** Instalamos um programa!
+
+É simples assim mesmo, mas trabalhar dessa maneira é um pouco desajeitado, existem programas que dependem
+de outros arquivos para funcionar, como arquivos de configuração, de dados, coisas gráficas, não podemos
+simplesmente colocar o executável desse programa em um dos diretórios do `$PATH` e esperar que ocorra tudo
+bem.
+
+O que fazemos então?
+
+[Lembra dos symlinks?](/primeiroDia.md#links-simbólicos-sym-links) Podemos usá-los para colocar apenas
+o atalho do executável no `PATH` e aí quando o shell tentar rodar o programa, ele na verdade vai rodar o
+original que está no diretório (de preferência bem acessível e fácil de gerenciar) que você quiser.
+
+Mas, isso não significa que não existam peculiaridades de programa para programa, as vezes precisaremos
+descompactar o arquivo que contém o executável do programa que baixamos da internet, as vezes precisaremos
+compilar o executável do programa, as vezes vamos baixar só o executável, enfim, varia  de programa para
+programa. O que precisa ser feito, provavelmente (95% das vezes) vai estar na documentação do que você quer
+instalar.
+
+### Usando gerenciadores de pacote
+
+<!-- TODO: Instalando programas com gerenciadores de pacotes 
+     TODO: Ideia de scripts e editores de texto
+     TODO: Lidando formalmente com scripts a partir de editores de texto
+     TODO: Exercícios (existem vários relacionados na internet e em livros, esse vai ser mais fácil :amem:)
+--->
