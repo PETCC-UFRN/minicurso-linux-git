@@ -189,19 +189,20 @@ Existem sim casos especiais de arquivo, como diretórios e links simbólicos (ma
 não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
 <!--![imagem6](./assets/images/linux_dia1_imagem6.jpg)-->
-<div style="text-align: center;">
-<img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem6.jpg" width="80%">
+<div style="text-align: center;"> <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem6.jpg" width="80%">
 </div>
 <br>
 
 #### Current working directory
 
-<!-- FIX: Inconscistência nos nomes nessa seção -->
+<!-- FIX: Inconscistência nos nomes nessa seção 
+--->
 
-O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**
+O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Imagine que seu sistema de arquivos é a
+seguinte árvore de cabeça para baixo.
 
 <div style="text-align: center;">
-<img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem5.png" width="80%">
+<img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem3.png" width="80%">
 </div>
 <br>
 
@@ -216,7 +217,7 @@ Além do working directory nós temos também o home directory, que é o único 
 
 #### Caminhos absolutos e caminhos relativos
 
-Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home/eu`, você pode utilizar o comando `cd` (que significa Change Directory) para acessar o diretório `/home`, da seguinte forma:
+Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home/eu`, você pode utilizar o comando `cd` (que significa **C**hange **D**irectory) para acessar o diretório `/home`, da seguinte forma:
 
 ```terminal
 [eu@hostname ~]$ cd /home
@@ -230,9 +231,9 @@ Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `
 Os dois pontos representam o **diretório anterior** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
 ```terminal
-[downloads@hostname ~]$ cd ..
+[eu@hostname downloads]$ cd ..
 [eu@hostname ~]$ cd escola
-[escola@hostname ~]$
+[eu@hostname escola]$
 ```
 
 Também temos o caminho relativo `.` que representa o **diretório atual**. Na parte de navegação de arquivos esse caminho não é tão interessante, mas é crucial quando estamos tratando de **executar comandos**.
