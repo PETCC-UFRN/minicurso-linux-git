@@ -91,6 +91,15 @@ body {
 
 .oldschool h1{
     color: #00e300;
+    text-transform: uppercase;
+}
+
+.oldschool h2,
+.oldschool h3,
+.oldschool h4,
+.oldschool h5,
+.oldschool h6 {
+    text-transform: uppercase;
 }
 
 .oldschool p{
@@ -103,6 +112,10 @@ body {
     padding: 0;
     background-color: #000;
 }
+.oldschool a {
+    color: #00E300;
+}
+
 .layoutGit{
     background-color: #020728;
     color: #f0f4ff;
