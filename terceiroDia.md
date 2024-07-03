@@ -421,9 +421,9 @@ Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 8. Agora é hora de enviar os arquivos e os commits para o repositório remoto. Utilize o comando aprendido.
 
-# Exercícios obrigatórios (#)
+## Exercícios obrigatórios (#)
 
-## Exercício 1 (#)
+### Exercício 1 (#)
 
 1. Crie uma pasta nova em seu computador com o seguinte nome "projeto02"
 
