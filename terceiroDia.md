@@ -48,7 +48,7 @@ $ nohup command [options] &
 
 **Iniciando um processo usando o Nohup**
 
-Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:nohupgeekfile.py
+Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:
 
 ```bash
 $ nohup sleep 60 &
@@ -152,6 +152,7 @@ Os objetivos principais para o novo sistema incluíam:
 O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor. Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
 ### Git como um Versionador
+
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
 O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhecido por ser:
@@ -241,15 +242,17 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 #### Lidando com o git
 ##### Inicializando o git no repositório `git init`.
 
-
-    $ cd new_repository
+```sh
+    $ cd OneDrive/Documentos/projeto
     $ git init
+```
 
 Agora, temos um subdiretório chamado .git que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. Nada em seu projeto é monitorado ainda.
+
 ```sh
-$ cd OneDrive/Documentos/projeto
-/OneDrive/Documentos/projeto$ git init
-Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
+    $ cd OneDrive/Documentos/projeto
+    $ git init
+    Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
 ```
 **Gravando alterações em seu repositório**
 
@@ -271,29 +274,29 @@ A principal ferramenta que você vai usar para determinar quais arquivos estão 
     Your branch is up-to-date with 'origin/master'.
     nothing to commit, working directory clean
 ```
-Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo README. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
+Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo chamado chat. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
 ```sh
-    $ echo 'My Project' > README
+    $ echo 'código do chat' > chat
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Untracked files:
     (use "git add <file>..." to include in what will be committed)
 
-        README
+        chat
 
     nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 
-Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
+Nós queremos incluir esse arquivo 'chat', então vamos rastreá-lo.
 
 
 ##### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
 ```sh
-    $ git add README
+    $ git add chat
 ``` 
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
 ```sh
@@ -303,14 +306,14 @@ Executando o comando status novamente, você pode ver que seu README agora está
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
+        new file:   chat
 ```     
 É possível saber que o arquivo está preparado porque ele aparece sob o título “Changes to be committed”. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
 
 #### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
 Vamos modificar um arquivo que já está sendo rastreado.
 
-Se modificarmos o CONTRIBUTING.md que já era rastreado, e executarmos o `git status`, teremos isso:
+Se por exemplo adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
 ```sh
     $ git status
     On branch master
@@ -318,13 +321,13 @@ Se modificarmos o CONTRIBUTING.md que já era rastreado, e executarmos o `git st
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
+        new file:   chat
 
     Changes not staged for commit:
       (use "git add <file>..." to update what will be committed)
       (use "git checkout -- <file>..." to discard changes in working directory)
 
-        modified:   CONTRIBUTING.md
+        modified:   feed
 ``` 
 Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
 
@@ -332,15 +335,15 @@ Para isso, vamos usar o `git add`.
 
 Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao próximo commit”.
 ```sh
-    $ git add CONTRIBUTING.md
+    $ git add .
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
-        modified:   CONTRIBUTING.md
+        new file:   chat
+        modified:   feed
 ```        
 
 ##### Fazendo o **commit** do que foi feito `git commit`.
@@ -365,16 +368,16 @@ Aparece nome, hora, data e a mensagem relacionada a cada commit.
 ```sh
     $ git log
     commit 9fceb02d0ae598e95dc970b74767f19372d61af8
-    Author: Jane Doe <jane.doe@example.com>
+    Author: Jane <jane.doe@example.com>
     Date:   Fri Jun 30 14:32:16 2024 +0000
 
-        Corrigido bug no módulo de autenticação de usuários
+        Adicionando modificação no feed 
 
     commit 3ad45c37a9f1b251545b8b2f4a3db7b683ed8e53
     Author: John Smith <john.smith@example.com>
     Date:   Thu Jun 29 09:12:10 2024 +0000
 
-        Adicionada nova funcionalidade para exportar dados como CSV
+        adicionando a funcionalidade chat
 ```
 **Uma flag eficiente**
 ```sh 
@@ -383,9 +386,8 @@ Aparece nome, hora, data e a mensagem relacionada a cada commit.
 
 ```sh
     $ git log --oneline
-    9fceb02 (HEAD -> main) Corrigido bug no módulo de autenticação de usuários
-    3ad45c3 Adicionada nova funcionalidade para exportar dados como CSV
-    b75f610 Atualizado README com instruções de instalação
+    9fceb02 (HEAD -> main) Adicionando modificação no feed 
+    b75f610 adicionando a funcionalidade chat
     c1b4d83 Commit inicial com arquivos de configuração do projeto   
 ```
 ##### Subindo alterações para o repositório remoto `git push`
