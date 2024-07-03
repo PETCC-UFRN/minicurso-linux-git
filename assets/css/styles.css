@@ -127,9 +127,9 @@ body {
     color: #f0f4ff;
 }
 .layoutGit h1{
-    color: #f0f4ff;
+    color: #F05033;
 }
-.layoutGit h2{
+.layoutGit h3{
     background-color: #3C2D00; 
     color: #f0f4ff; 
   padding: 10px;
@@ -137,7 +137,7 @@ body {
   margin-bottom: 10px;
   border-radius: 5px;
 }
-.layoutGit h3{
+.layoutGit h2{
     color: #F05033;
     font-size: 1.4em;
     text-align: center;
@@ -150,7 +150,7 @@ body {
     background-color: #F05033; /* Fundo destacável */
     padding: 8px; /* Padding moderado */
     margin-bottom: 10px; 
-    font-size: 1.2em; /* Tamanho moderado */
+    font-size: 1em; /* Tamanho moderado */
     border-radius: 5px; /* Bordas levemente arredondadas */
     text-align: left; /* Alinhamento à esquerda */
     font-weight: bold; /* Peso da fonte alto */
