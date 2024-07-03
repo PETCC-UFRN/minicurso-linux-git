@@ -83,7 +83,7 @@ A criação do Linux foi um marco importante na história do desenvolvimento de 
 
 Versionadores são sistemas que registram alterações em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar versões específicas mais tarde. Surgiram devido à necessidade de aumentar a eficiência, gerenciar um número maior de colaboradores e projetos de software moderno.
 
-<img src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
 
 #### Tipos de Versionadores
 
@@ -91,13 +91,14 @@ Versionadores são sistemas que registram alterações em um arquivo ou conjunto
 
 Utilizam um banco de dados simples para manter todas as alterações nos arquivos sob controle de versão.
 
-<img src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
 
 ##### 2. Sistemas Centralizados
 
 Têm um único servidor que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
 Desvantagens incluem a necessidade de estar sempre conectado ao servidor e a paralisação em caso de falha do servidor.
-<img src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
+
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
 **Vantagens dos Sistemas Centralizados**
 
@@ -105,7 +106,7 @@ Simples de utilizar, ideal para equipes pequenas.
 
 Utilizados por plataformas como a Wikipédia.
 
-<img src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
 
 
 ##### 3. Sistemas Distribuídos
@@ -114,7 +115,7 @@ Cada cliente possui uma cópia completa do repositório, funcionando como um bac
 
 Não dependem de um servidor central, oferecendo maior eficiência e segurança contra ataques.
 
-<img src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
 **Vantagens dos Sistemas Distribuídos**
 
@@ -126,7 +127,7 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 **Segurança:** Maior proteção contra falhas e ataques.
 
-<img src="https://hackmd.io/_uploads/S12LXpBHA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/S12LXpBHA.png" width="70%">
 
 ## Introdução ao Git
 
@@ -151,7 +152,7 @@ Os objetivos principais para o novo sistema incluíam:
 O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor. Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
 ### Git como um Versionador
-<img src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
 O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhecido por ser:
 
@@ -164,7 +165,7 @@ O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhec
 
 O Git é uma ferramenta de versionamento que gerencia diferentes versões de um arquivo ou conjunto de arquivos. Sempre que você salva o estado do projeto, o Git "tira uma foto" dos arquivos naquele momento e salva uma referência a esse snapshot. Por eficiência, se um arquivo não foi modificado, o Git não o salva novamente, mas cria um "link" para a versão anterior que já está salva.
 
-<img src="https://hackmd.io/_uploads/SkYli-6zR.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SkYli-6zR.png" width="70%">
 
 O Git, em geral, apenas **adiciona** informações. É difícil que o sistema apague dados ou faça algo irreversível, especialmente se você enviar suas alterações para o servidor remoto regularmente (push). Esse comportamento garante a integridade e a segurança do histórico do projeto.
 
@@ -225,7 +226,7 @@ O Git é um sistema de controle de versão distribuído que gerencia informaçõ
 
 3) Você **faz um commit**: os arquivos como eles estão na staging area são armazenados em forma de snapshot permanentemente no seu diretório  Git.
 
-<img src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
@@ -258,8 +259,7 @@ Quando você clona um repositório pela primeira vez, todos os seus arquivos ser
 
 Assim que você edita alguns arquivos, Git os considera modificados, porque você os editou desde o seu último commit. Você prepara os arquivos editados e então faz commit das suas alterações, e o ciclo se repete.
 
-![image](https://hackmd.io/_uploads/SJWWiARzC.png)
-
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
 ##### Verificando o status dos arquivos `git status`.
     
