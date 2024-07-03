@@ -87,13 +87,13 @@ Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu 
 
 A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é um padrão e se você quiser, existem diversos outros que você pode instalar e utilizar. Quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
 
-```sh
+```terminal
 [user@hostname ~]$
 ```
 
 Vamos entender o que significa cada símbolo desse.
 
-```sh
+```terminal
 [user@hostname ~]$
   ^      ^     ^ ^
   │      │     │ └─ O cifrão diz que você não é o usuário `root` (mais sobre isso depois)
@@ -110,19 +110,19 @@ A maneira mais simples de usar o shell, é digitando comandos!.
 
 Agora que ja demos nosso primeiro comando, vamos conhecer mais alguns comandos legais, tente:
 
-```sh
+```terminal
 [user@hostname ~]$ date
 ```
 
 e
 
-```sh
+```terminal
 [user@hostname ~]$ cal
 ```
 
 Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calendário do mês, agora vamos testar o seguinte comando com um argumento:
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello 
                           ^
                           └─ Argumento passado para o programa (input)
@@ -130,7 +130,7 @@ Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calend
 
 Seu terminal provalvemente ficou assim:
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello 
 Hello
 ```
@@ -139,11 +139,11 @@ O programa `echo` apenas imprime o argumento que você passou para ele em uma *s
 
 Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 
-```sh
+```terminal
 [user@hostname ~]$ echo "Hello World"
 ```
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello\ World
 ```
 
@@ -162,13 +162,13 @@ O output, por outro lado, é o prato que você recebe após a cozinha processar 
 
 Teste digitar qualquer coisa no terminal e veja o que acontece.
 
-```sh
+```terminal
 [user@hostname ~]$ ablueblauebluebalbbeu
 ```
 
 Porque esse comando não faz sentido, o shell vai nos dizer que deu errado e vai nos dar outra chance:
 
-```sh
+```terminal
 bash: ablueblauebluebalbbeu: command not found
 [user@hostname ~]$
 ```
@@ -205,7 +205,7 @@ O sistema de arquivos funciona como uma árvore: você possui um diretório de o
 
 Utilizando o comando `pwd`, que é uma sigla para **P**ath to **W**orking **D**irectory, é possível saber o caminho de todos os diretórios da root até o seu diretório atual:
 
-```sh
+```terminal
 [eu@hostname ~]$ pwd
 /home/eu
 ```
@@ -216,7 +216,7 @@ Além do working directory nós temos também o home directory, que é o único 
 
 Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home`, você pode utilizar o comando `cd` (que significa Change Directory) para acessar o diretório `/eu`, da seguinte forma:
 
-```sh
+```terminal
 # Perceba o (~) mudando
 [user@hostname ~]$ cd eu
 [user@hostname ]$
@@ -226,7 +226,7 @@ Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `
 
 Os dois pontos representam o **diretório anterior** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
-```sh
+```terminal
 [downloads@hostnname ~]$ cd ..
 [eu@hostname ~]$ cd escola
 [escola@hostname ~]$
@@ -240,7 +240,7 @@ Podemos manipular diretórios e arquivos a partir de comandos:
 
 Usando o comando `mkdir` (de Make Directory), é possível criar uma nova pasta. A sintaxe do comando é: `mkdir <nome_da_pasta>`. Digamos que você acabou de criar na pasta `escola` a pasta `minicurso_linux_git`:
 
-```sh
+```terminal
 [user@hostname escola]$ mkdir minicurso_linux_git
 [user@hostname escola]$ cd minicurso_linux_git
 [user@hostname minicurso_linux_git]$
@@ -249,7 +249,7 @@ Usando o comando `mkdir` (de Make Directory), é possível criar uma nova pasta.
 Vamos adicionar também um arquivo de texto para anotações da aula, usando o comando `touch`
 (Divine **touch**):
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ touch anotacoes.txt
 ```
 
@@ -259,21 +259,21 @@ Você criou essa pasta assim que chegou em casa, logo após a primeira aula do m
 
 Com o comando `ls` (**L**i**s**t), é possível listar todo o conteúdo de um diretório:
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ ls
 anotacoes.txt  foto-do-quadro.jpg  
 ```
 
 Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Você copia os arquivos para um *pen-drive* usando o comando `cp` (**C**o**P**y)):
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ cd ..
 [user@hostname ~]$ cp minicurso_linux_git pen-drive
 ```
 
 e então decide removê-la, utilizando o comando `rm` (**R**e**M**ove), você deleta cada arquivo:
 
-```sh
+```terminal
 [user@hostname ~]$ cd minicurso_linux_git
 [user@hostname minicurso_linux_git]$ rm anotacoes.txt foto-do-quadro.jpg
 [user@hostname minicurso_linux_git]$ ls
@@ -281,7 +281,7 @@ e então decide removê-la, utilizando o comando `rm` (**R**e**M**ove), você de
 
 E agora, não resta mais nenhum arquivo na pasta e você pode finalmente removê-la com o comando `rmdir` (**R**e**M**ove **DIR**ectory).
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ cd ..
 [user@hostname ~]$ rmdir minicurso_linux_git
 ```
@@ -317,7 +317,7 @@ No tópico anterior executamos uma sequência indiscriminada de comandos para re
 Mas mesmo, assim executamos diversos passos só para remover todos os arquivos de uma pasta para depois removê-la por
 completo, então, talvez seja conveniente para você usar o `rm` (remove) para remover tudo logo de uma vez sem mais nem menos. E ele, de fato tem uma opção que faz isso, e você pode invocar essa opção da seguinte maneira:
 
-```sh
+```terminal
 [user@hostname ~]$ rm --recursive minicurso_linux_git
                       ^
                       └ Todos (99.8%) dos comandos do unix começam com um '-' antes da opção
@@ -333,7 +333,7 @@ Essas opções váriam de comando para comando, então que tal explorar algumas 
 
 Teste o comando `ls` com a opção `-F` (abreviação para `--classify`), que especifica o tipo de cada arquivo listado:
 
-```sh
+```terminal
 [user@hostname ~]$ ls -F
 escola/ downloads/ Minecraft* 'Pequeno Príncipe.pdf'
 ```
@@ -349,17 +349,17 @@ Outra opção que usamos muito em conjunto com o `ls` é a opção `-a/--all`,
 que lista os arquivos "ocultos" do seu computador, conhecidos mais comumente
 como *dotfiles*. São chamados assim por começarem com um `.` no início do nome. Para descobrir o que são *dotfiles* tente, por exemplo, rodar o comando `ls` primeiro sem e depois com a opção `-a/--all` no seu *home directory*.
 
-```sh
+```terminal
 [user@hostname ~]$ ls ~
 ```
 
-```sh
+```terminal
 [user@hostname ~]$ ls -a ~
 ```
 
 Provavelmente deve ter aparecido milhões mais arquivos e diretórios, e provavelmente todos começam com `.`, inclusive os diretórios especiais `.` e `..`, se quiser ver mais detalhadamente as diferenças teste o comando `diff` com as seguintes opções:
 
-```sh
+```terminal
 diff --color=auto <(ls) <(ls -a)
 ```
 
@@ -413,7 +413,7 @@ Continuando nossa exploração, uma opção muito utilizada com o comando `ls` �
 (**L**ong listing format), que lista uma série de informações extra sobre o conteúdo
 de um diretório. Vejamos um exemplo:
 
-```sh
+```terminal
 [user@hostname ~]
 total 28
 drwxr-xr-x 7 user user 4096 Jun 28 07:32 escola
@@ -752,9 +752,9 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
     ```
 
  6. Tente executar o arquivo, ou seja, digite o caminho para o script (`./dimap`) no seu shell e pressione Enter. Entenda por que não funciona consultando a saída de `ls` (dica: olhe para os bits de permissão do arquivo).
- 7. Execute o comando iniciando explicitamente o interpretador `sh` e fornecendo o arquivo `dimap` como o primeiro argumento, ou seja, `sh dimap`. Por que isso funciona enquanto `./dimap` não funcionou?
+ 7. Execute o comando iniciando explicitamente o interpretador `terminal` e fornecendo o arquivo `dimap` como o primeiro argumento, ou seja, `terminal dimap`. Por que isso funciona enquanto `./dimap` não funcionou?
  8. Pesquise sobre o programa `chmod` (por exemplo, use `man chmod`).
- 9. Use `chmod` para possibilitar a execução do comando `./dimap` em vez de ter que digitar `sh dimap`. Como o shell sabe que o arquivo deve ser interpretado usando `sh`? Veja esta página sobre a linha [shebang](https://pt.wikipedia.org/wiki/Shebang_(Unix)) para mais informações.
+ 9. Use `chmod` para possibilitar a execução do comando `./dimap` em vez de ter que digitar `terminal dimap`. Como o shell sabe que o arquivo deve ser interpretado usando `terminal`? Veja esta página sobre a linha [shebang](https://pt.wikipedia.org/wiki/Shebang_(Unix)) para mais informações.
  10. Use `|` e `>` para gravar a data de "last-modified" obtida pelo `dimap` em um arquivo chamado `last-modified.txt` no seu `/home/`.
 
  > Exercício retirado do curso `./missing-semester`
@@ -887,14 +887,14 @@ Imagine que você sempre organiza seu projeto baseado nessa estrutura.
 1. No diretório `/tmp/petcc/ex006`, crie o arquivo `c_project_cfg.sh`.
 2. Dentro desse arquivo, adicione a seguinte linha.
 
-    ```sh
+    ```terminal
     #!/bin/bash
     ```
 
 3. Após essa linha anexe os comandos necessários para criar a estrutura do projeto acima.
 Seu arquivo no final deve ficar assim:
 
-    ```sh
+    ```terminal
     #!/bin/bash
     # Comando 1
     # Comando 2
