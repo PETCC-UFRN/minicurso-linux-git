@@ -8,7 +8,70 @@ title: Minicurso de Linux e Git
 
 
 # 3ᵒ Dia 
-<div style="background:yellow; color: red;"> Faltando a parte de processos e compactação de arquivos </div>
+
+## Básico sobre processos
+
+### Rodando processos em background
+
+#### Uso do & comercial no shell.
+
+No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
+
+```bash
+ls -R / > teste
+```
+o sistema criará o arquivo teste com o conteúdo de todos os diretórios e arquivos do sistema. Durante a execução do comando acima, nenhum outro comando poderá ser digitado pelo usuário no mesmo terminal. Isto significa que o comando está sendo executado em primeiro plano, impedindo assim a execução de outras atividades no mesmo terminal.
+
+Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o arquivo teste é criado. Basta que você digite:
+
+```bash
+ls -R / > teste &
+```
+O símbolo & indica que o comando deve ser executado em background, ou seja, em segundo plano.
+
+#### Uso do nohup
+
+Mesmo com um processo em segundo plano, ele pode ser interrompido por vários motivos. Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumido! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando nohup pretende corrigir.
+
+Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
+
+Nohup, abreviação de no hang up é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+
+**Sintaxe do comando Nohup**
+A sintaxe para usar o comando Nohup é direta:
+```bash
+$ nohup command [options] &
+```
+'command': especifica o comando ou script que você deseja executar.
+'[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
+`&`: Colocar um e comercial (&) no final do comando instrui o shell a executar o comando em segundo plano.
+
+**Iniciando um processo usando o Nohup**
+
+Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:
+
+```bash
+$ nohup sleep 60 &
+```
+
+Com o comando acima, o sistema executa um comando "sleep", que normalmente bloqueia todas as entradas, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
+```bash
+$ nohup sleep 60 &
+[1] 4003
+$ nohup : ignoring input and appending output to 'nohup.out'
+```
+
+**Deixando de fora o caractere "&"** 
+
+Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
+
+Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se fechar o terminal, ou perder a conectividade com a Internet, ou algo mais acontecer, o processo não será interrompido. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
+
+#### Uso do wait
+
+O comando "wait" é uma ferramenta poderosa no  Linux que permite que os scripts aguardem a conclusão de outros processos antes de continuar a execução.
+
+<div style="background:yellow; color: red;"> Faltando completar wait e compactação de arquivos </div>
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
@@ -20,7 +83,7 @@ A criação do Linux foi um marco importante na história do desenvolvimento de 
 
 Versionadores são sistemas que registram alterações em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar versões específicas mais tarde. Surgiram devido à necessidade de aumentar a eficiência, gerenciar um número maior de colaboradores e projetos de software moderno.
 
-<img src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
 
 #### Tipos de Versionadores
 
@@ -28,13 +91,14 @@ Versionadores são sistemas que registram alterações em um arquivo ou conjunto
 
 Utilizam um banco de dados simples para manter todas as alterações nos arquivos sob controle de versão.
 
-<img src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
 
 ##### 2. Sistemas Centralizados
 
 Têm um único servidor que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
 Desvantagens incluem a necessidade de estar sempre conectado ao servidor e a paralisação em caso de falha do servidor.
-<img src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
+
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
 **Vantagens dos Sistemas Centralizados**
 
@@ -42,7 +106,7 @@ Simples de utilizar, ideal para equipes pequenas.
 
 Utilizados por plataformas como a Wikipédia.
 
-<img src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
 
 
 ##### 3. Sistemas Distribuídos
@@ -51,7 +115,7 @@ Cada cliente possui uma cópia completa do repositório, funcionando como um bac
 
 Não dependem de um servidor central, oferecendo maior eficiência e segurança contra ataques.
 
-<img src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
 **Vantagens dos Sistemas Distribuídos**
 
@@ -63,7 +127,7 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 **Segurança:** Maior proteção contra falhas e ataques.
 
-<img src="https://hackmd.io/_uploads/S12LXpBHA.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/S12LXpBHA.png" width="70%">
 
 ## Introdução ao Git
 
@@ -88,7 +152,8 @@ Os objetivos principais para o novo sistema incluíam:
 O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor. Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
 ### Git como um Versionador
-<img src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
+
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJpghZzrA.png" width="70%">
 
 O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhecido por ser:
 
@@ -101,7 +166,7 @@ O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhec
 
 O Git é uma ferramenta de versionamento que gerencia diferentes versões de um arquivo ou conjunto de arquivos. Sempre que você salva o estado do projeto, o Git "tira uma foto" dos arquivos naquele momento e salva uma referência a esse snapshot. Por eficiência, se um arquivo não foi modificado, o Git não o salva novamente, mas cria um "link" para a versão anterior que já está salva.
 
-<img src="https://hackmd.io/_uploads/SkYli-6zR.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SkYli-6zR.png" width="70%">
 
 O Git, em geral, apenas **adiciona** informações. É difícil que o sistema apague dados ou faça algo irreversível, especialmente se você enviar suas alterações para o servidor remoto regularmente (push). Esse comportamento garante a integridade e a segurança do histórico do projeto.
 
@@ -162,7 +227,7 @@ O Git é um sistema de controle de versão distribuído que gerencia informaçõ
 
 3) Você **faz um commit**: os arquivos como eles estão na staging area são armazenados em forma de snapshot permanentemente no seu diretório  Git.
 
-<img src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
@@ -177,15 +242,17 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 #### Lidando com o git
 ##### Inicializando o git no repositório `git init`.
 
-
-    $ cd new_repository
+```sh
+    $ cd OneDrive/Documentos/projeto
     $ git init
+```
 
 Agora, temos um subdiretório chamado .git que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. Nada em seu projeto é monitorado ainda.
+
 ```sh
-$ cd OneDrive/Documentos/projeto
-/OneDrive/Documentos/projeto$ git init
-Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
+    $ cd OneDrive/Documentos/projeto
+    $ git init
+    Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
 ```
 **Gravando alterações em seu repositório**
 
@@ -195,8 +262,7 @@ Quando você clona um repositório pela primeira vez, todos os seus arquivos ser
 
 Assim que você edita alguns arquivos, Git os considera modificados, porque você os editou desde o seu último commit. Você prepara os arquivos editados e então faz commit das suas alterações, e o ciclo se repete.
 
-![image](https://hackmd.io/_uploads/SJWWiARzC.png)
-
+<img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
 ##### Verificando o status dos arquivos `git status`.
     
@@ -208,126 +274,127 @@ A principal ferramenta que você vai usar para determinar quais arquivos estão 
     Your branch is up-to-date with 'origin/master'.
     nothing to commit, working directory clean
 ```
-Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo README. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
+Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo chamado chat. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
 ```sh
-    $ echo 'My Project' > README
+    $ echo 'código do chat' > chat
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Untracked files:
     (use "git add <file>..." to include in what will be committed)
 
-        README
+        chat
 
     nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 
-Nós queremos incluir esse arquivo README, então vamos rastreá-lo.
+Nós queremos incluir esse arquivo 'chat', então vamos rastreá-lo.
 
 
 ##### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
 ```sh
-    $ git add README
+    $ git add chat
 ``` 
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
-
+```sh
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
-        
+        new file:   chat
+```     
 É possível saber que o arquivo está preparado porque ele aparece sob o título “Changes to be committed”. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
 
 #### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
 Vamos modificar um arquivo que já está sendo rastreado.
 
-Se modificarmos o CONTRIBUTING.md que já era rastreado, e executarmos o `git status`, teremos isso:
-
+Se por exemplo adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
+```sh
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
+        new file:   chat
 
     Changes not staged for commit:
       (use "git add <file>..." to update what will be committed)
       (use "git checkout -- <file>..." to discard changes in working directory)
 
-        modified:   CONTRIBUTING.md
-        
+        modified:   feed
+``` 
 Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
 
 Para isso, vamos usar o `git add`.
 
 Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao próximo commit”.
-
-    $ git add CONTRIBUTING.md
+```sh
+    $ git add .
     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
-        new file:   README
-        modified:   CONTRIBUTING.md
-        
+        new file:   chat
+        modified:   feed
+```        
 
 ##### Fazendo o **commit** do que foi feito `git commit`.
 Agora que a área de stage está preparada, podemos fazer commit nas alterações.
 
 O jeito mais simples de fazer commit é digitar o seguinte comando:
-
+```sh
     $ git commit
-
+```
 e adicionar uma mensagem no editor de texto.
 
 Alternativamente, podemos fazer:
-
+```sh
     $ git commit -m "mensagem"
-    
+```
 Lembre-se de que o commit grava o snapshot que você deixou na área de stage. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
 ##### Como ver todos os commit feitos com `git log`
 
 É um comando feito para exibir os históricos de commits do projeto.
 
 Aparece nome, hora, data e a mensagem relacionada a cada commit.
-
+```sh
     $ git log
     commit 9fceb02d0ae598e95dc970b74767f19372d61af8
-    Author: Jane Doe <jane.doe@example.com>
+    Author: Jane <jane.doe@example.com>
     Date:   Fri Jun 30 14:32:16 2024 +0000
 
-        Corrigido bug no módulo de autenticação de usuários
+        Adicionando modificação no feed 
 
     commit 3ad45c37a9f1b251545b8b2f4a3db7b683ed8e53
     Author: John Smith <john.smith@example.com>
     Date:   Thu Jun 29 09:12:10 2024 +0000
 
-        Adicionada nova funcionalidade para exportar dados como CSV
-
+        adicionando a funcionalidade chat
+```
 **Uma flag eficiente**
-    
+```sh 
     $git log --oneline
+```
 
+```sh
     $ git log --oneline
-    9fceb02 (HEAD -> main) Corrigido bug no módulo de autenticação de usuários
-    3ad45c3 Adicionada nova funcionalidade para exportar dados como CSV
-    b75f610 Atualizado README com instruções de instalação
+    9fceb02 (HEAD -> main) Adicionando modificação no feed 
+    b75f610 adicionando a funcionalidade chat
     c1b4d83 Commit inicial com arquivos de configuração do projeto   
-
+```
 ##### Subindo alterações para o repositório remoto `git push`
 Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos fazer:
-
+```sh
     $ git push 
-    
+```
 Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 

@@ -24,13 +24,13 @@ body {
     padding: 0;
     background-color: #161824;
 }
-.menuPrincipal{
-    font-family: Source Code Pro, sans-serif;
+.oldschoolnav,.navgit, .menuPrincipal{
+    font-family: 'Source Code Pro', sans-serif, monospace;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #9A031E;
-    height: 5vh;
+    background-color: #89023e;
+    height: 4vh;
 }
 .listaNavegacao{
     display: flex;
@@ -53,6 +53,12 @@ body {
 .menuPrincipal ul a:hover{
     color: #000627;
 }
+
+/*code {*/
+/*    background: #00051F;*/
+/*    padding: 0 0.2rem;*/
+/*    border-radius: 3px;*/
+/*}*/
 
 .navgit,
 .oldschoolnav{
@@ -91,6 +97,15 @@ body {
 
 .oldschool h1{
     color: #00e300;
+    text-transform: uppercase;
+}
+
+.oldschool h2,
+.oldschool h3,
+.oldschool h4,
+.oldschool h5,
+.oldschool h6 {
+    text-transform: uppercase;
 }
 
 .oldschool p{
@@ -103,14 +118,18 @@ body {
     padding: 0;
     background-color: #000;
 }
+.oldschool a {
+    color: #00E300;
+}
+
 .layoutGit{
     background-color: #020728;
     color: #f0f4ff;
 }
 .layoutGit h1{
-    color: #f0f4ff;
+    color: #F05033;
 }
-.layoutGit h2{
+.layoutGit h3{
     background-color: #3C2D00; 
     color: #f0f4ff; 
   padding: 10px;
@@ -118,7 +137,7 @@ body {
   margin-bottom: 10px;
   border-radius: 5px;
 }
-.layoutGit h3{
+.layoutGit h2{
     color: #F05033;
     font-size: 1.4em;
     text-align: center;
@@ -131,7 +150,7 @@ body {
     background-color: #F05033; /* Fundo destacável */
     padding: 8px; /* Padding moderado */
     margin-bottom: 10px; 
-    font-size: 1.2em; /* Tamanho moderado */
+    font-size: 1em; /* Tamanho moderado */
     border-radius: 5px; /* Bordas levemente arredondadas */
     text-align: left; /* Alinhamento à esquerda */
     font-weight: bold; /* Peso da fonte alto */
@@ -181,8 +200,29 @@ p{
     text-align: justify;
 }
 
+
+
 h1{
     color: #E8EAEF;
+}
+/*tabelas*/
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #222222; /* Fundo da tabela */
+}
+th, td {
+    border: 1px solid #444444; /* Bordas das células */
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #444444; /* Fundo do cabeçalho */
+    color: #00e300; /* Texto do cabeçalho */
+}
+td {
+    background-color: #333333; /* Fundo das células */
 }
 /* Define a common font family for code elements */
 .layoutGit pre, code ,.oldschool pre, code {
@@ -202,7 +242,7 @@ h1{
     background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
     padding: 0.5rem 0.7rem; /* Padding inside the code block */
-    border: 2px dashed #666; /* Border style of the code block */
+    border: 1px solid #666; /* Border style of the code block */
     font-size: 12pt; /* Adjust font size */
     overflow-x: auto; /* Allow horizontal scrolling for overflow */
 }
@@ -215,6 +255,17 @@ h1{
     padding: 0; /* Reset padding */
 }
 
+.small {
+    font-size: 0.75rem;
+}
+.small p {
+    margin: 0;
+}
+.center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
 /* TODO: Mudar a estilização das tabelas geradas pelo markdown */
 /* TODO: Centralizar as tabelas geradas pelo markdown */
-/* FIX: Consertar o syntax highlight dos code blocks */
