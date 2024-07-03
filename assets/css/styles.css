@@ -205,6 +205,25 @@ p{
 h1{
     color: #E8EAEF;
 }
+/*tabelas*/
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #222222; /* Fundo da tabela */
+}
+th, td {
+    border: 1px solid #444444; /* Bordas das células */
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #444444; /* Fundo do cabeçalho */
+    color: #00e300; /* Texto do cabeçalho */
+}
+td {
+    background-color: #333333; /* Fundo das células */
+}
 /* Define a common font family for code elements */
 .layoutGit pre, code ,.oldschool pre, code {
   font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
