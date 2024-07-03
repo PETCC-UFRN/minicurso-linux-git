@@ -24,8 +24,8 @@ body {
     padding: 0;
     background-color: #161824;
 }
-.menuPrincipal{
-    font-family: Source Code Pro, sans-serif;
+.oldschoolnav,.navgit, .menuPrincipal{
+    font-family: 'Source Code Pro', sans-serif, monospace;
     display: flex;
     justify-content: space-around;
     align-items: center;
