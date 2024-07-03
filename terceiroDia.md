@@ -8,7 +8,70 @@ title: Minicurso de Linux e Git
 
 
 # 3ᵒ Dia 
-<div style="background:yellow; color: red;"> Faltando a parte de processos e compactação de arquivos </div>
+
+## Básico sobre processos
+
+### Rodando processos em background
+
+#### Uso do & comercial no shell.
+
+No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
+
+```bash
+ls -R / > teste
+```
+o sistema criará o arquivo teste com o conteúdo de todos os diretórios e arquivos do sistema. Durante a execução do comando acima, nenhum outro comando poderá ser digitado pelo usuário no mesmo terminal. Isto significa que o comando está sendo executado em primeiro plano, impedindo assim a execução de outras atividades no mesmo terminal.
+
+Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o arquivo teste é criado. Basta que você digite:
+
+```bash
+ls -R / > teste &
+```
+O símbolo & indica que o comando deve ser executado em background, ou seja, em segundo plano.
+
+#### Uso do nohup
+
+Mesmo com um processo em segundo plano, ele pode ser interrompido por vários motivos. Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumido! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando nohup pretende corrigir.
+
+Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
+
+Nohup, abreviação de no hang up é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+
+**Sintaxe do comando Nohup**
+A sintaxe para usar o comando Nohup é direta:
+```bash
+$ nohup command [options] &
+```
+'command': especifica o comando ou script que você deseja executar.
+'[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
+`&`: Colocar um e comercial (&) no final do comando instrui o shell a executar o comando em segundo plano.
+
+**Iniciando um processo usando o Nohup**
+
+Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:nohupgeekfile.py
+
+```bash
+$ nohup sleep 60 &
+```
+
+Com o comando acima, o sistema executa um comando "sleep", que normalmente bloqueia todas as entradas, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
+```bash
+$ nohup sleep 60 &
+[1] 4003
+$ nohup : ignoring input and appending output to 'nohup.out'
+```
+
+**Deixando de fora o caractere "&"** 
+
+Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
+
+Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se fechar o terminal, ou perder a conectividade com a Internet, ou algo mais acontecer, o processo não será interrompido. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
+
+#### Uso do wait
+
+O comando "wait" é uma ferramenta poderosa no  Linux que permite que os scripts aguardem a conclusão de outros processos antes de continuar a execução.
+
+<div style="background:yellow; color: red;"> Faltando completar wait e compactação de arquivos </div>
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
