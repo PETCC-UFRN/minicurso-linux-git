@@ -436,15 +436,44 @@ Onde, por exemplo:
 
 Corresponde a:
 
-| Campo                                                                                                                  | Significado                                            |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| **downloads**                                                                                                          | Nome do arquivo                                        |
-|<span style="color: magenta;">Jun 28 09:33</span>.                                                                      | Última modificação                                     |
-|<span style="color: brown;">4096</span>                                                                                 | O tamanho do arquivo em bytes                          |
-|<span style="color: cyan;">user</span>                                                                                  | O **grupo de usuário** ao qual o arquivo pertence      |
-|<span style="color: orange">user</span>                                                                                 | O **dono** do arquivo                                  |
-|<span style="color: green;">5</span>                                                                                    | O número de hardlinks (mais sobre isso no futuro)      |
-|<b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span> | As permissões de acesso do arquivo e o tipo do arquivo |
+  <table>
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Significado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>downloads</td>
+                <td>nome do arquivo</td>
+            </tr>
+            <tr>
+                <td><span style="color: magenta;">Jun 28 09:33</span></td>
+                <td>Última modificação</td>
+            </tr>
+            <tr>
+                <td><span style="color: brown;">4096</span></td>
+                <td>	O tamanho do arquivo em bytes</td>
+            </tr>
+               <tr>
+                <td><span style="color: cyan;">user</span></td>
+                <td>O grupo de usuário ao qual o arquivo pertence</td>
+            </tr>
+               <tr>
+                <td><span style="color: orange">user</span> </td>
+                <td>O dono do arquivo</td>
+            </tr>
+               <tr>
+                <td><span style="color: green;">5</span> </td>
+                <td>O número de hardlinks (mais sobre isso no futuro)</td>
+            </tr>
+               <tr>
+                <td><b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span></td>
+                <td>As permissões de acesso do arquivo e o tipo do arquivo</td>
+            </tr>
+        </tbody>
+    </table>
 
 - As permissões de acesso e o tipo de arquivo em detalhes:
   - O tipo do arquivo: **d** (directory).
