@@ -4,7 +4,7 @@ title: Minicurso de Linux e Git
 ---
 
 
-# 2ᵒ Dia
+# Shell Avançado
 
 <!--toc:start-->
 - [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)

@@ -2,7 +2,7 @@
 layout: oldschool
 title: Minicurso de Linux e Git
 ---
-# 1ᵒ Dia
+# Primeiros passos no Linux
 
 ## Tabela de conteúdos
 

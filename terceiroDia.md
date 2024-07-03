@@ -7,7 +7,7 @@ title: Minicurso de Linux e Git
 [comment]: <> (Sendo assim, basta escrever em markdown mesmo que vai ser tudo estilizado pelos layouts)
 
 
-# 3ᵒ Dia 
+# Introdução ao Git
 
 ## Básico sobre processos
 
