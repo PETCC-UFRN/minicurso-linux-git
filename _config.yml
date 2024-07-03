@@ -37,7 +37,7 @@ incremental: false
 detach: false
 port: 4000
 host: 127.0.0.1
-baseurl: "/site_minicurso_linux_git/"
+baseurl: "/minicurso-linux-git"
 show_dir_listing: false
 
 # Outputting

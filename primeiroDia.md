@@ -196,6 +196,8 @@ não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
 #### Current working directory
 
+<!-- FIX: Inconscistência nos nomes nessa seção -->
+
 O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**
 
 <div style="text-align: center;">
@@ -214,20 +216,21 @@ Além do working directory nós temos também o home directory, que é o único 
 
 #### Caminhos absolutos e caminhos relativos
 
-Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home`, você pode utilizar o comando `cd` (que significa Change Directory) para acessar o diretório `/eu`, da seguinte forma:
+Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home/eu`, você pode utilizar o comando `cd` (que significa Change Directory) para acessar o diretório `/home`, da seguinte forma:
 
 ```terminal
-# Perceba o (~) mudando
-[user@hostname ~]$ cd eu
-[user@hostname ]$
+[eu@hostname ~]$ cd /home
+[eu@hostname home]$
 ```
+
+> (Perceba o `~` mudando)
 
 Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola` ! Para isso, é necessário se utilizar do **caminho relativo** `..`
 
 Os dois pontos representam o **diretório anterior** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
 ```terminal
-[downloads@hostnname ~]$ cd ..
+[downloads@hostname ~]$ cd ..
 [eu@hostname ~]$ cd escola
 [escola@hostname ~]$
 ```
@@ -359,7 +362,7 @@ como *dotfiles*. São chamados assim por começarem com um `.` no início do nom
 
 Provavelmente deve ter aparecido milhões mais arquivos e diretórios, e provavelmente todos começam com `.`, inclusive os diretórios especiais `.` e `..`, se quiser ver mais detalhadamente as diferenças teste o comando `diff` com as seguintes opções:
 
-```terminal
+```sh
 diff --color=auto <(ls) <(ls -a)
 ```
 
@@ -522,7 +525,7 @@ A quantidade de linhas que ele vai exibir pode ser ajustada com a opção `-n/-l
 
 Enquanto nós exploramos o sistema, é bem provável se deparar com a seguinte listagem de diretório (por exemplo, `ls -l /lib`):
 
-```
+```terminal
 lrwxrwxrwx 1 root root 7 Apr  7 15:02 /lib -> usr/lib
 ```
 
@@ -569,7 +572,7 @@ solução para esse e outros tipos de problema e você pode usá-lo da seguinte 
 find [starting-point...] [expression]
 ```
 
-```
+```sh
 # Procura todos os diretórios nomeados minicurso_linux_git
 find . -name minicurso_linux_git -type d
 ```
@@ -618,19 +621,19 @@ arquivo. Por exemplo:
 
 - Para redirecionar a *stdout*:
 
-```
+```sh
 ls -l /usr/bin > ls-output.txt
 ```
 
 Note que se o `ls` emitir erros, eles vão continuar imprimindo na tela, tente:
 
-```
+```sh
 ls -l /bin/usr > ls-output.txt
 ```
 
 - Para redirecionar a *stderr*:
 
-```
+```sh
 ls -l /usr/bin 2> ls-error.txt
 ```
 
@@ -639,7 +642,7 @@ Mas e se não quisermos que nosso arquivo seja sobrescrito?
 
 Podemos usar o operador `>>` para anexar a saída do programa ao final do arquivo. Fazemos isso da seguinte maneira:
 
-```
+```sh
 ls -l /usr/bin >> ls-output.txt
 ```
 
@@ -670,7 +673,7 @@ capitulo.15.3
 
 Você pode juntar o conteúdo de todos os arquivos, numa versão completa do livro assim:
 
-```
+```sh
 cat capitulo* > meulivro.pdf
 ```
 
@@ -678,7 +681,7 @@ Assim como o `>` esse asterisco (`*`) é interpretado e expandido pelo shell, e 
 que chamamos de wildcard (ou cartas coringa), e você pode usar em qualquer parte da sua entrada se quiser e
 pode usar mais de um, por exemplo:
 
-```
+```sh
 ls Do*n*
 ```
 
@@ -692,7 +695,7 @@ exatamente o que é suposto a fazer.
 Se você usar o `cat` sem argumentos, ele lê do *stdin*, visto que o *stdin* é associado por padrão ao seu
 teclado, e está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
 
-```
+```terminal
 [user@hostname ~]$ cat
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar 
@@ -703,7 +706,7 @@ fim do arquivo (**E**nd **O**f **F**ile - EOF) no *standard input*. Como o *stan
 terminal pro padrão, o `cat` apenas copia os o *stdin* para o *stdout*. A gente pode usar comportamento
 para escrever coisas num arquivo, por exemplo:
 
-```
+```terminal
 [user@hostname ~]$ cat > sabiá.txt
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
 ```
@@ -746,7 +749,7 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
  4. Use o `touch` para criar um novo arquivo chamado `dimap` em `petcc`.
  5. Escreva o seguinte nesse arquivo, uma linha de cada vez:
 
-    ```
+    ```sh
     #!/bin/sh
     curl --head --silent https://missing.csail.mit.edu
     ```
@@ -887,14 +890,14 @@ Imagine que você sempre organiza seu projeto baseado nessa estrutura.
 1. No diretório `/tmp/petcc/ex006`, crie o arquivo `c_project_cfg.sh`.
 2. Dentro desse arquivo, adicione a seguinte linha.
 
-    ```terminal
+    ```bash
     #!/bin/bash
     ```
 
 3. Após essa linha anexe os comandos necessários para criar a estrutura do projeto acima.
 Seu arquivo no final deve ficar assim:
 
-    ```terminal
+    ```bash
     #!/bin/bash
     # Comando 1
     # Comando 2

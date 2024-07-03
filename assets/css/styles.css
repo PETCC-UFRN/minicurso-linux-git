@@ -29,8 +29,8 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #9A031E;
-    height: 5vh;
+    background-color: #89023e;
+    height: 4vh;
 }
 .listaNavegacao{
     display: flex;
@@ -53,6 +53,12 @@ body {
 .menuPrincipal ul a:hover{
     color: #000627;
 }
+
+/*code {*/
+/*    background: #00051F;*/
+/*    padding: 0 0.2rem;*/
+/*    border-radius: 3px;*/
+/*}*/
 
 .navgit,
 .oldschoolnav{
@@ -194,6 +200,8 @@ p{
     text-align: justify;
 }
 
+
+
 h1{
     color: #E8EAEF;
 }
@@ -215,7 +223,7 @@ h1{
     background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
     padding: 0.5rem 0.7rem; /* Padding inside the code block */
-    border: 2px dashed #666; /* Border style of the code block */
+    border: 1px solid #666; /* Border style of the code block */
     font-size: 12pt; /* Adjust font size */
     overflow-x: auto; /* Allow horizontal scrolling for overflow */
 }
@@ -228,6 +236,17 @@ h1{
     padding: 0; /* Reset padding */
 }
 
+.small {
+    font-size: 0.75rem;
+}
+.small p {
+    margin: 0;
+}
+.center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
 /* TODO: Mudar a estilização das tabelas geradas pelo markdown */
 /* TODO: Centralizar as tabelas geradas pelo markdown */
-/* FIX: Consertar o syntax highlight dos code blocks */
