@@ -3,6 +3,17 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+@keyframes slip-fade{
+    0%{opacity:0;top:20px;}
+    100%{opacity:1;top:0px;}
+}
+
+main{
+    position: relative;
+    animation: slip-fade 0.75s;
+}
+
 a{
     text-decoration:none;
 }
@@ -188,11 +199,10 @@ h1{
 
 /* Style for block code elements */
 .layoutGit pre, .oldschool pre {
-    color: #00e300; /* Text color of the code block */
     background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
     padding: 0.5rem 0.7rem; /* Padding inside the code block */
-    border: 1px dashed #444; /* Border style of the code block */
+    border: 2px dashed #666; /* Border style of the code block */
     font-size: 12pt; /* Adjust font size */
     overflow-x: auto; /* Allow horizontal scrolling for overflow */
 }
