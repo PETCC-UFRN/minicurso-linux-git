@@ -160,17 +160,95 @@ $ htop
 No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
 
 ```bash
-$ ls -R / > teste
+$ ping google.com
 ```
-o sistema criará o arquivo teste com o conteúdo de todos os diretórios e arquivos do sistema. Durante a execução do comando acima, nenhum outro comando poderá ser digitado pelo usuário no mesmo terminal. Isto significa que o comando está sendo executado em primeiro plano, impedindo assim a execução de outras atividades no mesmo terminal.
+Quando você executa o comando ping em primeiro plano (sem o & no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você não poderá usar o terminal para outros comandos até que o ping termine ou seja interrompido.
 
-Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o arquivo teste é criado. Basta que você digite:
+Seu terminal ficará assim:
 
 ```bash
-ls -R / > teste &
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.032 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.030 ms
+```
+Para interromper o ping em primeiro plano, use Ctrl + C. Isso envia um sinal de interrupção (SIGINT) para o processo ping, fazendo com que ele termine a execução e exiba um resumo das estatísticas:
+
+```shell
+^C
+--- 127.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
+```
+
+Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o o processo gerado pelo comando fica em segundoplano. Basta que você digite:
+
+```bash
+$ ping google.com &
 ```
 O símbolo & indica que o comando deve ser executado em background, ou seja, em segundo plano.
 
+Você verá uma mensagem que indica o número do trabalho ([1]) e o PID do processo (1234):
+
+##### Ver lista de processos em segundo Plano
+
+Para poder ver quais processos em segundo plano é só digitar 
+
+```shell
+$ jobs
+```
+
+Irá aparecer algo como:
+
+```bash
+$ [1]+  Running          ping 127.0.0.1 &
+```
+
+Note que se você fizer CTRL + C  o processo não será interrompido, pois ele não está em primeiro plano(foreground).
+
+##### Trazer para foreground
+
+Vamos supor que você pretende trazer o processo para primeiro plano. Para isso utilize o seguinte comando :
+
+```bash
+$ fg %1
+```
+
+Agora você pode matálo diretamente utilizando o CTRL + c , que manda o sinal SIGINT, que faz com que ele termine a execução e exiba um resumo das estatísticas :
+
+```bash
+^C
+--- 127.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
+```
+
+##### Retomando processos suspensos em background
+
+Vamos agora digitar o seguinte comando:
+```bash
+$ ping 127.0.0.1
+```
+
+Agora vamos pressionar  `CTRL + Z` para suspender o comando bing. Esse comando pausa o processo e o colocar em segundo plano em estado de pausa(suspenso).
+
+```bash
+^Z
+[1]+  Stopped                 ping 127.0.0.1
+```
+Para retomar o Processo em segundo plano é necessário utilizar o comando bg da seguinte forma.
+
+```bash
+$ bg %1
+```
+
+agora vamos digitar o comando jobs para ver o estado dos processos em background.
+
+
+```bash
+$ jobs
+ [1]+  Running                 ping 127.0.0.1 &
+```
 #### Uso do nohup
 
 Mesmo com um processo em segundo plano, ele pode ser interrompido por vários motivos. Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumido! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando nohup pretende corrigir.
@@ -195,7 +273,6 @@ Para iniciar um processo usando o Nohup, basta preceder o comando desejado com .
 ```bash
 $ nohup sleep 60 &
 ```
-
 Com o comando acima, o sistema executa um comando "sleep", que normalmente bloqueia todas as entradas, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
 ```bash
 $ nohup sleep 60 &
@@ -213,7 +290,15 @@ Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certe
 
 O comando "wait" é uma ferramenta poderosa no  Linux que permite que os scripts aguardem a conclusão de outros processos antes de continuar a execução.
 
-<div style="background:yellow; color: red;"> Faltando completar wait e compactação de arquivos </div>
+Por exemplo:
+ ```shell
+ $ nohup sleep 30 &
+ [1] 5010
+$ wait 5010
+ ```
+ 
+ Depois de digitar o comando  ` wait <PID>`, o terminal irá esperar o proceso ser finalizado.
+
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
