@@ -11,34 +11,33 @@ title: Minicurso de Linux e Git
 
 ## Básico sobre processos
 
-### O que é um processo
+### O que é um processo?
 
 Um processo é um programa em execução.
 
-O sistema operaçional lida com uma infinidade de processos e cada processo possui as seguintes características:
+O sistema operaçional lida com uma infinidade de processos, que possuem as seguintes características:
 
 - Proprietário do processo;
 - Estado do processo (em espera, em execução, etc);
 - Prioridade de execução;
 - Recursos de memória.
 
-Os processos são identificados pelos seus identificadores de 
-processos, números inteiros (PID), que é utilizado para controlá-los. 
+Cada processo possui um número identificador, chamado de PID (Process Identifier), que é utilizado para controlá-lo.
 
 #### Estados dos processos
 - Executável: o processo pode ser executado imediatamente;
-- Dormente: o processo precisa aguardar alguma coisa para ser executado. Só depois dessa "coisa" acontecer é que ele passa para o estado executável;
+- Dormente: o processo precisa aguardar algo para ser executado. Só depois desse "algo" acontecer é que ele passa para o estado executável;
 - Zumbi: o processo é considerado "morto", mas, por alguma razão, ainda existe;
 - Parado: o processo está "congelado", ou seja, não pode ser executado.
 
 
 ### Interrompendo e listando processos
 
-#### Visualizando processos estáticamente com `ps`
+#### Visualizando processos estaticamente com `ps`
 
 O comando `ps` mostra quais os processos em execução atualmente, mostrando quais os UIDs e PIDs de cada processo.
 
-Executando o ps sem nenhuma opção é apresentado os processos em execução no terminal.
+Ao executar o `ps` sem nenhuma opção, serão apresentados os processos em execução no terminal.
 
 ```bash
 $ ps
@@ -46,7 +45,7 @@ $ ps
  1234 pts/0    00:00:02 bash
  9101 pts/0    00:00:00 ps
 ```
-As opções mais importantes são os seguintes de `ps` são as seguintes:
+As opções mais importantes para o comando `ps` são:
 
 - a - mostra os processos existentes de todos os usuários;
 - f - exibe a árvore de execução dos processos;
@@ -56,22 +55,23 @@ As opções mais importantes são os seguintes de `ps` são as seguintes:
 - x - exibe os processos que não foram iniciados no console do terminal;´
 
 ##### O uso do `ps` com o `grep`
-O ps é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com
-o grep, só que somos limitados a filtrar um processo por vez, por exemplo para ver os
-processos systemd e sshd (serviço SSH):
+O `ps` é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
+Por exemplo, para ver os processos systemd e sshd (serviço SSH):
 
 ```shell
 $ ps aux | grep systemd  
 ```
-Primeiramente, ps aux mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
-##### Uso do kill
+Primeiro, o  comando `ps aux` mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
-O comando kill no Linux é usado para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos kill para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
+##### Uso do `kill`
+
+O comando `kill` é usado no Linux para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
 
 **Como ver os possíveis sinais?**
 
 Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para interromper, encerrar ou pausar processos. O comando pode ser usado como mostrado abaixo:
+
 ```shell
     $ kill -l
 ```
@@ -79,7 +79,7 @@ Este comando irá mostrar uma página do manual com diferentes sinais do comando
 
 **Significados dos principais sinais**
 
-SIGHUP (1): Costuma ser utilizado para reiniciar processos(o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
+SIGHUP (1): Costuma ser utilizado para reiniciar processos (o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
 
 SIGINT (2): Interrompe ou para um processo, geralmente gerado pelo usuário pressionando Ctrl+C no terminal.
 
@@ -93,7 +93,7 @@ SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
 
 **Como realmente matar processos?**
 
-Por padrão é enviado o sinal SIGTERM que requisita a finalização do processo, por isso o nome kill (matar). Em geral é usado desta forma:
+Por padrão, é enviado o sinal SIGTERM, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
 
 ```shell
 $ kill PID
@@ -106,7 +106,7 @@ Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Pr
 
 ##### Uso do killall
 
-O Comando killall no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
+O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
 
 **Sintaxe básica**
 
@@ -144,7 +144,6 @@ O comando HTOP é um utilitário de linha de comando que tem como objetivo auxil
 ```shell
 $ sudo apt install htop
 ```
-
 
 **Iniciar a ferramenta**
 
@@ -251,11 +250,13 @@ $ jobs
 ```
 #### Uso do nohup
 
-Mesmo com um processo em segundo plano, ele pode ser interrompido por vários motivos. Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumido! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando nohup pretende corrigir.
+Mesmo que um processo esteja em segundo plano, ele pode ser interrompido por vários motivos.
+
+Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumiu! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando `nohup` pretende corrigir.
 
 Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
 
-Nohup, abreviação de no hang up é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
 **Sintaxe do comando Nohup**
 A sintaxe para usar o comando Nohup é direta:
@@ -264,7 +265,7 @@ $ nohup command [options] &
 ```
 'command': especifica o comando ou script que você deseja executar.
 '[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
-`&`: Colocar um e comercial (&) no final do comando instrui o shell a executar o comando em segundo plano.
+`&`: Colocar este símbolo ao final de um comando instrui o shell a executar esse comando em segundo plano.
 
 **Iniciando um processo usando o Nohup**
 
@@ -280,7 +281,7 @@ $ nohup sleep 60 &
 $ nohup : ignoring input and appending output to 'nohup.out'
 ```
 
-**Deixando de fora o caractere "&"** 
+**Deixando de fora o caractere '&'** 
 
 Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
 
@@ -376,7 +377,9 @@ Os objetivos principais para o novo sistema incluíam:
 
 ### De onde vem o nome "Git"?
 
-O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor. Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
+O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor.
+
+Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
 ### Git como um Versionador
 
@@ -425,7 +428,7 @@ Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a me
 
 - **GitHub**
     - Hospedagem de Repositórios
-    - Se utiliza do git para fazer o controle de versão dos respositórios hospedados
+    - Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
     - Comunidade ativa
     - Vários outros serviços
     - Um dos maiores repositórios de projetos open source do mundo
@@ -458,11 +461,11 @@ O Git é um sistema de controle de versão distribuído que gerencia informaçõ
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
-*modified
+***modified***
 
-*staged
+***staged***
 
-*commited
+***commited***
 
 ### Comandos e Práticas do Git
 
