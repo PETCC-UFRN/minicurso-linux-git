@@ -21,14 +21,14 @@ Vamos recapitular os conceitos essenciais:
 
 **Workflow Básico do Git:**
   Modificação de arquivos na árvore de trabalho.
-  Utilização da staging area para preparar alterações.
+  Utilização da *staging area* para preparar alterações.
   Realização de commits para salvar alterações no histórico.
   Uso do `git log` para visualizar o histórico de commits.
 
   <img src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
 
 
-## Workflow um Pouco Mais Avançado (20min)
+## Workflow um Pouco Mais Avançado
 
 Nesta parte, vamos explorar conceitos avançados do Git:
 
@@ -45,12 +45,12 @@ Nesta parte, vamos explorar conceitos avançados do Git:
 
 ## Git branching
 
-Branches são ramificações para criar ramos de desenvolvimento, tipo versões. Nessas ramificações podemos criar diferentes recursos que depois serão mesclados.
+Branches são ramificações para criar ramos de desenvolvimento, podemos pensar nelas como versões do sistema. Nessas ramificações podemos criar diferentes recursos que depois serão mesclados.
 
 <img style=" display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJ82XGzBC.png" width="70%">
 
 Conforme ilustrado na imagem fornecida, os pontos azuis representam uma branch criada especificamente para desenvolver a funcionalidade de chat de um app como o facebook. Esta branch está separada do projeto principal, permitindo que os desenvolvedores trabalhem no novo recurso sem interferir na base de código principal.
-Isso nos permite evitar de causar problemas no ramo principal, em quanto estamos desenvolvendo novas funcionalidades.
+Isso nos permite evitar problemas no ramo principal, em quanto estamos desenvolvendo novas funcionalidades.
  
 ### As vantagens do uso de branchs:
 
@@ -68,7 +68,7 @@ Isso nos permite evitar de causar problemas no ramo principal, em quanto estamos
 
 **Eliminar Branches Obsoletas**: Depois de mesclar ou resolver um problema específico, eliminar branches que não são mais necessárias mantém o repositório limpo e organizado.
 
-## Comando para criar uma nova branch
+## Criando uma nova branch
 ```sh   
     $ git branch primeirodia
 ```
