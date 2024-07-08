@@ -11,6 +11,148 @@ title: Minicurso de Linux e Git
 
 ## Básico sobre processos
 
+### O que é um processo
+
+Um processo é um programa em execução.
+
+O sistema operaçional lida com uma infinidade de processos e cada processo possui as seguintes características:
+
+- Proprietário do processo;
+- Estado do processo (em espera, em execução, etc);
+- Prioridade de execução;
+- Recursos de memória.
+
+Os processos são identificados pelos seus identificadores de 
+processos, números inteiros (PID), que é utilizado para controlá-los. 
+
+#### Estados dos processos
+- Executável: o processo pode ser executado imediatamente;
+- Dormente: o processo precisa aguardar alguma coisa para ser executado. Só depois dessa "coisa" acontecer é que ele passa para o estado executável;
+- Zumbi: o processo é considerado "morto", mas, por alguma razão, ainda existe;
+- Parado: o processo está "congelado", ou seja, não pode ser executado.
+
+
+### Interrompendo e listando processos
+
+#### Visualizando processos estáticamente com `ps`
+
+O comando `ps` mostra quais os processos em execução atualmente, mostrando quais os UIDs e PIDs de cada processo.
+
+Executando o ps sem nenhuma opção é apresentado os processos em execução no terminal.
+
+```bash
+$ ps
+ PID TTY           TIME CMD
+ 1234 pts/0    00:00:02 bash
+ 9101 pts/0    00:00:00 ps
+```
+As opções mais importantes são os seguintes de `ps` são as seguintes:
+
+- a - mostra os processos existentes de todos os usuários;
+- f - exibe a árvore de execução dos processos;
+- l - exibe mais campos no resultado;
+- m - mostra a quantidade de memória ocupada por cada processo;
+- u - exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
+- x - exibe os processos que não foram iniciados no console do terminal;´
+
+##### O uso do `ps` com o `grep`
+O ps é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com
+o grep, só que somos limitados a filtrar um processo por vez, por exemplo para ver os
+processos systemd e sshd (serviço SSH):
+
+```shell
+$ ps aux | grep systemd  
+```
+Primeiramente, ps aux mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
+
+##### Uso do kill
+
+O comando kill no Linux é usado para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos kill para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
+
+**Como ver os possíveis sinais?**
+
+Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para interromper, encerrar ou pausar processos. O comando pode ser usado como mostrado abaixo:
+```shell
+    $ kill -l
+```
+Este comando irá mostrar uma página do manual com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
+
+**Significados dos principais sinais**
+
+SIGHUP (1): Costuma ser utilizado para reiniciar processos(o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
+
+SIGINT (2): Interrompe ou para um processo, geralmente gerado pelo usuário pressionando Ctrl+C no terminal.
+
+SIGKILL (9): Força a parada imediata de um processo, não pode ser capturado ou ignorado pelo processo.
+
+SIGTERM (15): Solicita a terminação "elegante"" do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
+
+SIGTSTP (20): Solicita ao terminal a interrupção temporária do processo(parar/pausar), geralmente gerado pelo usuário pressionando Ctrl+Z.
+
+SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
+
+**Como realmente matar processos?**
+
+Por padrão é enviado o sinal SIGTERM que requisita a finalização do processo, por isso o nome kill (matar). Em geral é usado desta forma:
+
+```shell
+$ kill PID
+```
+Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Process ID) do processo que deseja terminar.
+
+```shell
+    $ kill -8 <PID>
+```
+
+##### Uso do killall
+
+O Comando killall no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
+
+**Sintaxe básica**
+
+```shell
+$ killall [opções] nome_do_processo
+```
+
+Você pode enviar um sinal específico para os processos de mesmo nome como:
+
+```shell
+$ killall -9 firefox
+```
+
+**Verificando antes de Encerrar**
+
+Para verificar quais processos seriam encerrados sem realmente matá-los, use a opção -i para interação
+
+```shell
+$ killall -i firefox
+```
+
+**Encerrando Processos de um Usuário Específico**
+
+Para encerrar processos de um usuário específico, use a opção -u:
+```shell
+$ killall -u usuario firefox
+```
+
+#### Uso e visualização processos dinâmicamente com htop
+
+O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em tempo real os recursos de seu sistema operacional Linux.
+
+**Instalar htop no Ubuntu**
+
+```shell
+$ sudo apt install htop
+```
+
+
+**Iniciar a ferramenta**
+
+```shell
+$ htop
+```
+<img style="display: block;margin: 0 auto;" src="https://blog.ironlinux.com.br/images/blog-posts/uploads/2022/05/htop1.png" width="100%">
+
 ### Rodando processos em background
 
 #### Uso do & comercial no shell.
@@ -18,7 +160,7 @@ title: Minicurso de Linux e Git
 No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
 
 ```bash
-ls -R / > teste
+$ ls -R / > teste
 ```
 o sistema criará o arquivo teste com o conteúdo de todos os diretórios e arquivos do sistema. Durante a execução do comando acima, nenhum outro comando poderá ser digitado pelo usuário no mesmo terminal. Isto significa que o comando está sendo executado em primeiro plano, impedindo assim a execução de outras atividades no mesmo terminal.
 
