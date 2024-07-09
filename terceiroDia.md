@@ -7,7 +7,7 @@ title: Minicurso de Linux e Git
 [comment]: <> (Sendo assim, basta escrever em markdown mesmo que vai ser tudo estilizado pelos layouts)
 
 
-# 3ᵒ Dia 
+# Processos, compactação e introdução ao GIT
 
 ## Básico sobre processos
 
@@ -64,11 +64,11 @@ $ ps aux | grep systemd
 
 Primeiro, o  comando `ps aux` mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
-##### Uso do `kill`
+#### Uso do `kill`
 
 O comando `kill` é usado no Linux para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
 
-**Como ver os possíveis sinais?**
+##### Como ver os possíveis sinais?
 
 Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para interromper, encerrar ou pausar processos. O comando pode ser usado como mostrado abaixo:
 
@@ -77,7 +77,7 @@ Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para in
 ```
 Este comando irá mostrar uma página do manual com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
 
-**Significados dos principais sinais**
+##### Significados dos principais sinais
 
 SIGHUP (1): Costuma ser utilizado para reiniciar processos (o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
 
@@ -91,7 +91,7 @@ SIGTSTP (20): Solicita ao terminal a interrupção temporária do processo(parar
 
 SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
 
-**Como realmente matar processos?**
+##### Como realmente matar processos?
 
 Por padrão, é enviado o sinal SIGTERM, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
 
@@ -104,11 +104,11 @@ Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Pr
     $ kill -8 <PID>
 ```
 
-##### Uso do killall
+#### Uso do killall
 
 O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
 
-**Sintaxe básica**
+##### Sintaxe básica
 
 ```shell
 $ killall [opções] nome_do_processo
@@ -120,7 +120,7 @@ Você pode enviar um sinal específico para os processos de mesmo nome como:
 $ killall -9 firefox
 ```
 
-**Verificando antes de Encerrar**
+##### Verificando antes de Encerrar
 
 Para verificar quais processos seriam encerrados sem realmente matá-los, use a opção -i para interação
 
@@ -128,7 +128,7 @@ Para verificar quais processos seriam encerrados sem realmente matá-los, use a 
 $ killall -i firefox
 ```
 
-**Encerrando Processos de um Usuário Específico**
+##### Encerrando Processos de um Usuário Específico
 
 Para encerrar processos de um usuário específico, use a opção -u:
 ```shell
@@ -139,7 +139,7 @@ $ killall -u usuario firefox
 
 O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em tempo real os recursos de seu sistema operacional Linux.
 
-**Instalar htop no Ubuntu**
+##### Instalar htop no Ubuntu
 
 ```shell
 $ sudo apt install htop
@@ -258,7 +258,7 @@ Há outras maneiras, é claro, para um processo ser encerrado, mas o comando noh
 
 Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
-**Sintaxe do comando Nohup**
+##### Sintaxe do comando Nohup
 A sintaxe para usar o comando Nohup é direta:
 ```bash
 $ nohup command [options] &
@@ -267,7 +267,7 @@ $ nohup command [options] &
 '[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
 `&`: Colocar este símbolo ao final de um comando instrui o shell a executar esse comando em segundo plano.
 
-**Iniciando um processo usando o Nohup**
+##### Iniciando um processo usando o Nohup
 
 Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:
 
@@ -281,7 +281,7 @@ $ nohup sleep 60 &
 $ nohup : ignoring input and appending output to 'nohup.out'
 ```
 
-**Deixando de fora o caractere '&'** 
+##### Deixando de fora o caractere '&'
 
 Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
 
@@ -300,6 +300,113 @@ $ wait 5010
  
  Depois de digitar o comando  ` wait <PID>`, o terminal irá esperar o proceso ser finalizado.
 
+## Uso de programas de compatação para compartilhar e receber arquivos
+### Compactando 
+#### Compactando diretórios com zip
+
+Compactar arquivos significa juntar todos em um único arquivo de modo que ocupem um espaço menor.
+
+Provavelmente você já viu algum arquivo com a extensão .zip. No Linux, para compactar arquivos no formato .zip é utilizado o comando `zip`.
+
+Vamos supor que temos a pasta chamada "projetos" e dentro dela tenha dois subdiretórios chamados "ITP" e "PC", com todos os programas que você fez durante as disciplinas. O seguinte problema surgiu : você gostaria de mandar pelo whats up para um colega recém chegado no curso, porém o Whats UP não permite mandar devido ao tamanho dos arquivos e, por isso, você descidiu compactar os projetos.
+
+Para isso fez o seguinte comando :
+```shell
+    $ zip projetos.zip projetos/
+```
+depois executou o seguinte comando para poder visualizar se todos os diretórios foram armazenados no arquivo compactado "projetos.zip" :
+```shell
+    $ unzip -l projetos.zip 
+```
+e viu o senguinte:
+
+```shell
+  $ Archive:  projetos.zip
+    Length      Date    Time    Name
+    ---------  ---------- -----   ----
+            0  2023-07-09 12:00   projetos/
+    ---------                     -------
+            0                     1 file
+```
+Note que ocorreu um problema, pois os subdiretórios não foram inseridos na compactação e isso ocorre, porque por padrão o comando `zip` não inclui os arquivos e subdiretórios de um diretório, por isso nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver isso é fácil: basta passar o argumento -r (recursive).
+
+O -r vai fazer com que o comando zip processe recursivamente todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que tudo seja incluído no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
+
+```shell
+    $ zip -r projetos.zip projetos/
+```
+
+Agora vamos ver se tudo foi compactado
+```shell
+    $ unzip -l projetos.zip 
+    Archive:  projetos.zip
+    Length      Date    Time    Name
+    ---------  ---------- -----   ----
+            0  2023-07-09 12:00   projetos/
+            0  2023-07-09 12:00   projetos/ITP/
+        2048  2023-07-09 12:00   projetos/ITP/programa1.c
+        1024  2023-07-09 12:00   projetos/ITP/programa2.c
+            0  2023-07-09 12:00   projetos/PC/
+        5120  2023-07-09 12:00   projetos/PC/programa1.py
+    ---------                     -------
+        8192                     6 files
+```
+
+#### Compactando arquivos e diretórios com tar e gzip
+
+Outra forma de compactar arquivo é utilizando tar e gzip. Quando nos deparamos com arquivos do tipo "arquivo.tar.gz, siguinifica que ocorreram dois processos. 
+- Primeiramente ocorreu o empacotamento dos arquivos no formato `.tar ` e depois foi feita a compactação dos arquivo no formato `gzip`.
+
+##### Qual a vantagem do tar?
+
+A vantagem é que o tar consegue manter as permissões dos arquivos, bem como links diretos e simbólicos, sendo interessante por exemplo para realizar backups.
+
+Utilizamos o comando tar para realizar as compactações. A compactação do diretório "projetos/" ficaria da seguinte forma:
+
+```shell
+$ tar -czf projetos.tar.gz projetos/
+```
+
+- -c - create: indica que desejamos criar um arquivo
+
+- -z - gzip: indica que queremos compactar com gzip
+
+-  -f - file: especifica o nome do arquivo compactado
+
+
+Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma recursiva por padrão.
+
+### Descompactando 
+#### Descompactando diretórios com unzip
+
+Vamos supor que seu colega, que recebeu o arquivo projetos.zip, deseja descompactar os arquivos. Para isso, ele erá executar os seguintes passos :
+
+```shell
+$ unzip projetos.zip
+```
+Isso irá extrair todos os arquivos e diretórios contidos no arquivo "projetos.zip" para o diretório atual. Se desejar extrair para um diretório específico, você pode usar a opção `-d`:
+
+```shell
+$ unzip projetos.zip -d /home/ubuntu/Music
+```
+
+Se você não quiser que apareça o progresso e sua tela fique cheia de informações, pode utilizar o -q, que significa quiet, para que ele apenas descompacte e não mostre cada coisa que fez:
+
+```shell
+$ unzip -q projetos.zip -d /home/ubuntu/Music
+```
+
+#### Descompactando arquivos e diretórios com tar e gunzip
+
+Para descompactar um arquivo tarball comprimido com gzip, utilizamos o comando tar novamente, desta vez com a opção -x para extrair o conteúdo. Vamos supor que você recebeu o arquivo "projetos.tar.gz" e deseja extrair seu conteúdo:
+
+```shell
+$ tar -xzf projetos.tar.gz
+```
+
+- -x - extract: extrai o conteúdo do arquivo tar
+- -z - gzip: descomprime o arquivo usando gzip
+- -f - file: especifica o nome do arquivo tar
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
@@ -328,11 +435,11 @@ Desvantagens incluem a necessidade de estar sempre conectado ao servidor e a par
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
-**Vantagens dos Sistemas Centralizados**
+- **Vantagens dos Sistemas Centralizados**
 
-Simples de utilizar, ideal para equipes pequenas.
+    - Simples de utilizar, ideal para equipes pequenas.
 
-Utilizados por plataformas como a Wikipédia.
+    - Utilizados por plataformas como a Wikipédia.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
 
@@ -421,12 +528,12 @@ Existem várias plataformas de hospedagem remota que suportam Git, cada uma com 
 #### Git e Github : diferenças.
 Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a mesma coisa. Aqui estão as principais diferenças:
 
-- **Git**
+##### Git
     - Git é um sistema de controle de versão distribuído.
     - Ferramenta de linha de comando utilizada para gerenciar o histórico de versões de arquivos.
     - Funciona localmente, independentemente de uma plataforma de hospedagem remota.
 
-- **GitHub**
+##### GitHub
     - Hospedagem de Repositórios
     - Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
     - Comunidade ativa
@@ -468,9 +575,7 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 ***commited***
 
 ### Comandos e Práticas do Git
-
-#### Lidando com o git
-##### Inicializando o git no repositório `git init`.
+#### Inicializando o git no repositório `git init`.
 
 ```sh
     $ cd OneDrive/Documentos/projeto
@@ -484,7 +589,7 @@ Agora, temos um subdiretório chamado .git que contém todos os arquivos necess�
     $ git init
     Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
 ```
-**Gravando alterações em seu repositório**
+#### Gravando alterações em seu repositório
 
 Cada arquivo em seu repsitório pode estar em um dos seguintes estados: rastreado e não-rastreado. Arquivos rastreados são arquivos que foram incluídos no último snapshot; eles podem ser não modificados, modificados ou preparados (adicionados ao stage). Em resumo, arquivos rastreados são os arquivos que o Git conhece.
 
@@ -494,7 +599,7 @@ Assim que você edita alguns arquivos, Git os considera modificados, porque voc�
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
-##### Verificando o status dos arquivos `git status`.
+#### Verificando o status dos arquivos `git status`.
     
 A principal ferramenta que você vai usar para determinar quais arquivos estão em qual estado é o comando git status.
 
@@ -523,7 +628,7 @@ Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo ch
 Nós queremos incluir esse arquivo 'chat', então vamos rastreá-lo.
 
 
-##### Rastreando arquivos novos 
+#### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
 ```sh
     $ git add chat
@@ -576,7 +681,7 @@ Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao pró
         modified:   feed
 ```        
 
-##### Fazendo o **commit** do que foi feito `git commit`.
+#### Fazendo o **commit** do que foi feito `git commit`.
 Agora que a área de stage está preparada, podemos fazer commit nas alterações.
 
 O jeito mais simples de fazer commit é digitar o seguinte comando:
@@ -590,7 +695,7 @@ Alternativamente, podemos fazer:
     $ git commit -m "mensagem"
 ```
 Lembre-se de que o commit grava o snapshot que você deixou na área de stage. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
-##### Como ver todos os commit feitos com `git log`
+#### Como ver todos os commit feitos com `git log`
 
 É um comando feito para exibir os históricos de commits do projeto.
 
@@ -609,7 +714,7 @@ Aparece nome, hora, data e a mensagem relacionada a cada commit.
 
         adicionando a funcionalidade chat
 ```
-**Uma flag eficiente**
+##### Uma flag eficiente
 ```sh 
     $git log --oneline
 ```
@@ -620,7 +725,7 @@ Aparece nome, hora, data e a mensagem relacionada a cada commit.
     b75f610 adicionando a funcionalidade chat
     c1b4d83 Commit inicial com arquivos de configuração do projeto   
 ```
-##### Subindo alterações para o repositório remoto `git push`
+#### Subindo alterações para o repositório remoto `git push`
 Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos fazer:
 ```sh
     $ git push 
