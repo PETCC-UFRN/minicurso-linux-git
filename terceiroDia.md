@@ -11,6 +11,147 @@ title: Minicurso de Linux e Git
 
 ## Básico sobre processos
 
+### O que é um processo?
+
+Um processo é um programa em execução.
+
+O sistema operaçional lida com uma infinidade de processos, que possuem as seguintes características:
+
+- Proprietário do processo;
+- Estado do processo (em espera, em execução, etc);
+- Prioridade de execução;
+- Recursos de memória.
+
+Cada processo possui um número identificador, chamado de PID (Process Identifier), que é utilizado para controlá-lo.
+
+#### Estados dos processos
+- Executável: o processo pode ser executado imediatamente;
+- Dormente: o processo precisa aguardar algo para ser executado. Só depois desse "algo" acontecer é que ele passa para o estado executável;
+- Zumbi: o processo é considerado "morto", mas, por alguma razão, ainda existe;
+- Parado: o processo está "congelado", ou seja, não pode ser executado.
+
+
+### Interrompendo e listando processos
+
+#### Visualizando processos estaticamente com `ps`
+
+O comando `ps` mostra quais os processos em execução atualmente, mostrando quais os UIDs e PIDs de cada processo.
+
+Ao executar o `ps` sem nenhuma opção, serão apresentados os processos em execução no terminal.
+
+```bash
+$ ps
+ PID TTY           TIME CMD
+ 1234 pts/0    00:00:02 bash
+ 9101 pts/0    00:00:00 ps
+```
+As opções mais importantes para o comando `ps` são:
+
+- a - mostra os processos existentes de todos os usuários;
+- f - exibe a árvore de execução dos processos;
+- l - exibe mais campos no resultado;
+- m - mostra a quantidade de memória ocupada por cada processo;
+- u - exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
+- x - exibe os processos que não foram iniciados no console do terminal;´
+
+##### O uso do `ps` com o `grep`
+O `ps` é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
+Por exemplo, para ver os processos systemd e sshd (serviço SSH):
+
+```shell
+$ ps aux | grep systemd  
+```
+
+Primeiro, o  comando `ps aux` mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
+
+##### Uso do `kill`
+
+O comando `kill` é usado no Linux para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
+
+**Como ver os possíveis sinais?**
+
+Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para interromper, encerrar ou pausar processos. O comando pode ser usado como mostrado abaixo:
+
+```shell
+    $ kill -l
+```
+Este comando irá mostrar uma página do manual com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
+
+**Significados dos principais sinais**
+
+SIGHUP (1): Costuma ser utilizado para reiniciar processos (o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
+
+SIGINT (2): Interrompe ou para um processo, geralmente gerado pelo usuário pressionando Ctrl+C no terminal.
+
+SIGKILL (9): Força a parada imediata de um processo, não pode ser capturado ou ignorado pelo processo.
+
+SIGTERM (15): Solicita a terminação "elegante"" do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
+
+SIGTSTP (20): Solicita ao terminal a interrupção temporária do processo(parar/pausar), geralmente gerado pelo usuário pressionando Ctrl+Z.
+
+SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
+
+**Como realmente matar processos?**
+
+Por padrão, é enviado o sinal SIGTERM, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
+
+```shell
+$ kill PID
+```
+Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Process ID) do processo que deseja terminar.
+
+```shell
+    $ kill -8 <PID>
+```
+
+##### Uso do killall
+
+O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
+
+**Sintaxe básica**
+
+```shell
+$ killall [opções] nome_do_processo
+```
+
+Você pode enviar um sinal específico para os processos de mesmo nome como:
+
+```shell
+$ killall -9 firefox
+```
+
+**Verificando antes de Encerrar**
+
+Para verificar quais processos seriam encerrados sem realmente matá-los, use a opção -i para interação
+
+```shell
+$ killall -i firefox
+```
+
+**Encerrando Processos de um Usuário Específico**
+
+Para encerrar processos de um usuário específico, use a opção -u:
+```shell
+$ killall -u usuario firefox
+```
+
+#### Uso e visualização processos dinâmicamente com htop
+
+O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em tempo real os recursos de seu sistema operacional Linux.
+
+**Instalar htop no Ubuntu**
+
+```shell
+$ sudo apt install htop
+```
+
+**Iniciar a ferramenta**
+
+```shell
+$ htop
+```
+<img style="display: block;margin: 0 auto;" src="https://blog.ironlinux.com.br/images/blog-posts/uploads/2022/05/htop1.png" width="100%">
+
 ### Rodando processos em background
 
 #### Uso do & comercial no shell.
@@ -18,24 +159,104 @@ title: Minicurso de Linux e Git
 No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
 
 ```bash
-ls -R / > teste
+$ ping google.com
 ```
-o sistema criará o arquivo teste com o conteúdo de todos os diretórios e arquivos do sistema. Durante a execução do comando acima, nenhum outro comando poderá ser digitado pelo usuário no mesmo terminal. Isto significa que o comando está sendo executado em primeiro plano, impedindo assim a execução de outras atividades no mesmo terminal.
+Quando você executa o comando ping em primeiro plano (sem o & no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você não poderá usar o terminal para outros comandos até que o ping termine ou seja interrompido.
 
-Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o arquivo teste é criado. Basta que você digite:
+Seu terminal ficará assim:
 
 ```bash
-ls -R / > teste &
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.045 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.032 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.030 ms
+```
+Para interromper o ping em primeiro plano, use Ctrl + C. Isso envia um sinal de interrupção (SIGINT) para o processo ping, fazendo com que ele termine a execução e exiba um resumo das estatísticas:
+
+```shell
+^C
+--- 127.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
+```
+
+Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o o processo gerado pelo comando fica em segundoplano. Basta que você digite:
+
+```bash
+$ ping google.com &
 ```
 O símbolo & indica que o comando deve ser executado em background, ou seja, em segundo plano.
 
+Você verá uma mensagem que indica o número do trabalho ([1]) e o PID do processo (1234):
+
+##### Ver lista de processos em segundo Plano
+
+Para poder ver quais processos em segundo plano é só digitar 
+
+```shell
+$ jobs
+```
+
+Irá aparecer algo como:
+
+```bash
+$ [1]+  Running          ping 127.0.0.1 &
+```
+
+Note que se você fizer CTRL + C  o processo não será interrompido, pois ele não está em primeiro plano(foreground).
+
+##### Trazer para foreground
+
+Vamos supor que você pretende trazer o processo para primeiro plano. Para isso utilize o seguinte comando :
+
+```bash
+$ fg %1
+```
+
+Agora você pode matálo diretamente utilizando o CTRL + c , que manda o sinal SIGINT, que faz com que ele termine a execução e exiba um resumo das estatísticas :
+
+```bash
+^C
+--- 127.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
+```
+
+##### Retomando processos suspensos em background
+
+Vamos agora digitar o seguinte comando:
+```bash
+$ ping 127.0.0.1
+```
+
+Agora vamos pressionar  `CTRL + Z` para suspender o comando bing. Esse comando pausa o processo e o colocar em segundo plano em estado de pausa(suspenso).
+
+```bash
+^Z
+[1]+  Stopped                 ping 127.0.0.1
+```
+Para retomar o Processo em segundo plano é necessário utilizar o comando bg da seguinte forma.
+
+```bash
+$ bg %1
+```
+
+agora vamos digitar o comando jobs para ver o estado dos processos em background.
+
+
+```bash
+$ jobs
+ [1]+  Running                 ping 127.0.0.1 &
+```
 #### Uso do nohup
 
-Mesmo com um processo em segundo plano, ele pode ser interrompido por vários motivos. Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumido! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando nohup pretende corrigir.
+Mesmo que um processo esteja em segundo plano, ele pode ser interrompido por vários motivos.
+
+Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumiu! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando `nohup` pretende corrigir.
 
 Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
 
-Nohup, abreviação de no hang up é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
 **Sintaxe do comando Nohup**
 A sintaxe para usar o comando Nohup é direta:
@@ -44,7 +265,7 @@ $ nohup command [options] &
 ```
 'command': especifica o comando ou script que você deseja executar.
 '[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
-`&`: Colocar um e comercial (&) no final do comando instrui o shell a executar o comando em segundo plano.
+`&`: Colocar este símbolo ao final de um comando instrui o shell a executar esse comando em segundo plano.
 
 **Iniciando um processo usando o Nohup**
 
@@ -53,7 +274,6 @@ Para iniciar um processo usando o Nohup, basta preceder o comando desejado com .
 ```bash
 $ nohup sleep 60 &
 ```
-
 Com o comando acima, o sistema executa um comando "sleep", que normalmente bloqueia todas as entradas, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
 ```bash
 $ nohup sleep 60 &
@@ -61,7 +281,7 @@ $ nohup sleep 60 &
 $ nohup : ignoring input and appending output to 'nohup.out'
 ```
 
-**Deixando de fora o caractere "&"** 
+**Deixando de fora o caractere '&'** 
 
 Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
 
@@ -71,7 +291,15 @@ Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certe
 
 O comando "wait" é uma ferramenta poderosa no  Linux que permite que os scripts aguardem a conclusão de outros processos antes de continuar a execução.
 
-<div style="background:yellow; color: red;"> Faltando completar wait e compactação de arquivos </div>
+Por exemplo:
+ ```shell
+ $ nohup sleep 30 &
+ [1] 5010
+$ wait 5010
+ ```
+ 
+ Depois de digitar o comando  ` wait <PID>`, o terminal irá esperar o proceso ser finalizado.
+
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
@@ -149,7 +377,9 @@ Os objetivos principais para o novo sistema incluíam:
 
 ### De onde vem o nome "Git"?
 
-O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor. Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
+O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor.
+
+Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
 ### Git como um Versionador
 
@@ -198,7 +428,7 @@ Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a me
 
 - **GitHub**
     - Hospedagem de Repositórios
-    - Se utiliza do git para fazer o controle de versão dos respositórios hospedados
+    - Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
     - Comunidade ativa
     - Vários outros serviços
     - Um dos maiores repositórios de projetos open source do mundo
@@ -231,11 +461,11 @@ O Git é um sistema de controle de versão distribuído que gerencia informaçõ
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
-*modified
+***modified***
 
-*staged
+***staged***
 
-*commited
+***commited***
 
 ### Comandos e Práticas do Git
 
