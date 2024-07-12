@@ -7,15 +7,20 @@ title: Minicurso de Linux e Git
 # 2ᵒ Dia
 
 <!--toc:start-->
+- [Tabela de conteúdos](#tabela-de-conteúdos)
 - [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)
   - [Aliases](#aliases)
   - [Vendo um comando como arquivo](#vendo-um-comando-como-arquivo)
 - [Instalando programas no Linux](#instalando-programas-no-linux)
   - [Manualmente](#manualmente)
   - [Gerenciadores de pacote](#gerenciadores-de-pacote)
-- [Shell scripting e editores de texto](#shell-scripting-e-editores-de-texto)
+- [Editores de texto](#editores-de-texto)
   - [Escolhendo um editor de texto](#escolhendo-um-editor-de-texto)
+- [Shell scripting](#shell-scripting)
+  - [Por quê shell scripting?](#por-quê-shell-scripting)
+  - [A primeira linha: #! (shebang)](#a-primeira-linha-shebang)
   - [Variáveis](#variáveis)
+  - [Expansões](#expansões)
   - [Condicionais](#condicionais)
   - [Funções](#funções)
   - [Loops](#loops)
@@ -362,7 +367,207 @@ Imagine o outro script `osegundomelhorscript.sh`:
 
 Outra variável interessante é a `$PWD`, que armazena o diretório atual que o script está sendo executado.
 
+### Expansões
+
+#### Expansão de comandos e variáveis
+
+O que vimos o shell fazer até agora com as variáveis é o que chamamos de expansão, o `$` precendendo o
+nome da variável antes de seu uso, faz com que o shell substitua o nome da variável pelo seu valor. Mas o
+shell não se limita a isso, voltando ao exemplo de declaração de variáveis, podemos usar a sintaxe `$()`
+para expandir o valor *outputado* [sic] por determinando comando:
+
+```sh
+#!/bin/sh
+# O valor armazenado pela variável `hoje` será o resultado do comando `date`
+hoje=$(date)
+echo "Hoje é $hoje"
+```
+
+#### Expansão aritmética
+
+O shell também é capaz de realizar a expansão de operações aritméticas, a sintaxe para isso é `$((expressão))`, um exemplo de uso seria:
+
+```sh
+#!/bin/sh
+numero1=10
+numero2=42
+echo $((numero1 + numero2))
+# Alternativamente
+echo $((10 + 42))
+```
+
+---
+
+#### Nota
+
+Perceba que dentro de aspas que todas expansões não occorem dentro de apóstrofos, mas continuam funcionando
+dentro de aspas duplas.
+
+---
+
 ### Condicionais
+
+#### if-elif-else-fi
+
+Além das variáveis, também temos as condicionais, mas que funcionam de um jeito um pouco diferente, os
+valores booleanos, ou seja `true` e `false` são representados pelos códigos de saída de cada programa,
+como visto no tópico de [operadores lógicos](/primeiroDia.md#operadores-lógicos-no-shell). E
+consequementemente o jeito mais imediato de usar condicionais é com os *if statements*, e a sintaxe para
+isso é:
+
+```sh
+if  comando ; then
+  # código
+fi
+```
+
+(`fi` é `if` de trás pra frente, e é o comando que fecha o bloco de código do `if`)
+
+O código só será executado se o `comando` tiver 0 como código de saída, e você pode adicionar um `else`,
+que é executado se o código de saída for diferente de 0.
+
+```sh
+if comando ; then
+  # código
+else
+  # código
+fi
+```
+
+Ná prática, nós podemos fazer algo como:
+
+```sh
+#!/bin/sh
+# Tue é a abreviação de Tuesday, que é terça em inglês
+if date | grep -q "Tue"; then
+  echo "Hoje é terça"
+else
+  echo "Hoje não é terça"
+fi
+```
+
+Se o `grep` encontrar a expressão `Tue` no output do comando `date`, o código de saída do `grep` vai ser 0,
+logo o dia de hoje será terça, caso contrário, não será.
+
+Além disso temos o `elif`, que é uma abreviação de `else if`, e é utilizado para adicionar mais condições
+a um `if`.
+
+#### Expressões lógicas
+
+Outra forma de usar condicionais é usar o comando `test`, que avalia expressões lógicas e retorna 0 se a
+expressão for verdadeira e 1 se for falsa. A sintaxe é a seguinte:
+
+```sh
+#!/bin/sh
+if test expressão ; then
+  # código
+fi
+```
+
+Naturalmente as opções que o `test` aceita imitam as expressões que conhecemos na matemática e em outras
+linguagens de programação, por exemplo, o `-eq` representa a igualdade entre dois números
+`1 -eq 0` ≅ `1 == 0`, o `-lt` representa a desigualdade entre dois números `1 -lt 0` ≅ `1 < 0`, e assim
+por diante. Você pode verificar todas usando o manual (`man test`).
+
+Alternativamente, os `[]` servem como um alias para o `test`
+
+```sh
+#!/bin/sh
+if [ expressão ] ; then
+  # código
+fi
+```
+
+Algumas das expressões lógicas mais utilizadas são:
+
+- **Para inteiros e strings:**
+
+  | Operador   | Verdade se..    |
+  |--------------- | --------------- |
+  | `string`    | `string` não é vazia. |
+  | `s1 = s2`   | a strings `s1` e `s2` são iguais.   |
+  | `s1 != s2`   | as string `s1` e `s2` não são iguais.   |
+  | `n1 -eq n2`   | `n1` e `n2` são iguais.    |
+  | `n1 -gt n2`   | `n1` é maior que `n2`.    |
+  | `n1 -lt n2`   | `n1` é menor que `n2`.    |
+  | `n1 -ge n2`  | `n1` é maior ou igual a `n2`. |  
+  | `n1 -le n2`  | `n1` é menor ou igual a `n2`. |  
+
+- **Para arquivos e diretórios:**
+
+  | Operador   | Verdade se    |
+  |--------------- | --------------- |
+  | `-e arquivo`   | O `arquivo` existe.   |
+  | `-d arquivo`   | O `arquivo` é um diretório.   |
+  | `-f arquivo`   | O `arquivo` é um arquivo regular.   |
+  | `-r arquivo`   | O `arquivo` tem permissão de leitura.   |
+  | `-w arquivo`   | O `arquivo` tem permissão de escrita.   |
+  | `-x arquivo`   | O `arquivo` tem permissão de execução.   |
+  | `-s arquivo`   | O `arquivo` não está vazio.   |
+  | `-L arquivo`   | O `arquivo` é um link simbólico.   |
+
+Cada teste pode ser negado com um `!` antes do operador, por exemplo, `! -e arquivo` é verdadeiro se o não
+existe. Vamos experimentar um pouco com isso:
+
+```sh
+#!/bin/sh
+if [ -f "$1" ]; then 
+  echo "O arquivo $1 é um arquivo regular"
+elif [ -d "$1" ]; then
+  echo "O arquivo $1 é um diretório"
+else
+  echo "O arquivo $1 não é um arquivo regular nem um diretório"
+fi
+```
+
+Por ser também um comando, podemos combinar o `test` com outras istâncias de `test` usando os operadores
+que já conhecemos:
+
+- *Usando a conjunção (`&&`):*
+
+  ```sh
+  #!/bin/sh
+  if [ -f "$1" ] && [ -r "$1" ]; then
+    echo "O arquivo $1 é um arquivo regular e tem permissão de leitura"
+  fi
+  ```
+
+- Usando a disjunção (`||`):
+
+  ```sh
+  #!/bin/sh
+  if [ -f "$1" ] || [ -d "$1" ]; then
+    echo "O arquivo $1 é um arquivo regular ou um diretório"
+  fi
+  ```
+
+---
+
+#### Nota
+
+Na comparação de strings existe uma certa convenção, pois se o valor da string for vazio, o `test` pode
+ficar confuso, especialmente se você não usar aspas, por exemplo:
+
+```sh
+#!/bin/sh
+string=""
+test $string = "banana"; echo $?
+# O seu shell vai retornar um error, pois o comando `test` vai receber 3 argumentos
+```
+
+Então, além de sempre ser recomendado usar aspas, existe uma convenção de prefixar uma string com "X"
+durante a comparação para que esse tipo de erro aconteça, por exemplo:
+
+```sh
+#!/bin/sh
+string=""
+test "X$string" = "Xbanana"; echo $?
+# Note a diferença no status de saída
+```
+
+Agora a comparação não vai bugar, pois o `test` vai receber a quantidade certa de argumentos
+
+---
 
 ### Funções
 
