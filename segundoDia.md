@@ -206,7 +206,7 @@ removendo pacotes que não são mais necessários.
 Na maioria das distribuições, vão existir comandos ou combinações de comandos equivalentes aos do `apt` e
 e conforme o uso esse processo de instalação, atualização e remoção se torna bem natural.
 
-## Shell scripting e editores de texto
+## Editores de texto
 
 Recapitulando um pouco, vimos bastante sobre shell, diferentes formas de como combinar comandos, abrevia-los e nos
 exercícios do dia anterior vocês escreveram em diversos arquivos determinadas sequências de comandos e depois foram
@@ -251,7 +251,116 @@ usando-os para te ajudar nessa jornada. Entretanto, aqui estão alguns deles:
 
 Entre outros...
 
+## Shell scripting
+
+[Recapitulando um pouco os exercícios do primeiro dia desse curso](/primeiroDia.md#exercícios), em diversos momentos
+pedi para  escrever uma certa sequência de comandos num arquivo e executá-lo logo em seguida, formalmente
+falando, o que você fez na verdade era um script. A "linguagem shell" é uma *linguagem de scripting*, e diferentemente de [*linguagens compiladas*](https://pt.wikipedia.org/wiki/Linguagem_compilada), como C,
+C++, Java e Rust (🦀 rust mentioned!), que são interpretadas, traduzidas para uma representação interna, e
+então executada, os comandos de *linguagens de scripting* como o shell, "pulam" essa traduzação interna e
+são diretamentes executados pelo interpretador.
+
+A principal vantagem do uso de linguagens de scripting como "shell", Python, Ruby e outras é que elas
+geralmente trabalham num nível que se assemelha a linguagem humana, o que permite que você lide mais
+facilmente com tarefas envolvendo arquivos, diretórios e programas. A principal desvantagem, é que essas
+linguagens tendem a ser menos eficientes, entretanto, a troca vale muito a pena para programas que não
+precisam se preocupar com a perfomance.
+
+### Por quê shell scripting?
+
+Primeiro motivo é que até o momento no curso, só vimos o shell e, inclusive, escrevemos alguns scripts,
+então não faria sentido estudar python ou outra linguagem de scripting. O segundo e principal motivo é que
+o shell é universal dentre os sistemas Unix, então significa que uma vez escrito com cuidado, ele pode ser
+executado em qualquer sistema Unix. E além disso, eles são facílimos de escrever e não é segredo que é
+muito útil para automatizar tarefas, ou seja em pouco tempo você vai ter em mãos uma ferramenta muito
+conveniente.
+
+### A primeira linha: #! (shebang)
+
+Como um script em shell não é um programa compilado em linguagem de máquina, o nosso kernel linux não sabe
+diretamente o que fazer com ele, então precisamos dizer pro sistema que programa vai ser responsável por
+executar o nosso script. Para isso, usamos o `shebang` que é uma linha que começa com `#!` seguido do
+caminho absoluto do programa que vai executar e interpretar o script.
+
+```sh
+#!/bin/bash
+
+# abobrinha bla bla bla ble
+```
+
+Em alguns casos sem a `shebang`, seu shell vai receber o erro de execução do kernel, e vai executar um
+mecanismo que chamamos de *fallback*, e vai por conta própria escolher um interpretador para o seu script,
+geralmente o `/bin/sh`, que é o shell padrão do sistema. Para o shell, é como se ao receber esse erro, ele
+dissesse: "Aha, não é um programa compilado, então vou interpretar isso como um script shell"; e aí ele
+executa o `/bin/sh` e passa o seu script como argumento para ele.
+
 ### Variáveis
+
+Em toda linguagem de programação que se preze, você já deve ter se deparado com o conceito de variável,
+que em sintese é um parzinho de nome e valor que você pode usar para armazenar informações que podem ser
+úteis ou não. Inclusive você já se deparou com algumas, lembra do `$PATH` e do `$?`? Pois bem, essas são
+algumas variáveis que são compartilhadas entre todos os programas, chamamos de variáveis de ambiente, mas
+mais sobre isso no futuro.
+
+Você pode criar e usar variáveis num script da seguintes maneira:
+
+```sh
+#!/bin/sh
+fruta=banana
+echo "$fruta"
+# Vai imprimir "banana", aqui o shell expande a variável
+echo $fruta
+# Também vai imprimir "banana", mas não é recomendado,
+# pois o shell pode usar certos processamentos e resultar em comportamente idesejado
+echo '$fruta'
+# Vai imprimir "$fruta", pois o shell não vai expandir a variável
+```
+
+Além das variáveis especiais que já vimos, existem outras muito clássicas e muito utéis. Por exemplo, lembra
+que alguns dos programas que você utilizou recebiam argumentos? Pois bem, existem variáveis que armazenam
+os argumentos do último programa que você executou. Digamos que você tenha um script chamado
+`omelhorscript.sh`, e você o executou:
+
+```terminal
+[user@hostname ~]$ ./omelhorscript.sh arg1 arg2 arg3 arg4 arg6 ... arg9
+```
+
+Quando ele começar a ser interpretado, seu sistema vai ter armazenado o valor de cada argumento passado
+na última linha de comando, e você pode acessar esses valores pelas variáveis `$0` `$1`, `$2`, `$3`, ...,
+`$9`.
+
+```sh
+#!/bin/sh
+echo "O nome do script é $0"
+# Vai imprimir "O nome do script é omelhorscript.sh"
+echo "O primeiro argumento é $1"
+# Vai imprimir "O primeiro argumento é arg1"
+echo "O segundo argumento é $2"
+# Vai imprimir "O segundo argumento é arg2"
+# assim por diante
+echo "O nono argumento é $9"
+```
+
+Alternativamente, para além do nono argumento e a partir do `$0`, a variável `$@` armazena todos os
+argumentos passados:
+
+Imagine o outro script `osegundomelhorscript.sh`:
+
+- Você o executou com:
+
+  ```terminal
+  [user@hostname ~]$ ./osegundomelhorscript 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+  ```
+
+- E a sua implementação é:
+
+  ```sh
+  #!/bin/sh
+  echo "$@"
+  # Vai imprimir "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+  ```
+
+Outra variável interessante é a `$PWD`, que armazena o diretório atual que o script está sendo executado.
 
 ### Condicionais
 
