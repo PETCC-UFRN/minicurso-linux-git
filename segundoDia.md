@@ -61,13 +61,13 @@ e vai invocar seu real significado. E de certa forma, conseguimos criar com isso
 
 ### Vendo um comando como arquivo
 
-Agora, uma reflexão interessante a se fazer, é refletir como que o shell sabe quais são os apelidos que eu
+Agora, uma reflexão interessante a se fazer, é pensar como que o shell sabe quais são os apelidos que eu
 dei, ou até mesmo o que é comando ou não.
 [Relembrando quando a gente tava começando a usar o shell](/primeiroDia.md#comando-date-e-echo), nós não
 podemos simplesmente digitar qualquer coisa aleatória do tipo `balubslbeuaba` e esperar que ele entenda e
-faça alguma coisa, logo, o que o shell faz é, assim como aquela variável `$?` armazena o status de saída do
-último programa, existe outras variáveis especiais que armazenam o lugar o qual o shell deve procurar pelos
-executáveis dos comandos que a gente anda utilizando.
+faça alguma coisa, logo, o que o shell faz é: armazenar em uma variável, todos os lugares que supostatmente
+tem programas que ele pode executar, e quando você digita algo, ele vai procurar nesses lugares para ver se
+de fato o que você digitou é um programa que ele pode executar.
 
 Como os comandos/programas são simplesmente executáveis que estão em uma pasta "especial", nós podemos
 perguntar aonde eles estão com a seguinte linha:
@@ -570,6 +570,84 @@ Agora a comparação não vai bugar, pois o `test` vai receber a quantidade cert
 ---
 
 ### Funções
+
+Se você está começando agora na programação, provavelmente ainda não deve estar completamente familiarizado
+com o conceito de funções, mas com certeza é algo que você já usou muitas vezes sem se quer perceber. Quando
+você invoca um comando no shell, seja com ou sem argumentos, você sempre espera uma determinada saída ou
+resultado. E é exatamente esse o comportamento de uma função, exceto que no contexto de linguagem de programação,
+geralmente nos referimos a funções como blocos de código independentes que realizam uma tarefa específica
+quando são invocados.
+
+#### Black boxes
+
+Tanto na programação quanto na matemática, funções são enxergadas como caixas pretas, visto que não
+precisamos saber como elas funcionam, apenas o que elas recebem como entrada e o que elas retornam como
+saída.
+
+Quando definimos uma função como uma black box, precisamos dizer qual é seu nome, que tipo
+de argumento ela recebe, e que tipo de argumento ela retorna. Por exemplo: Se $f$ é função e $x$ é um argumento
+que ela aceita, a aplicação de $f$ em $x$ é representada por $f(x)$, e o resultado é o valor que ela "retorna".
+
+<div style="text-align: center;">
+<img alt="funções como black boxes" src="assets/images/linux_dia2_imagem4.png" width="80%">
+</div>
+<br>
+
+- Imagem retirada do livro *Matemática Funcional para Computação*, Thanos Tsouanas. Disponível em:
+<https://www.tsouanas.org/fmcbook/>
+
+#### Funções no shell
+
+Tradicionalmente, para conseguirmos usar uma função, antes precisamos defini-la, seja no início do script
+ou em um arquivo separado. A sintaxe para definir e usar uma função é a seguinte:
+
+```sh
+#!/bin/sh
+# Definição
+funcao() {
+  # código
+}
+
+# Uso
+funcao
+```
+
+Alguns exemplos de funções seriam:
+
+```sh
+#!/bin/sh
+# Esta função recebe como argumento algum nome, 
+# cria um diretório com esse nome e muda para ele.
+mcd() {
+  mkdir -p "$1"
+  cd "$1"
+  # O retorno de funções do shell sempre são seu código de saída,
+  return "$?"
+  # Essencialmente podemos emitir esse campo, ou usar um código de saída personalizado
+}
+
+# Esta função recebe como argumento um nome de arquivo,
+# verifica se o arquivo existe ou não e imprime uma mensagem
+regf() {
+  test -f "$1" && echo "$1 existe" || echo "$1 não existe"
+}
+```
+
+Como não invocamos essas funçãos no código, nada vai acontecer. Mas podemos "sourcear" o arquivo que as
+contém e invocá-las.
+
+- "Sourceamos" com:
+
+  ```terminal
+  [user@hostname ~]$ source minhas_funções.sh
+  ```
+
+- E invocamos tradicionalmente:
+  
+  ```terminal
+  [user@hostname ~]$ mcd meudiretório
+  [user@hostname meudiretório]$
+  ```
 
 ### Loops
 
