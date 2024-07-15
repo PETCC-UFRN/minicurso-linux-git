@@ -6,23 +6,45 @@ title: Minicurso de Linux e Git
 
 # Shell Avançado
 
-<!--toc:start-->
-- [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)
-  - [Aliases](#aliases)
-  - [Vendo um comando como arquivo](#vendo-um-comando-como-arquivo)
-- [Instalando programas no Linux](#instalando-programas-no-linux)
-  - [Manualmente](#manualmente)
-  - [Gerenciadores de pacote](#gerenciadores-de-pacote)
-- [Shell scripting e editores de texto](#shell-scripting-e-editores-de-texto)
-  - [Escolhendo um editor de texto](#escolhendo-um-editor-de-texto)
-  - [Variáveis](#variáveis)
-  - [Condicionais](#condicionais)
-  - [Funções](#funções)
-  - [Loops](#loops)
-- [Exercícios](#exercícios)
-<!--toc:end-->
+<div id="sumario" class="sumario-oldschool">
+    <h1>Sumário</h1>
+    <ul>
+  <li><a href="#shell-avancado">Shell Avançado</a>
+    <ul>
+      <li><a href="#expandindo-a-ideia-de-comandos">Expandindo a ideia de comandos</a>
+        <ul>
+          <li><a href="#aliases">Aliases</a></li>
+          <li><a href="#vendo-um-comando-como-arquivo">Vendo um comando como arquivo</a></li>
+        </ul>
+      </li>
+      <li><a href="#instalando-programas-no-linux">Instalando programas no Linux</a>
+        <ul>
+          <li><a href="#manualmente">Manualmente</a></li>
+          <li><a href="#gerenciadores-de-pacote">Gerenciadores de pacote</a></li>
+        </ul>
+      </li>
+      <li><a href="#shell-scripting-e-editores-de-texto">Shell scripting e editores de texto</a>
+        <ul>
+          <li><a href="#escolhendo-um-editor-de-texto">Escolhendo um editor de texto</a></li>
+          <li><a href="#variaveis">Variáveis</a></li>
+          <li><a href="#condicionais">Condicionais</a></li>
+          <li><a href="#funcoes">Funções</a></li>
+          <li><a href="#loops">Loops</a></li>
+        </ul>
+      </li>
+      <li><a href="#exercicios">Exercícios</a></li>
+    </ul>
+  </li>
+</ul>
 
-## Tabela de conteúdos
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  
+  
+  </div>
 
 ## Expandindo a ideia de comandos
 

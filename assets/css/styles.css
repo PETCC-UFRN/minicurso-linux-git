@@ -259,6 +259,86 @@ td {
     font-size: 100%; /* Reset font size to default */
     padding: 0; /* Reset padding */
 }
+#sumario {
+    position: fixed;
+    text-align: left;
+    top: 0;
+    left: 0;
+    width: 300px; /* Ajuste conforme necessário */
+    padding: 10px; /* Espaçamento interno opcional */
+    height: 100%; /* Para ocupar toda a altura da página */
+    overflow-y: auto; /* Para adicionar rolagem, se necessário */
+    transition: left 0.3s ease; /* Transição suave para a animação */
+}
+
+.sumario-oldschool{
+    color: #00e300;
+    border-right: 1px solid #00e300;
+    background: black;
+}
+
+.sumario-git{
+    background: #020728;
+    color: #f0f4ff;
+    border-right: 1px solid #F05033;
+}
+
+#sumario.hidden {
+    left: -321px; /* Ajuste conforme a largura do sumário */
+}
+
+/* Estilizando a barra de rolagem no Chrome, Safari e Opera */
+#sumario::-webkit-scrollbar {
+    width: 3px; /* Largura da barra de rolagem */
+    
+}
+
+#sumario::-webkit-scrollbar-track {
+    background: #000; /* Cor do trilho da barra de rolagem */
+    
+}
+
+.sumario-oldschool::-webkit-scrollbar-thumb {
+    background: #00e300; /* Cor do polegar da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada para o polegar */
+}
+.sumario-git::-webkit-scrollbar-thumb{
+    background: #F05033;
+    border-radius: 10px;
+}
+
+.sumario-oldschool::-webkit-scrollbar-thumb:hover {
+    background: #00e300; /* Cor do polegar da barra de rolagem quando está sendo rolado */
+}
+.sumario-git::-webkit-scrollbar-thumb:hover {
+    background: #F05033; /* Cor do polegar da barra de rolagem quando está sendo rolado */
+}
+
+.toggle-button{
+    font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+    background-color: transparent;
+    border: none;
+    color: #00e300;
+    position: fixed;
+    left: 0px;
+    top: 95%;
+}
+
+.toggle-button:hover{
+    color:#fff;
+}
+
+.small {
+    font-size: 0.75rem;
+}
+.small p {
+    margin: 0;
+}
+.center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
 
 .small {
     font-size: 0.75rem;

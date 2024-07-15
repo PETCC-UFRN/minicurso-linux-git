@@ -6,6 +6,47 @@ title: Minicurso de Linux e Git
 [comment]: <> (Essas páginas que estão vazias são porque elas utilizam layouts que já importam o menu de navegação e o menu dos dias. Você pode ver isso na pasta _includes)
 [comment]: <> (Sendo assim, basta escrever em markdown mesmo que vai ser tudo estilizado pelos layouts)
 
+<div id="sumario" class="sumario-git">
+    <h1>Sumário</h1>
+    <ul>
+  <li><a href="#revisao">Revisão</a></li>
+  <li>
+    <a href="#workflow-um-pouco-mais-avancado-20min">Workflow um Pouco Mais Avançado (20min)</a>
+    <ul>
+      <li><a href="#introduzindo-a-ideia-de-branches-e-colaboracao">Introduzindo a Ideia de Branches e Colaboração</a></li>
+      <li><a href="#vendo-o-git-como-uma-arvore-e-mesclagem">Vendo o Git como uma Árvore e Mesclagem</a></li>
+    </ul>
+  </li>
+  <li><a href="#git-branching">Git Branching</a></li>
+  <li>
+    <a href="#vantagens-do-uso-de-branches">As Vantagens do Uso de Branches</a>
+    <ul>
+      <li><a href="#isolamento">Isolamento</a></li>
+      <li><a href="#desenvolvimento-paralelo">Desenvolvimento Paralelo</a></li>
+      <li><a href="#teste-e-refinamento">Teste e Refinamento</a></li>
+    </ul>
+  </li>
+  <li><a href="#praticas-recomendadas-para-o-uso-de-branches">Práticas Recomendadas para o Uso de Branches</a></li>
+  <li>
+    <a href="#git-merging">Git Merging</a>
+    <ul>
+      <li><a href="#ramificacao-e-mesclagem-simples">Ramificação e Mesclagem Simples</a></li>
+      <li><a href="#outra-forma-de-mesclagem">Outra Forma de Mesclagem</a></li>
+      <li><a href="#conflitos-basicos-de-mesclagem">Conflitos Básicos de Mesclagem</a></li>
+    </ul>
+  </li>
+</ul>
+
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  
+</div>
+
+
+
 # Git avançado
 
 ## Revisão 
@@ -215,11 +256,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 Para resolver o conflito, abra o arquivo e veja as partes conflitantes:
 
 ```plaintext
-<<<<<<< HEAD
 Chat feature finalizado
-=======
-Chat feature versão 1
->>>>>>> chat-feature
 ```
 
 Edite o arquivo para resolver o conflito e salve as mudanças. Depois, adicione o arquivo ao stage:
