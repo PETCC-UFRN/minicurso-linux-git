@@ -4,7 +4,9 @@ title: Shell Avançado
 ---
 
 
+
 # {{ page.title }}
+
 
 <!--toc:start-->
 - [Tabela de conteúdos](#tabela-de-conteúdos)
@@ -72,7 +74,7 @@ de fato o que você digitou é um programa que ele pode executar.
 Como os comandos/programas são simplesmente executáveis que estão em uma pasta "especial", nós podemos
 perguntar aonde eles estão com a seguinte linha:
 
-```sh
+```terminal
 [user@hostname ~]$ whereis ls
 ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
 ```
@@ -80,14 +82,14 @@ ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
 O comando `whereis` mostra a localização do executável de programas e a localização da sua página no `man`. Sabendo disso, você pode executar o `ls` ou qualquer outro comando passando o caminho inteiro para seu
 executável, da mesma forma que você usaria normalmente:
 
-```sh
+```terminal
 [user@hostname ~]$ /usr/bin/ls -l
 ```
 
 A variável que o shell usa para saber onde procurar esses comandos é a variável `$PATH`, e assim como a `$?`
 nós podemos ver o valor que ela armazena digitando a seguinte linha:
 
-```sh
+```terminal
 [user@hostname ~]$ echo $PATH
 /usr/local/bin:/usr/bin:/home/user/.local/share/bin
 ```

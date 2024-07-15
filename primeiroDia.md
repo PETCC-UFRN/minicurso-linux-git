@@ -2,7 +2,7 @@
 layout: oldschool
 title: Minicurso de Linux e Git
 ---
-# 1ᵒ Dia
+# Primeiros passos no Linux
 
 ## Tabela de conteúdos
 
@@ -87,13 +87,13 @@ Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu 
 
 A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é um padrão e se você quiser, existem diversos outros que você pode instalar e utilizar. Quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
 
-```sh
+```terminal
 [user@hostname ~]$
 ```
 
 Vamos entender o que significa cada símbolo desse.
 
-```sh
+```terminal
 [user@hostname ~]$
   ^      ^     ^ ^
   │      │     │ └─ O cifrão diz que você não é o usuário `root` (mais sobre isso depois)
@@ -110,19 +110,19 @@ A maneira mais simples de usar o shell, é digitando comandos!.
 
 Agora que ja demos nosso primeiro comando, vamos conhecer mais alguns comandos legais, tente:
 
-```sh
+```terminal
 [user@hostname ~]$ date
 ```
 
 e
 
-```sh
+```terminal
 [user@hostname ~]$ cal
 ```
 
 Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calendário do mês, agora vamos testar o seguinte comando com um argumento:
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello 
                           ^
                           └─ Argumento passado para o programa (input)
@@ -130,7 +130,7 @@ Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calend
 
 Seu terminal provalvemente ficou assim:
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello 
 Hello
 ```
@@ -139,11 +139,11 @@ O programa `echo` apenas imprime o argumento que você passou para ele em uma *s
 
 Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 
-```sh
+```terminal
 [user@hostname ~]$ echo "Hello World"
 ```
 
-```sh
+```terminal
 [user@hostname ~]$ echo Hello\ World
 ```
 
@@ -162,13 +162,13 @@ O output, por outro lado, é o prato que você recebe após a cozinha processar 
 
 Teste digitar qualquer coisa no terminal e veja o que acontece.
 
-```sh
+```terminal
 [user@hostname ~]$ ablueblauebluebalbbeu
 ```
 
 Porque esse comando não faz sentido, o shell vai nos dizer que deu errado e vai nos dar outra chance:
 
-```sh
+```terminal
 bash: ablueblauebluebalbbeu: command not found
 [user@hostname ~]$
 ```
@@ -189,23 +189,26 @@ Existem sim casos especiais de arquivo, como diretórios e links simbólicos (ma
 não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
 <!--![imagem6](./assets/images/linux_dia1_imagem6.jpg)-->
-<div style="text-align: center;">
-<img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem6.jpg" width="80%">
+<div style="text-align: center;"> <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem6.jpg" width="80%">
 </div>
 <br>
 
 #### Current working directory
 
-O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**
+<!-- FIX: Inconscistência nos nomes nessa seção 
+--->
+
+O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Imagine que seu sistema de arquivos é a
+seguinte árvore de cabeça para baixo.
 
 <div style="text-align: center;">
-<img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem5.png" width="80%">
+<img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem3.png" width="80%">
 </div>
 <br>
 
 Utilizando o comando `pwd`, que é uma sigla para **P**ath to **W**orking **D**irectory, é possível saber o caminho de todos os diretórios da root até o seu diretório atual:
 
-```sh
+```terminal
 [eu@hostname ~]$ pwd
 /home/eu
 ```
@@ -214,22 +217,23 @@ Além do working directory nós temos também o home directory, que é o único 
 
 #### Caminhos absolutos e caminhos relativos
 
-Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home`, você pode utilizar o comando `cd` (que significa Change Directory) para acessar o diretório `/eu`, da seguinte forma:
+Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absolutos como o do exemplo anterior. Estando no diretório `/home/eu`, você pode utilizar o comando `cd` (que significa **C**hange **D**irectory) para acessar o diretório `/home`, da seguinte forma:
 
-```sh
-# Perceba o (~) mudando
-[user@hostname ~]$ cd eu
-[user@hostname ]$
+```terminal
+[eu@hostname ~]$ cd /home
+[eu@hostname home]$
 ```
+
+> (Perceba o `~` mudando)
 
 Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola` ! Para isso, é necessário se utilizar do **caminho relativo** `..`
 
 Os dois pontos representam o **diretório anterior** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
-```sh
-[downloads@hostnname ~]$ cd ..
+```terminal
+[eu@hostname downloads]$ cd ..
 [eu@hostname ~]$ cd escola
-[escola@hostname ~]$
+[eu@hostname escola]$
 ```
 
 Também temos o caminho relativo `.` que representa o **diretório atual**. Na parte de navegação de arquivos esse caminho não é tão interessante, mas é crucial quando estamos tratando de **executar comandos**.
@@ -240,7 +244,7 @@ Podemos manipular diretórios e arquivos a partir de comandos:
 
 Usando o comando `mkdir` (de Make Directory), é possível criar uma nova pasta. A sintaxe do comando é: `mkdir <nome_da_pasta>`. Digamos que você acabou de criar na pasta `escola` a pasta `minicurso_linux_git`:
 
-```sh
+```terminal
 [user@hostname escola]$ mkdir minicurso_linux_git
 [user@hostname escola]$ cd minicurso_linux_git
 [user@hostname minicurso_linux_git]$
@@ -249,7 +253,7 @@ Usando o comando `mkdir` (de Make Directory), é possível criar uma nova pasta.
 Vamos adicionar também um arquivo de texto para anotações da aula, usando o comando `touch`
 (Divine **touch**):
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ touch anotacoes.txt
 ```
 
@@ -259,21 +263,21 @@ Você criou essa pasta assim que chegou em casa, logo após a primeira aula do m
 
 Com o comando `ls` (**L**i**s**t), é possível listar todo o conteúdo de um diretório:
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ ls
 anotacoes.txt  foto-do-quadro.jpg  
 ```
 
 Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Você copia os arquivos para um *pen-drive* usando o comando `cp` (**C**o**P**y)):
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ cd ..
 [user@hostname ~]$ cp minicurso_linux_git pen-drive
 ```
 
 e então decide removê-la, utilizando o comando `rm` (**R**e**M**ove), você deleta cada arquivo:
 
-```sh
+```terminal
 [user@hostname ~]$ cd minicurso_linux_git
 [user@hostname minicurso_linux_git]$ rm anotacoes.txt foto-do-quadro.jpg
 [user@hostname minicurso_linux_git]$ ls
@@ -281,7 +285,7 @@ e então decide removê-la, utilizando o comando `rm` (**R**e**M**ove), você de
 
 E agora, não resta mais nenhum arquivo na pasta e você pode finalmente removê-la com o comando `rmdir` (**R**e**M**ove **DIR**ectory).
 
-```sh
+```terminal
 [user@hostname minicurso_linux_git]$ cd ..
 [user@hostname ~]$ rmdir minicurso_linux_git
 ```
@@ -317,7 +321,7 @@ No tópico anterior executamos uma sequência indiscriminada de comandos para re
 Mas mesmo, assim executamos diversos passos só para remover todos os arquivos de uma pasta para depois removê-la por
 completo, então, talvez seja conveniente para você usar o `rm` (remove) para remover tudo logo de uma vez sem mais nem menos. E ele, de fato tem uma opção que faz isso, e você pode invocar essa opção da seguinte maneira:
 
-```sh
+```terminal
 [user@hostname ~]$ rm --recursive minicurso_linux_git
                       ^
                       └ Todos (99.8%) dos comandos do unix começam com um '-' antes da opção
@@ -333,7 +337,7 @@ Essas opções váriam de comando para comando, então que tal explorar algumas 
 
 Teste o comando `ls` com a opção `-F` (abreviação para `--classify`), que especifica o tipo de cada arquivo listado:
 
-```sh
+```terminal
 [user@hostname ~]$ ls -F
 escola/ downloads/ Minecraft* 'Pequeno Príncipe.pdf'
 ```
@@ -349,11 +353,11 @@ Outra opção que usamos muito em conjunto com o `ls` é a opção `-a/--all`,
 que lista os arquivos "ocultos" do seu computador, conhecidos mais comumente
 como *dotfiles*. São chamados assim por começarem com um `.` no início do nome. Para descobrir o que são *dotfiles* tente, por exemplo, rodar o comando `ls` primeiro sem e depois com a opção `-a/--all` no seu *home directory*.
 
-```sh
+```terminal
 [user@hostname ~]$ ls ~
 ```
 
-```sh
+```terminal
 [user@hostname ~]$ ls -a ~
 ```
 
@@ -413,7 +417,7 @@ Continuando nossa exploração, uma opção muito utilizada com o comando `ls` �
 (**L**ong listing format), que lista uma série de informações extra sobre o conteúdo
 de um diretório. Vejamos um exemplo:
 
-```sh
+```terminal
 [user@hostname ~]
 total 28
 drwxr-xr-x 7 user user 4096 Jun 28 07:32 escola
@@ -432,15 +436,44 @@ Onde, por exemplo:
 
 Corresponde a:
 
-| Campo                                                                                                                  | Significado                                            |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| **downloads**                                                                                                          | Nome do arquivo                                        |
-|<span style="color: magenta;">Jun 28 09:33</span>.                                                                      | Última modificação                                     |
-|<span style="color: brown;">4096</span>                                                                                 | O tamanho do arquivo em bytes                          |
-|<span style="color: cyan;">user</span>                                                                                  | O **grupo de usuário** ao qual o arquivo pertence      |
-|<span style="color: orange">user</span>                                                                                 | O **dono** do arquivo                                  |
-|<span style="color: green;">5</span>                                                                                    | O número de hardlinks (mais sobre isso no futuro)      |
-|<b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span> | As permissões de acesso do arquivo e o tipo do arquivo |
+  <table>
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Significado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>downloads</td>
+                <td>nome do arquivo</td>
+            </tr>
+            <tr>
+                <td><span style="color: magenta;">Jun 28 09:33</span></td>
+                <td>Última modificação</td>
+            </tr>
+            <tr>
+                <td><span style="color: brown;">4096</span></td>
+                <td>	O tamanho do arquivo em bytes</td>
+            </tr>
+               <tr>
+                <td><span style="color: cyan;">user</span></td>
+                <td>O grupo de usuário ao qual o arquivo pertence</td>
+            </tr>
+               <tr>
+                <td><span style="color: orange">user</span> </td>
+                <td>O dono do arquivo</td>
+            </tr>
+               <tr>
+                <td><span style="color: green;">5</span> </td>
+                <td>O número de hardlinks (mais sobre isso no futuro)</td>
+            </tr>
+               <tr>
+                <td><b>d</b><span style="color: yellow">rwx</span><span style="color: red;">r-x</span><span style="color: blue;">r-x</span></td>
+                <td>As permissões de acesso do arquivo e o tipo do arquivo</td>
+            </tr>
+        </tbody>
+    </table>
 
 - As permissões de acesso e o tipo de arquivo em detalhes:
   - O tipo do arquivo: **d** (directory).
@@ -522,7 +555,7 @@ A quantidade de linhas que ele vai exibir pode ser ajustada com a opção `-n/-l
 
 Enquanto nós exploramos o sistema, é bem provável se deparar com a seguinte listagem de diretório (por exemplo, `ls -l /lib`):
 
-```
+```terminal
 lrwxrwxrwx 1 root root 7 Apr  7 15:02 /lib -> usr/lib
 ```
 
@@ -569,7 +602,7 @@ solução para esse e outros tipos de problema e você pode usá-lo da seguinte 
 find [starting-point...] [expression]
 ```
 
-```
+```sh
 # Procura todos os diretórios nomeados minicurso_linux_git
 find . -name minicurso_linux_git -type d
 ```
@@ -618,19 +651,19 @@ arquivo. Por exemplo:
 
 - Para redirecionar a *stdout*:
 
-```
+```sh
 ls -l /usr/bin > ls-output.txt
 ```
 
 Note que se o `ls` emitir erros, eles vão continuar imprimindo na tela, tente:
 
-```
+```sh
 ls -l /bin/usr > ls-output.txt
 ```
 
 - Para redirecionar a *stderr*:
 
-```
+```sh
 ls -l /usr/bin 2> ls-error.txt
 ```
 
@@ -639,7 +672,7 @@ Mas e se não quisermos que nosso arquivo seja sobrescrito?
 
 Podemos usar o operador `>>` para anexar a saída do programa ao final do arquivo. Fazemos isso da seguinte maneira:
 
-```
+```sh
 ls -l /usr/bin >> ls-output.txt
 ```
 
@@ -670,7 +703,7 @@ capitulo.15.3
 
 Você pode juntar o conteúdo de todos os arquivos, numa versão completa do livro assim:
 
-```
+```sh
 cat capitulo* > meulivro.pdf
 ```
 
@@ -678,7 +711,7 @@ Assim como o `>` esse asterisco (`*`) é interpretado e expandido pelo shell, e 
 que chamamos de wildcard (ou cartas coringa), e você pode usar em qualquer parte da sua entrada se quiser e
 pode usar mais de um, por exemplo:
 
-```
+```sh
 ls Do*n*
 ```
 
@@ -692,7 +725,7 @@ exatamente o que é suposto a fazer.
 Se você usar o `cat` sem argumentos, ele lê do *stdin*, visto que o *stdin* é associado por padrão ao seu
 teclado, e está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
 
-```
+```terminal
 [user@hostname ~]$ cat
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar 
@@ -703,7 +736,7 @@ fim do arquivo (**E**nd **O**f **F**ile - EOF) no *standard input*. Como o *stan
 terminal pro padrão, o `cat` apenas copia os o *stdin* para o *stdout*. A gente pode usar comportamento
 para escrever coisas num arquivo, por exemplo:
 
-```
+```terminal
 [user@hostname ~]$ cat > sabiá.txt
 O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
 ```
@@ -746,15 +779,15 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
  4. Use o `touch` para criar um novo arquivo chamado `dimap` em `petcc`.
  5. Escreva o seguinte nesse arquivo, uma linha de cada vez:
 
-    ```
+    ```sh
     #!/bin/sh
     curl --head --silent https://missing.csail.mit.edu
     ```
 
  6. Tente executar o arquivo, ou seja, digite o caminho para o script (`./dimap`) no seu shell e pressione Enter. Entenda por que não funciona consultando a saída de `ls` (dica: olhe para os bits de permissão do arquivo).
- 7. Execute o comando iniciando explicitamente o interpretador `sh` e fornecendo o arquivo `dimap` como o primeiro argumento, ou seja, `sh dimap`. Por que isso funciona enquanto `./dimap` não funcionou?
+ 7. Execute o comando iniciando explicitamente o interpretador `terminal` e fornecendo o arquivo `dimap` como o primeiro argumento, ou seja, `terminal dimap`. Por que isso funciona enquanto `./dimap` não funcionou?
  8. Pesquise sobre o programa `chmod` (por exemplo, use `man chmod`).
- 9. Use `chmod` para possibilitar a execução do comando `./dimap` em vez de ter que digitar `sh dimap`. Como o shell sabe que o arquivo deve ser interpretado usando `sh`? Veja esta página sobre a linha [shebang](https://pt.wikipedia.org/wiki/Shebang_(Unix)) para mais informações.
+ 9. Use `chmod` para possibilitar a execução do comando `./dimap` em vez de ter que digitar `terminal dimap`. Como o shell sabe que o arquivo deve ser interpretado usando `terminal`? Veja esta página sobre a linha [shebang](https://pt.wikipedia.org/wiki/Shebang_(Unix)) para mais informações.
  10. Use `|` e `>` para gravar a data de "last-modified" obtida pelo `dimap` em um arquivo chamado `last-modified.txt` no seu `/home/`.
 
  > Exercício retirado do curso `./missing-semester`
@@ -887,14 +920,14 @@ Imagine que você sempre organiza seu projeto baseado nessa estrutura.
 1. No diretório `/tmp/petcc/ex006`, crie o arquivo `c_project_cfg.sh`.
 2. Dentro desse arquivo, adicione a seguinte linha.
 
-    ```sh
+    ```bash
     #!/bin/bash
     ```
 
 3. Após essa linha anexe os comandos necessários para criar a estrutura do projeto acima.
 Seu arquivo no final deve ficar assim:
 
-    ```sh
+    ```bash
     #!/bin/bash
     # Comando 1
     # Comando 2

@@ -2,23 +2,35 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+@keyframes slip-fade{
+    0%{opacity:0;top:20px;}
+    100%{opacity:1;top:0px;}
+}
+
+main{
+    position: relative;
+    animation: slip-fade 0.75s;
+}
+
 a{
     text-decoration:none;
 }
 
 body {
-    font-family: Lato, sans-serif;
+    font-family: "Readex Pro", Lato, sans-serif;
     margin: 0px;
     padding: 0;
     background-color: #161824;
 }
-.menuPrincipal{
-    font-family: Source Code Pro, sans-serif;
+.oldschoolnav,.navgit, .menuPrincipal{
+    font-family: 'Source Code Pro', sans-serif, monospace;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #4C527C;
-    height: 5vh;
+    background-color: #89023e;
+    height: 4vh;
 }
 .listaNavegacao{
     display: flex;
@@ -39,8 +51,14 @@ body {
 }
 
 .menuPrincipal ul a:hover{
-    color: #010525;
+    color: #000627;
 }
+
+/*code {*/
+/*    background: #00051F;*/
+/*    padding: 0 0.2rem;*/
+/*    border-radius: 3px;*/
+/*}*/
 
 .navgit,
 .oldschoolnav{
@@ -48,11 +66,10 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 5vh;
+    /*background-color: #00e300;*/
 }
-
-.oldschoolnav{
-    background-color: #00e300;
-
+.oldschoolnav a:hover {
+    color: white;
 }
 
 .navgit{
@@ -66,7 +83,7 @@ body {
     font-weight: bolder;
 }
 .oldschoolnav ul a{
-    color: #000;
+    color: #00e300;
 }
 .navgit ul a{
     color: #ffffff;
@@ -80,6 +97,15 @@ body {
 
 .oldschool h1{
     color: #00e300;
+    text-transform: uppercase;
+}
+
+.oldschool h2,
+.oldschool h3,
+.oldschool h4,
+.oldschool h5,
+.oldschool h6 {
+    text-transform: uppercase;
 }
 
 .oldschool p{
@@ -92,51 +118,59 @@ body {
     padding: 0;
     background-color: #000;
 }
+.oldschool a {
+    color: #00E300;
+}
+
 .layoutGit{
     background-color: #020728;
     color: #f0f4ff;
 }
 .layoutGit h1{
-    color: #f0f4ff;
-}
-.layoutGit h2{
-    background-color: #3C2D00; 
-    color: #f0f4ff; 
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+    color: #F05033;
+    font-size: 2.5em;
+    text-align: center;
 }
 .layoutGit h3{
+    background-color: #F05033; 
+    color: #f0f4ff;
+    padding: 20px;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.layoutGit h2{
     color: #F05033;
-    font-size: 1.4em;
+    font-size: 2em;
     text-align: center;
     margin-top: 15px;
     margin-bottom: 10px; 
+    text-decoration: underline;
+    border-top: solid 1px #fff;
+    padding: 10px;
+    padding-top: 20px;
+
     
 }
 .layoutGit h4{
     color: #f0f4ff;
-    background-color: #F05033; /* Fundo destacável */
-    padding: 8px; /* Padding moderado */
+    background-color: rgb(250, 156, 140);
+    padding: 5px; /* Padding moderado */
     margin-bottom: 10px; 
-    font-size: 1.2em; /* Tamanho moderado */
+    font-size: 1em; /* Tamanho moderado */
     border-radius: 5px; /* Bordas levemente arredondadas */
     text-align: left; /* Alinhamento à esquerda */
     font-weight: bold; /* Peso da fonte alto */
 }
 .layoutGit h5{
-    color: #3C2D00; /* Cor escura */
-    background-color: #f0f4ff; /* Fundo claro */
-    text-decoration: none; /* Sem sublinhado */
-    padding: 5px; /* Padding ajustado */
-    margin-top: 15px; /* Margem superior ajustada */
-    margin-bottom: 10px; /* Margem inferior ajustada */
-    border-radius: 10px; /* Bordas arredondadas */
-    font-size: 1em; /* Tamanho de fonte padrão */
-    font-weight: normal; /* Peso da fonte normal */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-    text-align: center; /* Centralização do texto */
+    color: rgba(240, 80, 51,1); 
+    text-decoration: underline;
+    padding: 5px; 
+    font-size: 1em; 
+    font-weight: normal; 
+    text-align: left; 
+    font-weight: bold;
 }
 .layoutGit p{
     color: #f0f4ff;
@@ -154,7 +188,7 @@ body {
     color: #000;
 }
 a{
-    color:#a6e3a1;
+    color:#FFC800;
 }
 
 a:hover{
@@ -168,10 +202,32 @@ main{
 }
 p{
     text-align: justify;
+    text-indent: 25px;
 }
+
+
 
 h1{
     color: #E8EAEF;
+}
+/*tabelas*/
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #222222; /* Fundo da tabela */
+}
+th, td {
+    border: 1px solid #444444; /* Bordas das células */
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #444444; /* Fundo do cabeçalho */
+    color: #00e300; /* Texto do cabeçalho */
+}
+td {
+    background-color: #333333; /* Fundo das células */
 }
 /* Define a common font family for code elements */
 .layoutGit pre, code ,.oldschool pre, code {
@@ -188,11 +244,10 @@ h1{
 
 /* Style for block code elements */
 .layoutGit pre, .oldschool pre {
-    color: #00e300; /* Text color of the code block */
     background: #141414; /* color for the background that the letter is inside */
     margin: 1rem; /* Margin around the code block */
     padding: 0.5rem 0.7rem; /* Padding inside the code block */
-    border: 1px dashed #444; /* Border style of the code block */
+    border: 1px solid #666; /* Border style of the code block */
     font-size: 12pt; /* Adjust font size */
     overflow-x: auto; /* Allow horizontal scrolling for overflow */
 }
@@ -205,6 +260,17 @@ h1{
     padding: 0; /* Reset padding */
 }
 
+.small {
+    font-size: 0.75rem;
+}
+.small p {
+    margin: 0;
+}
+.center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
 /* TODO: Mudar a estilização das tabelas geradas pelo markdown */
 /* TODO: Centralizar as tabelas geradas pelo markdown */
-/* FIX: Consertar o syntax highlight dos code blocks */
