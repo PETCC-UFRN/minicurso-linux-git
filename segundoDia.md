@@ -651,9 +651,60 @@ contém e invocá-las.
 
 ### Loops
 
+Outro recurso muito característico de linguagens de programação no geral são os loops, que são blocos de
+códigos que são executados repetidamente até que uma condição de parada seja satisfeita (ou não).
+
+Essencialmente, no shell, existem 3 tipos de loop, mas veremos apenas 2, o `for` e o `while`.
+
+#### `while` loop
+
+O `while` é um loop que executa um bloco de código enquanto uma condição for verdadeira, por exemplo,  
+voltando para os nossos exemplos de [expressões lógicas](#expressões-lógicas), poderiamos criar um `while` da seguinte maneira:
+
+```sh
+  #!/bin/sh
+  while [ -f "$1" ] && [ -r "$1" ]; do
+    echo "O arquivo $1 é um arquivo regular e tem permissão de leitura"
+  done
+```
+
+Se por acaso o arquivo que passamos como argumento for regular e tiver permissão de leitura, o bloco de
+código vai ser executado até que se altere o arquivo ou a permissão dele.
+
+#### `break`
+
+O `break` é um comando que geralmente é utilizado dentro de loops para evitar que o loop continue
+infinitamente, e evitar casos como o anterior.
+
+Aproveitando o exemplo anterior, poderiamos usar o `break` para sair do loop caso a condição seja
+satisfeita.
+
+```sh
+  #!/bin/sh
+  while [ -f "$1" ] && [ -r "$1" ]; do
+    echo "O arquivo $1 é um arquivo regular e tem permissão de leitura"
+    break
+  done
+```
+
+(Note que o bloco de codigo dentro do loop só vai ser executado uma vez)
+
+#### `for` loop
+
+O `for` itera sobre uma lista de elementos, e executa um bloco de código para cada elemento da lista. Por
+exemplo, poderiamos usar o for para iteraro sobre uma lista de argumentos de comando:
+
+```sh
+#!/bin/sh
+for argumento in "$@"; do
+  echo "O argumento é $argumento"
+done
+```
+
+Também podemos usar o `break` no `for` loop.
+
 ## Exercícios
 
 <!-- 
-     TODO: Variáveis, Condicionais, Funções e loops 
      TODO: Exercícios (existem vários relacionados na internet e em livros, esse vai ser mais fácil :amem:)
 --->
