@@ -7,7 +7,7 @@ title: Shell Avançado
 
 # {{ page.title }}
 
-
+## Tabela de conteúdos
 <!--toc:start-->
 - [Tabela de conteúdos](#tabela-de-conteúdos)
 - [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)
@@ -28,8 +28,6 @@ title: Shell Avançado
   - [Loops](#loops)
 - [Exercícios](#exercícios)
 <!--toc:end-->
-
-## Tabela de conteúdos
 
 ## Expandindo a ideia de comandos
 
