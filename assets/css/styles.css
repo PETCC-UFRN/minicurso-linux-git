@@ -24,7 +24,7 @@ body {
     padding: 0;
     background-color: #161824;
 }
-.oldschoolnav,.navgit, .menuPrincipal{
+.navgit, .menuPrincipal{
     font-family: 'Source Code Pro', sans-serif, monospace;
     display: flex;
     justify-content: space-around;
@@ -32,6 +32,8 @@ body {
     background-color: #89023e;
     height: 4vh;
 }
+
+
 .listaNavegacao{
     display: flex;
     list-style: none;
@@ -60,12 +62,11 @@ body {
 /*    border-radius: 3px;*/
 /*}*/
 
-.navgit,
 .oldschoolnav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 5vh;
+    height: 4vh;
     /*background-color: #00e300;*/
 }
 .oldschoolnav a:hover {
@@ -202,7 +203,7 @@ main{
 }
 p{
     text-align: justify;
-    text-indent: 25px;
+    /*text-indent: 25px;*/
 }
 
 
