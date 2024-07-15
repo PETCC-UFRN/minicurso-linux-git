@@ -1,10 +1,10 @@
 ---
 layout: oldschool
-title: Minicurso de Linux e Git
+title: Shell Avançado
 ---
 
 
-# 2ᵒ Dia
+# {{ page.title }}
 
 <!--toc:start-->
 - [Tabela de conteúdos](#tabela-de-conteúdos)
@@ -701,10 +701,129 @@ for argumento in "$@"; do
 done
 ```
 
-Também podemos usar o `break` no `for` loop.
+Além disso, podemos usar o `for` para iterar sobre arquivos e diretórios. Por exemplo, para listar todos os
+arquivos do diretório atual:
+
+```sh
+for arquivo in *; do
+  echo "$arquivo"
+done
+```
+
+Alternativamente, se quisermos listar todos os arquivos de um diretório específico, a partir de um `for`:
+
+```sh
+for arquivo in /caminho/para/diretório/*; do
+  echo "$arquivo"
+done
+```
 
 ## Exercícios
 
-<!-- 
-     TODO: Exercícios (existem vários relacionados na internet e em livros, esse vai ser mais fácil :amem:)
---->
+### Exercício 1
+
+Instale o Yazi 🦆!
+
+Baixe o arquivo compactado com o binário [daqui](https://github.com/sxyazi/yazi/releases), escolha a
+versão `yazi-x86_64-unknown-linux-gnu.zip` e faça o que for necessário para que o programa `yazi` seja
+executável em qualquer lugar do seu sistema.
+
+- Para descompactar use o comando `unzip`.
+
+Como resolução, descreva os passos que você fez para instalar o programa em um arquivo de texto, por exemplo: `ans0201.txt`.
+
+### Exercício 2
+
+Instale o Discord 🎮!
+
+Baixe o arquivo `.tar.gz` do [site oficial](https://discord.com/), investigue o comando `tar` com `man tar`
+e faça o que for necessário para que o programa `discord` seja executável em qualquer lugar do seu sistema.
+
+Como resolução, descreva os passos que você fez para instalar o programa em um arquivo de texto, por exemplo: `ans0202.txt`.
+
+### Exercício 3
+
+Investigue o `ls` com `man ls`, e crie uma variação do comando (alias) `ls` com suas opções que lista os arquivos
+da seguinte maneira:
+
+- Lista dotfiles
+- Os tamanhos são listados de forma humanamente legível.
+- Os arquivos são ordenados por ordem de modificação.
+- A saída é colorida.
+
+Um exemplo de saída seria:
+
+```terminal
+ -rw-r--r--   1 user group 1.1M Jan 14 09:53 baz
+ drwxr-xr-x   5 user group  160 Jan 14 09:53 .
+ -rw-r--r--   1 user group  514 Jan 14 06:42 bar
+ -rw-r--r--   1 user group 106M Jan 13 12:12 foo
+ drwx------+ 47 user group 1.5K Jan 12 18:08 ..
+```
+
+Como resolução será aceita o a linha de comando que você usou para criar o alias em formato de arquivo
+de texto.
+
+### Exercício 4
+
+Faça um script para backup!
+
+O seu programa deve receber apenas um argumento, o nome do arquivo ou diretório que você quer fazer backup.
+
+```terminal
+bak.sh FILE 
+```
+
+Exemplo de uso:
+
+```terminal
+[user@hostname ~]$ ls
+Downloads Documents Pictures
+[user@hostname ~]$ sh bak.sh Downloads
+[user@hostname ~]$ ls
+Downloads Downloads.bak Documents Pictures
+```
+
+Se o argumento passado for um diretório todos os seus arquivos e sub-diretórios também devem sofrer backup.
+Caso contrário, apenas o arquivo passado como argumento deve ser copiado.
+
+Além disso, o arquivo gerado deve ter a extensão `.bak` e deve ser salvo no mesmo diretório que o arquivo.
+
+Será aceito como resolução o arquivo de código que você usou para implementar o programa.
+
+### Exercício 5
+
+Escreva funções `sh`, chamadas `marco` e `polo` que fazem o seguinte:
+
+- Toda vez que você chamar a função `marco`, ela salva o diretório atual de alguma forma.
+- Toda vez que você chamar a função `polo`, ela muda para o diretório salvo pela função `marco`.
+
+Lembre-se de usar o `source` para recarregar as definições para seu shell.
+
+Como resolução será aceita o(s) arquivo de código que você usou para implementar as funções
+
+### Exercício 6
+
+Crie um programa para ser usado na linha de comando que permita os usuários realizar operações básicas,
+como criar, listar e excluir arquivos e diretórios. O aplicativo deve aceitar opções e argumentos para
+especificar a ação a ser realizada.
+
+Supondo que `$` é o prompt do seu shell, o programa deve funcionar da seguinte maneira:
+
+```terminal
+$ ./fm
+Usage: ./fm [OPTION]... FILE...
+
+Options:
+  -h, --help     Show this help message and exit
+  -l, --list     List all files in the current directory
+  -c, --create   Create a new file
+  -d, --delete   Delete a file
+```
+
+Note, que seu programa pode recber multiplos arquivos e opções, além de que a ordem dos argumentos não deve
+importar.
+
+- Dica: Use o caminho do `bash` no shebang, para ter acesso ao operador `+=` que concatena elementos em um array.
+
+Será aceito como resolução o arquivo de código que você usou para implementar o programa.
