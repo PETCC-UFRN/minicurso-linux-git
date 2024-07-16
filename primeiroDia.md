@@ -454,7 +454,7 @@ Corresponde a:
             </tr>
             <tr>
                 <td><span style="color: brown;">4096</span></td>
-                <td>	O tamanho do arquivo em bytes</td>
+                <td> O tamanho do arquivo em bytes</td>
             </tr>
                <tr>
                 <td><span style="color: cyan;">user</span></td>
@@ -771,7 +771,7 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 ### Exercícios de fixação
 
-#### Questão 1
+#### Exercício 1
 
  1. Para este curso, você precisa usar um shell Unix, como Bash, ZSH ou Fish. Para garantir que você está executando um shell adequado, tente o comando `echo $SHELL`. Se aparecer algo como `/bin/bash`, `/usr/bin/zsh` ou `usr/bin/fish`, significa que você está usando o programa certo.
  2. Crie um novo diretório chamado `petcc` em `/tmp`.
@@ -792,7 +792,7 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
  > Exercício retirado do curso `./missing-semester`
 
-#### Questão 2
+#### Exercício 2
 
 1. Use o comando `find` para listar todos os arquivos em `/var/log` que terminam com `.log`.
 2. Redirecione o output desse comando para um arquivo com nome de `logs_found.txt` em `/tmp/petcc`.
@@ -822,7 +822,7 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 ### Exercícios Obrigatórios
 
-#### Questão 0 (Dificuldade: Fácil)
+#### Exercício 0
 
 1. Crie o diretório `/tmp/petcc`.
 
@@ -838,12 +838,12 @@ ex002
 
 Dentro dos diretórios crie os arquivos necessários.
 
-#### Questão 1 (Dificuldade: Fácil)
+#### Exercício 1
 
 1. Crie um diretório, com o nome que preferir, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
 2. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/answer.sh`.
 
-#### Questão 2 (Dificuldade: Fácil)
+#### Exercício 2
 
 1. Crie um diretório chamado `mydir`.
 2. Dentro desse diretório, crie um arquivo chamado `mytext.txt`.
@@ -854,12 +854,12 @@ Dentro dos diretórios crie os arquivos necessários.
 7. Verifique se o arquivo `mytext.txt` foi removido usando o comando `ls`.
 8. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/resposta.sh`.
 
-#### Questão 3 (Dificuldade: Média)
+#### Exercício 3
 
 1. Em uma linha digite a combinação de comando que cria um diretório chamado `myfolder` em `/tmp` e, somente se esse diretório tenha sido criado com sucesso, crie um arquivo chamado `myinfo.txt`.
 3. Escreva essa linha de comando no arquivo `/tmp/petcc/ex003/resposta.sh`
 
-#### Questão 4 (Dificuldade: Média)
+#### Exercício 4
 
 1. Use o comando `find` para listar todos os arquivos em `/usr/bin` que começam com `g`.
 2. Redirecione a saída desse comando para um arquivo chamado `g_files.txt` em `/tmp/mydir`.
@@ -867,7 +867,7 @@ Dentro dos diretórios crie os arquivos necessários.
 4. Redirecione a saída desse comando para um arquivo chamado `get_occurrences.txt` em `/tmp/petcc/ex004`.
 5. Digite a sequência de comandos usada no arquivo `/tmp/petcc/ex004/resposta.sh`
 
-#### Questão 5 (Dificuldade: Média)
+#### Exercício 5
 
 1. Copie os arquivos de todos os exercícios para o um diretório dentro de `/tmp/petcc/ex005`.
 2. Tente deletar o diretório que você criou com `rmdir`.
@@ -876,7 +876,7 @@ Dentro dos diretórios crie os arquivos necessários.
 4. Use o `echo` para redirecionar a resposta para o arquivo de texto chamado `/tmp/petcc/ex004/resposta.sh`.
 5. Delete o diretório que você criou inicialmente.
 
-#### Questão 6 (Dificuldade: Média)
+#### Exercício 6
 
 1. No diretório `/tmp/petcc`, crie um arquivo chamado `sys_info.sh`.
 2. Adicione o seguinte conteúdo ao arquivo `sys_info.sh`, uma linha de cada vez:
@@ -896,7 +896,7 @@ free -m
 7. Execute o script novamente para verificar se tudo está funcionando conforme esperado.
 8. Crie um link simbólico do arquivo `sys_info.sh` para o diretório `/usr/local/bin` e tente executá-lo de outro lugar apenas com `sys_info.sh`.
 
-#### Questão 7 (Dificuldade: Difícil)
+#### Exercício 7
 
 Em programas em C que envolvem muitos arquivos é comum querermos configurar nosso projeto de uma determinada maneira que fique fácil gerenciar multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
 
