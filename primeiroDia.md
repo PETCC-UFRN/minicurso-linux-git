@@ -4,50 +4,110 @@ title: Minicurso de Linux e Git
 ---
 # Primeiros passos no Linux
 
-## Tabela de conteúdos
-
-<!--toc:start-->
-- [Introdução](#introdução)
-  - [O que é o Linux?](#o-que-é-o-linux)
-  - [Família Unix e Unix-Like](#família-unix-e-unix-like)
-  - [Distros](#distros)
-- [Uso básico do Shell](#uso-básico-do-shell)
-  - [Intro](#intro)
-  - [Primeiros passos](#primeiros-passos)
-  - [Navegando com o Shell](#navegando-com-o-shell)
-  - [Opções e argumentos de comando](#opções-e-argumentos-de-comando)
-  - [Como investigar comandos](#como-investigar-comandos)
-- [Permissões, leitura e busca em/de arquivos](#permissões-leitura-e-busca-emde-arquivos)
-  - [Long listing format e permissões](#long-listing-format-e-permissões)
-  - [Lendo arquivos](#lendo-arquivos)
-- [Links simbólicos e links físicos](#links-simbólicos-e-links-físicos)
-- [Comandos de Busca](#comandos-de-busca)
-  - [`find` - Imprime arquivos cujo correspondem a um padrão](#find-imprime-arquivos-cujo-correspondem-a-um-padrão)
-  - [`grep` - Imprime linhas que correspondem a um padrão](#grep-imprime-linhas-que-correspondem-a-um-padrão)
-- [Redirecionando e combinando comandos](#redirecionando-e-combinando-comandos)
-  - [Standard Input, Output e Error](#standard-input-output-e-error)
-  - [Redirecionando o Standard Output e Standard Error](#redirecionando-o-standard-output-e-standard-error)
-  - [Redirecionando o Standard Input e wildcards](#redirecionando-o-standard-input-e-wildcards)
-  - [Combinando comandos](#combinando-comandos)
-  - [Operadores lógicos no shell](#operadores-lógicos-no-shell)
-- [Exercícios](#exercícios)
-<!--toc:end-->
+<div id="sumario" class="sumario-oldschool">
+    <h1>Sumário</h1>
+    <ul>
+    <li><a href="#introdução">Introdução</a>
+      <ul>
+        <li><a href="#o-que-é-o-linux">O que é o Linux?</a></li>
+        <li><a href="#família-unix-e-unix-like">Família Unix e Unix-Like</a></li>
+        <li><a href="#distros">Distros</a></li>
+      </ul>
+    </li>
+    <li><a href="#uso-básico-do-shell">Uso básico do Shell</a>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#primeiros-passos">Primeiros passos</a></li>
+        <li><a href="#navegando-com-o-shell">Navegando com o Shell</a></li>
+        <li><a href="#opções-e-argumentos-de-comando">Opções e argumentos de comando</a></li>
+        <li><a href="#como-investigar-comandos">Como investigar comandos</a></li>
+      </ul>
+    </li>
+    <li><a href="#permissões-leitura-e-busca-emde-arquivos">Permissões, leitura e busca em/de arquivos</a>
+      <ul>
+        <li><a href="#long-listing-format-e-permissões">Long listing format e permissões</a></li>
+        <li><a href="#lendo-arquivos">Lendo arquivos</a></li>
+      </ul>
+    </li>
+    <li><a href="#links-simbólicos-e-links-físicos">Links simbólicos e links físicos</a></li>
+    <li><a href="#comandos-de-busca">Comandos de Busca</a>
+      <ul>
+        <li><a href="#find-imprime-arquivos-cujo-correspondem-a-um-padrão">`find` - Imprime arquivos cujo correspondem a um padrão</a></li>
+        <li><a href="#grep-imprime-linhas-que-correspondem-a-um-padrão">`grep` - Imprime linhas que correspondem a um padrão</a></li>
+      </ul>
+    </li>
+    <li><a href="#redirecionando-e-combinando-comandos">Redirecionando e combinando comandos</a>
+      <ul>
+        <li><a href="#standard-input-output-e-error">Standard Input, Output e Error</a></li>
+        <li><a href="#redirecionando-o-standard-output-e-standard-error">Redirecionando o Standard Output e Standard Error</a></li>
+        <li><a href="#redirecionando-o-standard-input-e-wildcards">Redirecionando o Standard Input e wildcards</a></li>
+        <li><a href="#combinando-comandos">Combinando comandos</a></li>
+        <li><a href="#operadores-lógicos-no-shell">Operadores lógicos no shell</a></li>
+      </ul>
+    </li>
+    <li><a href="#exercícios">Exercícios</a></li>
+  </ul>
+  
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  
+  </div>
 
 ## Introdução
 
+Atualmente, os computadores estão em todos os lugares, desde os menores relógios até gigantescos data centers,
+onde tudo está conectado. E com a onipresença desses dispositivos, foi inaugurada uma nova era de
+empoderamento e liberdade criativa sem precedentens. Apesar disso, um punhado de grandes corporações detêm o
+controle sobre a maioria dos computadores do mundo e decidem dia após dia o que podemos ou não fazer com
+eles.
+
+Felizmente, desenvolvedores no mundo inteiro trabalham em conjunto para desenvolver uma série de ferramentas
+que permitam expressar nossa liberdade e criatividade sem depender de coisas que não entedemos ou não
+possamos ver. O
+Linux como projeto de software é um dos mais riquíssimos ecossistemas que nasceram desse esforço coletivo e
+é constantemente mantido para continuar cumprindo tal propósito.
+
+Dessa forma, para nos tornamos grandes desenvolvedores e garantir a nossa autonomia, é crucial entender essa
+ferramenta e a comunidade que o cerca.
+
 ### O que é o Linux?
 
-O Linux não é um sistema operacional por si só, mas sim o que chamamos de um **kernel**, que num sentido mais literal representa um programa que controla os recursos do computador, permite que os usuários rodem programas, controlem os periféricos controlados e, também, provê um sistema de arquivos que gerencia o armazenamento a longo prazo de informação, como programas, dados e documentos.
+Portanto, podemos começar, entendendo o que de fato é o Linux.
 
-Num sentido um pouco mais amplo, quando falamos "Linux", nos referimos a um combo chamado "GNU/Linux", onde "GNU" (**G**NU is **N**ot **U**nix; mais sobre o UNIX depois) é uma camada superficial do programa que corresponde a compiladores, editores de texto, programas etc.
+Muitas vezes, nos confundimos ao pensar que Linux é um sistema operacional assim como o Windows ou Mac OS,
+mas não é bem isso, Linux na verdade é o que chamamos de **kernel**, isto é, no sentido literal, uma parte
+do sistema que controla os recursos do computador, permite que os usuários rodem programas, controlem os
+periféricos conectados e, também, um sistema de arquivos que gerencia o armazenamento a longo prazo de informação,
+como programas, dados e documentos.
 
-Num sentido ainda mais amplo, quando falamos "GNU/Linux" ou apenas "Linux", falamos de uma família de sistemas os quais implementaram essa "interface" por assim dizer. Cada membro da familia é o que chamamos de distro Linux (mais sobre isso no futuro), que agora, de fato, é um sistema operacional completo, pois empacota o que é oferecido pelo Linux e GNU, e torna seu sistema utilizável sem que você tenha que compilar todas as dependências e montar seu sistema do absoluto zero.
+Num sentido um pouco mais amplo, quando falamos "Linux", nos referimos a um combo chamado "GNU/Linux", onde "GNU"
+(**G**NU is **N**ot **U**nix; mais sobre o UNIX depois) é uma camada superficial sistema que corresponde um pacote
+de programas, como compiladores, editores de texto e os programas que usamos diariamente.
 
-Esses detalhes não são realmente importantes para esse curso, pois o nosso objetivo é apenas ensinar como se localizar, investigar e usar diversas ferramentas que são genéricas a uma família ainda maior de sistemas, chamados de "Unix-like", onde um dos herdeiros dessa família é o Linux.
+Num sentido ainda mais amplo, quando falamos "GNU/Linux" ou apenas "Linux", falamos de uma família de sistemas os
+quais implementaram o que o Linux e GNU e os tornaram utilizáveis. Cada membro da familia é o que chamamos de
+distro Linux (mais sobre isso no futuro), que agora, de fato, é um sistema operacional completo.
+
+Num sentido ainda mais mais amplo, podemos enxergar Linux, como um descendente de consideração de uma família
+chamada Unix, e chamamos essa descêndencia de Unix-Like.
 
 ### Família Unix e Unix-Like
 
-Inicialmente, vamos falar um pouco sobre quem começou essa gigantesca família de sistemas chamadas Unix-Like. Era uma vez o Unix, um sistema operacional que foi desenvolvido no início dos anos 1970 como uma alternativa flexível e portátil aos sistemas da época, que eram grandes, caros e difíceis de manter, especialmente porque eram programados em linguagem de máquina específica para cada tipo de hardware. Sendo um dos primeiros sistemas operacionais escritos na linguagem C — possivelmente o primeiro —, o Unix se destacou pela adaptabilidade e facilidade de implementação em diferentes tipos de hardware. Apesar de ser um ótimo sistema para a época, o Unix foi construido para propósitos educaionais e sua licensa era muito cara, talvez por esse motivo ele não tenha sido muito atrativo para a população geral. Independentemente disso, ele trouxe inovações que estabeleceram um modelo e uma filosofia de desenvolvimento de software que ainda influencia inúmeras outras plataformas e sistemas operacionais subsequentes, como o MacOS, sistemas BSDs e os Linux. Esse conjunto de inovações e filosofia, futuramente estabeleceu até um padrão, que é o que chamamos de POSIX.
+A coisa interessante sobre o Unix é que sua filosofia de desenvolvimento de software e implementação foi tão
+revolucionária que inspirou e inspira até hoje diversos paradigmas atuais de programação, tanto ao ponto de chamarmos
+de *pai* de todos os sistemas operacionais. Mas por que ele é e foi tão importante? Primeiro, porque foi o primeiro
+sistema escrito em C, ou seja, ele podia facilmente ser portado para qualquer arquitetura. Segundo, também por ser
+escrito em C, o código do sistema é muito acessível e fácil de manter e melhorar. Por último e mais importante,
+porque ele é muito *bom*, principalmente para programadores.
+
+Apesar de ter sido, inicialmente, uma iniciativa de pesquisa privada da Bell Labs, o sucesso foi tanto, que
+desenvolvedores do mundo inteiro queriam desenvolver sua própria alternativa "livre" do Unix, essa iniciativa
+deu origem aos sistemas BSD (**B**erkely **S**oftware **D**istribution), GNU/Linux e até o Mac OS (esse, não
+tão livre assim :P). Como as BSDs e Linux sofrem muitas variações, a chamamos de Distros, que são distribuições/implementações
+diferentes do pacote inicial.
 
 ### Distros
 

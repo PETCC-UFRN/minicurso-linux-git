@@ -5,29 +5,49 @@ title: Shell Avançado
 
 
 
+
 # {{ page.title }}
 
-## Tabela de conteúdos
-<!--toc:start-->
-- [Tabela de conteúdos](#tabela-de-conteúdos)
-- [Expandindo a ideia de comandos](#expandindo-a-ideia-de-comandos)
-  - [Aliases](#aliases)
-  - [Vendo um comando como arquivo](#vendo-um-comando-como-arquivo)
-- [Instalando programas no Linux](#instalando-programas-no-linux)
-  - [Manualmente](#manualmente)
-  - [Gerenciadores de pacote](#gerenciadores-de-pacote)
-- [Editores de texto](#editores-de-texto)
-  - [Escolhendo um editor de texto](#escolhendo-um-editor-de-texto)
-- [Shell scripting](#shell-scripting)
-  - [Por quê shell scripting?](#por-quê-shell-scripting)
-  - [A primeira linha: #! (shebang)](#a-primeira-linha-shebang)
-  - [Variáveis](#variáveis)
-  - [Expansões](#expansões)
-  - [Condicionais](#condicionais)
-  - [Funções](#funções)
-  - [Loops](#loops)
-- [Exercícios](#exercícios)
-<!--toc:end-->
+<div id="sumario" class="sumario-oldschool">
+    <h1>Sumário</h1>
+  <ul>
+    <li><a href="#expandindo-a-ideia-de-comandos">Expandindo a ideia de comandos</a>
+      <ul>
+        <li><a href="#aliases">Aliases</a></li>
+        <li><a href="#vendo-um-comando-como-arquivo">Vendo um comando como arquivo</a></li>
+      </ul>
+    </li>
+    <li><a href="#instalando-programas-no-linux">Instalando programas no Linux</a>
+      <ul>
+        <li><a href="#manualmente">Manualmente</a></li>
+        <li><a href="#gerenciadores-de-pacote">Gerenciadores de pacote</a></li>
+      </ul>
+    </li>
+    <li><a href="#editores-de-texto">Editores de texto</a>
+      <ul>
+        <li><a href="#escolhendo-um-editor-de-texto">Escolhendo um editor de texto</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell-scripting">Shell scripting</a>
+      <ul>
+        <li><a href="#por-quê-shell-scripting">Por quê shell scripting?</a></li>
+        <li><a href="#a-primeira-linha-shebang">A primeira linha: #! (shebang)</a></li>
+        <li><a href="#variáveis">Variáveis</a></li>
+        <li><a href="#expansões">Expansões</a></li>
+        <li><a href="#condicionais">Condicionais</a></li>
+        <li><a href="#funções">Funções</a></li>
+        <li><a href="#loops">Loops</a></li>
+      </ul>
+    </li>
+    <li><a href="#exercícios">Exercícios</a></li>
+  </ul>
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  
+  </div>
 
 ## Expandindo a ideia de comandos
 
