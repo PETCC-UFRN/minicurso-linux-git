@@ -178,7 +178,8 @@ Os sistemas BSD e as distribuições Linux compartilham muitas das filosofias b�
 
 ### Intro
 
-Para entender um pouco melhor do que se trata o shell, note que na época em que o Unix se popularizou (final da década de 70 e início da de 80) não existia uma interface gráfica (GUI) e toda interação era feita via comandos com a ajuda de um terminal. Os caracteres inseridos no teclado eram enviados ao hardware, que enviava uma instrução ao software para que eles aparecessem na tela e o usuário pudesse ver o que estava digitando.
+Para entender um pouco melhor do que se trata o shell, note que na época em que o Unix se popularizou (final da década de 70 e início da de 80) não existia uma interface gráfica (GUI) e toda interação era feita via comandos com a ajuda de um terminal. Um terminal, por sua vez, é um programa com interface de texto que perimite interagir com o sistema
+operacional a partir de comandos.
 
 <div style="text-align: center;">
 <img alt="Imagem de um DEC VT100 rodando Unix" src="https://hackmd.io/_uploads/HkxmAtRVR.jpg" width="80%">
@@ -186,9 +187,12 @@ Para entender um pouco melhor do que se trata o shell, note que na época em que
 
 - *Imagem de um DEC VT100 rodando Unix (1978), fonte: <https://en.wikipedia.org/wiki/VT100>*
 
-Essa linha de comando e interface de texto na época era única e exclusiva responsabilidade do Shell, que em síntese é um programa que interpreta a entrada do usuário e a repassa para o sistema, fazendo com que este gerencie o processo (comando) executado.
+Essa linha de comando e interface de texto na época era única e exclusiva responsabilidade do Shell, que é ao mesmo
+tempo uma interface de texto, uma linguagem de programação e um ambiente de execução de programas.
 
-Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu papel de protagonista e hoje pode ser invocado a partir de o que chamamos de emulador de terminal. Entretanto, caso tenha resolvido não instalar e configurar uma interface gráfica (ao instalar o Arch, por exemplo), o Shell será seu único companheiro.
+Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu papel de protagonista e hoje pode ser
+invocado a partir de o que chamamos de emulador de terminal. Entretanto, caso tenha resolvido não instalar e
+configurar uma interface gráfica (ao instalar o Arch, por exemplo), o Shell será seu único companheiro.
 
 <div style="text-align: center;">
 <img alt="Imagem do emulador gnome-terminal rodando no ubuntu 24.04 LTS" src="https://hackmd.io/_uploads/BkL7RK04A.png" width="80%">
@@ -196,13 +200,16 @@ Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu 
 
 - *Imagem do emulador gnome-terminal rodando no ubuntu 24.04 LTS, fonte: <https://canaltech.com.br/linux/ubuntu-2404-lts-e-liberado-veja-as-principais-novidades-286919/>*
 
-A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é um padrão e se você quiser, existem diversos outros que você pode instalar e utilizar. Quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
+A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é
+um padrão e se você quiser, existem diversos outros que você pode instalar e usar.
+
+Agora explorando essa interface, quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
 
 ```terminal
 [user@hostname ~]$
 ```
 
-Vamos entender o que significa cada símbolo desse.
+Onde:
 
 ```terminal
 [user@hostname ~]$
@@ -236,7 +243,7 @@ Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calend
 ```terminal
 [user@hostname ~]$ echo Hello 
                           ^
-                          └─ Argumento passado para o programa (input)
+                          └─ Argumentos passado para o programa (input)
 ```
 
 Seu terminal provalvemente ficou assim:
@@ -247,6 +254,7 @@ Hello
 ```
 
 O programa `echo` apenas imprime o argumento que você passou para ele em uma *stream* (falaremos mais sobre no futuro).
+E, o resultado que foi impresso é o que chamamos de *output*.
 
 Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 
@@ -258,20 +266,7 @@ Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 [user@hostname ~]$ echo Hello\ World
 ```
 
-<!-- FIX: Não está muito boa essa parte, dar uma olhada --->
-
-O que acabamos de presenciar aqui são **inputs** e **outputs** de um programa, o input é o argumento que você
-deu para determinado programa e o output é a resposta que você recebeu.
-
-Imagine que estamos de volta num restaurante sem botões e qr code. Aqui, o input é como fazer seu pedido ao
-garçom, você pode especificar não apenas o prato que deseja, mas também detalhes como o ponto da carne,
-ausência de algum ingrediente ao qual você é alérgico, ou até mesmo pedir acompanhamentos extras. Esse pedido,
-ou comando, é passado ao garçom, que aqui atua como uma interface entre você (o usuário) e a cozinha (o
-sistema operacional ou o programa em execução).
-
-O output, por outro lado, é o prato que você recebe após a cozinha processar seu pedido. Assim como em um sistema de computador, o output depende diretamente do input: se você pedir uma pizza de calabresa, não receberá uma feijoada (provavelmente :P).
-
-Teste digitar qualquer coisa no terminal e veja o que acontece.
+Nem, tudo também funciona do jeito que a gente quer teste digitar qualquer coisa no terminal e veja o que acontece.
 
 ```terminal
 [user@hostname ~]$ ablueblauebluebalbbeu
@@ -305,9 +300,6 @@ não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 <br>
 
 #### Current working directory
-
-<!-- FIX: Inconscistência nos nomes nessa seção 
---->
 
 O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Imagine que seu sistema de arquivos é a
 seguinte árvore de cabeça para baixo.
