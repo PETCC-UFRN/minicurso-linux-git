@@ -750,23 +750,86 @@ O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar ⏎
 Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 ---
+## Combinando comandos
 
-### Combinando comandos
+A combinação de comandos otimiza o uso dos comandos e é um passo essencial para dominar a a arte da *command-line*. Anteriormente nessa aula, comentamos sobre a [Filosofia Unix](#filosofia-unix-programas-simples-e-combináveis), e seu ponto principal é que os comandos devem ser **simples e combináveis**. Assim, o arsenal de comandos que um usuário tem a sua disposição quando utilizando o Linux foi *feito* para ser usado com diversas combinações, podendo gerar uma gama de saídas que é quase como se a quantidade de comandos desse arsenal aumentasse exponencialmente.
 
-#### Combinando comandos com o redirecionamento de arquivos
+### Combinando comandos com o redirecionamento de arquivos
+Como foi visto no tópico anterior, podemos redirecionar o nosso **standard input** e o nosso **standard output** como bem quisermos, e aqui podemos ver mais uma utilidade dessa prática: a combinação de comandos.
 
-#### Combinando comandos usando pipelines
+Podemos combinar comandos redirecionando o output de um comando para um arquivo e logo após, redirecionando o conteúdo desse arquivo como o input de outro comando. Parece confuso, não? Mas veja como é simples:
 
-### Operadores lógicos no shell
+Digamos que você está procurando um arquivo e executou o comando `ls -l` em uma pasta com muitos arquivos, exibindo uma quantidade desagradável de informação na sua tela, tornando muito difícil a sua busca. Você pode utilizar o comando `grep` junto com o comando anterior para encontrar apenas o arquivo que você deseja, dessa forma:
 
-#### Curto circuito de operadores
+```terminal
+[user@hostname ~]$ ls -l >temp
+```
 
-<!--
-    - TODO: Combinando comandos usando redirecionamento de arquivos
-    - TODO: Combinando comandos usnado Pipelines `|`
-    - TODO: Disjunção `||` e conjunção `&&`
-    - TODO: Curto circuito de operadores
--->
+Usando o operador `>`, nós redirecionamos a saída do comando `ls -l` para um arquivo temporário, criado com o nome de `temp`. Agora, vamos utilizar o arquivo `temp` como a **entrada** do comando `grep`:
+
+```terminal
+[user@hostname ~]$ grep [sua_busca] <temp
+```
+
+E simples assim, o terminal mostrará apenas a(s) linha(s) que correspondem a o que você estava procurando!
+
+Contudo, para combinar comandos usando o redirecionamento de arquivos precisamos **gerar** um arquivo, o que pode muitas vezes acabar gerando muito lixo nas pastas do seu computador, principalmente quando se esquece de remover o arquivo criado. Vamos ver agora como combinar comandos sem precisar gerar nenhum arquivo.
+
+### Combinando comandos usando pipelines
+
+Em português, uma *pipeline* seria uma *linha de canos*, ou seja, uma ligação entre diferentes saídas, mas ao invés de saídas de água ou gás, nesse caso são saídas de comandos. Podemos utilizar a barra paralela `|` como um *cano* (pipe) e assim ligar dois ou mais comandos (o número é ilimitado). O exemplo a seguir combina os comandos `ls` e `sort` para listar os arquivos de um diretório em ordem alfabética:
+
+```terminal
+[user@hostname ~]$ ls | sort
+```
+
+Podemos combinar o comando `grep`, assim como no tópico anterior, para filtrar os nossos resultados a partir de uma busca:
+
+```terminal
+[user@hostname ~]$ ls | grep [sua_busca] | sort
+```
+
+Do ponto de vista lógico, quando um pipe é chamado o sistema redireciona a saída do comando da direita para o comando da esquerda automaticamente.
+## Operadores lógicos no shell
+A combinação de comandos também pode ser feita utilizando operadores lógicos, sendo os principais a Disjunção e a Conjunção. A saída da combinação usando estes operadores também pode ser afetada dependendo do valor retornado de após cada execução de comando. Veremos isso em breve.
+
+### Conjunção `&&` e Disjunção `||`
+A conjução de comandos funciona assim como uma conjunção de proposições no contexto matemático: Se um dos comandos retornar o valor **false**, não será gerada nenhuma saída, entretanto, no contexto de comandos, como sabemos quando um comando retorna **true** ou **false**?
+
+Na verdade, o valor de saída de um comando não é exatamente um valor booleano, mas sim um inteiro! Quando um comando é executado, o sistema recebe todos os argumentos dados e verfica se eles são **válidos**. Se o comando foi chamado corretamente, a saída do comando será gerada e o sistema retornará o valor `0`. Caso contrário, se houver qualquer argumento inválido ou até mais argumentos do que o comando suporta, o sistema retornará qualquer outro número o que conhecemos como.
+
+O exemplo a seguir combina o `mkdir` e o `cd` para acessar um diretório assim que ele foi criado:
+
+```terminal
+[user@hostname ~]$ mkdir diretorio-teste && cd diretorio-teste
+```
+Como a utilização e os argumentos dos comandos combinados está correta, a combinação de comandos funciona.
+
+No exemplo a seguir, temos o uso da disjunção:
+
+```terminal
+[user@hostname ~]$ false || echo "oi"
+oi
+```
+
+Note que mesmo o primeiro valor sendo **false**, a combinação ainda é bem sucedida, pois se trata de uma disjunção. O mesmo não valeria para uma conjunção.
+
+### Curto circuito de operadores
+
+Quando combinando comandos utilizando operadores lógicos, o sistema pode induzir um **curto circuito de operadores** para executar a combinação mais rápido.
+
+Por exemplo, quando o comando `false && echo "oi"` o comando `echo` na verdade não chega nem a ser executado, pois o sistema detecta que o primeiro argumento possui valor falso e que se trata de uma conjunção, portanto a combinação já é falha por aí.
+
+É possível visualizar melhor esse fenômeno no seguinte exemplo:
+
+```terminal
+[user@hostname ~]$ true || echo "oi"
+[user@hostname ~]$ echo "oi" || echo "tchau"
+oi
+```
+
+Note que na primeira combinação nenhuma saída foi gerada, pois se tratando de uma conjunção, o sistema precisa apenas que um dos dois comandos retorne **true**, então o `echo` não chega nem a ser executado. Já na segunda combinação, a segunda ocorrência do `echo` não chega a ser executada, pois a primeira ocorrência funcionou perfeitamente (ou seja, retornou **true**) e por se tratar de uma conjunção, não é necessário executar o segundo argumento da combinação.
+
 ## Exercícios
 
 ### Exercícios de fixação
