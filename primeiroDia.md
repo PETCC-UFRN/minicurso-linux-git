@@ -331,7 +331,7 @@ Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absol
 
 > (Perceba o `~` mudando)
 
-Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola` ! Para isso, é necessário se utilizar do diretório especial `..`
+Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola`. Para isso, é necessário se utilizar do diretório especial `..`
 
 Os dois pontos representam o **diretório parente** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
