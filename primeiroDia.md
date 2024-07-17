@@ -30,8 +30,7 @@ title: Minicurso de Linux e Git
       </ul>
     </li>
     <li><a href="#links-simbólicos-e-links-físicos">Links simbólicos e links físicos</a></li>
-    <li><a href="#comandos-de-busca">Comandos de Busca</a>
-      <ul>
+    <li><a href="#comandos-de-busca">Comandos de Busca</a> <ul>
         <li><a href="#find-imprime-arquivos-cujo-correspondem-a-um-padrão">`find` - Imprime arquivos cujo correspondem a um padrão</a></li>
         <li><a href="#grep-imprime-linhas-que-correspondem-a-um-padrão">`grep` - Imprime linhas que correspondem a um padrão</a></li>
       </ul>
@@ -56,6 +55,10 @@ title: Minicurso de Linux e Git
   
   </div>
 
+<div style="text-align: center;"> <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem7.png" width="40%">
+</div>
+<br>
+
 ## Introdução
 
 Atualmente, os computadores estão em todos os lugares, desde os menores relógios até gigantescos data centers,
@@ -71,7 +74,7 @@ Linux como projeto de software é um dos mais riquíssimos ecossistemas que nasc
 é constantemente mantido para continuar cumprindo tal propósito.
 
 Dessa forma, para nos tornamos grandes desenvolvedores e garantir a nossa autonomia, é crucial entender essa
-ferramenta e a comunidade que o cerca.
+ferramenta e a comunidade que a cerca.
 
 ### O que é o Linux?
 
@@ -115,9 +118,57 @@ diferentes do pacote inicial.
 
 Como foi dito anteriormente, Linux é apenas uma família de sistemas, e cada sistema é chamado de distro Linux. Existem uma série de diferenças entre essas distros, que dependem da implementação de quem os gerencia. Além disso, pelo GNU e o Linux serem "software livre" qualquer uso e implementação do Kernel Linux e do projeto GNU tem que ser gratuita e código aberto. Mas então, qual é a principal diferença entre essas distribuições?
 
-As distros são coleções de software que incluem o kernel Linux, software GNU e, muitas vezes, outros pacotes que podem ser de outras origens. Estas distribuições são adaptadas para atender a diferentes tipos de usuários e podem incluir desde versões muito leves para hardware antigo até sistemas completamente equipados para uso corporativo. Algumas das mais populares são [Ubuntu](https://ubuntu.com/desktop), [Mint](https://linuxmint.com/), [Fedora](https://fedoraproject.org/), [Debian](https://www.debian.org/index.pt.html) e [Arch](https://archlinux.org/), cada uma oferece uma experiência de usuário diferente, ferramentas específicas e um sistema de gerenciador de pacotes que facilita a instalação e a manutenção de software.
+##### [**Arch**](https://archlinux.org/)
+
+<div style="text-align: center;"> <img alt="Logotípo do Arch Linux" src="assets/images/linux_dia1_imagem10.png" width="60%">
+</div>
+<br>
+
+Uma das mais minimalistas e customisáveis, o Arch tem como propósito a simplicidade ao extremo no seu
+pacote básico. Desde a instalação até a configuração de cada detalhe, é responsabilidade do usuário,
+ou seja, cada acerto e cada erro é exclusivamente seu. Devido as essas características, o Arch é muito
+popular entre usuários mais entusiastas e programadores.
+
+##### [**Debian**](https://www.debian.org/index.pt.html)
+
+<div style="text-align: center;"> <img alt="Logotípo do Debian" src="assets/images/linux_dia1_imagem8.jpg" width="60%">
+</div>
+<br>
+
+Conhecido pela sua estabilidade e segurança, o Debian é muito popular em servidores, ambientes corporativos e entre usuários que buscam lidar com a menor quantidade de problemas possíveis.
+Para isso, o Debian tem um ciclo de lançamento mais lento, o que significa que as atualizações são menos
+frequentes, mas mais testadas.
+
+Em contrapartida, o ciclo de lançamento do Arch é infinitamente mais
+rápido, o que significa que as atualizações são mais frequentes, mas menos testadas.
+
+##### [**Ubuntu**](https://ubuntu.com/)
+
+<div style="text-align: center;"> <img alt="Imagem do Mint" src="assets/images/linux_dia1_imagem011.png" width="60%">
+</div>
+<br>
+
+Sem dúvida, uma das distros mais populares, o Ubuntu é conhecido pela sua facilidade de uso e instalação,
+de tal forma que é muito popular entre usuários que estão começando a usar Linux. Pois, abstrai muitas
+nuances que podem ser intimidadoras para novos usuários.
+
+Além disso, o Ubuntu é baseado no Debian, o que significa que ele herda muitas características positivas
+do Debian, como, em parte, a estabilidade e segurança.
+
+##### [**Mint**](https://linuxmint.com/)
+
+<div style="text-align: center;"> <img alt="Imagem do Mint" src="assets/images/linux_dia1_imagem9.png" width="60%">
+</div>
+<br>
+
+Nascido do Ubuntu, o Mint tem a proposta de ser ainda mais amigável e fácil de usar que o Ubuntu. O que
+o torna, também, uma alternativa muito viável a usuários que estão começando a usar o Linux e não se
+preocupam muito com customização e minimalismo.
 
 #### BSD's
+
+<!-- TODO: Adicionar imagem com as BSDs 
+-->
 
 Ao lado das distribuições Linux, existem os sistemas operacionais [BSD](https://pt.wikipedia.org/wiki/Berkeley_Software_Distribution), que são outra família de sistemas Unix-like. BSD, que significa Berkeley Software Distribution, refere-se a uma série de distribuições de software que foram originalmente desenvolvidas e distribuídas pela Universidade da Califórnia em Berkeley. Assim como o Linux, os sistemas BSD têm um núcleo e ferramentas de usuário, mas são desenvolvidos e licenciados de maneira diferente. Exemplos notáveis de sistemas BSD incluem [FreeBSD](https://www.freebsd.org/), [NetBSD](https://www.netbsd.org/) e [OpenBSD](https://www.openbsd.org/).
 
