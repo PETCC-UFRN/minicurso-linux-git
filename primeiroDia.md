@@ -152,8 +152,8 @@ Sem dúvida, uma das distros mais populares, o Ubuntu é conhecido pela sua faci
 de tal forma que é muito popular entre usuários que estão começando a usar Linux. Pois, abstrai muitas
 nuances que podem ser intimidadoras para novos usuários.
 
-Além disso, o Ubuntu é baseado no Debian, o que significa que ele herda muitas características positivas
-do Debian, como, em parte, a estabilidade e segurança.
+Além disso, o Ubuntu é baseado no Debian, o que significa que ele herda muitas características positivas, como, em
+parte, a estabilidade e segurança.
 
 ##### [**Mint**](https://linuxmint.com/)
 
@@ -220,7 +220,7 @@ Onde:
   └── Nome do usuário que está usando o shell nessa sessão 
 ```
 
-A maneira mais simples de usar o shell, é digitando comandos!.
+A maneira mais simples de usar o shell, é digitando comandos!
 
 ### Primeiros passos
 
@@ -301,8 +301,10 @@ não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
 #### Current working directory
 
-O sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/` (chamado de **root**) e os galhos acima dele, que são os outros diretórios do computador. A partir de um diretório, é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Imagine que seu sistema de arquivos é a
-seguinte árvore de cabeça para baixo.
+Como ja dito anteriormente, o sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/`
+(chamado de **root**) que seria o tronco e os galhos são os outros diretórios do computador. A partir de um diretório,
+é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um
+diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Na prática, imagine que seu sistema de arquivos é a seguinte árvore de cabeça para baixo.
 
 <div style="text-align: center;">
 <img alt="Imagem exemplo de um sistema de arquivos do Linux" src="assets/images/linux_dia1_imagem3.png" width="80%">
@@ -316,7 +318,7 @@ Utilizando o comando `pwd`, que é uma sigla para **P**ath to **W**orking **D**i
 /home/eu
 ```
 
-Além do working directory nós temos também o home directory, que é o único lugar que usuários comuns são autorizados a escrever em ou um arquivo. Para cada usuário é dado um home directory, ou seja por padrão você apenas capaz de ver outros diretórios além do seu, se quiser editar algo que não é seu, você precisará de algo que chamamos de permissões de superusuário, ou sudo (mais sobre isso no futuro).
+Além do working directory nós temos também o home directory, que é o único lugar que usuários comuns são autorizados a escrever em um arquivo. Para cada usuário é dado um home directory, ou seja por padrão você apenas capaz de ver outros diretórios além do seu, se quiser editar algo que não é seu, você precisará de algo que chamamos de permissões de superusuário, ou sudo (mais sobre isso no futuro).
 
 #### Caminhos absolutos e caminhos relativos
 
@@ -329,9 +331,9 @@ Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absol
 
 > (Perceba o `~` mudando)
 
-Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola` ! Para isso, é necessário se utilizar do **caminho relativo** `..`
+Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola` ! Para isso, é necessário se utilizar do diretório especial `..`
 
-Os dois pontos representam o **diretório anterior** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
+Os dois pontos representam o **diretório parente** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
 ```terminal
 [eu@hostname downloads]$ cd ..
@@ -339,7 +341,7 @@ Os dois pontos representam o **diretório anterior** de forma relativa, e podem 
 [eu@hostname escola]$
 ```
 
-Também temos o caminho relativo `.` que representa o **diretório atual**. Na parte de navegação de arquivos esse caminho não é tão interessante, mas é crucial quando estamos tratando de **executar comandos**.
+Também temos o diretório especial `.` que representa o **diretório atual**. Na parte de navegação de arquivos esse caminho não é tão interessante, mas é crucial quando estamos tratando de **executar comandos**.
 
 #### Listando, criando diretórios e arquivos
 
