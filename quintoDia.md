@@ -4,7 +4,7 @@ title: Minicurso de Linux e Git
 ---
 
 
-## 5ᵒ Dia (Git)
+## GitHub e boas práticas de Git
 
 _A decidir_
 

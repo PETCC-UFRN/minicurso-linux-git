@@ -24,14 +24,16 @@ body {
     padding: 0;
     background-color: #161824;
 }
-.menuPrincipal{
-    font-family: Source Code Pro, sans-serif;
+.navgit, .menuPrincipal{
+    font-family: 'Source Code Pro', sans-serif, monospace;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #89023e;
     height: 4vh;
 }
+
+
 .listaNavegacao{
     display: flex;
     list-style: none;
@@ -60,12 +62,11 @@ body {
 /*    border-radius: 3px;*/
 /*}*/
 
-.navgit,
 .oldschoolnav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 5vh;
+    height: 4vh;
     /*background-color: #00e300;*/
 }
 .oldschoolnav a:hover {
@@ -202,13 +203,32 @@ main{
 }
 p{
     text-align: justify;
-    text-indent: 25px;
+    /*text-indent: 25px;*/
 }
 
 
 
 h1{
     color: #E8EAEF;
+}
+/*tabelas*/
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #222222; /* Fundo da tabela */
+}
+th, td {
+    border: 1px solid #444444; /* Bordas das células */
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #444444; /* Fundo do cabeçalho */
+    color: #00e300; /* Texto do cabeçalho */
+}
+td {
+    background-color: #333333; /* Fundo das células */
 }
 /* Define a common font family for code elements */
 .layoutGit pre, code ,.oldschool pre, code {
@@ -239,6 +259,86 @@ h1{
     background: none; /* No background color (inherit or specify a color) */
     font-size: 100%; /* Reset font size to default */
     padding: 0; /* Reset padding */
+}
+#sumario {
+    position: fixed;
+    text-align: left;
+    top: 0;
+    left: 0;
+    width: 300px; /* Ajuste conforme necessário */
+    padding: 10px; /* Espaçamento interno opcional */
+    height: 100%; /* Para ocupar toda a altura da página */
+    overflow-y: auto; /* Para adicionar rolagem, se necessário */
+    transition: left 0.3s ease; /* Transição suave para a animação */
+}
+
+.sumario-oldschool{
+    color: #00e300;
+    border-right: 1px solid #00e300;
+    background: black;
+}
+
+.sumario-git{
+    background: #020728;
+    color: #f0f4ff;
+    border-right: 1px solid #F05033;
+}
+
+#sumario.hidden {
+    left: -321px; /* Ajuste conforme a largura do sumário */
+}
+
+/* Estilizando a barra de rolagem no Chrome, Safari e Opera */
+#sumario::-webkit-scrollbar {
+    width: 3px; /* Largura da barra de rolagem */
+    
+}
+
+#sumario::-webkit-scrollbar-track {
+    background: #000; /* Cor do trilho da barra de rolagem */
+    
+}
+
+.sumario-oldschool::-webkit-scrollbar-thumb {
+    background: #00e300; /* Cor do polegar da barra de rolagem */
+    border-radius: 10px; /* Borda arredondada para o polegar */
+}
+.sumario-git::-webkit-scrollbar-thumb{
+    background: #F05033;
+    border-radius: 10px;
+}
+
+.sumario-oldschool::-webkit-scrollbar-thumb:hover {
+    background: #00e300; /* Cor do polegar da barra de rolagem quando está sendo rolado */
+}
+.sumario-git::-webkit-scrollbar-thumb:hover {
+    background: #F05033; /* Cor do polegar da barra de rolagem quando está sendo rolado */
+}
+
+.toggle-button{
+    font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Lucida Console", monospace;
+    background-color: transparent;
+    border: none;
+    color: #00e300;
+    position: fixed;
+    left: 0px;
+    top: 95%;
+}
+
+.toggle-button:hover{
+    color:#fff;
+}
+
+.small {
+    font-size: 0.75rem;
+}
+.small p {
+    margin: 0;
+}
+.center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .small {

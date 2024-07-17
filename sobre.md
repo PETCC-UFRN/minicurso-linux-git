@@ -32,6 +32,7 @@ O Minicurso de Linux e Git é um projeto do PETCC, e as aulas serão ministradas
 - Robbins, Arnold, e Nelson H. F. Beebe. *Classic Shell Scripting*. Sebastopol, CA: O'Reilly Media, 2005. Disponível em: [Amazon](https://www.amazon.com/Classic-Shell-Scripting-Arnold-Robbins/dp/0596005954).
 - Kernighan, Brian W., e Rob Pike. *The UNIX Programming Environment*. Englewood Cliffs, NJ: Prentice Hall, 1984. Disponível em: [PDF](https://scis.uohyd.ac.in/~apcs/itw/UNIXProgrammingEnvironment.pdf).
 - Shotts, William E. Jr. *The Linux Command Line Fifth Edition*. No Starch Press, 2023. Disponível em: [PDF](https://linuxcommand.org/tlcl.php).
+- Tsouanas, Thanos *Matemática Funcional para Computação*, 2024. Disponível em: [PDF](https://www.tsouanas.org/fmcbook/)
 
 ### Cursos
 

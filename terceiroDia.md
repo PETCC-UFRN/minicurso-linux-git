@@ -7,6 +7,86 @@ title: Minicurso de Linux e Git
 [comment]: <> (Sendo assim, basta escrever em markdown mesmo que vai ser tudo estilizado pelos layouts)
 
 
+<div id="sumario" class="sumario-git">
+    <h1>Sumário</h1>
+    <ul>
+  <li><a href="#introducao-ao-git">Introdução ao Git</a></li>
+  <ul>
+    <li><a href="#basico-sobre-processos">Básico sobre processos</a></li>
+    <ul>
+      <li><a href="#o-que-e-um-processo">O que é um processo?</a></li>
+      <li><a href="#estados-dos-processos">Estados dos processos</a></li>
+    </ul>
+    <li><a href="#interrompendo-e-listando-processos">Interrompendo e listando processos</a></li>
+    <ul>
+      <li><a href="#visualizando-processos-estaticamente-com-ps">Visualizando processos estaticamente com `ps`</a></li>
+      <li><a href="#o-uso-do-ps-com-o-grep">O uso do `ps` com o `grep`</a></li>
+      <li><a href="#uso-do-kill">Uso do `kill`</a></li>
+      <li><a href="#uso-do-killall">Uso do `killall`</a></li>
+      <li><a href="#uso-e-visualizacao-processos-dinamicamente-com-htop">Uso e visualização processos dinâmicamente com htop</a></li>
+    </ul>
+    <li><a href="#rodando-processos-em-background">Rodando processos em background</a></li>
+    <ul>
+      <li><a href="#uso-do-ampersand-no-shell">Uso do & comercial no shell</a></li>
+      <li><a href="#trazendo-para-foreground">Trazer para foreground</a></li>
+      <li><a href="#retomando-processos-suspensos-em-background">Retomando processos suspensos em background</a></li>
+      <li><a href="#uso-do-nohup">Uso do nohup</a></li>
+      <li><a href="#uso-do-wait">Uso do wait</a></li>
+    </ul>
+  </ul>
+  <li><a href="#versionadores-e-git-fundamentos-e-conceitos">Versionadores e Git: Fundamentos e Conceitos</a></li>
+  <ul>
+    <li><a href="#introducao-aos-versionadores">Introdução aos Versionadores</a></li>
+    <ul>
+      <li><a href="#contextualizacao-com-a-historia-do-linux">Contextualização com a história do Linux</a></li>
+      <li><a href="#o-que-sao-versionadores">O que são Versionadores?</a></li>
+      <li><a href="#tipos-de-versionadores">Tipos de Versionadores</a></li>
+      <ul>
+        <li><a href="#sistemas-locais">Sistemas Locais</a></li>
+        <li><a href="#sistemas-centralizados">Sistemas Centralizados</a></li>
+        <li><a href="#sistemas-distribuidos">Sistemas Distribuídos</a></li>
+      </ul>
+    </ul>
+    <li><a href="#introducao-ao-git">Introdução ao Git</a></li>
+    <ul>
+      <li><a href="#surgimento-do-git">Surgimento do Git</a></li>
+      <li><a href="#de-onde-vem-o-nome-git">De onde vem o nome "Git"?</a></li>
+      <li><a href="#git-como-um-versionador">Git como um Versionador</a></li>
+      <li><a href="#como-o-git-funciona">Como o Git Funciona?</a></li>
+    </ul>
+    <li><a href="#hospedagem-remota-e-conexoes-ssh">Hospedagem Remota e Conexões SSH</a></li>
+    <ul>
+      <li><a href="#introducao-a-plataformas-de-hospedagem-remota">Introdução a plataformas de hospedagem remota</a></li>
+      <li><a href="#algumas-diferentes-plataformas">Algumas diferentes plataformas: GitLab, BitBucket, Codeberg</a></li>
+      <li><a href="#git-e-github-diferencas">Git e Github: diferenças</a></li>
+      <li><a href="#chave-ssh">Chave SSH</a></li>
+      <li><a href="#para-que-serve-a-chave-ssh">Para que serve a chave SSH?</a></li>
+    </ul>
+    <li><a href="#workflow-e-primeiro-repositorio">Workflow e primeiro repositório</a></li>
+    <ul>
+      <li><a href="#um-pouco-mais-sobre-git">Um pouco mais sobre Git</a></li>
+      <li><a href="#workflow-basico">Workflow básico</a></li>
+      <li><a href="#comandos-e-praticas-do-git">Comandos e Práticas do Git</a></li>
+      <ul>
+        <li><a href="#inicializando-o-git-no-repositorio">Inicializando o git no repositório `git init`</a></li>
+        <li><a href="#verificando-o-status-dos-arquivos">Verificando o status dos arquivos `git status`</a></li>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+
+
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  
+  
+  </div>
+
+
+
 # Processos, compactação e introdução ao GIT
 
 ## Básico sobre processos
@@ -756,9 +836,9 @@ Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 8. Agora é hora de enviar os arquivos e os commits para o repositório remoto. Utilize o comando aprendido.
 
-# Exercícios obrigatórios (#)
+## Exercícios obrigatórios (#)
 
-## Exercício 1 (#)
+### Exercício 1 (#)
 
 1. Crie uma pasta nova em seu computador com o seguinte nome "projeto02"
 
