@@ -86,12 +86,17 @@ $ ps
 ```
 As opções mais importantes para o comando `ps` são:
 
-- a - mostra os processos existentes de todos os usuários;
-- f - exibe a árvore de execução dos processos;
-- l - exibe mais campos no resultado;
-- m - mostra a quantidade de memória ocupada por cada processo;
-- u - exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
-- x - exibe os processos que não foram iniciados no console do terminal;´
+<span class="destaque">a</span> - mostra os processos existentes de todos os <span class="destaque">usuários</span>;
+
+<span class="destaque">f</span> - exibe a <span class="destaque">árvore</span> de execução dos processos;
+
+<span class="destaque">l</span> - exibe mais <span class="destaque">campos</span> no resultado;
+
+<span class="destaque">m</span> - mostra a quantidade de <span class="destaque">memória</span> ocupada por cada processo;
+
+<span class="destaque">u</span> - exibe o nome do <span class="destaque">usuário</span> que iniciou determinado processo e a hora em que isso ocorreu;
+
+<span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no consoledo terminal.
 
 ##### O uso do `ps` com o `grep`
 O `ps` é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
@@ -101,11 +106,11 @@ Por exemplo, para ver os processos systemd e sshd (serviço SSH):
 $ ps aux | grep systemd  
 ```
 
-Primeiro, o  comando `ps aux` mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
+Primeiro, o  comando <span class="destaque">`ps aux`</span> mostra <span class="destaque">todos os processos em execução</span>, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
 #### Uso do `kill`
 
-O comando `kill` é usado no Linux para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
+O comando `kill` é usado no Linux para <span class="destaque">enviar sinais a processos</span>. Esses sinais podem instruir o processo a realizar várias ações, como <span class="destaque">terminar</span>, <span class="destaque">parar</span> ou <span class="destaque">continuar</span> a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
 
 ##### Como ver os possíveis sinais?
 
@@ -118,17 +123,17 @@ Este comando irá mostrar uma página do manual com diferentes sinais do comando
 
 ##### Significados dos principais sinais
 
-SIGHUP (1): Costuma ser utilizado para reiniciar processos (o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
+<span class="destaque">SIGHUP (1)</span>: Costuma ser utilizado para <span class="destaque">reiniciar</span> processos (o processo lê novamente os seus arquivos de configuração), bem como <span class="destaque">desconectar</span> um processo do processo pai.
 
-SIGINT (2): Interrompe ou para um processo, geralmente gerado pelo usuário pressionando Ctrl+C no terminal.
+<span class="destaque">SIGINT (2)</span>: <span class="destaque">Interrompe</span> ou <span class="destaque">para</span> um processo, geralmente gerado pelo usuário pressionando <span class="destaque">Ctrl+C</span> no terminal.
 
-SIGKILL (9): Força a parada imediata de um processo, não pode ser capturado ou ignorado pelo processo.
+<span class="destaque">SIGKILL (9)</span>: Força a <span class="destaque">parada imediata</span> de um processo, não pode ser capturado ou ignorado pelo processo.
 
-SIGTERM (15): Solicita a terminação "elegante"" do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
+<span class="destaque">SIGTERM (15)</span>: Solicita a <span class="destaque">terminação "elegante"</span> do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
 
-SIGTSTP (20): Solicita ao terminal a interrupção temporária do processo(parar/pausar), geralmente gerado pelo usuário pressionando Ctrl+Z.
+<span class="destaque">SIGTSTP (20)</span>: Solicita ao terminal a <span class="destaque">interrupção temporária</span> do processo (parar/pausar), geralmente gerado pelo usuário pressionando <span class="destaque">Ctrl+Z</span>.
 
-SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
+<span class="destaque">SIGCONT (18)</span>: <span class="destaque">Retoma</span> um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
 
 ##### Como realmente matar processos?
 
