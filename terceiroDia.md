@@ -771,88 +771,104 @@ Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos
 Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 
-# Exercícios 
+## Exercícios 
 
-## Exercícios de fixação ($)
+### Exercício 01
 
-### Exercício 1 ($)
-   
-1. Navegue até a pasta projeto01 que você criou e conectou remotamente.
+#### Iniciando um novo repositório Git
 
-2. Crie um arquivo aventuras.txt, dentro da pasta onde está o seu reepositório local(projeto01),por enquanto não escreva nada dentro.
+1. Crie um novo diretório chamado calculadora_python.
 
-3. Faça git status e note que existem mudaças para serem registradas. 
+2. Entre no diretório calculadora_pyhon.
 
-4. Adicione essa mudaça, que é a criação do arquivo historia, na standing área utilizando o comando aprendido.
+3. Inicialize um repositório Git vazio no diretório.
 
-5. Agora é hora de fazer o commit, digite a seguinte mensagem neste commit "Criei o arquivo historia"
+4. Como resolução, descreva todos os comandos que você fez para inicializar o repositório em um arquivo de texto com o nome dia3exercicio1.txt
 
-6. Agora escreva o primeiro capítulo, depois adicione ao staging area e faça um commit com a mensagem "adicionei o  capítulo 01".
+### Exercício 02
 
-7. Agora você pode fazer outro capítulo salvar e depois fazer o mesmo processo do passo 6. 
-   > Missão: faça 3 capítulos e a cada capítulo faça um commit.
+1. Adicione arquivos ao seu repositório Git
 
-8. Agora é hora de enviar os arquivos e os commits para o repositório remoto. Utilize o comando aprendido.
+2. Crie um arquivo chamado 'README.md' dentro do diretório calculadora_pyton.
 
-## Exercícios obrigatórios (#)
+3. Adicione o conteúdo "Este é um projeto de uma calculadora em Python que realiza operações básicas." ao README.md.
 
-### Exercício 1 (#)
+4. Adicione o arquivo README.md ao repositório Git.
 
-1. Crie uma pasta nova em seu computador com o seguinte nome "projeto02"
-
-2. Acesse-a pelo seu terminal utilizando os comando aprendidos no dia anterior.
-
-3. Execute o comando para inicializar o git dentro da pasta/diretório.
-    > Dica: este comando cria uma pasta oculta chamada ".git" no diretório
-
-4. Crie um arquivo chamado `biografia<numero de matrícula>.txt` e escreva algumas linhas.
-     > Dica: Meu número de matrícula é 20005425 , logo meu arquivo terá o seguinte nome: "biografia20005425.txt"
-     > Escrevam algo engraçado, pois a melhor biografia será lida no último dia do nosso minicurso e o vencedor ganhará uma surpresa. 
-
-5. Adicione o arquivo `biografia<numero de matrícula>.txt` ao repositório Git utilizando o comando que coloca as alterações na staging área
-    > Dica: antes de fazer o comando, execute git status e analise o que precisa ser trackeado e o que foi modificado.
-
-6. Faça um commit com uma mensagem descritiva dizendo que que você criou o arquivo com a sua biografia.
-
-7. Vá até o arquivo novamente e acrescente seu nome e salve.
-
-8. Adicione a alteração ao repositório Git utilizando o comando que coloca as alterações na staging área.
-
-9. Faça um commit com a seguinte mensagem "coloquei meu nome no arquivo".
-
-8. Digite o comando que visualiza todos os commits feitos e veja o seu histórico de commits.
-
-9. Crie um repositório vazio no github com o nome projeto01
-10. Faça o comando para conectar o seu repositório local com o seu repositório remoto criado
-11. Depois ulilize o comando que sobe os arquivos do projeto local para o seu repositório remoto.
-> Para saber se tudo deu certo, basta olhar os seus commits no repositório do github e analisar se a sua biografia está escrita com o seu nome abaixo.
+5.Faça um commit no repositório Git  com a mensagem "Adicionei o README.md".
 
 
-
-## Exercício 2 (#)
-   
-1. Escolha a sua dupla para esta grande aventura.
-
-2. Acesse o GitHub e apenas o componente 'A' deve criar um novo repositório no github com o nome projeto03 e criar um arquivo chamado historia_<numero de matricula de A>_<numero de matricula de A>.txt.
-
-3. Agora ambos têm que clonar o projeto em seus computadores.
-   > O aluno B deve pesquisar na barra de pesquisa pelo usuário do aluno A e acessar o repositório criado, para poder clonar.
-   
-4. Uma vez que ambos clonaram o repositório é hora de criar a história em conjunto.
-
-5. Um dos alunos deve escrever o primeiro capítulo. Vamos chamar o aluno A.
-   > Dica: Escrever capítulo > salvar > add > commit > push
-6. Agora o aluno B deve atualizar o repositório, puxando as alterações que foram subidas pelo outro aluno para o repositório remoto utilizando o comando aprendido em aula.
-   > Assim, antes de o aluno B escrever o capítulo 2, ele vai ter o capitulo 1 no documento já no seu repositório local.
-
-7. Hora do aluno B escrever o próximo capítulo.
-
-8. Agora o aluno A fará o mesmo que o B fez no passo 5 .
-   > Puxar as alterações que foram subidas pelo outro aluno para o repositório remoto
-   > Depois o aluno A terá que escrever o próximo capítulo.
-
-9. Missão: escrever até o capítulo 5.
-
----
+6. Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
+### Exercício 03
+
+#### Configurando um repositório remoto e enviando os commits
+
+1. No GitHub crie um novo repositório chamado calculadora_pyton.
+
+2. No terminal, dentro do diretório calculadora_pyton, configure seu repositório Git local para apontar para este repositório remoto.
+
+3. Envie seus commits para o repositório remoto:
+
+
+Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
+
+### Exercício 04
+
+#### Adicionando funções de soma e multiplicação à calculadora
+
+1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
+
+Copie o seguinte código:
+```py
+def soma(a, b):
+    return a + b
+```
+
+2. Adicione o arquivo ao repositório:
+
+
+3. Faça um commit com a mensagem "Adiciona função de soma".
+
+4. Adicione a função de multiplicação ao arquivo calculadora.py:
+Copie o código da mesma forma que está aqui abaixo (mesmo com o erro): 
+```py
+def multiplicacao(a, b):
+    c+b=4
+    return a * b
+```
+5. Adicione e comite as mudanças com a seguinte mentagem "Adicionei a função de multiplicação"
+
+6. Verifique o erro após o commit e corrija-o apagando o "c+b=4" no arquivo.
+
+7. adicione a modificação ao repositório e faça o commit com a mensagem "Correção de bug na função de multiplicação"
+
+6. Use o comando que sobe as auterações locais para o repositório remoto para subir os seus commits.
+
+Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de textocom o nome dia3exercicio4.txt
+
+
+### Exercício 05
+
+#### Clonando um repositório
+
+1. Clone o repositório que está neste link: [link do repositório central]
+
+2. crie uma pasta com o seu numero de matrícula e seu primeiro nome como 201003948_luiz
+
+3. Adicione a pasta ao git depois comite com a mensagem "Adicionei a pasta 201003948_luiz"
+
+4. Aqui você poderá fazer o projeto que almejar, aplicando o que foi  aprendido
+
+- Você pode criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou modificação de personagem.
+
+- Você pode fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+
+- Você pode fazer um mini-site básico, fazendo commits a cada funcionalidade implementada.
+
+5. Traga para o seu repositório as auterações que estão no remoto(para ver se alguém já subiu algum arquivo).
+
+5. Após isso, suba todas os commits para o nosso repositório remoto.
+
+O que será avaliado aqui são os commits (faça no mínimo uns 3 commits)
