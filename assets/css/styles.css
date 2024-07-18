@@ -185,6 +185,12 @@ body {
     padding-left: 20px; 
   }
 
+.destaque{
+    background-color: #FFC800;
+    color: black;
+    padding: 2px;
+    border-radius: 5px;
+}
 .navgit a:hover{
     color: #000;
 }
@@ -260,6 +266,7 @@ td {
     font-size: 100%; /* Reset font size to default */
     padding: 0; /* Reset padding */
 }
+
 #sumario {
     position: fixed;
     text-align: left;

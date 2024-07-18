@@ -9,70 +9,29 @@ title: Minicurso de Linux e Git
 
 <div id="sumario" class="sumario-git">
     <h1>Sumário</h1>
-    <ul>
-  <li><a href="#introducao-ao-git">Introdução ao Git</a></li>
+<ul>
+  <li><a href="#básico-sobre-processos">Básico Sobre Processos</a></li>
   <ul>
-    <li><a href="#basico-sobre-processos">Básico sobre processos</a></li>
-    <ul>
-      <li><a href="#o-que-e-um-processo">O que é um processo?</a></li>
-      <li><a href="#estados-dos-processos">Estados dos processos</a></li>
-    </ul>
+    <li><a href="#o-que-é-um-processo">O que é um processo?</a></li>
     <li><a href="#interrompendo-e-listando-processos">Interrompendo e listando processos</a></li>
-    <ul>
-      <li><a href="#visualizando-processos-estaticamente-com-ps">Visualizando processos estaticamente com `ps`</a></li>
-      <li><a href="#o-uso-do-ps-com-o-grep">O uso do `ps` com o `grep`</a></li>
-      <li><a href="#uso-do-kill">Uso do `kill`</a></li>
-      <li><a href="#uso-do-killall">Uso do `killall`</a></li>
-      <li><a href="#uso-e-visualizacao-processos-dinamicamente-com-htop">Uso e visualização processos dinâmicamente com htop</a></li>
-    </ul>
     <li><a href="#rodando-processos-em-background">Rodando processos em background</a></li>
-    <ul>
-      <li><a href="#uso-do-ampersand-no-shell">Uso do & comercial no shell</a></li>
-      <li><a href="#trazendo-para-foreground">Trazer para foreground</a></li>
-      <li><a href="#retomando-processos-suspensos-em-background">Retomando processos suspensos em background</a></li>
-      <li><a href="#uso-do-nohup">Uso do nohup</a></li>
-      <li><a href="#uso-do-wait">Uso do wait</a></li>
-    </ul>
   </ul>
+
+  <li><a href="#uso-de-programas-de-compatação-para-compartilhar-e-receber-arquivos">Compactação e Descompactação de Arquivos</a></li>
+  <ul>
+    <li><a href="#compactação">Compactação</a></li>
+    <li><a href="#descompactação">Descompactação</a></li>
+  </ul>
+
   <li><a href="#versionadores-e-git-fundamentos-e-conceitos">Versionadores e Git: Fundamentos e Conceitos</a></li>
   <ul>
-    <li><a href="#introducao-aos-versionadores">Introdução aos Versionadores</a></li>
-    <ul>
-      <li><a href="#contextualizacao-com-a-historia-do-linux">Contextualização com a história do Linux</a></li>
-      <li><a href="#o-que-sao-versionadores">O que são Versionadores?</a></li>
-      <li><a href="#tipos-de-versionadores">Tipos de Versionadores</a></li>
-      <ul>
-        <li><a href="#sistemas-locais">Sistemas Locais</a></li>
-        <li><a href="#sistemas-centralizados">Sistemas Centralizados</a></li>
-        <li><a href="#sistemas-distribuidos">Sistemas Distribuídos</a></li>
-      </ul>
-    </ul>
-    <li><a href="#introducao-ao-git">Introdução ao Git</a></li>
-    <ul>
-      <li><a href="#surgimento-do-git">Surgimento do Git</a></li>
-      <li><a href="#de-onde-vem-o-nome-git">De onde vem o nome "Git"?</a></li>
-      <li><a href="#git-como-um-versionador">Git como um Versionador</a></li>
-      <li><a href="#como-o-git-funciona">Como o Git Funciona?</a></li>
-    </ul>
-    <li><a href="#hospedagem-remota-e-conexoes-ssh">Hospedagem Remota e Conexões SSH</a></li>
-    <ul>
-      <li><a href="#introducao-a-plataformas-de-hospedagem-remota">Introdução a plataformas de hospedagem remota</a></li>
-      <li><a href="#algumas-diferentes-plataformas">Algumas diferentes plataformas: GitLab, BitBucket, Codeberg</a></li>
-      <li><a href="#git-e-github-diferencas">Git e Github: diferenças</a></li>
-      <li><a href="#chave-ssh">Chave SSH</a></li>
-      <li><a href="#para-que-serve-a-chave-ssh">Para que serve a chave SSH?</a></li>
-    </ul>
-    <li><a href="#workflow-e-primeiro-repositorio">Workflow e primeiro repositório</a></li>
-    <ul>
-      <li><a href="#um-pouco-mais-sobre-git">Um pouco mais sobre Git</a></li>
-      <li><a href="#workflow-basico">Workflow básico</a></li>
-      <li><a href="#comandos-e-praticas-do-git">Comandos e Práticas do Git</a></li>
-      <ul>
-        <li><a href="#inicializando-o-git-no-repositorio">Inicializando o git no repositório `git init`</a></li>
-        <li><a href="#verificando-o-status-dos-arquivos">Verificando o status dos arquivos `git status`</a></li>
-      </ul>
-    </ul>
+    <li><a href="#introdução-aos-versionadores">Introdução aos Versionadores</a></li>
+    <li><a href="#introdução-ao-git">Introdução ao Git</a></li>
+    <li><a href="#hospedagem-remota-e-conexões-ssh">Hospedagem Remota e Conexões SSH</a></li>
+    <li><a href="#workflow-e-primeiro-repositório">Workflow e primeiro repositório</a></li>
+    <li><a href="#comandos-e-práticas-do-git">Comandos e Práticas do Git</a></li>
   </ul>
+  <li><a href="#exercícios">Exercícios</a></li>
 </ul>
 
 
@@ -127,12 +86,17 @@ $ ps
 ```
 As opções mais importantes para o comando `ps` são:
 
-- a - mostra os processos existentes de todos os usuários;
-- f - exibe a árvore de execução dos processos;
-- l - exibe mais campos no resultado;
-- m - mostra a quantidade de memória ocupada por cada processo;
-- u - exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
-- x - exibe os processos que não foram iniciados no console do terminal;´
+<span class="destaque">a</span> - mostra os processos existentes de todos os <span class="destaque">usuários</span>;
+
+<span class="destaque">f</span> - exibe a <span class="destaque">árvore</span> de execução dos processos;
+
+<span class="destaque">l</span> - exibe mais <span class="destaque">campos</span> no resultado;
+
+<span class="destaque">m</span> - mostra a quantidade de <span class="destaque">memória</span> ocupada por cada processo;
+
+<span class="destaque">u</span> - exibe o nome do <span class="destaque">usuário</span> que iniciou determinado processo e a hora em que isso ocorreu;
+
+<span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no consoledo terminal.
 
 ##### O uso do `ps` com o `grep`
 O `ps` é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
@@ -142,11 +106,11 @@ Por exemplo, para ver os processos systemd e sshd (serviço SSH):
 $ ps aux | grep systemd  
 ```
 
-Primeiro, o  comando `ps aux` mostra todos os processos em execução, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
+Primeiro, o  comando <span class="destaque">`ps aux`</span> mostra <span class="destaque">todos os processos em execução</span>, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
 #### Uso do `kill`
 
-O comando `kill` é usado no Linux para enviar sinais a processos. Esses sinais podem instruir o processo a realizar várias ações, como terminar, parar ou continuar a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
+O comando `kill` é usado no Linux para <span class="destaque">enviar sinais a processos</span>. Esses sinais podem instruir o processo a realizar várias ações, como <span class="destaque">terminar</span>, <span class="destaque">parar</span> ou <span class="destaque">continuar</span> a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
 
 ##### Como ver os possíveis sinais?
 
@@ -159,17 +123,17 @@ Este comando irá mostrar uma página do manual com diferentes sinais do comando
 
 ##### Significados dos principais sinais
 
-SIGHUP (1): Costuma ser utilizado para reiniciar processos (o processo ler novamente os seus arquivos de configuração), bem como desconectar um processo do processo pai.
+<span class="destaque">SIGHUP (1)</span>: Costuma ser utilizado para <span class="destaque">reiniciar</span> processos (o processo lê novamente os seus arquivos de configuração), bem como <span class="destaque">desconectar</span> um processo do processo pai.
 
-SIGINT (2): Interrompe ou para um processo, geralmente gerado pelo usuário pressionando Ctrl+C no terminal.
+<span class="destaque">SIGINT (2)</span>: <span class="destaque">Interrompe</span> ou <span class="destaque">para</span> um processo, geralmente gerado pelo usuário pressionando <span class="destaque">Ctrl+C</span> no terminal.
 
-SIGKILL (9): Força a parada imediata de um processo, não pode ser capturado ou ignorado pelo processo.
+<span class="destaque">SIGKILL (9)</span>: Força a <span class="destaque">parada imediata</span> de um processo, não pode ser capturado ou ignorado pelo processo.
 
-SIGTERM (15): Solicita a terminação "elegante"" do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
+<span class="destaque">SIGTERM (15)</span>: Solicita a <span class="destaque">terminação "elegante"</span> do processo, permitindo que ele libere recursos antes de encerrar, termine o que está fazendo e feche.
 
-SIGTSTP (20): Solicita ao terminal a interrupção temporária do processo(parar/pausar), geralmente gerado pelo usuário pressionando Ctrl+Z.
+<span class="destaque">SIGTSTP (20)</span>: Solicita ao terminal a <span class="destaque">interrupção temporária</span> do processo (parar/pausar), geralmente gerado pelo usuário pressionando <span class="destaque">Ctrl+Z</span>.
 
-SIGCONT (18): Retoma um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
+<span class="destaque">SIGCONT (18)</span>: <span class="destaque">Retoma</span> um processo pausado pelo sinal SIGTSTP (ou SIGSTOP).
 
 ##### Como realmente matar processos?
 
@@ -381,7 +345,7 @@ $ wait 5010
  Depois de digitar o comando  ` wait <PID>`, o terminal irá esperar o proceso ser finalizado.
 
 ## Uso de programas de compatação para compartilhar e receber arquivos
-### Compactando 
+### Compactação
 #### Compactando diretórios com zip
 
 Compactar arquivos significa juntar todos em um único arquivo de modo que ocupem um espaço menor.
@@ -456,7 +420,7 @@ $ tar -czf projetos.tar.gz projetos/
 
 Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma recursiva por padrão.
 
-### Descompactando 
+### Descompactação 
 #### Descompactando diretórios com unzip
 
 Vamos supor que seu colega, que recebeu o arquivo projetos.zip, deseja descompactar os arquivos. Para isso, ele erá executar os seguintes passos :
@@ -813,88 +777,104 @@ Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos
 Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
 
-# Exercícios 
+## Exercícios 
 
-## Exercícios de fixação ($)
+### Exercício 01
 
-### Exercício 1 ($)
-   
-1. Navegue até a pasta projeto01 que você criou e conectou remotamente.
+#### Iniciando um novo repositório Git
 
-2. Crie um arquivo aventuras.txt, dentro da pasta onde está o seu reepositório local(projeto01),por enquanto não escreva nada dentro.
+1. Crie um novo diretório chamado calculadora_python.
 
-3. Faça git status e note que existem mudaças para serem registradas. 
+2. Entre no diretório calculadora_pyhon.
 
-4. Adicione essa mudaça, que é a criação do arquivo historia, na standing área utilizando o comando aprendido.
+3. Inicialize um repositório Git vazio no diretório.
 
-5. Agora é hora de fazer o commit, digite a seguinte mensagem neste commit "Criei o arquivo historia"
+4. Como resolução, descreva todos os comandos que você fez para inicializar o repositório em um arquivo de texto com o nome dia3exercicio1.txt
 
-6. Agora escreva o primeiro capítulo, depois adicione ao staging area e faça um commit com a mensagem "adicionei o  capítulo 01".
+### Exercício 02
 
-7. Agora você pode fazer outro capítulo salvar e depois fazer o mesmo processo do passo 6. 
-   > Missão: faça 3 capítulos e a cada capítulo faça um commit.
+1. Adicione arquivos ao seu repositório Git
 
-8. Agora é hora de enviar os arquivos e os commits para o repositório remoto. Utilize o comando aprendido.
+2. Crie um arquivo chamado 'README.md' dentro do diretório calculadora_pyton.
 
-## Exercícios obrigatórios (#)
+3. Adicione o conteúdo "Este é um projeto de uma calculadora em Python que realiza operações básicas." ao README.md.
 
-### Exercício 1 (#)
+4. Adicione o arquivo README.md ao repositório Git.
 
-1. Crie uma pasta nova em seu computador com o seguinte nome "projeto02"
-
-2. Acesse-a pelo seu terminal utilizando os comando aprendidos no dia anterior.
-
-3. Execute o comando para inicializar o git dentro da pasta/diretório.
-    > Dica: este comando cria uma pasta oculta chamada ".git" no diretório
-
-4. Crie um arquivo chamado `biografia<numero de matrícula>.txt` e escreva algumas linhas.
-     > Dica: Meu número de matrícula é 20005425 , logo meu arquivo terá o seguinte nome: "biografia20005425.txt"
-     > Escrevam algo engraçado, pois a melhor biografia será lida no último dia do nosso minicurso e o vencedor ganhará uma surpresa. 
-
-5. Adicione o arquivo `biografia<numero de matrícula>.txt` ao repositório Git utilizando o comando que coloca as alterações na staging área
-    > Dica: antes de fazer o comando, execute git status e analise o que precisa ser trackeado e o que foi modificado.
-
-6. Faça um commit com uma mensagem descritiva dizendo que que você criou o arquivo com a sua biografia.
-
-7. Vá até o arquivo novamente e acrescente seu nome e salve.
-
-8. Adicione a alteração ao repositório Git utilizando o comando que coloca as alterações na staging área.
-
-9. Faça um commit com a seguinte mensagem "coloquei meu nome no arquivo".
-
-8. Digite o comando que visualiza todos os commits feitos e veja o seu histórico de commits.
-
-9. Crie um repositório vazio no github com o nome projeto01
-10. Faça o comando para conectar o seu repositório local com o seu repositório remoto criado
-11. Depois ulilize o comando que sobe os arquivos do projeto local para o seu repositório remoto.
-> Para saber se tudo deu certo, basta olhar os seus commits no repositório do github e analisar se a sua biografia está escrita com o seu nome abaixo.
+5.Faça um commit no repositório Git  com a mensagem "Adicionei o README.md".
 
 
-
-## Exercício 2 (#)
-   
-1. Escolha a sua dupla para esta grande aventura.
-
-2. Acesse o GitHub e apenas o componente 'A' deve criar um novo repositório no github com o nome projeto03 e criar um arquivo chamado historia_<numero de matricula de A>_<numero de matricula de A>.txt.
-
-3. Agora ambos têm que clonar o projeto em seus computadores.
-   > O aluno B deve pesquisar na barra de pesquisa pelo usuário do aluno A e acessar o repositório criado, para poder clonar.
-   
-4. Uma vez que ambos clonaram o repositório é hora de criar a história em conjunto.
-
-5. Um dos alunos deve escrever o primeiro capítulo. Vamos chamar o aluno A.
-   > Dica: Escrever capítulo > salvar > add > commit > push
-6. Agora o aluno B deve atualizar o repositório, puxando as alterações que foram subidas pelo outro aluno para o repositório remoto utilizando o comando aprendido em aula.
-   > Assim, antes de o aluno B escrever o capítulo 2, ele vai ter o capitulo 1 no documento já no seu repositório local.
-
-7. Hora do aluno B escrever o próximo capítulo.
-
-8. Agora o aluno A fará o mesmo que o B fez no passo 5 .
-   > Puxar as alterações que foram subidas pelo outro aluno para o repositório remoto
-   > Depois o aluno A terá que escrever o próximo capítulo.
-
-9. Missão: escrever até o capítulo 5.
-
----
+6. Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
+### Exercício 03
+
+#### Configurando um repositório remoto e enviando os commits
+
+1. No GitHub crie um novo repositório chamado calculadora_pyton.
+
+2. No terminal, dentro do diretório calculadora_pyton, configure seu repositório Git local para apontar para este repositório remoto.
+
+3. Envie seus commits para o repositório remoto:
+
+
+Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
+
+### Exercício 04
+
+#### Adicionando funções de soma e multiplicação à calculadora
+
+1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
+
+Copie o seguinte código:
+```py
+def soma(a, b):
+    return a + b
+```
+
+2. Adicione o arquivo ao repositório:
+
+
+3. Faça um commit com a mensagem "Adiciona função de soma".
+
+4. Adicione a função de multiplicação ao arquivo calculadora.py:
+Copie o código da mesma forma que está aqui abaixo (mesmo com o erro): 
+```py
+def multiplicacao(a, b):
+    c+b=4
+    return a * b
+```
+5. Adicione e comite as mudanças com a seguinte mentagem "Adicionei a função de multiplicação"
+
+6. Verifique o erro após o commit e corrija-o apagando o "c+b=4" no arquivo.
+
+7. adicione a modificação ao repositório e faça o commit com a mensagem "Correção de bug na função de multiplicação"
+
+6. Use o comando que sobe as auterações locais para o repositório remoto para subir os seus commits.
+
+Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de textocom o nome dia3exercicio4.txt
+
+
+### Exercício 05
+
+#### Clonando um repositório
+
+1. Clone o repositório que está neste link: [link do repositório central]
+
+2. crie uma pasta com o seu numero de matrícula e seu primeiro nome como 201003948_luiz
+
+3. Adicione a pasta ao git depois comite com a mensagem "Adicionei a pasta 201003948_luiz"
+
+4. Aqui você poderá fazer o projeto que almejar, aplicando o que foi  aprendido
+
+    - Você pode criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou modificação de personagem.
+
+    - Você pode fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+
+    - Você pode fazer um mini-site básico, fazendo commits a cada funcionalidade implementada.
+
+5. Traga para o seu repositório as auterações que estão no remoto(para ver se alguém já subiu algum arquivo).
+
+6. Após isso, suba todas os commits para o nosso repositório remoto.
+
+O que será avaliado aqui são os commits (faça no mínimo uns 3 commits)
