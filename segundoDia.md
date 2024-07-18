@@ -104,8 +104,8 @@ executável, da mesma forma que você usaria normalmente:
 [user@hostname ~]$ /usr/bin/ls -l
 ```
 
-A variável que o shell usa para saber onde procurar esses comandos é a variável `$PATH`, e assim como a `$?`
-nós podemos ver o valor que ela armazena digitando a seguinte linha:
+A variável que o shell usa para saber onde procurar esses comandos é a variável `$PATH`, e nós podemos ver
+o valor que ela armazena digitando a seguinte linha:
 
 ```terminal
 [user@hostname ~]$ echo $PATH
@@ -323,8 +323,8 @@ executa o `/bin/sh` e passa o seu script como argumento para ele.
 
 Em toda linguagem de programação que se preze, você já deve ter se deparado com o conceito de variável,
 que em sintese é um parzinho de nome e valor que você pode usar para armazenar informações que podem ser
-úteis ou não. Inclusive você já se deparou com algumas, lembra do `$PATH` e do `$?`? Pois bem, essas são
-algumas variáveis que são compartilhadas entre todos os programas, chamamos de variáveis de ambiente, mas
+úteis ou não. Inclusive você já se deparou com algumas, lembra do `$PATH`? Pois bem, essa é uma das são
+variáveis que são compartilhadas entre todos os programas, chamamos de variáveis de ambiente, mas
 mais sobre isso no futuro.
 
 Você pode criar e usar variáveis num script da seguintes maneira:
@@ -426,6 +426,79 @@ dentro de aspas duplas.
 ---
 
 ### Condicionais
+
+### Operadores lógicos no shell
+
+[Lembra do cliffhanger da aula passada?](/primeiroDia.md#combinando-comandos-usando-pipelines), espero que tenha percebido que é conveniente para nós, lidar com
+valores booleanos (`true` e `false`) no shell, para então tomar decisões baseadas no resultados
+de comandos. Porém, antes de lidarmos diretamentes com essas operações, precisamos entender o que são
+status de saída, visto que, eles definem se o programa executou normalmente ou houve algum problema.
+
+#### Status de saída
+
+Comandos no Linux, ao terminarem, retornam ao sistema um valor que chamamos de status de saída. Esse valor
+é um inteiro que varia de 0 a 255, onde, por convenção, 0 significa que o programa terminou com sucesso e
+qualquer outro valor indica diferentes tipos de problema, especificados pelo comando. Na prática, podemos
+visualizar isso da seguinte forma:
+
+```terminal
+[user@hostname ~]$ ls -d /usr/bin
+/usr/bin
+[user@hostname ~]$ echo $?
+0
+[user@hostname ~]$ ls -d /bin/usr
+ls: cannot access '/bin/usr': No such file or directory
+[user@hostname ~]$ echo $?
+2
+```
+
+Esse `$?`, na verdade é um váriavel especial do shell, assim como o `$PATH`, que guarda o status de saída
+do último comando. Na primeira vez que executamos o `ls`, o status de saída foi 0, indicando que o comando
+terminou com sucesso, e na segunda vez, o status de saída foi 2, indicando que houve algum tipo de problema.
+Podemos investigar qual problema ocorreu, consultando o manual do `ls`, ou lendo a mensagem de error
+se houver.
+
+O shell, tem dois comandos extremamente simples que não fazem nada alem de terminar com o status de saída
+0 ou 1, o `true` e o `false`, respectivamente.
+
+```terminal
+[user@hostname ~]$ true
+[user@hostname ~]$ echo $?
+0
+[user@hostname ~]$ false
+[user@hostname ~]$ echo $?
+1
+```
+
+#### Conjunção e disjunção
+
+Os status de saída geralmente são usados para lidar com condicionais, ou seja, operações lógicas que
+conhecemos como disjunção (`||`) e conjunção (`&&`). A disjunção ou o `e` no português, é vai ser avaliada
+como verdadeira se os dois operandos forem verdadeiros, e a conjunção ou o `ou` no português, é vai ser
+verdadeira se pelo menos um dos operandos for verdadeiro. A gente pode visualizar isso como:
+
+```sh
+false || echo "Opa, vou imprimir isso"
+# Como o primeiro é falso, logo o segundo vai ser avaliado
+
+true || echo "Não vou ser imprimido"
+# Como o primeiro é verdadeiro, o segundo não vai ser avaliado
+
+true && echo "Things went well"
+# Como o primeiro é verdadeiro, o segundo vai ser avaliado
+
+false && echo "Will not be printed"
+# Como o primeiro é falso, não preciso nem avaliar o segundo
+
+true ; echo "Vai sempre rodar"
+# De extra, o `;` é um separador de comandos, logo o segundo comando vai ser executado sem 
+# importar o status do primeiro
+
+false ; echo "Sou imbatível"
+```
+
+O que o `&&` e o `||` faz é o que chamamos de curto circuito, baseado na primeira expressão o interpretador
+decide se vai avaliar o resto ou não.
 
 #### if-elif-else-fi
 

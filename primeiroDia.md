@@ -828,7 +828,7 @@ E se você tentar o `cat` sem argumentos? A princípio parece que nada acontece,
 exatamente o que é suposto a fazer.
 
 Se você usar o `cat` sem argumentos, ele lê do *stdin*, visto que o *stdin* é associado por padrão ao seu
-teclado, e está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
+teclado, ele está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
 
 ```terminal
 [user@hostname ~]$ cat
@@ -860,18 +860,90 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 #### Combinando comandos com o redirecionamento de arquivos
 
+Agora com a noção de redirecionamento de streams, é possível juntar as nossas ferramentas e realizar
+tarefas, que antes talvez fossem impensáveis.
+
+Por exemplo, digamos que você quer ser capaz de listar e ver todos os arquivos de um diretório que tem
+muitos arquivos e sub-diretórios com tranquilidade, por exemplo, o `/usr/lib`:
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib
+```
+
+Se sua tela não tiver muitos quilômetros de comprimento, provavelmente você não vai ser capaz de visualizar
+tudo dentro do frame da sua tela. Então, que tal você redirecionar essa saída para um arquivo e lê-lo com
+o `less`?
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib > temp
+[user@hostname ~]$ less temp
+```
+
+Legal não é? Vamos ficar criativos, que tal você tentar listar todos os arquivos comuns que tem apenas
+permissão de leitura e escrita no `/usr/lib`?
+
+--- **Spoiler Alert** ---
+
+Primeiro vamos listar todos os arquivos do diretório e redirecionar para um arquivo qualquer:
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib > temp
+```
+
+Podemos utilizar o próprio `temp`, também, mas o próximo passo agora é procurar a expressão que a gente
+quer, usando o `grep`:
+
+```
+[user@hostname ~]$ grep 'rw-' temp > grep-out.txt
+```
+
+E aí a gente consegue ler tranquilamente esses arquivos com:
+
+```terminal
+[user@hostname ~]$ less grep-out.txt
+```
+
+Legal!!!
+
+Agora, cada vez mais estamos finalmente pegando o jeito da coisa e finalmente combinando nossas ferramentas
+para alcançar exatamente o que a gente quer. Entretanto... espero que você se incomode com o fato de
+estarmos criando vários arquivos temporários, para realizar relativamente simples. Além disso, perceba
+a quantidade de passos que realizamos pra fazer isso.
+
+Pensando nisso, os criadores do Unix, levaram em conta esse sofrimento e criaram o operador que chamamos
+de pipe `|`, que serve justamente para mitigar isso.
+
 #### Combinando comandos usando pipelines
 
-### Operadores lógicos no shell
+A ideia de *pipe* (cano em português), é tão literal quanto parece, ele serve para conectar a saída de um
+comando como a entrada de outro, exatamente como um cano, uma vez conectados, chamamos o resultado de
+*pipeline*, que não tem tradução literal para o português, mas seria algo como uma estação de canos.
 
-#### Curto circuito de operadores
+Na prática isso seria:
 
-<!--
-    - TODO: Combinando comandos usando redirecionamento de arquivos
-    - TODO: Combinando comandos usnado Pipelines `|`
-    - TODO: Disjunção `||` e conjunção `&&`
-    - TODO: Curto circuito de operadores
--->
+```terminal
+[user@hostname ~]$ ls -la /usr/lib | grep 'rw-' | less
+```
+
+Pronto! Os 500 passos que precisávamos fazer usando arquivos temporários, agora não são mais necessários.
+Uma coisa interessante, sobre essa operação é que na verdade os comandos são executados ao mesmo tempo, e
+a sincronização entre eles fica por conta do kernel.
+
+É claro que, agora, o céu é o limite, e podemos experimentar um bocado:
+
+```terminal
+[user@hostname ~]$ ls -l | tail -n1
+[user@hostname ~]$ ls -l | head | tail
+[user@hostname ~]$ ls -l | grep Downloads
+```
+
+Mas e se eu quiser combinar comandos que não são tão confiáveis assim? Note que o `ls`, `tail`, `head`
+e `grep` raramente vão encontrar problemas. Entretanto, imagine-se na seguinte situação: Você quer
+compactar um arquivo gigantesco (suponha que você sabe o comando para isso), e se houver sucesso na
+compactação, você quer deletar o arquivo original e mandar um email (supondo que você tem o `mail` instalado) para o seu chefe em conjunto com esse arquivo compactado. Como você faria isso com
+apenas uma linha de comando e sem precisar se preocupar sentado na frente do computador esperando cada
+comando terminar?
+
 ## Exercícios
 
 ### Exercícios de fixação
