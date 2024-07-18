@@ -25,9 +25,9 @@ title: Minicurso de Linux e Git
 
   <li><a href="#versionadores-e-git-fundamentos-e-conceitos">Versionadores e Git: Fundamentos e Conceitos</a></li>
   <ul>
-    <li><a href="#introducao-aos-versionadores">Introdução aos Versionadores</a></li>
-    <li><a href="#introducao-ao-git">Introdução ao Git</a></li>
-    <li><a href="#hospedagem-remota-e-conexoes-ssh">Hospedagem Remota e Conexões SSH</a></li>
+    <li><a href="#introdução-aos-versionadores">Introdução aos Versionadores</a></li>
+    <li><a href="#introdução-ao-git">Introdução ao Git</a></li>
+    <li><a href="#hospedagem-remota-e-conexões-ssh">Hospedagem Remota e Conexões SSH</a></li>
     <li><a href="#workflow-e-primeiro-repositório">Workflow e primeiro repositório</a></li>
     <li><a href="#comandos-e-práticas-do-git">Comandos e Práticas do Git</a></li>
   </ul>
