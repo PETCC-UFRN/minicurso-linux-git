@@ -31,6 +31,7 @@ title: Minicurso de Linux e Git
     <li><a href="#workflow-e-primeiro-repositório">Workflow e primeiro repositório</a></li>
     <li><a href="#comandos-e-práticas-do-git">Comandos e Práticas do Git</a></li>
   </ul>
+  <li><a href="#exercícios">Exercícios</a></li>
 </ul>
 
 
@@ -861,14 +862,14 @@ Como resolução, descreva os passos que você fez para adicionar e comitar os a
 
 4. Aqui você poderá fazer o projeto que almejar, aplicando o que foi  aprendido
 
-- Você pode criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou modificação de personagem.
+    - Você pode criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou modificação de personagem.
 
-- Você pode fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+    - Você pode fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
 
-- Você pode fazer um mini-site básico, fazendo commits a cada funcionalidade implementada.
+    - Você pode fazer um mini-site básico, fazendo commits a cada funcionalidade implementada.
 
 5. Traga para o seu repositório as auterações que estão no remoto(para ver se alguém já subiu algum arquivo).
 
-5. Após isso, suba todas os commits para o nosso repositório remoto.
+6. Após isso, suba todas os commits para o nosso repositório remoto.
 
 O que será avaliado aqui são os commits (faça no mínimo uns 3 commits)
