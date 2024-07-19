@@ -52,7 +52,7 @@ title: Minicurso de Linux e Git
 
 ### O que é um processo?
 
-Um processo é um programa em execução.
+Um processo é um <span class="destaque">programa em execução</span> .
 
 O sistema operaçional lida com uma infinidade de processos, que possuem as seguintes características:
 
@@ -61,14 +61,13 @@ O sistema operaçional lida com uma infinidade de processos, que possuem as segu
 - Prioridade de execução;
 - Recursos de memória.
 
-Cada processo possui um número identificador, chamado de PID (Process Identifier), que é utilizado para controlá-lo.
+Cada processo possui um número identificador, chamado de <span class="destaque">PID</span> (Process Identifier), que é utilizado para controlá-lo.
 
 #### Estados dos processos
-- Executável: o processo pode ser executado imediatamente;
-- Dormente: o processo precisa aguardar algo para ser executado. Só depois desse "algo" acontecer é que ele passa para o estado executável;
-- Zumbi: o processo é considerado "morto", mas, por alguma razão, ainda existe;
-- Parado: o processo está "congelado", ou seja, não pode ser executado.
-
+- <span class="destaque">Executável</span>(R): o processo pode ser executado imediatamente;
+- <span class="destaque">Dormente</span>(S): o processo precisa <span class="destaque">aguardar</span> algo para ser executado. Só depois desse "algo" acontecer é que ele passa para o estado executável;
+- <span class="destaque">Zumbi</span>(Z): o processo é considerado <span class="destaque">"morto"</span>, mas, por alguma razão, ainda existe;
+- <span class="destaque">Parado</span>(T): o processo está <span class="destaque">"congelado"</span>, ou seja, não pode ser executado.
 
 ### Interrompendo e listando processos
 
@@ -99,8 +98,8 @@ As opções mais importantes para o comando `ps` são:
 <span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no consoledo terminal.
 
 ##### O uso do `ps` com o `grep`
-O `ps` é uma ferramente essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
-Por exemplo, para ver os processos systemd e sshd (serviço SSH):
+O `ps` é uma ferramenta essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
+Por exemplo, para ver os processos systemd:
 
 ```shell
 $ ps aux | grep systemd  
@@ -119,7 +118,7 @@ Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para in
 ```shell
     $ kill -l
 ```
-Este comando irá mostrar uma página do manual com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
+Este comando irá mostrar uma página do <span class="destaque">manual</span> com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
 
 ##### Significados dos principais sinais
 
@@ -137,7 +136,7 @@ Este comando irá mostrar uma página do manual com diferentes sinais do comando
 
 ##### Como realmente matar processos?
 
-Por padrão, é enviado o sinal SIGTERM, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
+Por padrão, é enviado o sinal <span class="destaque">SIGTERM</span>, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
 
 ```shell
 $ kill PID
@@ -150,7 +149,7 @@ Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Pr
 
 #### Uso do killall
 
-O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos processos filhos executando ao mesmo tempo. 
+O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos <span class="destaque">processos filhos</span> executando ao mesmo tempo. 
 
 ##### Sintaxe básica
 
@@ -166,7 +165,7 @@ $ killall -9 firefox
 
 ##### Verificando antes de Encerrar
 
-Para verificar quais processos seriam encerrados sem realmente matá-los, use a opção -i para interação
+Para <span class="destaque">verificar</span> quais processos seriam encerrados sem realmente matá-los, use a opção <span class="destaque">-i</span> para interação
 
 ```shell
 $ killall -i firefox
@@ -174,14 +173,14 @@ $ killall -i firefox
 
 ##### Encerrando Processos de um Usuário Específico
 
-Para encerrar processos de um usuário específico, use a opção -u:
+Para encerrar processos de um <span class="destaque">usuário específico</span>, use a opção -u:
 ```shell
 $ killall -u usuario firefox
 ```
 
 #### Uso e visualização processos dinâmicamente com htop
 
-O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em tempo real os recursos de seu sistema operacional Linux.
+O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em <span class="destaque">tempo real</span> os recursos de seu sistema operacional Linux.
 
 ##### Instalar htop no Ubuntu
 
@@ -200,12 +199,12 @@ $ htop
 
 #### Uso do & comercial no shell.
 
-No Linux, um processo pode estar em foreground ou em background, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
+No Linux, um processo pode estar em <span class="destaque">foreground</span> ou em <span class="destaque">background</span>, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
 
 ```bash
 $ ping google.com
 ```
-Quando você executa o comando ping em primeiro plano (sem o & no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você não poderá usar o terminal para outros comandos até que o ping termine ou seja interrompido.
+Quando você executa o comando ping em <span class="destaque">primeiro plano</span> (sem o & no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você <span class="destaque">não poderá usar o terminal</span> para outros comandos até que o ping termine ou seja interrompido.
 
 Seu terminal ficará assim:
 
@@ -215,7 +214,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.032 ms
 64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.030 ms
 ```
-Para interromper o ping em primeiro plano, use Ctrl + C. Isso envia um sinal de interrupção (SIGINT) para o processo ping, fazendo com que ele termine a execução e exiba um resumo das estatísticas:
+Para interromper o ping em primeiro plano, use <span class="destaque">Ctrl + C</span>. Isso envia um sinal de interrupção (<span class="destaque">SIGINT</span>) para o processo ping, fazendo com que ele termine a execução e exiba um resumo das estatísticas:
 
 ```shell
 ^C
@@ -224,14 +223,14 @@ Para interromper o ping em primeiro plano, use Ctrl + C. Isso envia um sinal de 
 rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
 ```
 
-Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o o processo gerado pelo comando fica em segundoplano. Basta que você digite:
+Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o o processo gerado pelo comando fica em segundo plano. Basta que você digite:
 
 ```bash
 $ ping google.com &
 ```
-O símbolo & indica que o comando deve ser executado em background, ou seja, em segundo plano.
+O símbolo <span class="destaque"> & </span> indica que o comando deve ser executado em background, ou seja, em <span class="destaque">segundo plano</span>.
 
-Você verá uma mensagem que indica o número do trabalho ([1]) e o PID do processo (1234):
+Você verá uma mensagem que indica o <span class="destaque">número do trabalho</span> ([1]) e o <span class="destaque">PID</span> do processo (1234):
 
 ##### Ver lista de processos em segundo Plano
 
@@ -247,7 +246,7 @@ Irá aparecer algo como:
 $ [1]+  Running          ping 127.0.0.1 &
 ```
 
-Note que se você fizer CTRL + C  o processo não será interrompido, pois ele não está em primeiro plano(foreground).
+Note que se você fizer <span class="destaque">CTRL + C</span>  o processo <span class="destaque">não será interrompido</span>, pois ele não está em primeiro plano(foreground).
 
 ##### Trazer para foreground
 
@@ -257,7 +256,7 @@ Vamos supor que você pretende trazer o processo para primeiro plano. Para isso 
 $ fg %1
 ```
 
-Agora você pode matálo diretamente utilizando o CTRL + c , que manda o sinal SIGINT, que faz com que ele termine a execução e exiba um resumo das estatísticas :
+Agora você pode matá-lo diretamente utilizando o <span class="destaque">CTRL + c</span> , que manda o sinal SIGINT, que faz com que ele <span class="destaque">termine a execução</span> e exiba um resumo das estatísticas :
 
 ```bash
 ^C
@@ -273,7 +272,7 @@ Vamos agora digitar o seguinte comando:
 $ ping 127.0.0.1
 ```
 
-Agora vamos pressionar  `CTRL + Z` para suspender o comando bing. Esse comando pausa o processo e o colocar em segundo plano em estado de pausa(suspenso).
+Agora vamos pressionar  <span class="destaque">`CTRL + Z`</span> para <span class="destaque">suspender</span> o comando bing. Esse comando pausa o processo e o colocar em <span class="destaque">segundo plano</span> em estado de pausa(suspenso).
 
 ```bash
 ^Z
@@ -285,7 +284,7 @@ Para retomar o Processo em segundo plano é necessário utilizar o comando bg da
 $ bg %1
 ```
 
-agora vamos digitar o comando jobs para ver o estado dos processos em background.
+agora vamos digitar o comando <span class="destaque">jobs</span> para ver o estado dos processos em background.
 
 
 ```bash
@@ -294,31 +293,33 @@ $ jobs
 ```
 #### Uso do nohup
 
-Mesmo que um processo esteja em segundo plano, ele pode ser interrompido por vários motivos.
+Mesmo que um processo esteja em <span class="destaque">segundo plano</span>, ele pode ser <span class="destaque">interrompido</span> por vários motivos.
 
-Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumiu! Quando você sai da sessão, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado "SIGHUP". Esse sinal desliga o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando `nohup` pretende corrigir.
+Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembra daquele processo de longa duração que você iniciou? Sumiu! Quando você <span class="destaque">sai da sessão</span>, o sistema envia um sinal especial para cada processo iniciado que ainda está em execução chamado <span class="destaque">"SIGHUP"</span>. Esse sinal <span class="destaque">desliga</span> o processo mesmo quando ele ainda tem trabalho a fazer. Isso é o que o comando <span class="destaque">`nohup`</span> pretende corrigir.
 
 Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
 
-Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que mantém os processos em execução mesmo depois de sair do shell ou terminal. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
 ##### Sintaxe do comando Nohup
 A sintaxe para usar o comando Nohup é direta:
 ```bash
 $ nohup command [options] &
 ```
-'command': especifica o comando ou script que você deseja executar.
-'[options]': argumentos opcionais ou sinalizadores que modificam o comportamento do comando.
-`&`: Colocar este símbolo ao final de um comando instrui o shell a executar esse comando em segundo plano.
+<span class="destaque">command</span>: especifica o <span class="destaque">comando</span> ou script que você deseja executar.
+
+<span class="destaque">[options]</span>: argumentos opcionais ou sinalizadores que modificam o <span class="destaque">comportamento</span>  do comando.
+
+<span class="destaque">&</span>: Colocar este símbolo ao final de um comando instrui o shell a executar esse comando em <span class="destaque">segundo plano</span>.
 
 ##### Iniciando um processo usando o Nohup
 
-Para iniciar um processo usando o Nohup, basta preceder o comando desejado com . Por exemplo, se você deseja executar um script bash chamado usando Nohup, você deve usar o seguinte comando:
+Para iniciar um processo usando o Nohup, basta preceder o comando desejado com `nohup`. Por exemplo, se você deseja executar o comando `sleep 60`(faz o sistema esperar 60segundos) chamado usando Nohup, você deve usar o seguinte comando:
 
 ```bash
 $ nohup sleep 60 &
 ```
-Com o comando acima, o sistema executa um comando "sleep", que normalmente bloqueia todas as entradas, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
+Com o comando acima, o sistema executa um comando "sleep", que normalmente <span class="destaque">bloqueia todas as entradas</span>, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
 ```bash
 $ nohup sleep 60 &
 [1] 4003
@@ -327,13 +328,13 @@ $ nohup : ignoring input and appending output to 'nohup.out'
 
 ##### Deixando de fora o caractere '&'
 
-Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o processo será executado em primeiro plano e que você não poderá fazer nenhum outro trabalho no terminal até que ele seja concluído. Geralmente, para tarefas de longa duração, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
+Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o <span class="destaque">processo será executado</span> em primeiro plano e que você <span class="destaque">não poderá fazer nenhum outro trabalho no terminal</span> até que ele seja concluído. Geralmente, para tarefas de <span class="destaque">longa duração</span>, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
 
-Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se fechar o terminal, ou perder a conectividade com a Internet, ou algo mais acontecer, o processo não será interrompido. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
+Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se <span class="destaque">fechar o terminal</span>, ou perder a <span class="destaque">conectividade com a Internet</span>, ou algo mais acontecer, o processo <span class="destaque">não será interrompido</span>. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
 
 #### Uso do wait
 
-O comando "wait" é uma ferramenta poderosa no  Linux que permite que os scripts aguardem a conclusão de outros processos antes de continuar a execução.
+O comando <span class="destaque">"wait"</span> é uma ferramenta poderosa no  Linux que permite que os scripts <span class="destaque">aguardem a conclusão</span> de outros processos antes de <span class="destaque">continuar a execução</span>.
 
 Por exemplo:
  ```shell
@@ -342,10 +343,12 @@ Por exemplo:
 $ wait 5010
  ```
  
- Depois de digitar o comando  ` wait <PID>`, o terminal irá esperar o proceso ser finalizado.
+ Depois de digitar o comando  <span class="destaque">` wait <PID>`</span>, o terminal irá esperar o proceso ser finalizado.
 
 ## Uso de programas de compatação para compartilhar e receber arquivos
+
 ### Compactação
+
 #### Compactando diretórios com zip
 
 Compactar arquivos significa juntar todos em um único arquivo de modo que ocupem um espaço menor.
