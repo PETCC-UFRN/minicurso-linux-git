@@ -351,9 +351,9 @@ $ wait 5010
 
 #### Compactando diretórios com zip
 
-Compactar arquivos significa juntar todos em um único arquivo de modo que ocupem um espaço menor.
+Compactar arquivos significa <span class="destaque">juntar</span> todos em um único arquivo de modo que ocupem um <span class="destaque">espaço menor</span>.
 
-Provavelmente você já viu algum arquivo com a extensão .zip. No Linux, para compactar arquivos no formato .zip é utilizado o comando `zip`.
+Provavelmente você já viu algum arquivo com a <span class="destaque">extensão .zip</span>. No Linux, para compactar arquivos no formato .zip é utilizado o comando <span class="destaque">`zip`</span>.
 
 Vamos supor que temos a pasta chamada "projetos" e dentro dela tenha dois subdiretórios chamados "ITP" e "PC", com todos os programas que você fez durante as disciplinas. O seguinte problema surgiu : você gostaria de mandar pelo whats up para um colega recém chegado no curso, porém o Whats UP não permite mandar devido ao tamanho dos arquivos e, por isso, você descidiu compactar os projetos.
 
@@ -361,7 +361,7 @@ Para isso fez o seguinte comando :
 ```shell
     $ zip projetos.zip projetos/
 ```
-depois executou o seguinte comando para poder visualizar se todos os diretórios foram armazenados no arquivo compactado "projetos.zip" :
+depois executou o seguinte comando para poder <span class="destaque">visualizar</span> se todos os <span class="destaque">diretórios </span>foram armazenados no arquivo compactado "projetos.zip" :
 ```shell
     $ unzip -l projetos.zip 
 ```
@@ -375,9 +375,9 @@ e viu o senguinte:
     ---------                     -------
             0                     1 file
 ```
-Note que ocorreu um problema, pois os subdiretórios não foram inseridos na compactação e isso ocorre, porque por padrão o comando `zip` não inclui os arquivos e subdiretórios de um diretório, por isso nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver isso é fácil: basta passar o argumento -r (recursive).
+Note que ocorreu um problema, pois <span class="destaque">os subdiretórios não foram inseridos</span> na compactação e isso ocorre, porque por padrão o comando `zip` não inclui os arquivos e subdiretórios de um diretório, por isso nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver isso é fácil: basta passar o argumento <span class="destaque">-r</span>(recursive).
 
-O -r vai fazer com que o comando zip processe recursivamente todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que tudo seja incluído no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
+O -r vai fazer com que o comando zip <span class="destaque">processe recursivamente</span> todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que <span class="destaque">tudo seja incluído</span> no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
 
 ```shell
     $ zip -r projetos.zip projetos/
@@ -401,12 +401,12 @@ Agora vamos ver se tudo foi compactado
 
 #### Compactando arquivos e diretórios com tar e gzip
 
-Outra forma de compactar arquivo é utilizando tar e gzip. Quando nos deparamos com arquivos do tipo "arquivo.tar.gz, siguinifica que ocorreram dois processos. 
-- Primeiramente ocorreu o empacotamento dos arquivos no formato `.tar ` e depois foi feita a compactação dos arquivo no formato `gzip`.
+Outra forma de compactar arquivo é utilizando <span class="destaque">tar</span> e <span class="destaque">gzip</span>. Quando nos deparamos com arquivos do tipo <span class="destaque">arquivo.tar.gz</span>, significa que ocorreram <span class="destaque">dois processos</span>. 
+- Primeiramente ocorreu o <span class="destaque">empacotamento dos arquivos</span> no formato `.tar ` e depois foi feita a <span class="destaque">compactação dos arquivo</span> no formato `gzip`.
 
 ##### Qual a vantagem do tar?
 
-A vantagem é que o tar consegue manter as permissões dos arquivos, bem como links diretos e simbólicos, sendo interessante por exemplo para realizar backups.
+A vantagem é que o tar consegue manter as <span class="destaque">permissões dos arquivos</span>, bem como <span class="destaque">links diretos</span> e <span class="destaque">simbólicos</span>, sendo interessante por exemplo para realizar <span class="destaque">backups</span>.
 
 Utilizamos o comando tar para realizar as compactações. A compactação do diretório "projetos/" ficaria da seguinte forma:
 
@@ -414,16 +414,17 @@ Utilizamos o comando tar para realizar as compactações. A compactação do dir
 $ tar -czf projetos.tar.gz projetos/
 ```
 
-- -c - create: indica que desejamos criar um arquivo
+- <span class="destaque">-c</span> - create: indica que desejamos <span class="destaque">criar</span> um arquivo
 
-- -z - gzip: indica que queremos compactar com gzip
+- <span class="destaque">-z</span> - gzip: indica que queremos <span class="destaque">compactar</span> com gzip
 
--  -f - file: especifica o nome do arquivo compactado
+-  <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo compactado
 
 
-Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma recursiva por padrão.
+Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma <span class="destaque">recursiva por padrão</span>.
 
 ### Descompactação 
+
 #### Descompactando diretórios com unzip
 
 Vamos supor que seu colega, que recebeu o arquivo projetos.zip, deseja descompactar os arquivos. Para isso, ele erá executar os seguintes passos :
