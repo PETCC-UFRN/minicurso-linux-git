@@ -427,18 +427,18 @@ Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma 
 
 #### Descompactando diretórios com unzip
 
-Vamos supor que seu colega, que recebeu o arquivo projetos.zip, deseja descompactar os arquivos. Para isso, ele erá executar os seguintes passos :
+Vamos supor que seu colega, que recebeu o arquivo <span class="destaque">projetos.zip</span>, deseja <span class="destaque">descompactar </span>os arquivos. Para isso, ele erá executar os seguintes passos :
 
 ```shell
 $ unzip projetos.zip
 ```
-Isso irá extrair todos os arquivos e diretórios contidos no arquivo "projetos.zip" para o diretório atual. Se desejar extrair para um diretório específico, você pode usar a opção `-d`:
+Isso irá <span class="destaque">extrair</span> todos os <span class="destaque">arquivos</span> e <span class="destaque">diretórios</span> contidos no arquivo "projetos.zip" para o <span class="destaque">diretório atual</span>. Se desejar extrair para um diretório <span class="destaque">específico</span>, você pode usar a opção <span class="destaque">`-d`</span>:
 
 ```shell
 $ unzip projetos.zip -d /home/ubuntu/Music
 ```
 
-Se você não quiser que apareça o progresso e sua tela fique cheia de informações, pode utilizar o -q, que significa quiet, para que ele apenas descompacte e não mostre cada coisa que fez:
+Se você quiser que <span class="destaque">não apareça o progresso</span> e sua tela fique cheia de informações, pode utilizar o <span class="destaque">-q</span>, que significa <span class="destaque">quiet</span>, para que ele apenas descompacte e não mostre cada coisa que fez:
 
 ```shell
 $ unzip -q projetos.zip -d /home/ubuntu/Music
@@ -446,15 +446,15 @@ $ unzip -q projetos.zip -d /home/ubuntu/Music
 
 #### Descompactando arquivos e diretórios com tar e gunzip
 
-Para descompactar um arquivo tarball comprimido com gzip, utilizamos o comando tar novamente, desta vez com a opção -x para extrair o conteúdo. Vamos supor que você recebeu o arquivo "projetos.tar.gz" e deseja extrair seu conteúdo:
+Para descompactar um arquivo <span class="destaque">tarball comprimido com gzip</span>, utilizamos o comando tar novamente, desta vez com a opção <span class="destaque">-x</span> para <span class="destaque">extrair</span> o conteúdo. Vamos supor que você recebeu o arquivo "projetos.tar.gz" e deseja extrair seu conteúdo:
 
 ```shell
 $ tar -xzf projetos.tar.gz
 ```
 
-- -x - extract: extrai o conteúdo do arquivo tar
-- -z - gzip: descomprime o arquivo usando gzip
-- -f - file: especifica o nome do arquivo tar
+- <span class="destaque">-x</span> - extract: <span class="destaque">extrai</span> o conteúdo do arquivo tar
+- <span class="destaque">-z</span> - gzip: <span class="destaque">descomprime</span> o arquivo usando gzip
+- <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo tar
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
