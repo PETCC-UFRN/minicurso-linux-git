@@ -459,12 +459,10 @@ $ tar -xzf projetos.tar.gz
 ## Versionadores e Git: Fundamentos e Conceitos
 
 ### Introdução aos Versionadores
-#### Contextualização com a história do Linux
-A criação do Linux foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza colaborativa e open-source. Linus Torvalds, o criador do Linux, enfrentou desafios significativos ao coordenar as contribuições de inúmeros desenvolvedores ao redor do mundo. Para gerenciar essas contribuições e manter a integridade do código, Torvalds desenvolveu o Git, um sistema de controle de versão distribuído. Essa necessidade de um sistema robusto e eficiente de versionamento deu origem a ferramentas que são agora essenciais no desenvolvimento de software moderno.
 
 #### O que são Versionadores?
 
-Versionadores são sistemas que registram alterações em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar versões específicas mais tarde. Surgiram devido à necessidade de aumentar a eficiência, gerenciar um número maior de colaboradores e projetos de software moderno.
+Versionadores são sistemas que registram <span class="destaque">alterações</span> em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar <span class="destaque">versões</span> específicas mais tarde. Surgiram devido à necessidade de aumentar a <span class="destaque">eficiência</span>, gerenciar um número maior de <span class="destaque">colaboradores</span> e projetos de <span class="destaque">software moderno</span>.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
 
@@ -472,20 +470,20 @@ Versionadores são sistemas que registram alterações em um arquivo ou conjunto
 
 ##### 1. Sistemas Locais
 
-Utilizam um banco de dados simples para manter todas as alterações nos arquivos sob controle de versão.
+Utilizam um <span class="destaque">banco de dados simples</span> para manter todas as alterações nos arquivos sob controle de versão.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJv-sbGHA.png" width="70%">
 
 ##### 2. Sistemas Centralizados
 
-Têm um único servidor que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
-Desvantagens incluem a necessidade de estar sempre conectado ao servidor e a paralisação em caso de falha do servidor.
+Têm um <span class="destaque">único servidor</span> que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
+<span class="destaque">Desvantagens</span> incluem a necessidade de estar <span class="destaque">sempre conectado</span> ao servidor e a paralisação em caso de <span class="destaque">falha do servidor</span>.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
 - **Vantagens dos Sistemas Centralizados**
 
-    - Simples de utilizar, ideal para equipes pequenas.
+    - <span class="destaque">Simples</span> de utilizar, ideal para <span class="destaque">equipes pequenas</span>.
 
     - Utilizados por plataformas como a Wikipédia.
 
@@ -514,25 +512,28 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 ## Introdução ao Git
 
+
 ### Surgimento do Git
 
-A história do Git está profundamente ligada ao desenvolvimento do Linux Kernel, um dos projetos de software livre mais importantes e complexos do mundo. Durante os anos iniciais, as mudanças no kernel do Linux eram gerenciadas através do envio de arquivos entre desenvolvedores. Posteriormente, passou-se a usar o versionador BitKeeper. No entanto, quando o BitKeeper se tornou pago, a comunidade Linux, liderada por Linus Torvalds, decidiu criar uma nova ferramenta de versionamento, aprendendo com as lições adquiridas durante o uso do BitKeeper.
+A criação do <span class="destaque">Linux</span> foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza <span class="destaque">colaborativa</span> e <span class="destaque">open-source</span>. <span class="destaque">Linus Torvalds</span>, o criador do Linux, enfrentou desafios significativos ao <span class="destaque">coordenar as contribuições</span> de inúmeros desenvolvedores ao redor do mundo. 
+
+Durante os anos iniciais do <span class="destaque">Linux Kernel</span> as mudanças eram gerenciadas através do envio de arquivos entre desenvolvedores. Posteriormente, usou-se o versionador BitKeeper, mas quando este se tornou pago, a comunidade Linux, liderada por <span class="destaque">Torvalds</span>, decidiu criar o Git, aprendendo com as lições adquiridas durante o uso do BitKeeper e com um desafio de fazer um sistema de versionamento mais eficiente e com funcionalidades que acelerassem o processo de desenvolvimento de software.
 
 Os objetivos principais para o novo sistema incluíam:
 
-**Velocidade**
+<span class="destaque">**Velocidade**</span>
 
-**Design simples**
+<span class="destaque">**Design simples**</span>
 
-**Forte suporte para o desenvolvimento não linear** (milhares de branches paralelas)
+**Forte suporte para o <span class="destaque">desenvolvimento não linear </span>** (milhares de branches paralelas)
 
-**Alta distribuição**
+**<span class="destaque">Alta distribuição</span>**
 
-**Capacidade de lidar com grandes projetos** como o kernel do Linux de forma eficiente
+**Capacidade de lidar com <span class="destaque">grandes projetos</span>** como o kernel do Linux de forma eficiente
 
 ### De onde vem o nome "Git"?
 
-O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos em sua homenagem, sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa "pessoa desagradável". Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor.
+O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos <span class="destaque">em sua homenagem</span> , sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa <span class="destaque">"pessoa desagradável"</span>. Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor.
 
 Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
@@ -549,11 +550,11 @@ O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhec
 
 ### Como o Git Funciona?
 
-O Git é uma ferramenta de versionamento que gerencia diferentes versões de um arquivo ou conjunto de arquivos. Sempre que você salva o estado do projeto, o Git "tira uma foto" dos arquivos naquele momento e salva uma referência a esse snapshot. Por eficiência, se um arquivo não foi modificado, o Git não o salva novamente, mas cria um "link" para a versão anterior que já está salva.
+O Git é uma ferramenta de versionamento que gerencia diferentes versões de um arquivo ou conjunto de arquivos. Sempre que você salva o estado do projeto, o Git <span class="destaque">"tira uma foto"</span> dos arquivos naquele momento e <span class="destaque">salva uma referência</span> a esse snapshot. Por eficiência, se um arquivo <span class="destaque">não foi modificado</span>, o Git <span class="destaque">não o salva novamente</span>, mas cria um "link" para a versão anterior que já está salva.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SkYli-6zR.png" width="70%">
 
-O Git, em geral, apenas **adiciona** informações. É difícil que o sistema apague dados ou faça algo irreversível, especialmente se você enviar suas alterações para o servidor remoto regularmente (push). Esse comportamento garante a integridade e a segurança do histórico do projeto.
+O Git, em geral, apenas **adiciona** informações. É <span class="destaque">difícil</span> que o sistema <span class="destaque">apague dados</span> ou <span class="destaque">faça algo irreversível</span>, especialmente se você enviar suas alterações para o servidor remoto regularmente (push). Esse comportamento garante a integridade e a segurança do histórico do projeto.
 
 
 ## Hospedagem Remota e Conexões SSH
@@ -562,7 +563,7 @@ O Git, em geral, apenas **adiciona** informações. É difícil que o sistema ap
 #### Gancho com a parte de versionadores
 A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota. 
 
-Essas plataformas permitem que você armazene, compartilhe e colabore em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para gerenciamento de projetos, integração contínua, e muito mais.
+Essas plataformas permitem que você <span class="destaque">armazene</span>, <span class="destaque">compartilhe</span> e <span class="destaque">colabore</span> em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para <span class="destaque">gerenciamento de projetos</span>, <span class="destaque">integração contínua</span>, e muito mais.
 
 #### Algumas diferentes plataformas: GitLab, BitBucket, Codeberg.
 Existem várias plataformas de hospedagem remota que suportam Git, cada uma com suas características únicas.
@@ -577,99 +578,103 @@ Existem várias plataformas de hospedagem remota que suportam Git, cada uma com 
 Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a mesma coisa. Aqui estão as principais diferenças:
 
 ##### Git
-    - Git é um sistema de controle de versão distribuído.
-    - Ferramenta de linha de comando utilizada para gerenciar o histórico de versões de arquivos.
-    - Funciona localmente, independentemente de uma plataforma de hospedagem remota.
+- Git é um <span class="destaque">sistema de controle de versão</span> distribuído.
+- Ferramenta de linha de comando utilizada para <span class="destaque">gerenciar</span> o histórico de versões de arquivos.
+- Funciona localmente, <span class="destaque">independentemente</span> de uma plataforma de <span class="destaque">hospedagem remota</span>.
 
 ##### GitHub
-    - Hospedagem de Repositórios
-    - Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
-    - Comunidade ativa
-    - Vários outros serviços
-    - Um dos maiores repositórios de projetos open source do mundo
+- Hospedagem de Repositórios
+- Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
+- Comunidade ativa
+- Vários outros serviços
+- Um dos maiores repositórios de projetos open source do mundo
 
 ### Chave SSH
 
 #### Para que serve a chave SSH?
 
-As chaves SSH (Secure Shell) são utilizadas para autenticar conexões seguras entre computadores, permitindo uma comunicação criptografada. Elas substituem a necessidade de senhas tradicionais, proporcionando uma maneira mais segura e conveniente de acessar sistemas remotos e serviços, como repositórios Git.
+As chaves SSH (Secure Shell) são utilizadas para <span class="destaque">autenticar conexões seguras</span> entre computadores, permitindo uma comunicação <span class="destaque">criptografada</span>. Elas substituem a necessidade de senhas tradicionais, proporcionando uma maneira mais segura e conveniente de acessar sistemas remotos e serviços, como repositórios Git.
 
-Ao configurar uma chave SSH, você cria um par de chaves: uma chave privada, que deve ser mantida em segredo no seu computador, e uma chave pública, que é adicionada ao servidor ou serviço remoto. Quando uma conexão é iniciada, o servidor usa a chave pública para verificar a identidade do usuário, sem que a chave privada precise ser transmitida pela rede, garantindo assim a segurança.
+Ao configurar uma chave SSH, você cria um <span class="destaque">par de chaves</span>: uma <span class="destaque">chave privada</span>, que deve ser mantida em segredo no seu computador, e uma <span class="destaque">chave pública</span>, que é adicionada ao servidor ou serviço remoto. Quando uma conexão é iniciada, o servidor usa a chave pública para verificar a identidade do usuário, sem que a chave privada precise ser transmitida pela rede, garantindo assim a segurança.
 
-No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores enviem (push) e busquem (pull) alterações de forma segura, sem precisar digitar senhas repetidamente.
+No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores <span class="destaque">enviem </span>(push) e <span class="destaque">busquem</span> (pull) alterações de forma segura.
 
 ## Workflow e primeiro repositório
 
 ### Um pouco mais sobre Git
 
-O Git é um sistema de controle de versão distribuído que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui blobs (conteúdo de arquivos), trees (diretórios), commits (mudanças com metadados) e tags (marcadores de versão). Cada objeto é identificado por um hash SHA-1, garantindo a integridade dos dados. Git permite a criação de branches para desenvolvimento paralelo e merges para combinar mudanças. As modificações são preparadas na staging area antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta operações offline e sincronização com repositórios remotos através de comandos como push e pull, facilitando o trabalho simultâneo de múltiplos desenvolvedores.
+O Git é um sistema de controle de versão <span class="destaque">distribuído</span> que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui <span class="destaque">blobs</span> (conteúdo de arquivos), <span class="destaque">trees</span> (diretórios), <span class="destaque">commits</span> (mudanças com metadados) e <span class="destaque">tags</span> (marcadores de versão). <span class="destaque">Cada objeto</span> é identificado por um <span class="destaque">hash SHA-1</span>, garantindo a integridade dos dados. Git permite a criação de <span class="destaque">branches</span> para <span class="destaque">desenvolvimento paralelo</span> e <span class="destaque">merges</span> para combinar mudanças. As modificações são preparadas na <span class="destaque">staging area</span> antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta <span class="destaque">operações offline</span> e <span class="destaque">sincronização</span> com repositórios <span class="destaque">remotos</span> através de comandos como push e pull, facilitando o trabalho simultâneo de <span class="destaque">múltiplos desenvolvedores</span>.
 
 #### Workflow básico
 
-1) Você **modifica arquivos** na sua árvore de trabalho
+1) Você <span class="destaque">**modifica arquivos**</span> na sua árvore de trabalho
 
-2) Você **seleciona apenas as mudanças que você quer** que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area
+2) Você <span class="destaque">**seleciona apenas as mudanças que você quer**</span> que façam parte do seu próximo commit, e apenas essas mudanças serão adicionadas à staging area
 
-3) Você **faz um commit**: os arquivos como eles estão na staging area são armazenados em forma de snapshot permanentemente no seu diretório  Git.
+3) Você <span class="destaque">**faz um commit**</span>: os arquivos como eles estão na <span class="destaque">staging area</span> são armazenados em forma de <span class="destaque">snapshot permanentemente</span> no seu diretório  Git.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJKOTMTGC.png" width="70%">
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
-***modified***
+<span class="destaque">***modified***</span> - quando o arquivo foi modificado e não está rastreado pelo Git
 
-***staged***
+<span class="destaque">***staged***</span> - quando a modificação foi colocada na staging área - uma área que armazenamos as mudanças antes de tê-las como definitiva para a próxima versão , ou seja, para o próximo commit.
 
-***commited***
+<span class="destaque">***commited***</span> - Mudanças que são definitivar, ou seja o snapshot permanente foi guardado na linha do tempo do Git
 
 ### Comandos e Práticas do Git
-#### Inicializando o git no repositório `git init`.
 
-```sh
-    $ cd OneDrive/Documentos/projeto
-    $ git init
+#### Inicializando o git no repositório `git init`.
+Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório git e em seguida vamos inicializar o git com o comando <span class="destaque"> git init </span>
+```shell
+$ cd OneDrive/Documentos/projeto
+$ git init
 ```
 
-Agora, temos um subdiretório chamado .git que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. Nada em seu projeto é monitorado ainda.
+Agora, temos um <span class="destaque">subdiretório</span> chamado <span class="destaque">.git</span> que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. 
 
-```sh
-    $ cd OneDrive/Documentos/projeto
-    $ git init
-    Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
+
+Nada em seu projeto é monitorado ainda.
+
+```shell
+$ cd OneDrive/Documentos/projeto
+$ git init
+Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
 ```
 #### Gravando alterações em seu repositório
 
-Cada arquivo em seu repsitório pode estar em um dos seguintes estados: rastreado e não-rastreado. Arquivos rastreados são arquivos que foram incluídos no último snapshot; eles podem ser não modificados, modificados ou preparados (adicionados ao stage). Em resumo, arquivos rastreados são os arquivos que o Git conhece.
+Cada arquivo em seu repsitório pode estar em um dos seguintes estados: <span class="destaque">rastreado</span> e <span class="destaque">não-rastreado</span>. Arquivos rastreados são arquivos que foram incluídos no último snapshot; eles podem ser não modificados, modificados ou preparados (adicionados ao stage). Em resumo, arquivos rastreados são os arquivos que o Git conhece.
 
-Quando você clona um repositório pela primeira vez, todos os seus arquivos serão rastreados e não modificados já, que o Git acabou de obtê-los e você ainda não editou nada.
+Quando você <span class="destaque">clona</span> um repositório pela <span class="destaque">primeira vez</span>, todos os seus arquivos <span class="destaque">serão rastreados</span> e <span class="destaque">não modificados</span>, já que o Git acabou de obtê-los e você ainda não editou nada.
 
-Assim que você edita alguns arquivos, Git os considera modificados, porque você os editou desde o seu último commit. Você prepara os arquivos editados e então faz commit das suas alterações, e o ciclo se repete.
+Assim que você <span class="destaque">edita</span> alguns arquivos, Git os considera <span class="destaque">modificados</span>, porque você os editou desde o seu último commit. Você prepara os arquivos editados e então faz commit das suas alterações, e o <span class="destaque">ciclo</span> se repete.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
 #### Verificando o status dos arquivos `git status`.
     
-A principal ferramenta que você vai usar para determinar quais arquivos estão em qual estado é o comando git status.
+A principal ferramenta que você vai usar para determinar quais arquivos estão em qual <span class="destaque">estado</span> é o comando git status.
 
 ```sh
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    nothing to commit, working directory clean
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
 ```
-Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo chamado chat. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
+Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo chamado 'chat'. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
 ```sh
-    $ echo 'código do chat' > chat
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
+$ echo 'código do chat' > chat
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
 
-        chat
+    chat
 
-    nothing added to commit but untracked files present (use "git add" to track)
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 
@@ -679,107 +684,123 @@ Nós queremos incluir esse arquivo 'chat', então vamos rastreá-lo.
 #### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
 ```sh
-    $ git add chat
+$ git add chat
 ``` 
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
 ```sh
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Changes to be committed:
-      (use "git reset HEAD <file>..." to unstage)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
 
-        new file:   chat
+    new file:   chat
 ```     
-É possível saber que o arquivo está preparado porque ele aparece sob o título “Changes to be committed”. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
+É possível saber que o arquivo <span class="destaque">está preparado</span> porque ele aparece sob o título <span class="destaque">“Changes to be committed”</span>. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
 
 #### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
 Vamos modificar um arquivo que já está sendo rastreado.
 
 Se por exemplo adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
 ```sh
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Changes to be committed:
-      (use "git reset HEAD <file>..." to unstage)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-        new file:   chat
+    new file:   chat
 
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git checkout -- <file>..." to discard changes in working directory)
+Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
 
-        modified:   feed
+    modified:   feed
 ``` 
 Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
 
-Para isso, vamos usar o `git add`.
+Para isso, vamos usar o <span class="destaque">`git add`</span>.
 
 Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao próximo commit”.
 ```sh
-    $ git add .
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Changes to be committed:
-      (use "git reset HEAD <file>..." to unstage)
+$ git add .
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
 
-        new file:   chat
-        modified:   feed
+    new file:   chat
+    modified:   feed
 ```        
 
 #### Fazendo o **commit** do que foi feito `git commit`.
-Agora que a área de stage está preparada, podemos fazer commit nas alterações.
+
+Agora que a <span class="destaque">área de stage está preparada</span>, podemos fazer <span class="destaque">commit</span> nas alterações.
 
 O jeito mais simples de fazer commit é digitar o seguinte comando:
 ```sh
-    $ git commit
+$ git commit
 ```
 e adicionar uma mensagem no editor de texto.
 
 Alternativamente, podemos fazer:
 ```sh
-    $ git commit -m "mensagem"
+$ git commit -m "mensagem"
 ```
-Lembre-se de que o commit grava o snapshot que você deixou na área de stage. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
+Lembre-se de que o commit grava o <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
+
 #### Como ver todos os commit feitos com `git log`
 
-É um comando feito para exibir os históricos de commits do projeto.
+É um comando feito para exibir os <span class="destaque">históricos de commits</span> do projeto.
 
-Aparece nome, hora, data e a mensagem relacionada a cada commit.
+Aparece <span class="destaque">nome</span>, <span class="destaque">hora</span>, <span class="destaque">data</span> e a <span class="destaque">mensagem</span> relacionada a cada commit.
+
 ```sh
-    $ git log
-    commit 9fceb02d0ae598e95dc970b74767f19372d61af8
-    Author: Jane <jane.doe@example.com>
-    Date:   Fri Jun 30 14:32:16 2024 +0000
+$ git log
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Jane <jane.doe@example.com>
+Date:   Fri Jun 30 14:32:16 2024 +0000
 
-        Adicionando modificação no feed 
+    Adicionando modificação no feed 
 
-    commit 3ad45c37a9f1b251545b8b2f4a3db7b683ed8e53
-    Author: John Smith <john.smith@example.com>
-    Date:   Thu Jun 29 09:12:10 2024 +0000
+commit 3ad45c37a9f1b251545b8b2f4a3db7b683ed8e53
+Author: John Smith <john.smith@example.com>
+Date:   Thu Jun 29 09:12:10 2024 +0000
 
-        adicionando a funcionalidade chat
+    adicionando a funcionalidade chat
 ```
 ##### Uma flag eficiente
+Existe uma forma mais simplificada de visualizar os commits e esta forma é utilizando o comando <span class="destaque">"git log --oneline"</span>
+
+Ele ira mostrar o número <span class="destaque">hash</span> ou sha que é que é o <span class="destaque">identificador (ID)</span> do commit e em seguida a sua <span class="destaque">mensagem</span>.
+
 ```sh 
-    $git log --oneline
+$ git log --oneline
 ```
 
 ```sh
-    $ git log --oneline
-    9fceb02 (HEAD -> main) Adicionando modificação no feed 
-    b75f610 adicionando a funcionalidade chat
-    c1b4d83 Commit inicial com arquivos de configuração do projeto   
+$ git log --oneline
+9fceb02 (HEAD -> main) Adicionando modificação no feed 
+b75f610 adicionando a funcionalidade chat
+c1b4d83 Commit inicial com arquivos de configuração do projeto   
 ```
 #### Subindo alterações para o repositório remoto `git push`
-Se você tem um commit pronto e quer adiciona-lo ao repositório remoto, podemos fazer:
+Se você tem um commit pronto e quer <span class="destaque">adiciona-lo ao repositório remoto</span>, podemos fazer:
+
 ```sh
-    $ git push 
+$ git push 
 ```
 Fazendo o git push os seus commits irão subir para o seu repositório remoto.
 
+#### Trazendo alterações para o repositório local `git pull`
+
+Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e deseja trazê-las para o seu repositório local, basta digitar o comando git pull:
+
+```sh
+$ git pull
+```
+Por padrão, esse comando irá puxar as alterações do origin, que é o nome padrão do repositório remoto referenciado quando você conectou o repositório local com o remoto pela primeira vez. No caso de um clone, o origin é o repositório de onde você fez o git clone.
 
 ## Exercícios 
 
