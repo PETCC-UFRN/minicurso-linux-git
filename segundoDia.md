@@ -10,40 +10,47 @@ title: Shell Avançado
 
 <div id="sumario" class="sumario-oldschool">
     <h1>Sumário</h1>
-  <ul>
-  <li><a href="#expandindo-a-ideia-de-comandos">Expandindo a ideia de comandos</a><ul>
-  <li><a href="#aliases">Aliases</a></li>
-  <li><a href="#vendo-um-comando-como-arquivo">Vendo um comando como arquivo</a></li>
-  </ul>
-  </li>
-  <li><a href="#instalando-programas-no-linux">Instalando programas no Linux</a><ul>
-  <li><a href="#manualmente">Manualmente</a></li>
-  <li><a href="#gerenciadores-de-pacote">Gerenciadores de pacote</a></li>
-  </ul>
-  </li>
-  <li><a href="#editores-de-texto">Editores de texto</a><ul>
-  <li><a href="#escolhendo-um-editor-de-texto">Escolhendo um editor de texto</a></li>
-  </ul>
-  </li>
-  <li><a href="#shell-scripting">Shell scripting</a><ul>
-  <li><a href="#por-quê-shell-scripting">Por quê shell scripting?</a></li>
-  <li><a href="#a-primeira-linha-shebang">A primeira linha: #! (shebang)</a></li>
-  <li><a href="#variáveis">Variáveis</a></li>
-  <li><a href="#expansões">Expansões</a></li>
-  <li><a href="#condicionais">Condicionais</a></li>
-  <li><a href="#operadores-lógicos-no-shell">Operadores lógicos no shell</a></li>
-  <li><a href="#funções">Funções</a></li>
-  <li><a href="#loops">Loops</a></li>
-  </ul>
-  </li>
-  <li><a href="#exercícios">Exercícios</a></li>
-  </ul>
+  <details>
+    <summary><a href="#expandindo-a-ideia-de-comandos">Expandindo a ideia de comandos</a></summary>
+      <ul>
+        <li><a href="#aliases">Aliases</a></li>
+        <li><a href="#vendo-um-comando-como-arquivo">Vendo um comando como arquivo</a></li>
+      </ul>
+    </details>
+    <details>
+    <summary><a href="#instalando-programas-no-linux">Instalando programas no Linux</a></summary>
+      <ul>
+        <li><a href="#manualmente">Manualmente</a></li>
+        <li><a href="#gerenciadores-de-pacote">Gerenciadores de pacote</a></li>
+      </ul>
+    </details>
+    <details>
+    <summary><a href="#editores-de-texto">Editores de texto</a></summary>
+      <ul>
+          <li><a href="#escolhendo-um-editor-de-texto">Escolhendo um editor de texto</a></li>
+      </ul>
+    </details>
+    <details>
+    <summary><a href="#shell-scripting">Shell scripting</a></summary>
+      <ul>
+        <li><a href="#por-quê-shell-scripting">Por quê shell scripting?</a></li>
+        <li><a href="#a-primeira-linha-shebang">A primeira linha: #! (shebang)</a></li>
+        <li><a href="#variáveis">Variáveis</a></li>
+        <li><a href="#expansões">Expansões</a></li>
+        <li><a href="#condicionais">Condicionais</a></li>
+        <li><a href="#operadores-lógicos-no-shell">Operadores lógicos no shell</a></li>
+        <li><a href="#funções">Funções</a></li>
+        <li><a href="#loops">Loops</a></li>
+      </ul>
+    </details>
+    <details>
+      <summary><a href="#exercícios">Exercícios</a></summary>
+    </details>
   <button class="toggle-button" id="toggle-button">
   
       Esconder Sumário
   
   </button>
-  
   </div>
 
 ## Expandindo a ideia de comandos
