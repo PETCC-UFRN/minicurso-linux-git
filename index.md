@@ -11,7 +11,7 @@ title: Minicurso de Linux e Git
 </div>
 <br>
 
-Bem vindo ao site oficial do Minicurso de Linux e Git ofertado pelo PET de Ciência da computação.
+Bem vindo ao site oficial do Minicurso de Linux e Git ofertado pelo PET de Ciência da Computação.
 
 O Minicurso será ofertado do perído de dd/mm/yy até dd/mm/yy, e as aulas serão das XXhs até as XXhs, na sala (insira sala e prédio aqui)
 
