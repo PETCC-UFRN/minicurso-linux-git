@@ -113,14 +113,14 @@ chamada Unix, e chamamos essa descêndencia de Unix-Like.
 ### Família Unix e Unix-Like
 
 A coisa interessante sobre o Unix é que sua filosofia de desenvolvimento de software e implementação foi tão
-revolucionária que inspirou e inspira até hoje diversos paradigmas atuais de programação, tanto ao ponto de chamarmos
-de *pai* de todos os sistemas operacionais. Mas por que ele é e foi tão importante? Primeiro, porque foi o primeiro
+revolucionária que inspirou e inspira até hoje diversos paradigmas de programação, tanto ao ponto de chamarmos
+de *o pai* de todos os sistemas operacionais. Mas por que ele foi e é tão importante? Primeiro, porque foi o primeiro
 sistema escrito em C, ou seja, ele podia facilmente ser portado para qualquer arquitetura. Segundo, também por ser
 escrito em C, o código do sistema é muito acessível e fácil de manter e melhorar. Por último e mais importante,
 porque ele é muito *bom*, principalmente para programadores.
 
-Apesar de ter sido, inicialmente, uma iniciativa de pesquisa privada da Bell Labs, o sucesso foi tanto, que
-desenvolvedores do mundo inteiro queriam desenvolver sua própria alternativa "livre" do Unix, essa iniciativa
+Apesar de ter sido, inicialmente, uma iniciativa de pesquisa privada da Bell Labs, o sucesso foi tanto que
+desenvolvedores do mundo inteiro queriam desenvolver sua própria alternativa "livre do Unix. Essa iniciativa
 deu origem aos sistemas BSD (**B**erkely **S**oftware **D**istribution), GNU/Linux e até o Mac OS (esse, não
 tão livre assim :P). Como as BSDs e Linux sofrem muitas variações, a chamamos de Distros, que são distribuições/implementações
 diferentes do pacote inicial.
@@ -138,7 +138,7 @@ Como foi dito anteriormente, Linux é apenas uma família de sistemas, e cada si
 <br>
 
 Uma das mais minimalistas e customisáveis, o Arch tem como propósito a simplicidade ao extremo no seu
-pacote básico. Desde a instalação até a configuração de cada detalhe, é responsabilidade do usuário,
+pacote básico. Desde a instalação até a configuração de cada detalhe, a responsabilidade é do usuário,
 ou seja, cada acerto e cada erro é exclusivamente seu. Devido as essas características, o Arch é muito
 popular entre usuários mais entusiastas e programadores.
 
@@ -162,7 +162,7 @@ rápido, o que significa que as atualizações são mais frequentes, mas menos t
 <br>
 
 Sem dúvida, uma das distros mais populares, o Ubuntu é conhecido pela sua facilidade de uso e instalação,
-de tal forma que é muito popular entre usuários que estão começando a usar Linux. Pois, abstrai muitas
+de tal forma que é muito popular entre usuários que estão começando a usar Linux, pois, abstrai muitas
 nuances que podem ser intimidadoras para novos usuários.
 
 Além disso, o Ubuntu é baseado no Debian, o que significa que ele herda muitas características positivas, como, em
@@ -174,8 +174,7 @@ parte, a estabilidade e segurança.
 </div>
 <br>
 
-Nascido do Ubuntu, o Mint tem a proposta de ser ainda mais amigável e fácil de usar que o Ubuntu. O que
-o torna, também, uma alternativa muito viável a usuários que estão começando a usar o Linux e não se
+Nascido do Ubuntu, o Mint tem a proposta de ser ainda mais amigável e fácil de usar que o Ubuntu. Isso o torna, também, uma alternativa muito viável a usuários que estão começando a usar o Linux e não se
 preocupam muito com customização e minimalismo.
 
 #### BSD's
@@ -213,10 +212,10 @@ configurar uma interface gráfica (ao instalar o Arch, por exemplo), o Shell ser
 
 - *Imagem do emulador gnome-terminal rodando no ubuntu 24.04 LTS, fonte: <https://canaltech.com.br/linux/ubuntu-2404-lts-e-liberado-veja-as-principais-novidades-286919/>*
 
-A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é
+A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado. Não é
 um padrão e se você quiser, existem diversos outros que você pode instalar e usar.
 
-Agora explorando essa interface, quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
+Quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
 
 ```terminal
 [user@hostname ~]$
@@ -233,25 +232,27 @@ Onde:
   └── Nome do usuário que está usando o shell nessa sessão 
 ```
 
-A maneira mais simples de usar o shell, é digitando comandos!
+A maneira mais simples de usar o shell é digitando comandos!
 
 ### Primeiros passos
 
 #### Comando `date` e `echo`
 
-Agora que ja demos nosso primeiro comando, vamos conhecer mais alguns comandos legais, tente:
+Vamos começar experimentando alguns comandos básicos. Digite os seguintes comandos no seu terminal:
+
+`date` que mostra a data e a hora atuais.
 
 ```terminal
 [user@hostname ~]$ date
 ```
 
-e
+e `cal`, que mostra o calendário do mês atual.
 
 ```terminal
 [user@hostname ~]$ cal
 ```
 
-Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calendário do mês, agora vamos testar o seguinte comando com um argumento:
+Sem muitas surpresas deve ter aparecido a data e o horário de hoje, assim como um calendário do mês, respectivamente. Agora, vamos testar um comando com argumento:
 
 ```terminal
 [user@hostname ~]$ echo Hello 
@@ -266,10 +267,10 @@ Seu terminal provalvemente ficou assim:
 Hello
 ```
 
-O programa `echo` apenas imprime o argumento que você passou para ele em uma *stream* (falaremos mais sobre no futuro).
-E, o resultado que foi impresso é o que chamamos de *output*.
+O programa `echo` apenas imprime o argumento que você passou para ele em uma *stream* (falaremos mais sobre isso no futuro).
+E, o resultado que foi exibido é o que chamamos de *output*.
 
-Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
+Você também pode usar o `echo` das seguintes formas, teste-as e veja o resultado:
 
 ```terminal
 [user@hostname ~]$ echo "Hello World"
@@ -279,7 +280,7 @@ Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 [user@hostname ~]$ echo Hello\ World
 ```
 
-Nem, tudo também funciona do jeito que a gente quer teste digitar qualquer coisa no terminal e veja o que acontece.
+Contudo, nem tudo funciona do jeito que a gente quer. Por exemplo, teste digitar qualquer coisa no terminal e veja o que acontece.
 
 ```terminal
 [user@hostname ~]$ ablueblauebluebalbbeu
@@ -294,7 +295,7 @@ bash: ablueblauebluebalbbeu: command not found
 
 #### Histórico de comandos
 
-Se você pressionar `↑`, o nosso comando `ablueblauebluebalbbeu` vai reaparecer para podermos usa-lo novamente, se você continuar pressionan. Isso é chamado de histórico de comandos e a maioria das distribuições Linux armazenam por padrão pelo menos os últimos 1000 comandos. Se você pressionar `↓`, você avança para o presente no histórico até o comando desaparecer.
+Se você pressionar `↑`, o nosso comando `ablueblauebluebalbbeu` vai reaparecer para podermos usa-lo novamente, se você continuar pressionando, note que, diversos comandos utilizados vão ser reexibidos. Isso é chamado de histórico de comandos e a maioria das distribuições Linux armazenam por padrão pelo menos os últimos 1000 comandos. Se você pressionar `↓`, você avança para o presente no histórico até o comando desaparecer.
 
 ### Navegando com o Shell
 
