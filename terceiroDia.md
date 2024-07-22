@@ -32,6 +32,10 @@ title: Minicurso de Linux e Git
     <li><a href="#comandos-e-práticas-do-git">Comandos e Práticas do Git</a></li>
   </ul>
   <li><a href="#exercícios">Exercícios</a></li>
+  <ul>
+   <li><a href="#exercícios-de-fixação">Exercícios de Fixação</a></li>
+   <li><a href="#exercícios-obrigatórios">Exercícios Obrigatórios</a></li>
+  </ul>
 </ul>
 
 
@@ -868,11 +872,16 @@ Para atualizar uma <span class="destaque">branch</span> local com as alteraçõe
 $ git pull origin nome-da-branch:nome-da-branch-local
 ```
 
-## Exercícios 
+## Exercícios
 
-### Exercício 01
+### Exercícios de Fixação
 
-#### Iniciando um novo repositório Git
+####  Exercício 01 
+
+
+### Exercícios Obrigatórios
+
+####  Exercício 01 - Iniciando um novo repositório Git
 
 1. Crie um novo diretório chamado calculadora_python.
 
@@ -882,7 +891,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 4. Como resolução, descreva todos os comandos que você fez para inicializar o repositório em um arquivo de texto com o nome dia3exercicio1.txt
 
-### Exercício 02
+#### Exercício 02
 
 1. Adicione arquivos ao seu repositório Git
 
@@ -898,9 +907,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 6. Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
-### Exercício 03
-
-#### Configurando um repositório remoto e enviando os commits
+#### Exercício 03 - Configurando um repositório remoto e enviando os commits
 
 1. No GitHub crie um novo repositório chamado calculadora_pyton.
 
@@ -911,9 +918,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
 
-### Exercício 04
-
-#### Adicionando funções de soma e multiplicação à calculadora
+#### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
 1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
 
@@ -946,9 +951,7 @@ def multiplicacao(a, b):
 Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de textocom o nome dia3exercicio4.txt
 
 
-### Exercício 05
-
-#### Clonando um repositório
+#### Exercício 05 - Clonando um repositório
 
 1. Clone o repositório que está neste link: [link do repositório central]
 
