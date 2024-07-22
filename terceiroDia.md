@@ -9,33 +9,39 @@ title: Minicurso de Linux e Git
 
 <div id="sumario" class="sumario-git">
     <h1>Sumário</h1>
-<ul>
-  <li><a href="#básico-sobre-processos">Básico Sobre Processos</a></li>
-  <ul>
-    <li><a href="#o-que-é-um-processo">O que é um processo?</a></li>
-    <li><a href="#interrompendo-e-listando-processos">Interrompendo e listando processos</a></li>
-    <li><a href="#rodando-processos-em-background">Rodando processos em background</a></li>
-  </ul>
-
-  <li><a href="#uso-de-programas-de-compatação-para-compartilhar-e-receber-arquivos">Compactação e Descompactação de Arquivos</a></li>
-  <ul>
-    <li><a href="#compactação">Compactação</a></li>
-    <li><a href="#descompactação">Descompactação</a></li>
-  </ul>
-
-  <li><a href="#versionadores-e-git-fundamentos-e-conceitos">Versionadores e Git: Fundamentos e Conceitos</a></li>
-  <ul>
+    <ul>
+    <details>
+        <summary><a href="#básico-sobre-processos">Básico Sobre Processos</a></summary>
+        <ul class="section-content">
+            <li><a href="#o-que-é-um-processo">O que é um processo?</a></li>
+            <li><a href="#interrompendo-e-listando-processos">Interrompendo e listando processos</a></li>
+            <li><a href="#rodando-processos-em-background">Rodando processos em background</a></li>
+        </ul>
+    </details>
+    <details>
+  <summary><a href="#uso-de-programas-de-compatação-para-compartilhar-e-receber-arquivos">Compactação e Descompactação de Arquivos</a></summary>
+    <ul class="section-content">
+        <li><a href="#compactação">Compactação</a></li>
+        <li><a href="#descompactação">Descompactação</a></li>
+    </ul>
+  </details>
+    <details>
+  <summary><a href="#versionadores-e-git-fundamentos-e-conceitos">Versionadores e Git: Fundamentos e Conceitos</a></summary>
+  <ul class="section-content">
     <li><a href="#introdução-aos-versionadores">Introdução aos Versionadores</a></li>
     <li><a href="#introdução-ao-git">Introdução ao Git</a></li>
     <li><a href="#hospedagem-remota-e-conexões-ssh">Hospedagem Remota e Conexões SSH</a></li>
     <li><a href="#workflow-e-primeiro-repositório">Workflow e primeiro repositório</a></li>
     <li><a href="#comandos-e-práticas-do-git">Comandos e Práticas do Git</a></li>
   </ul>
-  <li><a href="#exercícios">Exercícios</a></li>
-  <ul>
+  </details>
+  <details>
+  <summary><a href="#exercícios">Exercícios</a></summary>
+  <ul class="section-content">
    <li><a href="#exercícios-de-fixação">Exercícios de Fixação</a></li>
    <li><a href="#exercícios-obrigatórios">Exercícios Obrigatórios</a></li>
   </ul>
+  </details>
 </ul>
 
 
