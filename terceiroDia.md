@@ -638,9 +638,57 @@ Agora, temos um <span class="destaque">subdiretório</span> chamado <span class=
 Nada em seu projeto é monitorado ainda.
 
 ```shell
-$ cd OneDrive/Documentos/projeto
-$ git init
+cd OneDrive/Documentos/projeto
+git init
 Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
+```
+#### Configurando o Repositório Remoto git remote
+
+Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso vamos usar o comando <span class="destaque">git remote</span>
+
+```shell
+git remote add origin https://github.com/seu-usuario/seu-repositorio.git
+```
+
+##### Como verificar os repositórios remotos configurados?
+Basta utilizar a opção -v
+
+```shell
+$ git remote -v
+```
+note o que seguinte aparecerá:
+
+
+```shell
+origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
+origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
+```
+Isso indica que o repositório remoto chamado origin está configurado para <span class="destaque">buscar (fetch)</span> e <span class="destaque">enviar (push)</span> atualizações para a URL especificada, que é onde o seu repositório remoto está.
+
+##### Como desconectar o repositório local do remoto?
+
+```shell
+$ git remote remove origin
+```
+
+Depois de executar esses comandos, o repositório local estará desconectado do repositório remoto.
+
+
+
+##### Como renomear o repositório remoto 
+
+Use o comando git remote rename para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear origin para novo-nome.
+
+```shell
+$ git remote rename origin novo-nome
+```
+
+Note o seguinte:
+
+```shell
+$ git remote -v
+novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
+novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
 ```
 #### Gravando alterações em seu repositório
 
@@ -791,16 +839,34 @@ Se você tem um commit pronto e quer <span class="destaque">adiciona-lo ao repos
 ```sh
 $ git push 
 ```
-Fazendo o git push os seus commits irão subir para o seu repositório remoto.
+Fazendo o git push os seus commits irão subir para o seu repositório remoto que foi configurado inicialmente por padrão.
+
+```shell
+$ git push origin master
+```
+Vamos supor que o nome no repositório remoto seja <spam class="destaque">main</spam>, mas sua cópia local é chamada de <spam class="destaque">master</spam>. Para corrigir essa diferença, você pode <spam class="destaque">referenciar diretamente</spam> a branch (que é o local onde estamos desenvolvendo e enviando as modificações para o Git) do repositório remoto usando o seguinte comando:
+
+
+```shell
+$ git push origin master:main
+```
+
+Dessa forma, você está enviando o conteúdo da sua <spam class="destaque">cópia local</spam> chamada <spam class="destaque">master</spam> para a <spam class="destaque">cópia no repositório remoto</spam> que é chamada de <spam class="destaque">main</spam>.
 
 #### Trazendo alterações para o repositório local `git pull`
 
-Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e deseja trazê-las para o seu repositório local, basta digitar o comando git pull:
+Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e deseja trazê-las para o seu repositório local, basta digitar o comando <span class="destaque">git pull</span>:
 
 ```sh
 $ git pull
 ```
-Por padrão, esse comando irá puxar as alterações do origin, que é o nome padrão do repositório remoto referenciado quando você conectou o repositório local com o remoto pela primeira vez. No caso de um clone, o origin é o repositório de onde você fez o git clone.
+Por padrão, esse comando irá puxar as alterações do <span class="destaque">origin</span>, que é o nome padrão do repositório remoto referenciado quando você conectou o repositório local com o remoto pela primeira vez. No caso de um clone, o <span class="destaque">origin</span> é o repositório de onde você fez o <span class="destaque">git clone</span>.
+
+Para atualizar uma <span class="destaque">branch</span> local com as alterações da branch remota sem usar diretamente <span class="destaque">git pull</span>, você pode usar o comando <span class="destaque">git pull</span> com a especificação direta da branch remota, o que é na prática uma forma direta de realizar a operação. Aqui está como fazer isso:
+
+```sh
+$ git pull origin nome-da-branch:nome-da-branch-local
+```
 
 ## Exercícios 
 
