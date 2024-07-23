@@ -537,7 +537,7 @@ Se por exemplo adicionarmos mais uma linha de código ao arquivo 'feed' que já 
 ``` 
 Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
 
-Para isso, vamos usar o `git add` com o repositório relativo "` . `"
+Para isso, vamos usar o `git add` com o diretório relativo "` . `"
 ```sh
     $ git add .
     $ git status
