@@ -845,6 +845,36 @@ $ git log --oneline
 b75f610 adicionando a funcionalidade chat
 c1b4d83 Commit inicial com arquivos de configuração do projeto   
 ```
+#### Clonando um repositório
+
+Para começar a trabalhar com um repositório que já existe em um servidor remoto, você pode cloná-lo para o seu ambiente local usando o comando <span class="destaque">git clone</span>. Este comando cria uma cópia completa do repositório, incluindo todo o histórico de commits e branches.
+
+Para clonar um repositório que está por exemplo no GitHub, faça:
+
+1. No GitHub.com, navegue até a página principal do repositório e faça o seguinte:
+
+    - Para clonar o repositório usando HTTPS, em "HTTPS", clique no ícone de cópia 
+    - Para clonar o repositório usando uma chave SSH, clique em "SSH" e depois no ícone de cópia.
+    - Para clonar um repositório usando a GitHub CLI, clique em "GitHub CLI" e depois no ícone de cópia.
+
+2. Abra o Terminal.
+
+3. Altere o diretório de trabalho atual para o local em que deseja ter o diretório clonado.
+
+4. Digite `git clone` e cole a URL já copiada.
+
+5. Pressione ENTER para criar seu clone local.
+
+```shell
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `YOUR-REPOSITORY`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remote: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+
+
 #### Subindo alterações para o repositório remoto `git push`
 Se você tem um commit pronto e quer <span class="destaque">adiciona-lo ao repositório remoto</span>, podemos fazer:
 
