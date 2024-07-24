@@ -169,175 +169,68 @@ git push -u origin feature-legal
 
 ## Git merging
 
-Nos últimos tópicos, vimos um punhado sobre *branches*, e como elas podem ser úteis para trabalhar em 
-equipe, mas, como que podemos concretizar um projeto usando *branches*, se não sabemos como juntar o 
+Nos últimos tópicos, vimos um punhado sobre *branches*, e como elas podem ser úteis para trabalhar em
+equipe, mas, como que podemos concretizar um projeto usando *branches*, se não sabemos como juntar o
 que foi feito em cada uma delas?
 
-Dada essa preocupação, o `git` nos oferece o `git merge` que serve para integrar as alterações feitas em 
+Dada essa preocupação, o `git` nos oferece o `git merge` que serve para integrar as alterações feitas em
 uma *branch* a outra. Em qualquer "merge" ou mescla, a *branch* que está sendo mesclada é chamada de *
-source branch*  e a *branch* que está recebendo as alterações é chamada de *target branch*. Além disso,
-existem algumas formas diferentes de como isso pode acontecer, as quais são:
+source branch*  e a *branch* que está recebendo as alterações é chamada de *target branch*, e seu uso
+consiste em:
+
+* Estando na *target branch*:
+
+  ```terminal
+  git merge <source_branch> 
+  ```
+
+Mas, nem sempre é tão simples assim, e existem diferentes formas em que o `git` pode realizar essa
+mesclagem, as quais impactam diretamente no seu histórico de commits.
 
 ### Fast-forward merge
 
-Imagine o seguinte histórico de commits:
+Uma das formas que o `merge` ocorre é *fast-foward*, e a ideia é que a *target branch* vai apenas avançar o seu histórico em relação a *source branch*, por exemplo, imagine o seguinte histórico de commits:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem5.jpeg" width="70%">
 <br>
 
 Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer mesclar o que foi feito
-nela a linha de desenvolvimento principal (`main`). Pensando de forma lúdica, poderíamos fazer isso apenas 
-descendo essas bolinhas vermelhas e deixando equiparadas com a `main`, certo?
+nela a linha de desenvolvimento principal (`main`). Pensando de forma lúdica, o `git` realizaria a
+mesclagem  apenas descendo essas bolinhas vermelhas e deixando equiparadas com a `main` e avançando o
+`HEAD` para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
 
-<!-- TODO: terminar isso aqui
--->
+1. E alinhado a linha de desenvolvimento principal:
 
-### Ramificação e mesclagem simples
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem6.jpeg" width="70%">
+<br>
 
-Primeiramente, digamos que você esteja trabalhando em seu projeto e já tenha alguns commits na branch principal (geralmente chamada de `master`).
+2. Os commits da *branch* `feature` são incorporados a `main`, e o `HEAD` avança:
 
-Você decidiu que vai trabalhar na criação de uma nova funcionalidade de chat para o site.
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem7.jpeg" width="70%">
+<br>
 
-Para criar uma nova branch e mudar para ela ao mesmo tempo, você pode executar o comando `git checkout` com a opção `-b`:
+Mas e se a divergência não for assim tão simples e seu histórico estiver análogo a 
+[essa figura](#git-branching), seria possível fazer esse avanço?
 
-```bash
-$ git checkout -b chat-feature
-Switched to a new branch "chat-feature"
-```
+### Three-way merge
 
-Isso é equivalente a:
+A outra forma que o `git` realiza merges é o *three-way merge*, que acontece quando é impossível alcançar a 
+cabeça da *target branch*, seguindo os commits parentes a partir da cabeça da *source branch*, visualmente, 
+isso seria:
 
-```bash
-git branch chat-feature
-git checkout chat-feature
-```
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem8.jpeg" width="70%">
+<br>
 
-Ao fazer isso, você cria e muda para a nova branch `chat-feature` onde começará a trabalhar na funcionalidade de chat.
+- Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches 
+divergiram e que o `git` precisará realizar o *three-way merge*.
 
-```bash
-echo "código do chat versão 1" > chat.txt
-git add chat.txt
-git commit -m 'Criei a versão 1 do chat'
-```
+Para conseguir realizar a mesclagem, o `git` precisa criar um novo commit que tenha como parente os dois 
+últimos commits da *source* e *target* branch, de forma que o histórico das duas fiquem acessíveis a partir
+da mesma branch.
 
-Porém, um problema importante surgiu e precisamos corrigi-lo imediatamente. Vamos voltar para a branch `master` e criar uma nova branch a partir dela para fazer essa correção.
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem9.jpeg" width="70%">
+<br>
 
-Antes de mudar de branch, é importante garantir que seu trabalho atual esteja salvo (commitado), pois o Git não permite mudar de branch se houver mudanças não salvas que possam conflitar.
-
-Agora podemos mudar para a branch `master`:
-
-```bash
-$ git checkout master
-Switched to branch 'master'
-```
-
-Neste ponto, o projeto estará exatamente como estava antes de você começar a trabalhar na funcionalidade de chat. Agora podemos nos concentrar na correção urgente.
-
-Vamos criar uma branch chamada `correcao-chat` para trabalhar na correção:
-
-```bash
-$ git checkout -b correcao-chat
-Switched to a new branch 'correcao-chat'
-```
-
-Depois de corrigir o problema, vamos fazer o commit:
-
-```bash
-$ echo "Corrigir bug crítico" > correcaobug.txt
-$ git add correcaobug.txt
-$ git commit -m 'Corrigir bug crítico'
-[correcao-chat 1fb7853] Corrigir bug crítico
-1 file changed, 1 insertion(+)
-```
-
-Agora, você pode testar e garantir que a correção está correta. Em seguida, vamos mesclar a branch `correcao-chat` de volta para a branch `master`:
-
-```bash
-$ git checkout master
-$ git merge correcao-chat
-Updating f42c576..3a0874c
-Fast-forward
-correcaobug.txt | 1 +
-1 file changed, 1 insertion(+)
-```
-
-A expressão “fast-forward” significa que a mesclagem foi simples e direta, sem conflitos. O Git apenas moveu a linha do tempo para incluir as mudanças da branch `correcao-chat`.
-
-Após a mesclagem, podemos deletar a branch `correcao-chat` pois não é mais necessária:
-
-```bash
-$ git branch -d correcao-chat
-Deleted branch correcao-chat (3a0874c).
-```
-
-Agora podemos voltar para a branch `chat-feature` e continuar trabalhando na funcionalidade de chat:
-
-```bash
-$ git checkout chat-feature
-Switched to branch "chat-feature"
-$ echo "Chat feature finalizado" >> chat.txt
-$ git add chat.txt
-$ git commit -m 'Terminei o chat feature'
-[chat-feature ad82d7a] Finish chat feature
-1 file changed, 1 insertion(+)
-```
-
-Se precisar das mudanças da correção (`correcao-chat`) na sua branch `chat-feature`, você pode mesclar a branch `master` na `chat-feature` com:
-
-```bash
-git merge master
-```
-
-### Outra forma de mesclagem
-
-Quando terminar o trabalho na funcionalidade de chat e estiver pronto para mesclar de volta para a branch `master`, você pode fazer o merge da mesma forma que fez com `correcao-chat`:
-
-```bash
-$ git checkout master
-Switched to branch 'master'
-$ git merge chat-feature
-Merge made by the 'recursive' strategy.
-chat.txt |    1 +
-1 file changed, 1 insertion(+)
-```
-
-Este tipo de mesclagem é diferente porque as duas branches (`master` e `chat-feature`) têm históricos diferentes. O Git faz uma mesclagem de três vias, usando o último commit comum entre as duas branches e os commits mais recentes de cada uma para criar um novo commit que une as mudanças.
-
-Depois da mesclagem, você pode excluir a branch `chat-feature`:
-
-```bash
-git branch -d chat-feature
-```
-
-### Conflitos básicos de mesclagem
-
-Às vezes, o processo de mesclagem não ocorre sem problemas. Se você alterou a mesma parte de um arquivo em duas branches diferentes, o Git não conseguirá mesclar automaticamente. Isso gera um conflito de mesclagem:
-
-```bash
-$ git merge chat-feature
-Auto-merging chat.txt
-CONFLICT (content): Merge conflict in chat.txt
-Automatic merge failed; fix conflicts and then commit the result.
-```
-
-Para resolver o conflito, abra o arquivo e veja as partes conflitantes:
-
-```plaintext
-Chat feature finalizado
-```
-
-Edite o arquivo para resolver o conflito e salve as mudanças. Depois, adicione o arquivo ao stage:
-
-```bash
-git add chat.txt
-```
-
-Quando todos os conflitos forem resolvidos, finalize a mesclagem com um commit:
-
-```bash
-git commit
-```
-
-Se você acha que seria útil para outras pessoas olhar para este merge no futuro, você pode modificar esta mensagem de confirmação com detalhes sobre como você resolveu o conflito e explicar por que você fez as mudanças que você fez se elas não forem óbvias.
-
-### Exercicio 3
+E esse processo só ocorre, se alterações feitas em uma branch não interferirem diretamente nas alterações 
+feitas na outra, caso contrário, o `git` não conseguirá realizar a mesclagem e você terá que resolver 
+cada conflito manualmente, para consolidar o *merge commit*.
