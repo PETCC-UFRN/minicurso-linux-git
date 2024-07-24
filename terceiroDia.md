@@ -761,6 +761,8 @@ $ git commit -m "mensagem"
 ```
 Lembre-se de que o commit grava o <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
 
+<a href="#exercício-01---iniciando-um-novo-repositório-git"><spam class="destaque" style="font-size:20px;">Exercícios : 1-2</spam></a>
+
 #### Configurando o Repositório Remoto git remote
 
 Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso vamos usar o comando <span class="destaque">git remote</span>
@@ -809,6 +811,8 @@ $ git remote -v
 novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
 novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
 ```
+
+<a href="#exercício-03---configurando-um-repositório-remoto-e-enviando-os-commits"><spam class="destaque" style="font-size:20px;">Exercício : 3</spam></a>
 
 #### Como ver todos os commit feitos com `git log`
 
@@ -910,16 +914,15 @@ Para atualizar uma <span class="destaque">branch</span> local com as alteraçõe
 $ git pull origin nome-da-branch:nome-da-branch-local
 ```
 
+<a href="#exercício-04---adicionando-funções-de-soma-e-multiplicação-à-calculadora"><spam class="destaque" style="font-size:20px;">Exercícios : 4- 5</spam></a>
+
 ## Exercícios
-
-### Exercícios de Fixação
-
-####  Exercício 01 
-
 
 ### Exercícios Obrigatórios
 
 ####  Exercício 01 - Iniciando um novo repositório Git
+
+<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para volta ao conteúdo</a>
 
 1. Crie um novo diretório chamado calculadora_python.
 
@@ -930,6 +933,8 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 4. Como resolução, descreva todos os comandos que você fez para inicializar o repositório em um arquivo de texto com o nome dia3exercicio1.txt
 
 #### Exercício 02
+
+<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para volta ao conteúdo</a>
 
 1. Adicione arquivos ao seu repositório Git
 
@@ -947,6 +952,8 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 #### Exercício 03 - Configurando um repositório remoto e enviando os commits
 
+<a href="#como-desconectar-o-repositório-local-do-remoto">Clique para volta ao conteúdo</a>
+
 1. No GitHub crie um novo repositório chamado calculadora_pyton.
 
 2. No terminal, dentro do diretório calculadora_pyton, configure seu repositório Git local para apontar para este repositório remoto.
@@ -957,6 +964,8 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
+
+<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para volta ao conteúdo</a>
 
 1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
 
@@ -990,6 +999,8 @@ Como resolução, descreva os passos que você fez para adicionar e comitar os a
 
 
 #### Exercício 05 - Clonando um repositório
+
+<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para volta ao conteúdo</a>
 
 1. Clone o repositório que está neste link: [link do repositório central]
 
