@@ -652,54 +652,7 @@ cd OneDrive/Documentos/projeto
 git init
 Initialized empty Git repository in /home/anna/OneDrive/Documentos/projeto/.git/
 ```
-#### Configurando o Repositório Remoto git remote
 
-Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso vamos usar o comando <span class="destaque">git remote</span>
-
-```shell
-git remote add origin https://github.com/seu-usuario/seu-repositorio.git
-```
-
-##### Como verificar os repositórios remotos configurados?
-Basta utilizar a opção -v
-
-```shell
-$ git remote -v
-```
-note o que seguinte aparecerá:
-
-
-```shell
-origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
-origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
-```
-Isso indica que o repositório remoto chamado origin está configurado para <span class="destaque">buscar (fetch)</span> e <span class="destaque">enviar (push)</span> atualizações para a URL especificada, que é onde o seu repositório remoto está.
-
-##### Como desconectar o repositório local do remoto?
-
-```shell
-$ git remote remove origin
-```
-
-Depois de executar esses comandos, o repositório local estará desconectado do repositório remoto.
-
-
-
-##### Como renomear o repositório remoto 
-
-Use o comando git remote rename para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear origin para novo-nome.
-
-```shell
-$ git remote rename origin novo-nome
-```
-
-Note o seguinte:
-
-```shell
-$ git remote -v
-novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
-novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
-```
 #### Gravando alterações em seu repositório
 
 Cada arquivo em seu repsitório pode estar em um dos seguintes estados: <span class="destaque">rastreado</span> e <span class="destaque">não-rastreado</span>. Arquivos rastreados são arquivos que foram incluídos no último snapshot; eles podem ser não modificados, modificados ou preparados (adicionados ao stage). Em resumo, arquivos rastreados são os arquivos que o Git conhece.
@@ -807,6 +760,55 @@ Alternativamente, podemos fazer:
 $ git commit -m "mensagem"
 ```
 Lembre-se de que o commit grava o <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
+
+#### Configurando o Repositório Remoto git remote
+
+Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso vamos usar o comando <span class="destaque">git remote</span>
+
+```shell
+git remote add origin https://github.com/seu-usuario/seu-repositorio.git
+```
+
+##### Como verificar os repositórios remotos configurados?
+Basta utilizar a opção -v
+
+```shell
+$ git remote -v
+```
+note o que seguinte aparecerá:
+
+
+```shell
+origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
+origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
+```
+Isso indica que o repositório remoto chamado origin está configurado para <span class="destaque">buscar (fetch)</span> e <span class="destaque">enviar (push)</span> atualizações para a URL especificada, que é onde o seu repositório remoto está.
+
+##### Como desconectar o repositório local do remoto?
+
+```shell
+$ git remote remove origin
+```
+
+Depois de executar esses comandos, o repositório local estará desconectado do repositório remoto.
+
+
+
+##### Como renomear o repositório remoto 
+
+Use o comando git remote rename para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear origin para novo-nome.
+
+```shell
+$ git remote rename origin novo-nome
+```
+
+Note o seguinte:
+
+```shell
+$ git remote -v
+novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
+novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
+```
 
 #### Como ver todos os commit feitos com `git log`
 
