@@ -157,9 +157,9 @@ Quando estamos trabalhando com repositórios remotos, é importante ficar claro 
 a *branch* que estamos trabalhando atualmente, uma local e outra remota, e quando criamos uma nova branch
 essa referência remota não é criada automaticamente, então, cabe a nós fazer isso manualmente.
 
-Por exemplo, suponha que criamos uma nova branch chamada `feature-legal` e fizemos alguns commits nela, e
-então quero compartilhar essa branch com meus colegas de trabalho ou apenas salvar o progresso na nuvem.
-Para isso, podemos criar a referência remota da seguinte forma:
+Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal` e fizemos alguns commits nela, e
+então, quero compartilhar essa branch com meus colegas de trabalho ou apenas salvar o progresso na nuvem.
+Para isso, podemos criar a referência remota com o seguinte comando:
 
 ```terminal
 git push -u origin feature-legal
@@ -167,10 +167,30 @@ git push -u origin feature-legal
 
 (Se o nome do repositório remoto for `origin`)
 
-<!--- TODO: Parei aqui
---->
-
 ## Git merging
+
+Nos últimos tópicos, vimos um punhado sobre *branches*, e como elas podem ser úteis para trabalhar em 
+equipe, mas, como que podemos concretizar um projeto usando *branches*, se não sabemos como juntar o 
+que foi feito em cada uma delas?
+
+Dada essa preocupação, o `git` nos oferece o `git merge` que serve para integrar as alterações feitas em 
+uma *branch* a outra. Em qualquer "merge" ou mescla, a *branch* que está sendo mesclada é chamada de *
+source branch*  e a *branch* que está recebendo as alterações é chamada de *target branch*. Além disso,
+existem algumas formas diferentes de como isso pode acontecer, as quais são:
+
+### Fast-forward merge
+
+Imagine o seguinte histórico de commits:
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem5.jpeg" width="70%">
+<br>
+
+Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer mesclar o que foi feito
+nela a linha de desenvolvimento principal (`main`). Pensando de forma lúdica, poderíamos fazer isso apenas 
+descendo essas bolinhas vermelhas e deixando equiparadas com a `main`, certo?
+
+<!-- TODO: terminar isso aqui
+-->
 
 ### Ramificação e mesclagem simples
 
