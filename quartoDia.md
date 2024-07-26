@@ -209,28 +209,122 @@ mesclagem  apenas descendo essas bolinhas vermelhas e deixando equiparadas com a
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem7.jpeg" width="70%">
 <br>
 
-Mas e se a divergência não for assim tão simples e seu histórico estiver análogo a 
+Mas e se a divergência não for assim tão simples e seu histórico estiver análogo a
 [essa figura](#git-branching), seria possível fazer esse avanço?
 
 ### Three-way merge
 
-A outra forma que o `git` realiza merges é o *three-way merge*, que acontece quando é impossível alcançar a 
-cabeça da *target branch*, seguindo os commits parentes a partir da cabeça da *source branch*, visualmente, 
+A outra forma que o `git` realiza merges é o *three-way merge*, que acontece quando é impossível alcançar a
+cabeça da *target branch*, seguindo os commits parentes a partir da cabeça da *source branch*, visualmente,
 isso seria:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem8.jpeg" width="70%">
 <br>
 
-- Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches 
+* Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches
 divergiram e que o `git` precisará realizar o *three-way merge*.
 
-Para conseguir realizar a mesclagem, o `git` precisa criar um novo commit que tenha como parente os dois 
+Para conseguir realizar a mesclagem, o `git` precisa criar um novo commit que tenha como parente os dois
 últimos commits da *source* e *target* branch, de forma que o histórico das duas fiquem acessíveis a partir
 da mesma branch.
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem9.jpeg" width="70%">
 <br>
 
-E esse processo só ocorre, se alterações feitas em uma branch não interferirem diretamente nas alterações 
-feitas na outra, caso contrário, o `git` não conseguirá realizar a mesclagem e você terá que resolver 
+E esse processo só ocorre, se alterações feitas em uma branch não interferirem diretamente nas alterações
+feitas na outra, caso contrário, o `git` não conseguirá realizar a mesclagem e você terá que resolver
 cada conflito manualmente, para consolidar o *merge commit*.
+
+### Lidando com conflitos
+
+Para além do *three-way merge* e do `git`, um dos desafios mais clássicos que enfretamos ao trabalhar com 
+projetos e com outras pessoas é a resolução de conflitos. Seja por falta de comunicação entre a equipe,
+planejamento, erro humano, ou qualquer outra razão, é muito comum que duas ou mais pessoas acabem
+trabalhando na mesma parte do projeto ao mesmo tempo e isso resultar em conflitos. 
+
+Consequentemente, com o `git` não é diferente, e conflitos ocorrem no momento em que o `git` não consegue
+mesclar duas branches automaticamente via *three-way merge*. Para resolver o conflito, você precisa 
+intervir diretamente na parte do arquivo que é conflitante entre as *branches* e decidir o que será mantido.
+
+Portanto, vamos investigar quais são algumas das principais causas de conflitos e como resolvê-los.
+
+#### Alterações no mesmo arquivo
+
+Um conflito no *three-way merge* é dado quando duas ou mais pessoas trabalham na mesma parte
+de um arquivo, visto que, ao mesclar as alterações, o `git` é incapaz de decidir qual versão manter. Dessa 
+forma, O `git` vai te dizer em qual arquivo houve conflito, e vai decorar o arquivo com marcações especiais 
+para lhe mostrar as diferentes versões de determinadas linhas do arquivo. Essas marcações são:
+
+```terminal
+<<<<<<< HEAD
+{ Conteúdo da target branch }
+=======
+{ Conteúdo da source branch* }
+>>>>>>> { source branch }
+```
+
+Para resolver esse tipo de conflito, voce vai precisar:
+
+* Decidir o que manter, editar o arquivo e remover a decoração de conflito.
+* Adicionar o arquivo ao *stage* e consolidar o *merge commit*.
+#### Estado do repositório local e repositório remoto
+
+Em qualquer projeto que envolva mais de uma pessoa, naturalmente, ocorrerão mudanças recorrentes no 
+repositório, e sempre alguem vai terminar antes ou depois de outra pessoa. Nesse sentido, tente visualizar
+comigo o seguinte cenário:
+
+* Você e seu colega estão trabalhando em duas funcionalidades diferentes no mesmo projeto, e o histórico
+de commits se parece com isso:
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem010.jpeg" width="70%">
+<br>
+
+* Seu colega terminou antes de você e publicou a branch dele remotamente, e já incorporou as alterações 
+dele na `main`.
+
+  | Sua versão local| Versão remota |
+  | -------------- | --------------- |
+  | <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem010.jpeg" width="70%"> |<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem011.jpeg" width="70%"> |
+
+* Você terminou a sua parte e você incorporou as alterações dele na sua branch, e agora você quer publicar
+o que foi feito remotamente.
+
+  | Sua versão local| Versão remota |
+  | -------------- | --------------- |
+  | <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem012.jpeg" width="70%"> |<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem011.jpeg" width="70%"> 
+
+* Entretanto, o `git` não vai permitir que você publique as alterações remotamente, visto que, o histórico
+de commits da sua branch `main` divergiu completamente da versão remota.
+
+Dada, a problemática, o que fazer?
+
+O `git` vai te dar a oportunidade de mesclar a sua branch local com a remota via *three-way merge*, para 
+que você consiga publicar as alterações com sucesso. Mas, note que, será criado um commit desnecessário
+por descuido, além da alta chance de haver conflitos por possíveis alterações no mesmo arquivo.
+
+Num cenário ideal, sempre antes e depois de trabalhar atualize o seu repositório local com os comandos que
+já aprendeu, para evitar esse tipo de problema.
+
+#### Divergências significativas
+
+Mais comum do que se imagina, principalmente em grandes equipes ou novatos no uso do `git` é a criação de 
+divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em uma branch 
+`feature` equanto seu colega está na `main` e ambos fizeram mudanças significativas que afetaram o mesmo
+arquivo, certamente, não vai ser possível incorporar suas mudanças na branch principal.
+
+E a causa desse tipo de conflito, é principalmente a falta de comunicação e planejamento entre as partes.
+
+#### Prevenindo conflitos
+
+A maioria dos conflitos no `git` não fogem muito do que foi apresentado até agora, então, para previnir
+esses tipos de conflitos, alguma práticas são recomendadas:
+
+* **Comunique-se constatemente e abertamente com a equipe** sobre quais partes do projeto cada um está trabalhando.
+
+* Faça **commits frequentes** e pequenos assim como a 
+[filosofia do Unix](/primeiroDia.md#filosofia-unix-programas-simples-e-combináveis) sugere para o 
+desenvolver de software. Isso mantém o repositório atualizado, diminui a chance de conflitos e facilita
+revisitar o commit no futuro.
+
+* **Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**. Branches de longa-
+duração tendem a se desviar significantemente de outras e criar conflitos.
