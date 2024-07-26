@@ -3,10 +3,49 @@ layout: layoutGit
 title: Minicurso de Linux e Git
 ---
 
-[TOC]
 
 # Git avançado
 
+<div id="sumario" class="sumario-oldschool">
+    <h1>Sumário</h1>
+  <details>
+    <summary><a href="#git-avancado">Git avançado</a></summary>
+    <ul>
+      <li>
+        <details>
+          <summary><a href="#desfazendo-alteracoes">Desfazendo alterações</a></summary>
+          <ul>
+            <li><a href="#desfazendo-commits-sem-ter-publicado">Desfazendo commits sem ter publicado</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><a href="#workflow-avancado">Workflow avançado</a></summary>
+          <ul>
+            <li><a href="#git-branching">Git branching</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary><a href="#git-merging">Git merging</a></summary>
+          <ul>
+            <li><a href="#fast-forward-merge">Fast-forward merge</a></li>
+            <li><a href="#three-way-merge">Three-way merge</a></li>
+            <li><a href="#lidando-com-conflitos">Lidando com conflitos</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#projeto-pt1">Projeto pt.1</a></li>
+    </ul>
+  </details>
+  <button class="toggle-button" id="toggle-button">
+  
+      Esconder Sumário
+  
+  </button>
+  </div>
 ## Desfazendo alterações
 
 No [último tópico](/terceiroDia.md), tivemos o nosso primeiro contato com o `git`, e aprendemos a criar
