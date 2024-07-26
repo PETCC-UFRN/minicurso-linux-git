@@ -118,7 +118,7 @@ cumprem o seu propósito, são incorporadas na *branch* principal e deletadas.
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem4.jpeg" width="70%">
 <br>
 
-* A branch `main` é a linha de desenvolvimento principal, e as branches `feature1` e `feature2` são
+- A branch `main` é a linha de desenvolvimento principal, e as branches `feature1` e `feature2` são
 ramificações que foram criadas para desenvolver novas funcionalidades.
 
 Como você já deve ter visto, por padrão, o quando usamos o comando `git init`, o programa cria
@@ -138,7 +138,7 @@ em novas funcionalidades para o projeto.
   git branch feature-legal main
   ```
 
-* Alternativamente, podemos omitir o nome da *branch* base, e o `git` vai assumir que queremos criar a nova branch a partir da qual estamos atualmente.
+- Alternativamente, podemos omitir o nome da *branch* base, e o `git` vai assumir que queremos criar a nova branch a partir da qual estamos atualmente.
 
 3. Precisamos mudar para a nova branch para começar a trabalhar nela, então usamos o comando `git switch <branch>` (que serve apenas para trocar de branches) ou `git checkout` (mais sobre ele no futuro):
 
@@ -178,7 +178,7 @@ uma *branch* a outra. Em qualquer "merge" ou mescla, a *branch* que está sendo 
 source branch*  e a *branch* que está recebendo as alterações é chamada de *target branch*, e seu uso
 consiste em:
 
-* Estando na *target branch*:
+- Estando na *target branch*:
 
   ```terminal
   git merge <source_branch> 
@@ -221,7 +221,7 @@ isso seria:
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem8.jpeg" width="70%">
 <br>
 
-* Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches
+- Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches
 divergiram e que o `git` precisará realizar o *three-way merge*.
 
 Para conseguir realizar a mesclagem, o `git` precisa criar um novo commit que tenha como parente os dois
@@ -237,13 +237,13 @@ cada conflito manualmente, para consolidar o *merge commit*.
 
 ### Lidando com conflitos
 
-Para além do *three-way merge* e do `git`, um dos desafios mais clássicos que enfretamos ao trabalhar com 
+Para além do *three-way merge* e do `git`, um dos desafios mais clássicos que enfretamos ao trabalhar com
 projetos e com outras pessoas é a resolução de conflitos. Seja por falta de comunicação entre a equipe,
 planejamento, erro humano, ou qualquer outra razão, é muito comum que duas ou mais pessoas acabem
-trabalhando na mesma parte do projeto ao mesmo tempo e isso resultar em conflitos. 
+trabalhando na mesma parte do projeto ao mesmo tempo e isso resultar em conflitos.
 
 Consequentemente, com o `git` não é diferente, e conflitos ocorrem no momento em que o `git` não consegue
-mesclar duas branches automaticamente via *three-way merge*. Para resolver o conflito, você precisa 
+mesclar duas branches automaticamente via *three-way merge*. Para resolver o conflito, você precisa
 intervir diretamente na parte do arquivo que é conflitante entre as *branches* e decidir o que será mantido.
 
 Portanto, vamos investigar quais são algumas das principais causas de conflitos e como resolvê-los.
@@ -251,8 +251,8 @@ Portanto, vamos investigar quais são algumas das principais causas de conflitos
 #### Alterações no mesmo arquivo
 
 Um conflito no *three-way merge* é dado quando duas ou mais pessoas trabalham na mesma parte
-de um arquivo, visto que, ao mesclar as alterações, o `git` é incapaz de decidir qual versão manter. Dessa 
-forma, O `git` vai te dizer em qual arquivo houve conflito, e vai decorar o arquivo com marcações especiais 
+de um arquivo, visto que, ao mesclar as alterações, o `git` é incapaz de decidir qual versão manter. Dessa
+forma, O `git` vai te dizer em qual arquivo houve conflito, e vai decorar o arquivo com marcações especiais
 para lhe mostrar as diferentes versões de determinadas linhas do arquivo. Essas marcações são:
 
 ```terminal
@@ -265,40 +265,41 @@ para lhe mostrar as diferentes versões de determinadas linhas do arquivo. Essas
 
 Para resolver esse tipo de conflito, voce vai precisar:
 
-* Decidir o que manter, editar o arquivo e remover a decoração de conflito.
-* Adicionar o arquivo ao *stage* e consolidar o *merge commit*.
+- Decidir o que manter, editar o arquivo e remover a decoração de conflito.
+- Adicionar o arquivo ao *stage* e consolidar o *merge commit*.
+
 #### Estado do repositório local e repositório remoto
 
-Em qualquer projeto que envolva mais de uma pessoa, naturalmente, ocorrerão mudanças recorrentes no 
+Em qualquer projeto que envolva mais de uma pessoa, naturalmente, ocorrerão mudanças recorrentes no
 repositório, e sempre alguem vai terminar antes ou depois de outra pessoa. Nesse sentido, tente visualizar
 comigo o seguinte cenário:
 
-* Você e seu colega estão trabalhando em duas funcionalidades diferentes no mesmo projeto, e o histórico
+- Você e seu colega estão trabalhando em duas funcionalidades diferentes no mesmo projeto, e o histórico
 de commits se parece com isso:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem010.jpeg" width="70%">
 <br>
 
-* Seu colega terminou antes de você e publicou a branch dele remotamente, e já incorporou as alterações 
+- Seu colega terminou antes de você e publicou a branch dele remotamente, e já incorporou as alterações
 dele na `main`.
 
   | Sua versão local| Versão remota |
   | -------------- | --------------- |
   | <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem010.jpeg" width="70%"> |<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem011.jpeg" width="70%"> |
 
-* Você terminou a sua parte e você incorporou as alterações dele na sua branch, e agora você quer publicar
+- Você terminou a sua parte e você incorporou as alterações dele na sua branch, e agora você quer publicar
 o que foi feito remotamente.
 
   | Sua versão local| Versão remota |
   | -------------- | --------------- |
-  | <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem012.jpeg" width="70%"> |<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem011.jpeg" width="70%"> 
+  | <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem012.jpeg" width="70%"> |<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem011.jpeg" width="70%">
 
-* Entretanto, o `git` não vai permitir que você publique as alterações remotamente, visto que, o histórico
+- Entretanto, o `git` não vai permitir que você publique as alterações remotamente, visto que, o histórico
 de commits da sua branch `main` divergiu completamente da versão remota.
 
 Dada, a problemática, o que fazer?
 
-O `git` vai te dar a oportunidade de mesclar a sua branch local com a remota via *three-way merge*, para 
+O `git` vai te dar a oportunidade de mesclar a sua branch local com a remota via *three-way merge*, para
 que você consiga publicar as alterações com sucesso. Mas, note que, será criado um commit desnecessário
 por descuido, além da alta chance de haver conflitos por possíveis alterações no mesmo arquivo.
 
@@ -307,8 +308,8 @@ já aprendeu, para evitar esse tipo de problema.
 
 #### Divergências significativas
 
-Mais comum do que se imagina, principalmente em grandes equipes ou novatos no uso do `git` é a criação de 
-divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em uma branch 
+Mais comum do que se imagina, principalmente em grandes equipes ou novatos no uso do `git` é a criação de
+divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em uma branch
 `feature` equanto seu colega está na `main` e ambos fizeram mudanças significativas que afetaram o mesmo
 arquivo, certamente, não vai ser possível incorporar suas mudanças na branch principal.
 
@@ -319,12 +320,157 @@ E a causa desse tipo de conflito, é principalmente a falta de comunicação e p
 A maioria dos conflitos no `git` não fogem muito do que foi apresentado até agora, então, para previnir
 esses tipos de conflitos, alguma práticas são recomendadas:
 
-* **Comunique-se constatemente e abertamente com a equipe** sobre quais partes do projeto cada um está trabalhando.
+- **Comunique-se constatemente e abertamente com a equipe** sobre quais partes do projeto cada um está trabalhando.
 
-* Faça **commits frequentes** e pequenos assim como a 
-[filosofia do Unix](/primeiroDia.md#filosofia-unix-programas-simples-e-combináveis) sugere para o 
+- Faça **commits frequentes** e pequenos assim como a
+[filosofia do Unix](/primeiroDia.md#filosofia-unix-programas-simples-e-combináveis) sugere para o
 desenvolver de software. Isso mantém o repositório atualizado, diminui a chance de conflitos e facilita
 revisitar o commit no futuro.
 
-* **Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**. Branches de longa-
-duração tendem a se desviar significantemente de outras e criar conflitos.
+- **Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**, pois branches de
+longa-duração tendem a se desviar significantemente de outras e criar conflitos.
+
+## Projeto pt.1
+
+### Visão geral
+
+Nessa altura, você provavelmente já deve estar familiarizado com o `git`, como usar, investigar comandos
+no terminal e até mesmo criar seus próprios comandos. Portanto, para se familiarizar mais com o workflow
+do `git`, lhe convido a desenvolver um gerador de senhas seguras com vase em critérios definidos pelo
+usuário. Este projeto deverá ser realizado em duplas, e deve ser feito usando o `git` como versionador
+e GitHub como serviço de hospedagem.
+
+### Sumário
+
+- [Definição do projeto](#definição-do-projeto)
+- [Requisitos do projeto](#requisitos-do-projeto)
+- [Funcionalidades](#funcionalidades)
+  - [Geração de senhas](#geração-de-senhas)
+  - [Armazenamento seguro](#armazenamento-seguro)
+- [Interface e como usar o script](#interface-e-como-usar-o-script)
+  - [Exemplos de uso](#exemplos-de-uso)
+- [Estrutura do código](#estrutura-do-código)
+- [Colaboração](#colaboração)
+- [Submissão](#submissão)
+
+### Definição do projeto
+
+O nosso gerador de senhas deve permitir ao usuário especificar o comprimento da senha e os tipos de
+caracteres a serem incluídos (letras maiúsculas, minúsculas, números e símbolos). Além disso, deve fornecer
+uma simples interface de `help` no terminal, para que o usuário possa entender como o programa pode ser
+usado.
+
+### Requisitos do projeto
+
+- O programa deve ser escrito em Shell script.
+- Os autores devem usar o `git` e o GitHub para versionar o projeto.
+- Os autores devem incluir um arquivo `README.md` com uma descrição do projeto instruções de uso e exemplos.
+
+### Funcionalidades
+
+#### Geração de senhas
+
+O script deve permitir a geração de senhas aleatórias com base nos seguintes critérios:
+
+- Comprimento da senha.
+- Inclusão de letras maiúsculas.
+- Inclusão de letras minúsculas.
+- Inclusão de números.
+- Inclusão de símbolos.
+
+Para gerar a senha, faça uso do `/dev/urandom`, é um arquivo que se atualiza com bytes aleatórios, uma
+vez filtrados esses bytes podem se tornar uma senha segura, para isso pesquise sobre o comando `tr` e o
+`head` para traçar um plano de como fazer isso.
+
+#### Armazenamento seguro
+
+Opcionalmente, o script deve permitir armazenar senhas de forma criptografada em um arquivo. Para isso,
+investigue o uso da ferramenta `openssl`.
+
+### Interface e como usar o script
+
+```terminal
+$ ./password-generator.sh -h
+Bem vindo o password-generator! Versão 1.0, (c) 2024, Fulano de Tal, DIMAp, UFRN
+Uso: ./password-generator.sh [OPÇÕES]
+Opções:
+  -l [COMPRIMENTO] : comprimento da senha
+  -u               : incluir letras maiúsculas
+  -d               : incluir números
+  -s               : incluir símbolos
+  -h               : exibir essa mensagem de ajuda
+
+O comportamento padrão do script é gerar uma senha de 8 caracteres minúsculos.
+```
+
+#### Exemplos de uso
+
+- Gerar uma senha de 8 caracteres com letras minúsculas:
+
+    ```terminal
+    $ ./password-generator.sh
+    Senha gerada: drmeaypb
+    ```
+
+- Gerar uma senha de 12 caracteres com letras maiúsculas:
+
+    ```terminal
+    $ ./password-generator.sh -l 12 -u
+    Senha gerada: jQaAukomyhkS
+    ```
+
+- Gerar uma senha com tamanho 42 com letras maiúsculas, números e símbolos:
+
+    ```terminal
+    $ ./password-generator.sh -l 42 -u -d -s
+    Senha gerada: d5,|J-sB,$+=KiV/dSs6CpV35OmI]c9|cZk.Qzpq8M
+    ```
+
+### Estrutura do código
+
+```bash
+#!/bin/bash
+# Função para exibir a ajuda
+function show_help() {
+  # Implementação vai aqui
+}
+
+# Definir variáveis padrão
+LENGTH=8
+USE_UPPERCASE=false
+USE_DIGITS=false
+USE_SYMBOLS=false
+
+# Parsear argumentos
+# { Implementação vai aqui }
+
+# Definir conjuntos de caracteres
+LOWERCASE="abcdefghijklmnopqrstuvwxyz"
+UPPERCASE="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+DIGITS="0123456789"
+SYMBOLS="!@#$%^&*()-_=+[]{}|;:,.<>?/~"
+
+# Construir a lista de caracteres permitidos
+
+# Gerar a senha: 
+# o /dev/urandom gera bytes aleatórios, para conseguir
+# uma senha precisamos limpar esses bytes de alguma forma
+PASSWORD=$(cat /dev/urandom) 
+
+# Exibir a senha gerada
+echo "Senha gerada: $PASSWORD"
+
+# Opcional: salvar a senha em um arquivo criptografado
+# Implemente como essa senha será criptografada com o openssl
+echo $PASSWORD >> password.txt.enc
+```
+
+### Colaboração
+
+Esse projeto pode ser divido em duas partes, a primeira parte seria a interface e o processamento de
+argumentos da linha de comando e a segunda parte seria a investigação de como usar o `/dev/urandom`.
+
+### Submissão
+
+Um email para [inserir email aqui], com o link do repositório e nome completo dos autores é suficiente.
+Apenas  um membro da dupla deve realizar a submissão
