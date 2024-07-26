@@ -8,7 +8,6 @@ title: Minicurso de Linux e Git
 
 <div id="sumario" class="sumario-oldschool">
     <h1>Sumário</h1>
-  <details>
     <summary><a href="#git-avancado">Git avançado</a></summary>
     <ul>
       <li>
@@ -39,7 +38,6 @@ title: Minicurso de Linux e Git
       </li>
       <li><a href="#projeto-pt1">Projeto pt.1</a></li>
     </ul>
-  </details>
   <button class="toggle-button" id="toggle-button">
   
       Esconder Sumário
