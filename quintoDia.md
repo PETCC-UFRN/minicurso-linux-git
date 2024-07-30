@@ -40,3 +40,15 @@ E algumas boas práticas envolvendo a criação de pull requests são:
 1. Revisar bem seu código e pull request antes de submetê-lo.
 2. Escrever um bom título e descrição concisa e com propósito claro.
 3. Prover contexto e informações adicionais que possam ajudar o revisor.
+
+## Rebase
+
+## Squash
+
+## Issues
+
+## Forks
+
+## Changelog e README
+
+## Projeto final pt.2
