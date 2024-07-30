@@ -1032,7 +1032,7 @@ Dentro dos diretórios crie os arquivos necessários.
 
 #### Exercício 1
 
-1. Crie um diretório, com o nome que preferir, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
+1. Crie um diretório com o nome que preferir e, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
 2. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/answer.sh`.
 
 #### Exercício 2
@@ -1090,7 +1090,7 @@ free -m
 
 #### Exercício 7
 
-Em programas em C que envolvem muitos arquivos é comum querermos configurar nosso projeto de uma determinada maneira que fique fácil gerenciar multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
+Em programas em C que envolvem muitos arquivos, é comum querermos configurar nosso projeto de modo que facilite o gerenciamento de multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
 
 Imagine que você sempre organiza seu projeto baseado nessa estrutura.
 
