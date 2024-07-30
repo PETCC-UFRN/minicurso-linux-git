@@ -313,10 +313,9 @@ executa o `/bin/sh` e passa o seu script como argumento para ele.
 
 ### Variáveis
 
-Em toda linguagem de programação que se preze, você já deve ter se deparado com o conceito de variável,
-que em sintese é um parzinho de nome e valor que você pode usar para armazenar informações que podem ser
-úteis ou não. Inclusive você já se deparou com algumas, lembra do `$PATH`? Pois bem, essa é uma das são
-variáveis que são compartilhadas entre todos os programas, chamamos de variáveis de ambiente, mas
+Independentemente das linguagens de programação que você já estudou, provavelmente você já se deparou com o conceito de variável - um objeto capaz de reter e representar um valor ou expressão. 
+Inclusive, você já se deparou com algumas, lembra do `$PATH`? Pois bem, essa é uma das
+variáveis que são compartilhadas entre todos os programas, as chamadas variáveis de ambiente, mas veremos
 mais sobre isso no futuro.
 
 Você pode criar e usar variáveis num script da seguintes maneira:
@@ -382,11 +381,7 @@ Outra variável interessante é a `$PWD`, que armazena o diretório atual que o 
 ### Expansões
 
 #### Expansão de comandos e variáveis
-
-O que vimos o shell fazer até agora com as variáveis é o que chamamos de expansão, o `$` precendendo o
-nome da variável antes de seu uso, faz com que o shell substitua o nome da variável pelo seu valor. Mas o
-shell não se limita a isso, voltando ao exemplo de declaração de variáveis, podemos usar a sintaxe `$()`
-para expandir o valor *outputado* [sic] por determinando comando:
+O que observamos até agora sobre o shell em relação às variáveis é o que chamamos de expansão. O símbolo $ precedendo o nome da variável faz com que o shell substitua o nome da variável pelo seu valor. No entanto, o shell não se limita apenas a isso. Voltando ao exemplo da declaração de variáveis, podemos utilizar a sintaxe `$()` para expandir o valor produzido como saída por um determinado comando.
 
 ```sh
 #!/bin/sh
@@ -421,15 +416,15 @@ dentro de aspas duplas.
 
 ### Operadores lógicos no shell
 
-[Lembra do cliffhanger da aula passada?](/primeiroDia.md#combinando-comandos-usando-pipelines), espero que tenha percebido que é conveniente para nós, lidar com
-valores booleanos (`true` e `false`) no shell, para então tomar decisões baseadas no resultados
+[Lembra do *cliffhanger* da aula passada?](/primeiroDia.md#combinando-comandos-usando-pipelines), espero que tenha percebido que lidar com
+valores booleanos (`true` e `false`) no shell é conveniente para nós, para que possamos tomar decisões baseadas no resultados
 de comandos. Porém, antes de lidarmos diretamentes com essas operações, precisamos entender o que são
-status de saída, visto que, eles definem se o programa executou normalmente ou houve algum problema.
+status de saída, visto que eles definem se o programa executou normalmente ou houve algum problema.
 
 #### Status de saída
 
 Comandos no Linux, ao terminarem, retornam ao sistema um valor que chamamos de status de saída. Esse valor
-é um inteiro que varia de 0 a 255, onde, por convenção, 0 significa que o programa terminou com sucesso e
+é um inteiro que varia de 0 a 255, no qual, por convenção, 0 significa que o programa terminou com sucesso e
 qualquer outro valor indica diferentes tipos de problema, especificados pelo comando. Na prática, podemos
 visualizar isso da seguinte forma:
 
@@ -446,11 +441,10 @@ ls: cannot access '/bin/usr': No such file or directory
 
 Esse `$?`, na verdade é um váriavel especial do shell, assim como o `$PATH`, que guarda o status de saída
 do último comando. Na primeira vez que executamos o `ls`, o status de saída foi 0, indicando que o comando
-terminou com sucesso, e na segunda vez, o status de saída foi 2, indicando que houve algum tipo de problema.
-Podemos investigar qual problema ocorreu, consultando o manual do `ls`, ou lendo a mensagem de error
-se houver.
+terminou com sucesso, e, na segunda vez, o status de saída foi 2, indicando que houve algum tipo de problema.
+Podemos investigar qual problema ocorreu, consultando o manual do `ls`, ou, se houver, lendo a mensagem de erro.
 
-O shell, tem dois comandos extremamente simples que não fazem nada alem de terminar com o status de saída
+O shell tem dois comandos extremamente simples que não fazem nada além de terminar com o status de saída
 0 ou 1, o `true` e o `false`, respectivamente.
 
 ```terminal
@@ -465,9 +459,9 @@ O shell, tem dois comandos extremamente simples que não fazem nada alem de term
 #### Conjunção e disjunção
 
 Os status de saída geralmente são usados para lidar com condicionais, ou seja, operações lógicas que
-conhecemos como disjunção (`||`) e conjunção (`&&`). A disjunção ou o `e` no português, é vai ser avaliada
+conhecemos como disjunção (`||`) e conjunção (`&&`). A disjunção ou o `e` no Português, vai ser avaliada
 como verdadeira se os dois operandos forem verdadeiros, e a conjunção ou o `ou` no português, é vai ser
-verdadeira se pelo menos um dos operandos for verdadeiro. A gente pode visualizar isso como:
+verdadeira se pelo menos um dos operandos for verdadeiro. Podemos visualizar isso como:
 
 ```sh
 false || echo "Opa, vou imprimir isso"
@@ -489,15 +483,14 @@ true ; echo "Vai sempre rodar"
 false ; echo "Sou imbatível"
 ```
 
-O que o `&&` e o `||` faz é o que chamamos de curto circuito, baseado na primeira expressão o interpretador
+O que o `&&` e o `||` fazem é o que chamamos de curto circuito: baseado na primeira expressão, o interpretador
 decide se vai avaliar o resto ou não.
 
 #### if-elif-else-fi
 
-Além das variáveis, também temos as condicionais, mas que funcionam de um jeito um pouco diferente, os
-valores booleanos, ou seja `true` e `false` são representados pelos códigos de saída de cada programa,
-como visto no tópico de [operadores lógicos](/primeiroDia.md#operadores-lógicos-no-shell). E
-consequementemente o jeito mais imediato de usar condicionais é com os *if statements*, e a sintaxe para
+Além das variáveis, também temos as condicionais, que funcionam de um jeito um pouco diferente. Os
+valores booleanos, ou seja `true` e `false`, são representados pelos códigos de saída de cada programa,
+como visto no tópico de [operadores lógicos](/primeiroDia.md#operadores-lógicos-no-shell). Consequementemente, o jeito mais imediato de usar condicionais é com os *if statements*, e a sintaxe para
 isso é:
 
 ```sh
@@ -534,7 +527,7 @@ fi
 Se o `grep` encontrar a expressão `Tue` no output do comando `date`, o código de saída do `grep` vai ser 0,
 logo o dia de hoje será terça, caso contrário, não será.
 
-Além disso temos o `elif`, que é uma abreviação de `else if`, e é utilizado para adicionar mais condições
+Além disso, temos o `elif`, uma abreviação de `else if`, e é utilizado para adicionar mais condições
 a um `if`.
 
 #### Expressões lógicas
@@ -549,7 +542,7 @@ if test expressão ; then
 fi
 ```
 
-Naturalmente as opções que o `test` aceita imitam as expressões que conhecemos na matemática e em outras
+Naturalmente, as opções que o `test` aceita imitam as expressões que conhecemos na matemática e em outras
 linguagens de programação, por exemplo, o `-eq` representa a igualdade entre dois números
 `1 -eq 0` ≅ `1 == 0`, o `-lt` representa a desigualdade entre dois números `1 -lt 0` ≅ `1 < 0`, e assim
 por diante. Você pode verificar todas usando o manual (`man test`).
@@ -591,7 +584,7 @@ Algumas das expressões lógicas mais utilizadas são:
   | `-s arquivo`   | O `arquivo` não está vazio.   |
   | `-L arquivo`   | O `arquivo` é um link simbólico.   |
 
-Cada teste pode ser negado com um `!` antes do operador, por exemplo, `! -e arquivo` é verdadeiro se o não
+Cada teste pode ser negado com um `!` antes do operador. Por exemplo: `! -e arquivo` é verdadeiro se o não
 existe. Vamos experimentar um pouco com isso:
 
 ```sh
@@ -605,7 +598,7 @@ else
 fi
 ```
 
-Por ser também um comando, podemos combinar o `test` com outras istâncias de `test` usando os operadores
+Por ser também um comando, podemos combinar o `test` com outras instâncias de `test` usando os operadores
 que já conhecemos:
 
 - *Usando a conjunção (`&&`):*
@@ -669,7 +662,7 @@ Tanto na programação quanto na matemática, funções são enxergadas como cai
 precisamos saber como elas funcionam, apenas o que elas recebem como entrada e o que elas retornam como
 saída.
 
-Quando definimos uma função como uma black box, precisamos dizer qual é seu nome, que tipo
+Quando definimos uma função como uma *black box*, precisamos dizer qual é seu nome, que tipo
 de argumento ela recebe, e que tipo de argumento ela retorna. Por exemplo: Se $f$ é função e $x$ é um argumento
 que ela aceita, a aplicação de $f$ em $x$ é representada por $f(x)$, e o resultado é o valor que ela "retorna".
 
@@ -683,7 +676,7 @@ que ela aceita, a aplicação de $f$ em $x$ é representada por $f(x)$, e o resu
 
 #### Funções no shell
 
-Tradicionalmente, para conseguirmos usar uma função, antes precisamos defini-la, seja no início do script
+Tradicionalmente, para conseguirmos usar uma função, precisamos defini-la, seja no início do script
 ou em um arquivo separado. A sintaxe para definir e usar uma função é a seguinte:
 
 ```sh
@@ -736,7 +729,7 @@ contém e invocá-las.
 
 ### Loops
 
-Outro recurso muito característico de linguagens de programação no geral são os loops, que são blocos de
+Outro recurso muito característico de linguagens de programação no geral são os *loops*: blocos de
 códigos que são executados repetidamente até que uma condição de parada seja satisfeita (ou não).
 
 Essencialmente, no shell, existem 3 tipos de loop, mas veremos apenas 2, o `for` e o `while`.
@@ -753,7 +746,7 @@ voltando para os nossos exemplos de [expressões lógicas](#expressões-lógicas
   done
 ```
 
-Se por acaso o arquivo que passamos como argumento for regular e tiver permissão de leitura, o bloco de
+Se, por acaso, o arquivo que passamos como argumento for regular e tiver permissão de leitura, o bloco de
 código vai ser executado até que se altere o arquivo ou a permissão dele.
 
 #### `break`
@@ -772,12 +765,12 @@ satisfeita.
   done
 ```
 
-(Note que o bloco de codigo dentro do loop só vai ser executado uma vez)
+(Note que o bloco de codigo dentro do loop só vai ser executado uma vez).
 
 #### `for` loop
 
 O `for` itera sobre uma lista de elementos, e executa um bloco de código para cada elemento da lista. Por
-exemplo, poderiamos usar o for para iteraro sobre uma lista de argumentos de comando:
+exemplo, poderiamos usar o `for` para iterar sobre uma lista de argumentos de comando:
 
 ```sh
 #!/bin/sh
