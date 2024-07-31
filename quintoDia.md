@@ -4,6 +4,7 @@ title: Minicurso de Linux e Git
 ---
 
 
+
 ## GitHub e boas práticas de Git
 
 Na aula anterior, começamos a trabalhar conceitos mais avançados de Git e Github, os quais permitem
@@ -246,4 +247,56 @@ feat: allow provided config object to extend other configs
 BREAKING CHANGE: `extends` key in config file is now used for extending other config files
 ```
 
-## Projeto final pt.2
+## Projeto final parte final
+
+### Visão geral
+
+Agora que aprendemos diversos conceitos novos, que tal aplicá-los trabalhando em duas novas funcionalidades
+para o gerador de senhas? As funcionalidades seriam:
+
+- Adicionar um `CHANGELOG.md` ao projeto.
+- Armazenar as senhas geradas em um arquivo.
+- Ler desse arquivo e deletar se necessário.
+
+### Sumário
+
+<!--toc:start-->
+- [Visão geral](#visão-geral)
+- [Sumário](#sumário)
+- [Definição da continuação do projeto](#definição-da-continuação-do-projeto)
+- [Requisitos do projeto](#requisitos-do-projeto)
+  - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
+  - [Listar senhas armazenadas](#listar-senhas-armazenadas)
+  - [Deletar senhas armazenadas](#deletar-senhas-armazenadas)
+- [Novas funcionalidades na interface e em como usar](#novas-funcionalidades-na-interface-e-em-como-usar)
+  - [Exemplos de uso](#exemplos-de-uso)
+- [Implementação](#implementação)
+- [Colaboração](#colaboração)
+- [Submissão](#submissão)
+<!--toc:end-->
+
+### Definição da continuação do projeto
+
+O projeto final será a continuação do que foi feito no último dia, onde vocês devem adicionar as
+funcionalidades que foram especificadas na visão geral. Nos tópicos seguintes, será detalhado como
+isso pode ser feito. Porém, com um caveat, ao invés de continuarem diretamente na sua versão do projeto,
+vocês devem fazer um fork do repositório de outra dupla e trabalhar a partir dele (Caso não tenha, continue
+no seu).
+
+### Requisitos do projeto
+
+#### Armazenar senhas em um arquivo
+
+#### Listar senhas armazenadas
+
+#### Deletar senhas armazenadas
+
+### Novas funcionalidades na interface e em como usar
+
+#### Exemplos de uso
+
+### Implementação
+
+### Colaboração
+
+### Submissão
