@@ -126,7 +126,7 @@ projeto, nele, você pode colocar informações sobre o projeto, como instalar, 
 Além disso, é o README que vai ser o primeiro arquivo que as pessoas vão ver quando acessarem o seu repositório, então,
 como diz o ditado, a primeira impressão é a que fica.
 
-Além do README, o `CHANGELOG.md` é outro arquivo que pode ser muito importante para um projeto de software,
+Além do README, o CHANGELOG é outro arquivo que pode ser muito importante para um projeto de software,
 pois é usado para documentar mudanças significativas foram realizadas entre cada versão do software.
 Para criar um bom `CHANGELOG.md` você pode seguir um padrão de formatação
 ([keepachangelog](https://keepachangelog.com/en/1.1.0/) em inglês) que segue alguns passos:
@@ -143,6 +143,22 @@ Para mais informações sobre o `CHANGELOG.md` convido-lhe a acessar o site
 [keepachangelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Perfil no GitHub
+
+Lembrando que o Github também é um rede social, em especial, para desenvolvedores. Empresas, equipes,
+recrutadores e pessoas de interesse do mundo todo estão no Github, e por isso, pode ser muito importante
+que você tenha um perfil organizado, bem apresentável e bastante ativo. Algumas dicas relacionadas ao perfil
+do Gihub são:
+
+- Matenha foto de perfil e informações básicas atualizadas.
+- Adicione um `README.md` ao seu perfil: Assim como o README de um repositório, o README do perfil pode ser
+  usado para se apresentar, mostrar suas habilidades, projetos, etc.
+- Gerencie seus repositórios: Coloque seus repositórios mais relevantes no topo, organize-os em categorias,
+  use tópicos, etc.
+- E o principal de tudo, seja bastante ativo: Contribua em outros projetos, crie projetos, siga pessoas
+e empresas, etc.
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem4.png" width="70%">
+<br>
 
 ### Issues
 
