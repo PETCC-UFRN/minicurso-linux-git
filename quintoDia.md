@@ -126,7 +126,21 @@ projeto, nele, você pode colocar informações sobre o projeto, como instalar, 
 Além disso, é o README que vai ser o primeiro arquivo que as pessoas vão ver quando acessarem o seu repositório, então,
 como diz o ditado, a primeira impressão é a que fica.
 
-Além do README, temos
+Além do README, o `CHANGELOG.md` é outro arquivo que pode ser muito importante para um projeto de software,
+pois é usado para documentar mudanças significativas foram realizadas entre cada versão do software.
+Para criar um bom `CHANGELOG.md` você pode seguir um padrão de formatação
+([keepachangelog](https://keepachangelog.com/en/1.1.0/) em inglês) que segue alguns passos:
+
+- Changelogs são para humanos, não máquinas.
+- Cada versão deve ser datada.
+- Os mesmos tipos de mudanças devem ser agrupados.
+- As mudanças devem ser descritas de forma clara e concisa.
+- As mudanças devem ser listadas em ordem decrescente de importância.
+- A última versão deve ser a primeira entrada.
+- Mencionar se segue o [Semantic Versioning](https://semver.org/).
+
+Para mais informações sobre o `CHANGELOG.md` convido-lhe a acessar o site
+[keepachangelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Perfil no GitHub
 
