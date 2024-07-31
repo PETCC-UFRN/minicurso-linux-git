@@ -84,7 +84,26 @@ Para sempre evitar problemas envolvendo `rebase`, use-o se somente se:
 - Você tem uma branch local que não foi publicada no repositório remoto.
 - Você está trabalhando em uma branch local ou remota que você tem certeza que ninguém mais está usando.
 
-## Squash
+## Stash
+
+Saindo um pouco do assunto de branches e pull requests, gostaria de falar sobre um comando que pode ser muito útil em
+algumas situações do dia-a-dia. O comando `git stash` é usado para salvar temporariamente e rapidamente as alterações que
+você estava fazendo na sua branch local, permitindo que você possa mudar de branch ou fazer outras operações sem ter que
+"commitar" ou descartar as alterações. Seu uso é extremamente simples e pode ser quebrado em alguns passos:
+
+1. Salve as alterações que você estava fazendo com `git stash`, alternativamente, use a flag `-u` ou `-m` para salvar suas
+suas alterações não rastreadas ou com mensagens, respectivamente.
+
+2. Troque de branch ou faça as operações que você deseja.
+
+3. Recupere as alterações salvas com `git stash pop [opcional-nome_do_stash]`, alternativamente, use `git stash apply [opcional-nome_do_stash]` para manter as alterações salvas no stash.
+
+Alguns sub-comandos do `git stash` que também podem ser úteis são:
+
+- `git stash list`: Lista todos os stashes salvos.
+- `git stash drop`: Remove um stash específico.
+- `git stash clear`: Remove todos os stashes salvos.
+- `git stash show <nome_do_stash>`: Mostra as alterações salvas em um stash específico.
 
 ## Issues
 
