@@ -200,6 +200,14 @@ Se aplicável, adicione logs de erro.
 
 ### Forks
 
+Além de issues, outra forma de colaborar com projetos de software no Github é através dos forks. O fork, consiste em adotar uma versão cópia de algum projeto, e a partir dessa cópia, fazer alterações que você
+acha interessante e possívelmente benéficas. Após fazer as alterações, você pode submeter um pull request
+para o projeto original, e se os mantenedores do projeto acharem que suas alterações são interessantes, eles
+podem incorporá-las ao projeto original.
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem6.png" width="70%">
+<br>
+
 ### Conventional Commits
 
 ## Projeto final pt.2
