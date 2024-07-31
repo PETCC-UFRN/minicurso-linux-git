@@ -105,10 +105,35 @@ Alguns sub-comandos do `git stash` que também podem ser úteis são:
 - `git stash clear`: Remove todos os stashes salvos.
 - `git stash show <nome_do_stash>`: Mostra as alterações salvas em um stash específico.
 
-## Issues
+## Pout-Pourri
 
-## Forks
+Para os propósitos do curso, finalmente exploramos tudo que nós do PET consideramos mais essencial e suficiente envolvendo
+Linux, Git e Github, principalmente no âmbito de cursos de Computação na graduação. Claro que, naturalmente, existem
+muitas outros conceitos, comandos, ferramentas, histórias e boas práticas que não foram abordadas, por isso, nestes últimos
+tópicos, gostaria de lhe convidar a explorar alguns assuntos extras que podem ser interessantes para você.
 
-## Changelog e README
+### Changelog e README
+
+Geralmente, quando começamos no Github e começamos a trabalhar em projetos, seguir outros desenvolvedores e ver o que eles
+tão fazendo, é muito comum se depararmos com arquivos chamados `CHANGELOG.md` e `README.md` (inclusive, fizemos um deles
+no último projeto). Por exemplo, no repositório do `yazi` (**github.com/sxyazi/yazi**):
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem3.png" width="70%">
+<br>
+
+O arquivo `README.md` é uma porta de entrada para o seu projeto, e também pode ser visto como a documentação principal do
+projeto, nele, você pode colocar informações sobre o projeto, como instalar, como usar, quem são os colaboradores, etc.
+Além disso, é o README que vai ser o primeiro arquivo que as pessoas vão ver quando acessarem o seu repositório, então,
+como diz o ditado, a primeira impressão é a que fica.
+
+Além do README, temos
+
+### Perfil no GitHub
+
+### Issues
+
+### Forks
+
+### Conventional Commits
 
 ## Projeto final pt.2
