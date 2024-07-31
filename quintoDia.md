@@ -41,7 +41,48 @@ E algumas boas práticas envolvendo a criação de pull requests são:
 2. Escrever um bom título e descrição concisa e com propósito claro.
 3. Prover contexto e informações adicionais que possam ajudar o revisor.
 
-## Rebase
+## *Rebase*
+
+Até então, vimos que o Git possui um comando chamado `merge` que é usado para integrar alterações de uma
+branch, e que eu também posso fazer isso remotamente usando um pull request. Contudo, existe uma outra forma
+de fazer isso que em muitos casos pode ser mais interessante, o `rebase`.
+
+Assim, como o `merge` o `rebase` também explora o conceito de *source branch* e *target branch*, mas ao invés
+de tentar conectar o histórico das duas branches, esse comando reaplica as alterações da *source branch* na
+no topo da *target*. Visualizando isso, temos algo como:
+
+- Primeiramente, imagine o seguinte histórico de commits:
+
+  <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem1.jpeg" width="70%">
+  <br>
+
+- Agora, invés de criar um commit extra, quando usamos o comando `git rebase feature` todos os commits da branch `feature`
+  são reaplicados no topo da branch `main`:
+
+  <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem2.jpeg" width="70%">
+  <br>
+
+Assim como o *three-way merge* o `rebase` só funciona dessa forma se não houver conflitos entre as branches e o processo
+de resolução de conflitos é análogo ao que vimos anteriormente. A grande vantagem do `rebase` é que ele mantém o histórico
+de commits mais limpo e linear, o que pode ser a preferência de muitas equipes. Entretanto, apesar de ser intuitivamente
+mais simples, o `rebase` é uma operação relativamente mais complexa que o `merge` e se não for usada com cuidado, pode lhe
+causar muita dor de cabeça.
+
+### Cuidados com o *rebase*
+
+Como foi dito anteriormente, o `rebase` é uma operação mais complexa que o `merge` e deve ser usada com cuidado, esse
+cuidado se deve ao fato de que o `rebase` é uma operação que reescreve o histórico de commits, e toda operação que faz isso
+pode causar problemas chatos de resolver. Por isso, existe uma regrinha de ouro que podemos seguir para evitar esse
+tipo de problema:
+
+*Não "rebaseie" uma branch que outras pessoas estão usando*: Por exemplo, se você publicou uma branch no repositório
+remoto, agora ela é de domínio público e outras pessoas podem estar trabalhando nela, se você fizer um rebase nessa branch
+as pessoas vão ter que lidar com um histórico de commits completamente diferente e vai haver conflitos.
+
+Para sempre evitar problemas envolvendo `rebase`, use-o se somente se:
+
+- Você tem uma branch local que não foi publicada no repositório remoto.
+- Você está trabalhando em uma branch local ou remota que você tem certeza que ninguém mais está usando.
 
 ## Squash
 
