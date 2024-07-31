@@ -162,6 +162,42 @@ e empresas, etc.
 
 ### Issues
 
+Lembra do que eu falei sobre ser ativo no Github? Uma das formas mais interessantes de colaborar para a
+comunidade é através das issues. As issues, são basicamente um espaço para discussão, sugestão, reporte
+de bugs, problemas e etc. Elas funcionam como uma forma de comunicar diretamente os colaboradores de
+um projeto sobre algo que você encontrou.
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem5.png" width="70%">
+<br>
+
+A depender do projeto, pode ser necessário que as issues sigam algum template específico, mas um bom
+guia geral para criar uma issue é:
+
+```markdown
+**Descrição do bug**
+Uma descrição clara e concisa do que se trata o bug.
+
+**Para reproduzir**
+Passos para reproduzir o comportamento:
+1. Vá até
+2. Execute
+3. Veja o erro
+
+**Comportamento esperado**
+Uma descrição clara e concisa do que você esperava que acontecesse.
+
+**Fotos/Screenshots**
+Se viável, adicione fotos ou screenshots para ajudar a explicar seu problema.
+
+**Informações do seu sistema**
+- Sistema operacional: ArchLinux
+- Navegador: Firefox
+- Versão do software: 22.0.0
+
+**Logs de erro**
+Se aplicável, adicione logs de erro.
+```
+
 ### Forks
 
 ### Conventional Commits
