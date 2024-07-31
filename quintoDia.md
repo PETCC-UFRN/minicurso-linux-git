@@ -210,4 +210,40 @@ podem incorporá-las ao projeto original.
 
 ### Conventional Commits
 
+Por fim, gostaria de falar sobre uma convenção de commits que pode ser muito útil para manter o histórico
+orgaizado e legível. Os [*Conventional commits*](https://www.conventionalcommits.org/en/v1.0.0/) oferecem
+um conjunto de regrinhas que padronizam a forma que você escreve suas mensagens de commit, a qual segue a
+seguinte estrutura:
+
+```plaintext
+<tipo>[escopo opcional]: <descrição>
+
+[corpo opcional]
+
+[rodapé opcional]
+```
+
+Os tipos de commit seguem o [*Angular convention*](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines), que em síntese são:
+
+1. **fix**: Correção de um bug ou problema.
+2. **feat**: Adição de uma nova funcionalidade.
+3. **docs**: Mudanças na documentação.
+4. **style**: Mudanças que não afetam o significado do código (espaços em branco, formatação, etc).
+5. **refactor**: Mudanças que não corrigem bugs nem adicionam funcionalidades.
+6. **perf**: Mudanças que melhoram a performance.
+7. **test**: Adição de testes.
+8. **build**: Mudanças no processo de build, ferramentas auxiliares, etc.
+9. **ci**: Mudanças em arquivos de configuração e scripts.
+10. **BREAKING CHANGE**: Mudanças que quebram a compatibilidade.
+
+Antes do `:` você pode adicionar um `!` para sinalizar que o commit é uma mudança significativa.
+
+Um exemplo de commit seguindo a convenção seria:
+
+```plaintext
+feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+```
+
 ## Projeto final pt.2
