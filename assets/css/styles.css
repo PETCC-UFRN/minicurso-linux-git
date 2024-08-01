@@ -220,6 +220,7 @@ a:hover{
 }
 
 main{
+    padding-top: 4vh;
     width: 50%;
     margin: 0 auto;
     color: #cdd6f4;
