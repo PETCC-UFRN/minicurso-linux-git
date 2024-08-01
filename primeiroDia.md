@@ -6,54 +6,67 @@ title: Minicurso de Linux e Git
 
 <div id="sumario" class="sumario-oldschool">
     <h1>Sumário</h1>
+    <details>
+        <summary><a href="#introdução">Introdução</a></summary>
     <ul>
-    <li><a href="#introdução">Introdução</a>
-      <ul>
         <li><a href="#o-que-é-o-linux">O que é o Linux?</a></li>
         <li><a href="#família-unix-e-unix-like">Família Unix e Unix-Like</a></li>
         <li><a href="#distros">Distros</a></li>
-      </ul>
-    </li>
-    <li><a href="#uso-básico-do-shell">Uso básico do Shell</a>
-      <ul>
-        <li><a href="#intro">Intro</a></li>
-        <li><a href="#primeiros-passos">Primeiros passos</a></li>
-        <li><a href="#navegando-com-o-shell">Navegando com o Shell</a></li>
-        <li><a href="#opções-e-argumentos-de-comando">Opções e argumentos de comando</a></li>
-        <li><a href="#como-investigar-comandos">Como investigar comandos</a></li>
-      </ul>
-    </li>
-    <li><a href="#permissões-leitura-e-busca-emde-arquivos">Permissões, leitura e busca em/de arquivos</a>
-      <ul>
-        <li><a href="#long-listing-format-e-permissões">Long listing format e permissões</a></li>
-        <li><a href="#lendo-arquivos">Lendo arquivos</a></li>
-      </ul>
-    </li>
-    <li><a href="#links-simbólicos-e-links-físicos">Links simbólicos e links físicos</a></li>
-    <li><a href="#comandos-de-busca">Comandos de Busca</a> <ul>
-        <li><a href="#find-imprime-arquivos-cujo-correspondem-a-um-padrão">`find` - Imprime arquivos cujo correspondem a um padrão</a></li>
-        <li><a href="#grep-imprime-linhas-que-correspondem-a-um-padrão">`grep` - Imprime linhas que correspondem a um padrão</a></li>
-      </ul>
-    </li>
-    <li><a href="#redirecionando-e-combinando-comandos">Redirecionando e combinando comandos</a>
-      <ul>
-        <li><a href="#standard-input-output-e-error">Standard Input, Output e Error</a></li>
-        <li><a href="#redirecionando-o-standard-output-e-standard-error">Redirecionando o Standard Output e Standard Error</a></li>
-        <li><a href="#redirecionando-o-standard-input-e-wildcards">Redirecionando o Standard Input e wildcards</a></li>
-        <li><a href="#combinando-comandos">Combinando comandos</a></li>
-        <li><a href="#operadores-lógicos-no-shell">Operadores lógicos no shell</a></li>
-      </ul>
-    </li>
-    <li><a href="#exercícios">Exercícios</a></li>
-  </ul>
-  
+    </ul>
+    </details>
+    <details>
+            <summary><a href="#uso-básico-do-shell">Uso básico do Shell</a></summary>
+        <ul>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#primeiros-passos">Primeiros passos</a></li>
+            <li><a href="#navegando-com-o-shell">Navegando com o Shell</a></li>
+            <li><a href="#opções-e-argumentos-de-comando">Opções e argumentos de comando</a></li>
+            <li><a href="#como-investigar-comandos">Como investigar comandos</a></li>
+        </ul>
+    </details>
+    <details>
+         <summary><a href="#permissões-leitura-e-busca-emde-arquivos">Permissões, leitura e busca em/de arquivos</a></summary>
+        <ul>
+            <li><a href="#long-listing-format-e-permissões">Long listing format e permissões</a></li>
+            <li><a href="#lendo-arquivos">Lendo arquivos</a></li>
+        </ul>
+    </details>
+    <details>
+        <summary><a href="#links-simbólicos-e-links-físicos">Links simbólicos e links físicos</a></summary>
+        <ul>
+            <li><a href="#links-simbólicos-sym-links">Links simbólicos (sym-links)</a></li>
+            <li><a href="#links-físicos-hard-links">Links físicos (hard-links)</a></li>
+        </ul>
+    </details>
+     <details>
+        <summary><a href="#comandos-de-busca">Comandos de Busca</a></summary>
+    <ul>
+        <li><a href="#find-imprime-arquivos-cujo-correspondem-a-um-padrão"><code>find</code> - Imprime arquivos cujo correspondem a um padrão</a></li>
+        <li><a href="#grep-imprime-linhas-que-correspondem-a-um-padrão"><code>grep</code> - Imprime linhas que correspondem a um padrão</a></li>
+    </ul>
+     </details>
+   <details>
+    <summary><a href="#redirecionando-e-combinando-comandos">Redirecionando e combinando comandos</a></summary>
+        <ul>
+            <li><a href="#standard-input-output-e-error">Standard Input, Output e Error</a></li>
+            <li><a href="#redirecionando-o-standard-output-e-standard-error">Redirecionando o Standard Output e Standard Error</a></li>
+            <li><a href="#redirecionando-o-standard-input-e-wildcards">Redirecionando o Standard Input e wildcards</a></li>
+            <li><a href="#combinando-comandos">Combinando comandos</a></li>
+        </ul>
+     </details>
+      <details>
+            <summary><a href="#exercícios">Exercícios</a></summary>
+        <ul>
+            <li><a href="#exercícios-de-fixação">Exercícios de fixação</a></li>
+            <li><a href="#exercícios-obrigatórios">Exercícios Obrigatórios</a><!--toc:end--></li>
+        </ul>
+     </details>
   <button class="toggle-button" id="toggle-button">
   
       Esconder Sumário
   
   </button>
-  
-  </div>
+</div>
 
 <div style="text-align: center;"> <img alt="Meme muito engraçado sobre arquivos do sistema" src="assets/images/linux_dia1_imagem7.png" width="40%">
 </div>
@@ -70,7 +83,7 @@ eles.
 Felizmente, desenvolvedores no mundo inteiro trabalham em conjunto para desenvolver uma série de ferramentas
 que permitam expressar nossa liberdade e criatividade sem depender de coisas que não entedemos ou não
 possamos ver. O
-Linux como projeto de software é um dos mais riquíssimos ecossistemas que nasceram desse esforço coletivo e
+Linux, como projeto de software, é um dos mais ricos ecossistemas que nasceram desse esforço coletivo e
 é constantemente mantido para continuar cumprindo tal propósito.
 
 Dessa forma, para nos tornamos grandes desenvolvedores e garantir a nossa autonomia, é crucial entender essa
@@ -78,10 +91,10 @@ ferramenta e a comunidade que a cerca.
 
 ### O que é o Linux?
 
-Portanto, podemos começar, entendendo o que de fato é o Linux.
+Portanto, podemos começar entendendo o que de fato é o Linux.
 
 Muitas vezes, nos confundimos ao pensar que Linux é um sistema operacional assim como o Windows ou Mac OS,
-mas não é bem isso, Linux na verdade é o que chamamos de **kernel**, isto é, no sentido literal, uma parte
+mas não é bem isso. Linu,x na verdade, é o que chamamos de **kernel**, isto é, no sentido literal, uma parte
 do sistema que controla os recursos do computador, permite que os usuários rodem programas, controlem os
 periféricos conectados e, também, um sistema de arquivos que gerencia o armazenamento a longo prazo de informação,
 como programas, dados e documentos.
@@ -100,14 +113,14 @@ chamada Unix, e chamamos essa descêndencia de Unix-Like.
 ### Família Unix e Unix-Like
 
 A coisa interessante sobre o Unix é que sua filosofia de desenvolvimento de software e implementação foi tão
-revolucionária que inspirou e inspira até hoje diversos paradigmas atuais de programação, tanto ao ponto de chamarmos
-de *pai* de todos os sistemas operacionais. Mas por que ele é e foi tão importante? Primeiro, porque foi o primeiro
+revolucionária que inspirou e inspira até hoje diversos paradigmas de programação, ao ponto de o chamarmos
+de *o pai* de todos os sistemas operacionais. Mas por que ele foi e é tão importante? Primeiro, porque foi o primeiro
 sistema escrito em C, ou seja, ele podia facilmente ser portado para qualquer arquitetura. Segundo, também por ser
 escrito em C, o código do sistema é muito acessível e fácil de manter e melhorar. Por último e mais importante,
 porque ele é muito *bom*, principalmente para programadores.
 
-Apesar de ter sido, inicialmente, uma iniciativa de pesquisa privada da Bell Labs, o sucesso foi tanto, que
-desenvolvedores do mundo inteiro queriam desenvolver sua própria alternativa "livre" do Unix, essa iniciativa
+Apesar de ter sido, inicialmente, um projeto de pesquisa privada da Bell Labs, o sucesso foi tanto que
+desenvolvedores do mundo inteiro queriam desenvolver sua própria alternativa "livre do Unix. Essa iniciativa
 deu origem aos sistemas BSD (**B**erkely **S**oftware **D**istribution), GNU/Linux e até o Mac OS (esse, não
 tão livre assim :P). Como as BSDs e Linux sofrem muitas variações, a chamamos de Distros, que são distribuições/implementações
 diferentes do pacote inicial.
@@ -125,7 +138,7 @@ Como foi dito anteriormente, Linux é apenas uma família de sistemas, e cada si
 <br>
 
 Uma das mais minimalistas e customisáveis, o Arch tem como propósito a simplicidade ao extremo no seu
-pacote básico. Desde a instalação até a configuração de cada detalhe, é responsabilidade do usuário,
+pacote básico. Desde a instalação até a configuração de cada detalhe, a responsabilidade é do usuário,
 ou seja, cada acerto e cada erro é exclusivamente seu. Devido as essas características, o Arch é muito
 popular entre usuários mais entusiastas e programadores.
 
@@ -149,7 +162,7 @@ rápido, o que significa que as atualizações são mais frequentes, mas menos t
 <br>
 
 Sem dúvida, uma das distros mais populares, o Ubuntu é conhecido pela sua facilidade de uso e instalação,
-de tal forma que é muito popular entre usuários que estão começando a usar Linux. Pois, abstrai muitas
+de tal forma que é muito popular entre usuários que estão começando a usar Linux, pois, abstrai muitas
 nuances que podem ser intimidadoras para novos usuários.
 
 Além disso, o Ubuntu é baseado no Debian, o que significa que ele herda muitas características positivas, como, em
@@ -161,8 +174,7 @@ parte, a estabilidade e segurança.
 </div>
 <br>
 
-Nascido do Ubuntu, o Mint tem a proposta de ser ainda mais amigável e fácil de usar que o Ubuntu. O que
-o torna, também, uma alternativa muito viável a usuários que estão começando a usar o Linux e não se
+Nascido do Ubuntu, o Mint tem a proposta de ser ainda mais amigável e fácil de usar que o Ubuntu. Isso o torna, também, uma alternativa muito viável a usuários que estão começando a usar o Linux e não se
 preocupam muito com customização e minimalismo.
 
 #### BSD's
@@ -187,8 +199,8 @@ operacional a partir de comandos.
 
 - *Imagem de um DEC VT100 rodando Unix (1978), fonte: <https://en.wikipedia.org/wiki/VT100>*
 
-Essa linha de comando e interface de texto na época era única e exclusiva responsabilidade do Shell, que é ao mesmo
-tempo uma interface de texto, uma linguagem de programação e um ambiente de execução de programas.
+Essa linha de comando e interface de texto na época era única e exclusiva responsabilidade do Shell, que é, ao mesmo
+tempo, uma interface de texto, uma linguagem de programação e um ambiente de execução de programas.
 
 Atualmente, com o advento das interfaces gráficas, o Shell perdeu muito do seu papel de protagonista e hoje pode ser
 invocado a partir de o que chamamos de emulador de terminal. Entretanto, caso tenha resolvido não instalar e
@@ -200,16 +212,16 @@ configurar uma interface gráfica (ao instalar o Arch, por exemplo), o Shell ser
 
 - *Imagem do emulador gnome-terminal rodando no ubuntu 24.04 LTS, fonte: <https://canaltech.com.br/linux/ubuntu-2404-lts-e-liberado-veja-as-principais-novidades-286919/>*
 
-A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado, não é
+A maioria das distros linux vêm com o shell do projeto GNU, **B**ourne **A**gain **Sh**ell (Bash) pré instalado. Não é
 um padrão e se você quiser, existem diversos outros que você pode instalar e usar.
 
-Agora explorando essa interface, quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
+Quando o shell é iniciado, o usuário se depara com uma tela do seguinte tipo:
 
 ```terminal
 [user@hostname ~]$
 ```
 
-Onde:
+Na qual:
 
 ```terminal
 [user@hostname ~]$
@@ -220,25 +232,27 @@ Onde:
   └── Nome do usuário que está usando o shell nessa sessão 
 ```
 
-A maneira mais simples de usar o shell, é digitando comandos!
+A maneira mais simples de usar o shell é digitando comandos!
 
 ### Primeiros passos
 
 #### Comando `date` e `echo`
 
-Agora que ja demos nosso primeiro comando, vamos conhecer mais alguns comandos legais, tente:
+Vamos começar experimentando alguns comandos básicos. Digite os seguintes comandos no seu terminal:
+
+`date` que mostra a data e a hora atuais.
 
 ```terminal
 [user@hostname ~]$ date
 ```
 
-e
+e `cal`, que mostra o calendário do mês atual.
 
 ```terminal
 [user@hostname ~]$ cal
 ```
 
-Sem muitas surpresas deve ter aparecido a data e o horário de hoje, e um calendário do mês, agora vamos testar o seguinte comando com um argumento:
+Provavelmente, você deve ter visto a data e o horário atual, assim como um calendário do mês, respectivamente. Agora, vamos testar um comando com argumento:
 
 ```terminal
 [user@hostname ~]$ echo Hello 
@@ -253,10 +267,10 @@ Seu terminal provalvemente ficou assim:
 Hello
 ```
 
-O programa `echo` apenas imprime o argumento que você passou para ele em uma *stream* (falaremos mais sobre no futuro).
-E, o resultado que foi impresso é o que chamamos de *output*.
+O programa `echo` apenas imprime o argumento que você passou para ele em uma *stream* (falaremos mais sobre isso no futuro).
+E, o resultado que foi exibido é o que chamamos de *output*.
 
-Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
+Você também pode usar o `echo` das seguintes formas, teste-as e veja o resultado:
 
 ```terminal
 [user@hostname ~]$ echo "Hello World"
@@ -266,13 +280,13 @@ Você também pode usar o `echo` das seguintes formas, teste e veja o resultado:
 [user@hostname ~]$ echo Hello\ World
 ```
 
-Nem, tudo também funciona do jeito que a gente quer teste digitar qualquer coisa no terminal e veja o que acontece.
+Contudo, nem tudo funciona do jeito que a gente quer. Por exemplo, teste digitar qualquer coisa no terminal e veja o que acontece.
 
 ```terminal
 [user@hostname ~]$ ablueblauebluebalbbeu
 ```
 
-Porque esse comando não faz sentido, o shell vai nos dizer que deu errado e vai nos dar outra chance:
+Já que esse comando não faz sentido, o shell vai nos dizer que deu errado e vai nos dar outra chance:
 
 ```terminal
 bash: ablueblauebluebalbbeu: command not found
@@ -281,7 +295,7 @@ bash: ablueblauebluebalbbeu: command not found
 
 #### Histórico de comandos
 
-Se você pressionar `↑`, o nosso comando `ablueblauebluebalbbeu` vai reaparecer para podermos usa-lo novamente, se você continuar pressionan. Isso é chamado de histórico de comandos e a maioria das distribuições Linux armazenam por padrão pelo menos os últimos 1000 comandos. Se você pressionar `↓`, você avança para o presente no histórico até o comando desaparecer.
+Se você pressionar `↑`, o nosso comando `ablueblauebluebalbbeu` vai reaparecer para podermos usa-lo novamente. Se você continuar pressionando `↑`, note que diversos comandos utilizados vão ser reexibidos. Isso é chamado de 'histórico de comandos' e a maioria das distribuições Linux armazenam por padrão pelo menos os últimos 1000 comandos. Se você pressionar `↓`, você avança para o presente no histórico até o comando desaparecer.
 
 ### Navegando com o Shell
 
@@ -301,9 +315,9 @@ não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 
 #### Current working directory
 
-Como ja dito anteriormente, o sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/`
-(chamado de **root**) que seria o tronco e os galhos são os outros diretórios do computador. A partir de um diretório,
-é possível ver os diretórios diretamente ligados a ele seja "descendo" ou "subindo" a árvore. Quando você acessa um
+Como já dito anteriormente, o sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/`
+(chamado de **root**) que seria o tronco, enquanto os galhos são os outros diretórios do computador. A partir de um diretório,
+é possível ver os diretórios diretamente ligados a ele ,seja "descendo" ou "subindo" a árvore. Quando você acessa um
 diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Na prática, imagine que seu sistema de arquivos é a seguinte árvore de cabeça para baixo.
 
 <div style="text-align: center;">
@@ -318,7 +332,7 @@ Utilizando o comando `pwd`, que é uma sigla para **P**ath to **W**orking **D**i
 /home/eu
 ```
 
-Além do working directory nós temos também o home directory, que é o único lugar que usuários comuns são autorizados a escrever em um arquivo. Para cada usuário é dado um home directory, ou seja por padrão você apenas capaz de ver outros diretórios além do seu, se quiser editar algo que não é seu, você precisará de algo que chamamos de permissões de superusuário, ou sudo (mais sobre isso no futuro).
+Além do 'working directory', nós temos também o 'home directory', o único lugar em que usuários comuns são autorizados a escrever em um arquivo. Para cada usuário é dado um home directory, ou seja por padrão você apenas capaz de ver outros diretórios além do seu, se quiser editar algo que não é seu, você precisará de algo que chamamos de permissões de superusuário, ou sudo (mais sobre isso no futuro).
 
 #### Caminhos absolutos e caminhos relativos
 
@@ -333,7 +347,7 @@ Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absol
 
 Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola`. Para isso, é necessário se utilizar do diretório especial `..`
 
-Os dois pontos representam o **diretório parente** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
+Os dois pontos representam o **diretório pai** de forma relativa, e podem ser utilizados para *voltar* enquanto navegando pelo sistema de arquivos:
 
 ```terminal
 [eu@hostname downloads]$ cd ..
@@ -362,9 +376,9 @@ Vamos adicionar também um arquivo de texto para anotações da aula, usando o c
 [user@hostname minicurso_linux_git]$ touch anotacoes.txt
 ```
 
-Você criou essa pasta assim que chegou em casa, logo após a primeira aula do minicurso. Você colocou na pasta esse arquivo de texto com as anotações da aula e um arquivo de imagem, com uma *selfie* que você tirou com um colega no dia da aula.
+Assim que chegou em casa após a primeira aula do minicurso, você criou essa pasta. Dentro dela, colocou um arquivo de texto com as anotações da aula e uma imagem, uma selfie que tirou com um colega no dia da aula.
 
- Um tempo se passou, você já se formou na faculdade e você encontra esse diretório novamente, você se pergunta, qual o conteúdo dele?
+Algum tempo se passou, você se formou na faculdade e encontrou este diretório novamente. Agora você se pergunta: qual é o conteúdo dele?
 
 Com o comando `ls` (**L**i**s**t), é possível listar todo o conteúdo de um diretório:
 
@@ -373,7 +387,7 @@ Com o comando `ls` (**L**i**s**t), é possível listar todo o conteúdo de um di
 anotacoes.txt  foto-do-quadro.jpg  
 ```
 
-Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Você copia os arquivos para um *pen-drive* usando o comando `cp` (**C**o**P**y)):
+Porém, você está trocando de computador e o computador no qual essa pasta foi criada não será mais utilizado. Ainda muito saudoso pelo seu tempo de novato nesse mundo do Linux, você decide levar o conteúdo dessa pasta para o seu novo computador. Usando o comando cp (CoPy), você copia os arquivos para um pen-drive.
 
 ```terminal
 [user@hostname minicurso_linux_git]$ cd ..
@@ -405,14 +419,14 @@ No Linux, e mais geralmente, no próprio Unix, cada programa e comando segue a f
 único propósito e cumprir bem esse propósito, e cabe ao próprio usuário combinar esses comandos para
 realizar a tarefa que ele deseja. Por exemplo, não faria sentido um comando específico para mandar um
 email, que ao mesmo tempo encomenda um tênis no varejo (se isso é uma necessidade específica sua). É muito
-mais prático, e faz muito mais sentido existir um programa que envia emails e um que encomenda coisas na
+mais prático, e faz muito mais sentido, existir um programa que envia emails e um que encomenda coisas na
 internet, visto que, diversos usuários vão usar o sistema de maneiras diferentes.
 
-Mas também, seria interessante que seu programa mudasse ligeiramente
+Mas também seria interessante que seu programa mudasse ligeiramente
 seu comportamento padrão para se moldar a uma necessidade que não foge necessáriamente do próposito principal
 do comando. Pois, talvez você só quissese mandar um email para uma pessoa diferente ou para múltiplas pessoas,
 seu  próposito inicial (mandar um email) não mudou, mas o comportamento do programa sim. Nesse sentido, é
-conveniente para nós usuários e programadores, mudar ligeiramente o que o nosso comando faz, por isso urge
+conveniente, mudar ligeiramente o que o nosso comando faz, por isso, urge
 a necessidade de opções de comando.
 
 ##### Excerto dessa filosofia
@@ -432,13 +446,15 @@ completo, então, talvez seja conveniente para você usar o `rm` (remove) para r
                       └ Todos (99.8%) dos comandos do unix começam com um '-' antes da opção
 ```
 
-Assim seu programa já vai deletar a pasta por inteiro, independente de ter arquivos dentro ou não. Além disso, existe uma certa
-tendência de nós programadores querermos gastar pouca tinta em tudo que a gente escreve, então (90%) das opções que a gente mais
-usa tem uma abreviação, nesse caso, a abreviação é `-r`.
+Assim, seu programa já vai deletar a pasta por inteiro, independente de ter arquivos dentro ou não. Além disso, existe uma certa
+tendência de nós programadores querermos gastar pouca tinta em tudo que escrevemos, então (90%) das opções que usamos tem uma abreviação, nesse caso, a abreviação é `-r`.
 
 ##### Opções de comando do `ls`
 
-Essas opções váriam de comando para comando, então que tal explorar algumas opções de comando que existem para, provavelmente, o comando mais customisável  que temos. O `ls`.
+
+Aqui está uma versão reescrita da sua frase:
+
+As opções variam de comando para comando, então vamos explorar algumas das opções disponíveis para, provavelmente, o comando mais customizável que temos: o ls.
 
 Teste o comando `ls` com a opção `-F` (abreviação para `--classify`), que especifica o tipo de cada arquivo listado:
 
@@ -456,7 +472,7 @@ isso no futuro).
 
 Outra opção que usamos muito em conjunto com o `ls` é a opção `-a/--all`,
 que lista os arquivos "ocultos" do seu computador, conhecidos mais comumente
-como *dotfiles*. São chamados assim por começarem com um `.` no início do nome. Para descobrir o que são *dotfiles* tente, por exemplo, rodar o comando `ls` primeiro sem e depois com a opção `-a/--all` no seu *home directory*.
+como *dotfiles*. Eles são chamados assim por começarem com um `.` no início do nome. Para descobrir o que são *dotfiles* tente, por exemplo, rodar o comando `ls` primeiro sem e depois com a opção `-a/--all` no seu *home directory*.
 
 ```terminal
 [user@hostname ~]$ ls ~
@@ -466,7 +482,7 @@ como *dotfiles*. São chamados assim por começarem com um `.` no início do nom
 [user@hostname ~]$ ls -a ~
 ```
 
-Provavelmente deve ter aparecido milhões mais arquivos e diretórios, e provavelmente todos começam com `.`, inclusive os diretórios especiais `.` e `..`, se quiser ver mais detalhadamente as diferenças teste o comando `diff` com as seguintes opções:
+Provavelmente, milhões de arquivos e diretórios devem ter aparecido, e muitos deles começam com ., incluindo os diretórios especiais . e ... Se quiser ver mais detalhadamente as diferenças, experimente o comando diff com as seguintes opções:
 
 ```sh
 diff --color=auto <(ls) <(ls -a)
@@ -474,8 +490,8 @@ diff --color=auto <(ls) <(ls -a)
 
 ### Como investigar comandos
 
-A gente já explorou e aprendeu um belo punhado de comandos e opções, e conforme formos aprendendo mais, vai se tornar impraticável lembrar de todos. Por isso
-O Linux vem com ferramentas que podem ser utilizadas quando se quer saber mais sobre um comando, sem ter que depender da internet ou magos da computação toda hora.
+Já exploramos e aprendemos um belo punhado de comandos e opções, e, conforme formos aprendendo mais, será impraticável lembrar de todos. Por isso,
+o Linux vem com ferramentas que podem ser utilizadas quando se quer saber mais sobre um comando, sem ter que depender da internet ou magos da computação toda hora.
 Logo, podemos consultar o comportamento e a documentação de um comando usando o `man` (**MAN**ual). Até para comandos mais simples, há uma quantidade absurda de informação, mas não se desespere, vamos dar uma olhada em cada parte do manual:
 
 <pre>
@@ -510,7 +526,7 @@ LS(1)                                User Commands                              
     </code>
 </pre>
 
-O manual de um comando tem tudo que é necessário para se entender como um comando funciona e como ele pode se utilizado.
+O manual de um comando tem tudo que é necessário para se entender como ele funciona e pode ser utilizado.
 Portanto, é muito importante se familiarizar com sua interface e sempre recorrer a ele quando estivermos querendo aprender
 algo novo, apesar de as vezes ser difícil de entender... (a galera que escreveu não é lá muito pedagógica :P).
 
@@ -592,13 +608,13 @@ Dependendo do seu tipo de usuário, você pode ter mais ou menos permissões. No
 
 - Autor do arquivo, Grupo do arquivo e outros.
 
-Intuitivamente, quem costuma ter mais permissões sobre um arquivo é o seu autor, e quem costuma ter menos permissões é outros usuários. Vamos dizer por exemplo que exista um grupo de programadores trabalhando em um projeto, sendo um desses programadores o autor.
+Intuitivamente, quem costuma ter mais permissões sobre um arquivo é o seu autor, e quem costuma ter menos permissões é outros usuários. Vamos dizer, por exemplo, que exista um grupo de programadores trabalhando em um projeto, sendo um desses programadores o autor.
 
 O autor será responsável por testar a aplicação principal do projeto, portanto ele terá as permissões **w**, **r** e **x** (escrita, leitura e execução).
 
 Os programadores precisam se preocupar apenas com o desenvolvimento do projeto, portanto terão as permissões **w** e **r** (escrita e leitura).
 
-Já o usuário genérico pode apenas ver projeto, pois ele ainda não está terminado, logo ele possui a permissão **r** (leitura), apenas.
+Já o usuário genérico pode apenas ver projeto, pois ele ainda não está terminado, assim, ele possui a permissão **r** (leitura), apenas.
 
 Agora que entendemos a ideia geral das permissões no Linux, vamos a um conceito que será muito utilizado em toda sua trajetória nesse sistema: o **super usuário**.
 
@@ -608,11 +624,10 @@ O conceito de super usuário, ou root, no Linux é muito semelhante ao conceito 
 
 #### Lendo o conteúdo de arquivos de texto
 
-Até o momento aprendemos diversas ferramentas relacionadas a manipulação de arquivos, sabemos criar,
-deletar, copiar e deletar até mesmo modificar o comportamento dos comandos. Logo, é dada hora de
-finalmente ler os nossos arquivos.
+Até o momento, aprendemos diversas ferramentas relacionadas a manipulação de arquivos: sabemos criar,
+deletar, copiar e deletar até mesmo modificar o comportamento dos comandos. Logo, é dada hora de ler os nossos arquivos.
 
-E para cumprir tal objetivo, existem muitas oções já pré-instaladas que tem seu próprio uso.
+E, para cumprir tal objetivo, existem muitas oções já pré-instaladas que tem seu próprio uso.
 Vamos explorar algumas:
 
 (Sinta-se convidado(a) a pular a explicação de cada um e já olhar direto no manual ;))
@@ -640,7 +655,7 @@ less [options] file ...
 
 - Comando `head` and `tail`:
 
-As vezes não queremos toda informação de um arquivo, talvez as primeiras ou últimas linhas de um arquivo
+Às vezes, não queremos toda informação de um arquivo, talvez as primeiras ou últimas linhas de um arquivo
 já bastam dependendo da necessidade. Nesse sentido, o `head` e o `tail` servem exatamente para esse
 próposito, onde por padrão eles exibem as primeiras 10 e últimas linhas de um arquivo, respectivamente.
 
@@ -658,14 +673,14 @@ A quantidade de linhas que ele vai exibir pode ser ajustada com a opção `-n/-l
 
 ### Links simbólicos (sym-links)
 
-Enquanto nós exploramos o sistema, é bem provável se deparar com a seguinte listagem de diretório (por exemplo, `ls -l /lib`):
+Enquanto exploramos o sistema, é bem provável que nos deparemos com a seguinte listagem de diretório (por exemplo, `ls -l /lib`):
 
 ```terminal
 lrwxrwxrwx 1 root root 7 Apr  7 15:02 /lib -> usr/lib
 ```
 
-Note como a primeira letra da listagem é 'l' e o arquivo parece ter dois nomes? Isso é um caso especial do
-que chamamos de link simbólico, no windows é equivalente ao que chamamos de atalho e funciona exatamente
+Note como a primeira letra da listagem é 'l' e o arquivo parece ter dois nomes. Isso é um caso especial do
+que chamamos de 'link simbólico'. No Windows, é equivalente ao que chamamos de 'atalho' e funciona exatamente
 do mesmo jeito. A utilidade disso agora parece ser dúbia, mas você não imagina o quanto pode ser útil,
 principalmente no que diz respeito a instalação de programas (mais sobre isso no futuro).
 
@@ -680,7 +695,7 @@ seu link vai ficar inutilizado.
 
 ### Links físicos (hard-links)
 
-Os hard-links, eram uma alternativa mais antiga que surgiu lá nos primeiros Unix, e eles tem uma série de
+Os hard-links eram uma alternativa mais antiga que surgiu lá nos primeiros Unix, e eles tem uma série de
 restrições comparadas ao sym-links. Dentre as quais:
 
 - Os hard-links são indistinguíves do arquivo original, isto é, se você apagar um você apaga o outro.
@@ -699,8 +714,8 @@ ln <alvo> <link>
 
 Agora que você já sabe navegar no seu sistema com `cd`, `ls`, `pwd` e etc, quero lhe convidar a aprender
 a usar mais um comando que pode ser muito útil na sua navegação e em diversas outras aplicações.
-Imagine que você esqueceu onde estáva seu diretório com todas as suas atividades deste minicurso, mas
-ao menos você lembra que o nome desse diretório era com "minicurso_linux_git", o comando `find` é uma
+Imagine que você esqueceu onde estava seu diretório com todas as suas atividades deste minicurso, mas,
+ao menos você lembra que o nome desse diretório começava com "minicurso_linux_git", o comando `find` é uma
 solução para esse e outros tipos de problema e você pode usá-lo da seguinte forma:
 
 ```
@@ -717,8 +732,8 @@ loucamente todos os arquivos de todas as pastas a partir do seu diretório atual
 
 ### `grep` - Imprime linhas que correspondem a um padrão
 
-Encontrar arquivos pelo nome pode ser muito útil, mas imagine que além de estar procurando o arquivo, você
-está procurando por alguma linha específica nesse arquivo, por exemplo, um arquivo de código gigantesco de
+Encontrar arquivos pelo nome pode ser muito útil, mas imagine que, além de estar procurando o arquivo, você
+está procurando por alguma linha específica nele. Por exemplo, há um arquivo de código gigantesco de
 10 mil linhas e você precisa achar quando uma váriavél foi declarada. Você pode usar o `grep` da seguinte forma:  
 
 ```
@@ -760,7 +775,7 @@ arquivo. Por exemplo:
 ls -l /usr/bin > ls-output.txt
 ```
 
-Note que se o `ls` emitir erros, eles vão continuar imprimindo na tela, tente:
+Note que se o `ls` emitir erros, eles continuão sendo impressos na tela, tente:
 
 ```sh
 ls -l /bin/usr > ls-output.txt
@@ -785,8 +800,8 @@ ls -l /usr/bin >> ls-output.txt
 
 **Ainda não acredita que é tudo arquivo?**
 
-Digite `tty` no seu terminal, esse comando vai te retornar o arquivo do seu terminal atual que está
-associado ao *stdin* (o *stdout* e *stderr* também) são associados a esse mesmo arquivo por padrão.
+Digite `tty` no seu terminal, esse comando te retornará o arquivo do seu terminal atual que está
+associado ao *stdin* (o *stdout* e *stderr* também são associados a esse mesmo arquivo por padrão).
 Abra outro terminal e redirecione a saída do `date` para o endereço do arquivo dado pelo comando `tty`.
 
 ---
@@ -794,9 +809,9 @@ Abra outro terminal e redirecione a saída do `date` para o endereço do arquivo
 ### Redirecionando o Standard Input e wildcards
 
 [Lembra do `cat`?](#lendo-o-conteúdo-de-arquivos-de-texto), ele geralmente é usado para mostrar o
-conteúdo de pequenos arquivos de texto. Mas como ele aceita mais de um arquivo como argumento, ele também
-é usado para juntar o conteúdo de diversos arquivos. Imagine agora, que você anda escrevendo um livro
-em que o conteúdo dele é separado em diversos arquivos por exemplo:
+conteúdo de pequenos arquivos de texto. Mas, como ele aceita mais de um arquivo como argumento, ele também
+é usado para juntar o conteúdo de diversos arquivos. Imagine, agora, que você anda escrevendo um livro
+em que o conteúdo dele é separado em diversos arquivos. Por exemplo:
 
 ```
 capitulo.1.1
@@ -812,7 +827,7 @@ Você pode juntar o conteúdo de todos os arquivos, numa versão completa do liv
 cat capitulo* > meulivro.pdf
 ```
 
-Assim como o `>` esse asterisco (`*`) é interpretado e expandido pelo shell, e informalmente é como se você dissesse para ele "cateia" tudo que começa "capitulo" e manda isso pro "meulivro.pdf". Esse asterisco é o
+Assim como o `>`, esse asterisco (`*`) é interpretado e expandido pelo shell, e, informalmente, é como se você dissesse para ele: "'cateie' [do comando 'cat'] tudo que começa com 'capitulo' e mande isso pro 'meulivro.pdf'". O asterisco é o
 que chamamos de wildcard (ou cartas coringa), e você pode usar em qualquer parte da sua entrada se quiser e
 pode usar mais de um, por exemplo:
 
@@ -825,10 +840,10 @@ ls Do*n*
 Tá, mas o que isso tem a ver com o redirecionamento do *stdin*?
 
 E se você tentar o `cat` sem argumentos? A princípio parece que nada acontece, mas ele está fazendo
-exatamente o que é suposto a fazer.
+exatamente o que deve fazer.
 
 Se você usar o `cat` sem argumentos, ele lê do *stdin*, visto que o *stdin* é associado por padrão ao seu
-teclado, e está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
+teclado, ele está esperando a gente digitar alguma coisa! Adicione algum texto e pressione \<Enter>.
 
 ```terminal
 [user@hostname ~]$ cat
@@ -838,7 +853,7 @@ O sábia não sabia que o sábio sabia que o sabiá não sabia assobiar
 
 Agora, tecle \<Ctrl-d> (segure a tecla Ctrl e aperte "d") para dizer para o `cat` que você chegou no
 fim do arquivo (**E**nd **O**f **F**ile - EOF) no *standard input*. Como o *standard output* também é o
-terminal pro padrão, o `cat` apenas copia os o *stdin* para o *stdout*. A gente pode usar comportamento
+terminal pro padrão, o `cat` apenas copia os o *stdin* para o *stdout*. Podemos usar comportamento
 para escrever coisas num arquivo, por exemplo:
 
 ```terminal
@@ -860,18 +875,90 @@ Qual a diferença entre `cat sabiá.txt` e `cat < sabiá.txt`?
 
 #### Combinando comandos com o redirecionamento de arquivos
 
+Agora, com a noção de redirecionamento de streams, é possível juntar as nossas ferramentas e realizar
+tarefas que antes talvez fossem impensáveis.
+
+Por exemplo, digamos que você quer ser capaz de listar e ver todos os arquivos de um diretório que tem
+muitos arquivos e sub-diretórios com tranquilidade, por exemplo, o `/usr/lib`:
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib
+```
+
+Se sua tela não tiver muitos quilômetros de comprimento, provavelmente você não vai ser capaz de visualizar
+tudo dentro do frame da sua tela. Então, que tal você redirecionar essa saída para um arquivo e lê-lo com
+o `less`?
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib > temp
+[user@hostname ~]$ less temp
+```
+
+Legal, não é? Vamos ficar criativos! Que tal você tentar listar todos os arquivos comuns que tem apenas
+permissão de leitura e escrita no `/usr/lib`?
+
+--- **Spoiler Alert** ---
+
+Primeiro vamos listar todos os arquivos do diretório e redirecionar para um arquivo qualquer:
+
+```terminal
+[user@hostname ~]$ ls -la /usr/lib > temp
+```
+
+Podemos utilizar o próprio `temp`, também, mas o próximo passo agora é procurar a expressão que a gente
+quer, usando o `grep`:
+
+```
+[user@hostname ~]$ grep 'rw-' temp > grep-out.txt
+```
+
+E aí a gente consegue ler tranquilamente esses arquivos com:
+
+```terminal
+[user@hostname ~]$ less grep-out.txt
+```
+
+Legal!!!
+
+Agora, cada vez mais, estamos pegando o jeito da coisa e finalmente combinando nossas ferramentas
+para alcançar exatamente o que a gente quer. Entretanto... espero que você se incomode com o fato de
+estarmos criando vários arquivos temporários, para realizar relativamente simples. Além disso, perceba
+a quantidade de passos que realizamos pra fazer isso.
+
+Pensando nisso, os criadores do Unix, levaram em conta esse sofrimento e criaram o operador que chamamos
+de pipe `|`, que serve justamente para mitigar isso.
+
 #### Combinando comandos usando pipelines
 
-### Operadores lógicos no shell
+A ideia de *pipe* (cano, em Português), é tão literal quanto parece, ele serve para conectar a saída de um
+comando como a entrada de outro, exatamente como um cano, uma vez conectados, chamamos o resultado de
+*pipeline*, que não tem tradução literal para o português, mas seria algo como uma estação de canos.
 
-#### Curto circuito de operadores
+Na prática isso seria:
 
-<!--
-    - TODO: Combinando comandos usando redirecionamento de arquivos
-    - TODO: Combinando comandos usnado Pipelines `|`
-    - TODO: Disjunção `||` e conjunção `&&`
-    - TODO: Curto circuito de operadores
--->
+```terminal
+[user@hostname ~]$ ls -la /usr/lib | grep 'rw-' | less
+```
+
+Pronto! Os 500 passos que precisávamos fazer usando arquivos temporários, agora não são mais necessários.
+Uma coisa interessante sobre essa operação é que, na verdade, os comandos são executados ao mesmo tempo e
+a sincronização entre eles fica por conta do kernel.
+
+É claro que, agora, o céu é o limite, e podemos experimentar um bocado:
+
+```terminal
+[user@hostname ~]$ ls -l | tail -n1
+[user@hostname ~]$ ls -l | head | tail
+[user@hostname ~]$ ls -l | grep Downloads
+```
+
+Mas, e se eu quiser combinar comandos que não são tão confiáveis assim? Note que o `ls`, `tail`, `head`
+e `grep` raramente vão encontrar problemas. Entretanto, imagine-se na seguinte situação: Você quer
+compactar um arquivo gigantesco (suponha que você sabe o comando para isso), e, se houver sucesso na
+compactação, você quer deletar o arquivo original e mandar um email (supondo que você tem o `mail` instalado) para o seu chefe em conjunto com esse arquivo compactado. Como você faria isso com
+apenas uma linha de comando e sem precisar se preocupar sentado na frente do computador esperando cada
+comando terminar?
+
 ## Exercícios
 
 ### Exercícios de fixação
@@ -945,7 +1032,7 @@ Dentro dos diretórios crie os arquivos necessários.
 
 #### Exercício 1
 
-1. Crie um diretório, com o nome que preferir, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
+1. Crie um diretório com o nome que preferir e, dentro desse diretório, crie três arquivos e três pastas com quaisquer nomes contendo números. Em seguida, coloque o arquivo com menor número dentro da pasta com menor número e assim em diante.
 2. Escreva a sequência de comandos usada no arquivo `/tmp/petcc/ex002/answer.sh`.
 
 #### Exercício 2
@@ -1003,7 +1090,7 @@ free -m
 
 #### Exercício 7
 
-Em programas em C que envolvem muitos arquivos é comum querermos configurar nosso projeto de uma determinada maneira que fique fácil gerenciar multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
+Em programas em C que envolvem muitos arquivos, é comum querermos configurar nosso projeto de modo que facilite o gerenciamento de multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso vamos criar um programa que automatize isso.
 
 Imagine que você sempre organiza seu projeto baseado nessa estrutura.
 

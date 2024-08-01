@@ -29,10 +29,12 @@ O Minicurso de Linux e Git é um projeto do PETCC, e as aulas serão ministradas
 
 ### Livros
 
-- Robbins, Arnold, e Nelson H. F. Beebe. *Classic Shell Scripting*. Sebastopol, CA: O'Reilly Media, 2005. Disponível em: [Amazon](https://www.amazon.com/Classic-Shell-Scripting-Arnold-Robbins/dp/0596005954).
-- Kernighan, Brian W., e Rob Pike. *The UNIX Programming Environment*. Englewood Cliffs, NJ: Prentice Hall, 1984. Disponível em: [PDF](https://scis.uohyd.ac.in/~apcs/itw/UNIXProgrammingEnvironment.pdf).
+- Robbins, Arnold, e Nelson H. F. Beebe. *Classic Shell Scripting*. O'Reilly Media, 2005. Disponível em: [Amazon](https://www.amazon.com/Classic-Shell-Scripting-Arnold-Robbins/dp/0596005954).
+- Kernighan, Brian W., e Rob Pike. *The UNIX Programming Environment*. Prentice Hall, 1984. Disponível em: [PDF](https://scis.uohyd.ac.in/~apcs/itw/UNIXProgrammingEnvironment.pdf).
 - Shotts, William E. Jr. *The Linux Command Line Fifth Edition*. No Starch Press, 2023. Disponível em: [PDF](https://linuxcommand.org/tlcl.php).
-- Tsouanas, Thanos *Matemática Funcional para Computação*, 2024. Disponível em: [PDF](https://www.tsouanas.org/fmcbook/)
+- Tsouanas, Thanos. *Matemática Funcional para Computação*, 2024. Disponível em: [PDF](https://www.tsouanas.org/fmcbook/)
+- Skoulikari, Anna. *Learning Git: A Hands-On and Visual Guide to the Basics of Git*. O'Reilly Media, 2023. Disponível em: [Amazon](https://www.amazon.com/Learning-Git-Hands-Visual-Basics/dp/1098133919/)
+- Chachon, Scott e Ben Straub. *Pro Git*. Apress, 2014. Disponível em: [PDF](https://github.com/progit/progit2/releases/download/2.1.430/progit.pdf)
 
 ### Cursos
 
@@ -43,5 +45,9 @@ O Minicurso de Linux e Git é um projeto do PETCC, e as aulas serão ministradas
 
 - [Linux and the GNU System by FSF](https://www.gnu.org/gnu/linux-and-gnu.html). Free Software Foundation, 2024.
 - [GNU/Linux FAQ by FSF](https://www.gnu.org/gnu/gnu-linux-faq.html). Free Software Foundation, 2024.
+
+### Repositórios
+
+- [git-school/visualizing-git](https://github.com/git-school/visualizing-git) - Github
 
 ---

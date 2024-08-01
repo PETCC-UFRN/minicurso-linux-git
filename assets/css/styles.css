@@ -166,7 +166,7 @@ body {
     
 }
 .layoutGit h4{
-    color: #f0f4ff;
+    color: #020728;
     background-color: rgb(250, 156, 140);
     padding: 5px; /* Padding moderado */
     margin-bottom: 10px; 
@@ -196,6 +196,13 @@ body {
     padding-left: 20px; 
   }
 
+.destaque{
+    
+    color: #FFC800;
+    font-weight: bold;
+    text-decoration: underline;
+    
+}
 .navgit a:hover{
     color: #000;
 }
@@ -271,6 +278,7 @@ td {
     font-size: 100%; /* Reset font size to default */
     padding: 0; /* Reset padding */
 }
+
 #sumario {
     position: fixed;
     text-align: left;
@@ -283,6 +291,9 @@ td {
     transition: left 0.3s ease; /* Transição suave para a animação */
 }
 
+#sumario ul{
+    list-style-type: square; 
+}
 .sumario-oldschool{
     color: #00e300;
     border-right: 1px solid #00e300;
