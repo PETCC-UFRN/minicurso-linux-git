@@ -103,6 +103,7 @@ body {
 
 .oldschool main{
     width: 50%;
+    padding-top: 4vh;
     margin: 0 auto;
     color: #fff;
 }
@@ -212,6 +213,10 @@ a{
 
 a:hover{
     color:#fff;
+}
+
+.layoutGit main{
+  padding-top: 4vh;
 }
 
 main{
