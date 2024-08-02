@@ -31,14 +31,14 @@ title: Shell Avançado
       </ul>
     </details>
     <details>
-    <summary><a href="#shell-scripting">Shell scripting</a></summary>
+    <summary><a href="#Shell-scripting">Shell scripting</a></summary>
       <ul>
-        <li><a href="#por-quê-shell-scripting">Por quê shell scripting?</a></li>
+        <li><a href="#por-quê-Shell-scripting">Por quê Shell scripting?</a></li>
         <li><a href="#a-primeira-linha-shebang">A primeira linha: #! (shebang)</a></li>
         <li><a href="#variáveis">Variáveis</a></li>
         <li><a href="#expansões">Expansões</a></li>
         <li><a href="#condicionais">Condicionais</a></li>
-        <li><a href="#operadores-lógicos-no-shell">Operadores lógicos no shell</a></li>
+        <li><a href="#operadores-lógicos-no-Shell">Operadores lógicos no Shell</a></li>
         <li><a href="#funções">Funções</a></li>
         <li><a href="#loops">Loops</a></li>
       </ul>
@@ -60,9 +60,9 @@ title: Shell Avançado
 No decorrer do dia anterior, espero que você tenha notado que a maioria dos comandos é uma abreviação de alguma
 palavra em inglês, que passa uma ideia inicial do que determinado comando faz. Por exemplo: o `ls`
 significa **L**i**S**t, o `cp` significa **C**o**P**y, o `rm` significa **R**e**M**ove e assim
-por diante. Espero que você perceba que, se é algo que você usa com frequência, é inconveniente
+por diante. Além disso, espero que você perceba que, se é algo que você usa com frequência, é inconveniente
 digitar uma palavra longa toda vez que precisa invocar essa função. Esse mesmo sentimento
-motivou os criadores do sistema tanto a abreviar o nome dos comandos e a criar o que chamamos de *alias*.
+motivou os criadores do sistema a abreviar o nome dos comandos e a criar o que chamamos de *alias*.
 
 Imagine que você usa o seguinte comando com frequência:
 
@@ -72,29 +72,29 @@ ls --color=auto --almost-all --classify -l --human-readable
 
 E a maioria das vezes que você quer listar algo, você usa essa variação do `ls`. Se você não tem a capacidade
 de digitar instantaneamente o que pensa, deve ser uma chatice ter que digitar isso
-muitas vezes. Assim, o que podemos fazer é dar ao shell um apelido para este comando. Então, em vez
-de ter que digitar essa coisa toda, poderáimos apenas falar `meuls` e o shell saber exatamente o que
+muitas vezes. Assim, o que podemos fazer é dar ao Shell um apelido para este comando. Então, em vez
+de ter que digitar essa coisa toda, poderíamos apenas falar `meuls` e o Shell saber exatamente o que
 fazer. A maneira de fazer isso é a seguinte:
 
 ```sh
 alias meuls='ls --color=auto --almost-all --classify -l --human-readable'
 ```
 
-Agora, durante essa sessão do shell, sempre que digitarmos `meuls`, o shell vai "expandir" esse apelido
-e vai invocar seu real significado. E, de certa forma, conseguimos criar com isso um "novo comando".
+Agora, durante essa sessão do Shell, sempre que digitarmos `meuls`, o Shell vai "expandir" esse apelido
+e vai invocar seu real significado. E, de certa forma, conseguimos criar, com isso, um "novo comando".
 
 ### Vendo um comando como arquivo
 
-Agora, uma reflexão interessante a se fazer é pensar como o shell sabe quais são os apelidos que eu
-dei, ou até mesmo o que é comando ou não.
-[Relembrando quando estávamos começando a usar o shell](/primeiroDia.md#comando-date-e-echo), nós não
+Agora, uma reflexão interessante a se fazer é pensar como o Shell sabe quais são os apelidos que demos,
+ou, até mesmo, o que é comando ou não.
+[Relembrando quando estávamos começando a usar o Shell](/primeiroDia.md#comando-date-e-echo), nós não
 podemos simplesmente digitar qualquer coisa aleatória como `balubslbeuaba` e esperar que ele entenda e
-faça alguma coisa, logo, o que o shell faz é: armazenar, em uma variável, todos os lugares em que supostamente
+faça algo. Logo, o que o Shell faz é: armazenar, em uma variável, todos os lugares em que supostamente
 existem programas que ele pode executar, e, quando você digita algo, ele vai procurar nesses lugares para ver se
 de fato o que você digitou é um programa que ele pode executar.
 
 Como os comandos/programas são simplesmente executáveis que estão em uma pasta "especial", nós podemos
-perguntar aonde eles estão com a seguinte linha:
+perguntar onde eles estão com a seguinte linha:
 
 ```terminal
 [user@hostname ~]$ whereis ls
@@ -108,7 +108,7 @@ executável, da mesma forma que você usaria normalmente:
 [user@hostname ~]$ /usr/bin/ls -l
 ```
 
-O shell utilizada a variável `$PATH` para saber onde procurar esses comandos, e nós podemos ver
+O Shell utilizada a variável `$PATH` para saber onde procurar esses comandos, e nós podemos ver
 o valor que ela armazena digitando o seguinte:
 
 ```terminal
@@ -116,14 +116,14 @@ o valor que ela armazena digitando o seguinte:
 /usr/local/bin:/usr/bin:/home/user/.local/share/bin
 ```
 
-A saída pode parecer estranha, mas isso representa vários diretórios separados `:`, e o shell vai em cada um
+A saída pode parecer estranha, mas isso representa vários diretórios separados `:`, e o Shell vai em cada um
 deles procurando o que você digitou no terminal.
 
 ## Instalando programas no Linux
 
 ### Manualmente
 
-Agora que já sabemos o que de fato são os comandos que utilizamos no terminal e como o shell busca esses
+Agora que já sabemos o que de fato são os comandos que utilizamos no terminal e como o Shell busca esses
 comandos, nós somos (finalmente) capazes de instalar qualquer programa no nosso computador. A ideia é
 bem intuitiva:
 
@@ -151,14 +151,14 @@ bem intuitiva:
 4. **E pronto!!!** Instalamos um programa!
 
 É simples assim mesmo, mas trabalhar dessa maneira é um pouco desajeitado, pois existem programas que dependem
-de outros arquivos para funcionar, como arquivos de configuração, de dados, elementos gráficos, Não podemos
+de outros arquivos para funcionar, como arquivos de configuração, de dados, elementos gráficos etc. Não podemos
 simplesmente colocar o executável desse programa em um dos diretórios do `$PATH` e esperar que ocorra tudo
 bem.
 
 O que fazemos, então?
 
-[Lembra dos symlinks?](/primeiroDia.md#links-simbólicos-sym-links) Podemos usá-los para colocar apenas
-o atalho do executável no `PATH` e aí quando o shell tentar rodar o programa, ele na verdade vai rodar o
+[Lembra dos symlinks?](/primeiroDia.md#links-simbólicos-sym-links). Podemos usá-los para colocar apenas
+o atalho do executável no `PATH`, e aí, quando o Shell tentar rodar o programa, ele, na verdade, vai rodar o
 original que está no diretório (de preferência bem acessível e fácil de gerenciar) que você quiser.
 
 Mas, isso não significa que não existam peculiaridades de programa para programa. Às vezes, precisaremos
@@ -167,20 +167,20 @@ compilar o executável do programa, ou, por vezes, baixaremos apenas o executáv
 programa. O que precisa ser feito, na maioria das vezes, estará na documentação do que você quer
 instalar.
 
-### Gerenciadores de pacote
+### Gerenciadores de pacotes
 
 Existem maneiras mais simples realizar instalações no seu sistema sem ter que fazer o download do programa na
 internet, compilá-lo e adicioná-lo ao `PATH`, mas você vai precisar de permissões de superusuário para
 conseguir fazer isso, a maneira, sem dúvidas, mais utilizada hoje em dia é utilizando o gerenciador de
 pacote da sua distribuição Linux.
 
-Esses gerenciadores de pacote abstraem o processo de baixar da internet, instalar, atualizar (se futuramente houver atualização), pesquisar programas, e desinstalá-los, no alcance de um comando.
+Esses gerenciadores de pacotes abstraem o processo de baixar da internet, instalar, atualizar (se futuramente houver atualização), pesquisar programas, e desinstalá-los, no alcance de um comando.
 Essa, inclusive, é uma das grandes vantagens de usar o Linux no âmbito da computação, o processo de
 configurar programas e suas depedências é muito fácil e você tem total autonomia para investigar e resolver
 problemas que possam vir a aparecer.
 
-Como mencionado anteriormente, o uso do gerenciador de pacote vária de distribuição para distribuição, mas
-vamos pegar como exemplo o gerenciador de pacote da distruibuição que originou o Ubuntu, o Debian.
+Como mencionado anteriormente, o uso do gerenciador de pacotes vária de distribuição para distribuição, mas
+vamos pegar como exemplo o gerenciador de pacotes da distruibuição que originou o Ubuntu, o Debian.
 
 #### Exemplo com o uso do `apt`
 
@@ -190,7 +190,7 @@ Logo, podemos investigar seu uso usando o `man` como amigo.
 
 ##### TL;DR (To Long Didn't Read the manual)
 
-Mas, se estiver com preguiça de ler o `man`, aqui vai uma ajudinha:
+Mas, se você estiver com preguiça de ler o `man`, aqui vai uma ajudinha:
 
 - **Atualizar a lista de pacotes**: Este comando atualiza a lista de pacotes disponíveis a partir dos
 repositórios configurados.
@@ -237,11 +237,11 @@ e conforme o uso esse processo de instalação, atualização e remoção se tor
 
 ## Editores de texto
 
-Recapitulando um pouco, exploramos bastante o shell, diferentes maneiras de combinar comandos, e como abreviá-los. Nos exercícios do dia anterior, vocês escreveram em diversos arquivos determinadas sequências de comandos e, depois, foram capazes de realizar algumas ações. Neste tópico, vamos formalizar o que foi feito e expandir um pouco mais esse escopo.
+Recapitulando um pouco: exploramos bastante o Shell, diferentes maneiras de combinar comandos, e como abreviá-los. Nos exercícios do dia anterior, vocês escreveram em diversos arquivos determinadas sequências de comandos e, depois, foram capazes de realizar algumas ações. Neste tópico, vamos formalizar o que foi feito e expandir um pouco mais esse escopo.
 
-Um shell é uma linguagem de programação, mais específicamente uma linguagem de scripting assim como Python, Ruby e outras. Por ser uma linguagem de programação, um script em shell nada mais é do que uma sequência de comandos que
-existem no seu computador escritos num arquivo linha por linha, e quando você executa o arquivo, seu sistema invoca o
-shell para interpretar o que ali foi escrito.
+Um Shell é uma linguagem de programação, mais específicamente uma linguagem de scripting assim como Python, Ruby e outras. Por ser uma linguagem de programação, um script em Shell nada mais é do que uma sequência de comandos que
+existem no seu computador escritos num arquivo linha por linha, e, quando você executa o arquivo, seu sistema invoca o
+Shell para interpretar o que ali foi escrito.
 
 Com o que já vimos, somos plenamente capazes de escrever scripts simples, mas ainda falta dar mais alguns passos de
 complexidade e aprender ferramentas que nos permitam trabalhar de maneira mais confortável, isto é, escrever em arquivos
@@ -253,17 +253,17 @@ fazer isso, precisamos escolher o nosso editor de texto favorito e colocar a mã
 Provavelmente, seu sistema Linux já veio com alguns editores de texto para experimentar, uns mais difícies de aprender
 do que outros, mas todos com suas próprias especialidades.
 
-- [(neo)](https://neovim.io/)[**vim**](https://www.vim.org/) (**V**i **IM**proved): Pessoalmente, meu favorito, mas com certeza dos que vou listar a diante o mais
+- [(neo)](https://neovim.io/)[**vim**](https://www.vim.org/) (**V**i **IM**proved): O favorito de muitos programadores mas, os que vamos      listar adiante este é, com certeza, o mais
     difícil para começar a usar. Entretanto, passado a curva de aprendizado inicial, é com certeza um dos editores de
-    texto mais prazerosos de se usar. A lógica de modos de teclado, configuração (isso se for o neovim), e os atalhos
+    texto com a usabilidade mais prazerosa. A lógica de modos de teclado, configuração (isso se for o Neovim), e os atalhos
     pré-configurado tornam a escrita muito produtiva e divertida.
 
-- [**vscode**](https://code.visualstudio.com/) (**V**isual **S**tudio **CODE**): Todo programador já usou ou vai usar pelo menos alguma vez na vida o
+- [**vscode**](https://code.visualstudio.com/) (**V**isual **S**tudio **CODE**): Todo programador já usou ou vai usar, pelo menos alguma vez na vida, o
     Visual Studio Code. Ele é editor de texto da Microsoft, muito configurável e facílimo de começar usar, além de já vir com vários
-    recursos que abstraem sua configuração e recursos para diferentes tipos de linguagem. Embora eu considere essa abstração sua maior vantagem, também vejo como sua maior desvantagem, pois pode ser muito estressante solucionar problemas sem conseguir entender claramente a causa.
+    recursos que abstraem sua configuração e recursos para diferentes tipos de linguagem. Embora muitos vejam essa abstração como sua maior vantagem, também pode ser vista como como sua maior desvantagem, pois pode ser muito estressante solucionar problemas sem conseguir entender claramente a causa.
 
-- [**GNU nano**](https://www.nano-editor.org/): Assim como o Vim, ele é um editor de texto leve que roda no terminal, porém sua proposta é se manter simples.
-    Não é possível configurar extensivamente esse editor, mas é muito fácil de começar a usá-lo devido a sua
+- [**GNU nano**](https://www.nano-editor.org/): Assim como o Vim, ele é um editor de texto leve que roda no terminal, porém, sua proposta é se manter simples.
+    Não é possível configurar extensivamente esse editor, mas é muito fácil começar a usá-lo devido a sua
     interface informativa e pouca complexidade envolvendo o teclado.
 
 Existem também muitos outros editores de texto populares. Aqui estão alguns deles:
@@ -277,24 +277,24 @@ Existem também muitos outros editores de texto populares. Aqui estão alguns de
 
 [Recapitulando um pouco os exercícios do primeiro dia desse curso](/primeiroDia.md#exercícios), em diversos momentos, foi escrita uma sequência de comandos em um arquivo, que foi executada logo em seguida. Formalmente falando, o que você fez foi criar um script.
 
- A "linguagem shell" é uma *linguagem de scripting*, e diferentemente de [*linguagens compiladas*](https://pt.wikipedia.org/wiki/Linguagem_compilada), como C,
+ A "linguagem Shell" é uma *linguagem de scripting*, e diferentemente de [*linguagens compiladas*](https://pt.wikipedia.org/wiki/Linguagem_compilada), como C,
 C++, Java e Rust (🦀 rust mentioned!), que são interpretadas, traduzidas para uma representação interna, e
-então executada, os comandos de *linguagens de scripting* como o shell, "pulam" essa traduzação interna e
+então executada, os comandos de *linguagens de scripting* como o Shell, "pulam" essa traduzação interna e
 são diretamentes executados pelo interpretador.
 
-A principal vantagem do uso de linguagens de scripting como "shell", Python, Ruby e outras é que elas
+A principal vantagem do uso de linguagens de scripting como "Shell", Python, Ruby e outras é que elas
 geralmente trabalham num nível que se assemelha a linguagem humana, o que permite que você lide mais
 facilmente com tarefas envolvendo arquivos, diretórios e programas. A principal desvantagem é que essas
 linguagens tendem a ser menos eficientes, entretanto, a troca vale muito a pena para programas que não
 precisam se preocupar com a perfomance.
 
-### Por quê shell scripting?
+### Por quê Shell scripting?
 
-O primeiro motivo é que, até este ponto do curso, nós só trabalhamos com o shell e escrevemos alguns scripts. Portanto, não faria sentido estudar Python ou outra linguagem de script. O segundo e principal motivo é que o shell é universal entre os sistemas Unix, o que significa que, uma vez escrito com cuidado, ele pode ser executado em qualquer sistema Unix. Além disso, scripts de shell são extremamente fáceis de escrever, e é bem sabido que são muito úteis para automatizar tarefas. Em pouco tempo, você terá em mãos uma ferramenta muito conveniente.
+O primeiro motivo é que, até este ponto do curso, nós só trabalhamos com o Shell e escrevemos alguns scripts. Portanto, não faria sentido estudar Python ou outra linguagem de script. O segundo e principal motivo é que o Shell é universal entre os sistemas Unix, o que significa que, uma vez escrito com cuidado, ele pode ser executado em qualquer sistema Unix. Além disso, scripts de Shell são extremamente fáceis de escrever, e é bem sabido que são muito úteis para automatizar tarefas. Em pouco tempo, você terá em mãos uma ferramenta muito conveniente.
 
 ### A primeira linha: #! (shebang)
 
-Como um script em shell não é um programa compilado em linguagem de máquina, o nosso Kernel Linux não sabe
+Como um script em Shell não é um programa compilado em linguagem de máquina, o nosso Kernel Linux não sabe
 diretamente o que fazer com ele, então precisamos dizer ao sistema que programa vai ser responsável por
 executar o nosso script. Para isso, usamos o `shebang`: uma linha que começa com `#!` seguido do
 caminho absoluto do programa que vai executar e interpretar o script.
@@ -305,10 +305,10 @@ caminho absoluto do programa que vai executar e interpretar o script.
 # abobrinha bla bla bla ble
 ```
 
-Em alguns casos sem a `shebang`, seu shell vai receber o erro de execução do kernel, e vai executar um
+Em alguns casos, sem a `shebang`, seu Shell vai receber o erro de execução do kernel, e vai executar um
 mecanismo que chamamos de *fallback*, e vai por conta própria escolher um interpretador para o seu script,
-geralmente o `/bin/sh`, que é o shell padrão do sistema. Para o shell, é como se, ao receber esse erro, ele
-dissesse: "Aha, não é um programa compilado, então vou interpretar isso como um script shell"; e aí ele
+geralmente o `/bin/sh`, que é o Shell padrão do sistema. Para o Shell, é como se, ao receber esse erro, ele
+dissesse: "Aha, não é um programa compilado, então vou interpretar isso como um script Shell"; e aí ele
 executa o `/bin/sh` e passa o seu script como argumento para ele.
 
 ### Variáveis
@@ -324,15 +324,15 @@ Você pode criar e usar variáveis num script da seguintes maneira:
 #!/bin/sh
 fruta=banana
 echo "$fruta"
-# Vai imprimir "banana", aqui o shell expande a variável
+# Vai imprimir "banana", aqui o Shell expande a variável
 echo $fruta
 # Também vai imprimir "banana", mas não é recomendado,
-# pois o shell pode usar certos processamentos e resultar em comportamente idesejado
+# pois o Shell pode usar certos processamentos e resultar em comportamente idesejado
 echo '$fruta'
-# Vai imprimir "$fruta", pois o shell não vai expandir a variável
+# Vai imprimir "$fruta", pois o Shell não vai expandir a variável
 ```
 
-Além das variáveis especiais que já vimos, existem outras muito clássicas e muito utéis. Por exemplo, lembra
+Além das variáveis especiais que já vimos, existem outras que são clássicas e muito utéis. Por exemplo, lembra
 que alguns dos programas que você utilizou recebiam argumentos? Pois bem, existem variáveis que armazenam
 os argumentos do último programa que você executou. Digamos que você tenha um script chamado
 `omelhorscript.sh`, e você o executou:
@@ -348,11 +348,11 @@ na última linha de comando, e você pode acessar esses valores pelas variáveis
 ```sh
 #!/bin/sh
 echo "O nome do script é $0"
-# Vai imprimir "O nome do script é omelhorscript.sh"
+# Esse comando vai imprimir "O nome do script é omelhorscript.sh"
 echo "O primeiro argumento é $1"
-# Vai imprimir "O primeiro argumento é arg1"
+# Esse comando vai imprimir "O primeiro argumento é arg1"
 echo "O segundo argumento é $2"
-# Vai imprimir "O segundo argumento é arg2"
+# Esse comando vai imprimir "O segundo argumento é arg2"
 # assim por diante
 echo "O nono argumento é $9"
 ```
@@ -381,7 +381,7 @@ Outra variável interessante é a `$PWD`, que armazena o diretório atual que o 
 ### Expansões
 
 #### Expansão de comandos e variáveis
-O que observamos até agora sobre o shell em relação às variáveis é o que chamamos de expansão. O símbolo $ precedendo o nome da variável faz com que o shell substitua o nome da variável pelo seu valor. No entanto, o shell não se limita apenas a isso. Voltando ao exemplo da declaração de variáveis, podemos utilizar a sintaxe `$()` para expandir o valor produzido como saída por um determinado comando.
+O que observamos até agora sobre o Shell, em relação às variáveis, é o que chamamos de expansão. O símbolo $, precedendo o nome da variável, faz com que o Shell substitua o nome da variável pelo seu valor. No entanto, o Shell não se limita apenas a isso. Voltando ao exemplo da declaração de variáveis, podemos utilizar a sintaxe `$()` para expandir o valor produzido como saída por um determinado comando.
 
 ```sh
 #!/bin/sh
@@ -392,7 +392,7 @@ echo "Hoje é $hoje"
 
 #### Expansão aritmética
 
-O shell também é capaz de realizar a expansão de operações aritméticas, a sintaxe para isso é `$((expressão))`, um exemplo de uso seria:
+O Shell também é capaz de realizar a expansão de operações aritméticas, a sintaxe para isso é `$((expressão))`, um exemplo de uso seria:
 
 ```sh
 #!/bin/sh
@@ -414,10 +414,10 @@ dentro de aspas duplas.
 
 ### Condicionais
 
-### Operadores lógicos no shell
+### Operadores lógicos no Shell
 
-[Lembra do *cliffhanger* da aula passada?](/primeiroDia.md#combinando-comandos-usando-pipelines), espero que tenha percebido que lidar com
-valores booleanos (`true` e `false`) no shell é conveniente para nós, para que possamos tomar decisões baseadas no resultados
+[Lembra do *cliffhanger* da aula passada?](/primeiroDia.md#combinando-comandos-usando-pipelines), espero que você tenha percebido que lidar com
+valores booleanos (`verdadeiro` e `false`) no Shell é conveniente para nós, para que possamos tomar decisões baseadas no resultados
 de comandos. Porém, antes de lidarmos diretamentes com essas operações, precisamos entender o que são
 status de saída, visto que eles definem se o programa executou normalmente ou houve algum problema.
 
@@ -439,12 +439,12 @@ ls: cannot access '/bin/usr': No such file or directory
 2
 ```
 
-Esse `$?`, na verdade é um váriavel especial do shell, assim como o `$PATH`, que guarda o status de saída
+Esse `$?`, na verdade, é um váriavel especial do Shell, assim como o `$PATH`, que guarda o status de saída
 do último comando. Na primeira vez que executamos o `ls`, o status de saída foi 0, indicando que o comando
 terminou com sucesso, e, na segunda vez, o status de saída foi 2, indicando que houve algum tipo de problema.
 Podemos investigar qual problema ocorreu, consultando o manual do `ls`, ou, se houver, lendo a mensagem de erro.
 
-O shell tem dois comandos extremamente simples que não fazem nada além de terminar com o status de saída
+O Shell tem dois comandos extremamente simples que não fazem nada além de terminar com o status de saída
 0 ou 1, o `true` e o `false`, respectivamente.
 
 ```terminal
@@ -465,7 +465,7 @@ verdadeira se pelo menos um dos operandos for verdadeiro. Podemos visualizar iss
 
 ```sh
 false || echo "Opa, vou imprimir isso"
-# Como o primeiro é falso, logo o segundo vai ser avaliado
+# Como o primeiro é falso, o segundo vai ser avaliado
 
 true || echo "Não vou ser imprimido"
 # Como o primeiro é verdadeiro, o segundo não vai ser avaliado
@@ -477,8 +477,8 @@ false && echo "Will not be printed"
 # Como o primeiro é falso, não preciso nem avaliar o segundo
 
 true ; echo "Vai sempre rodar"
-# De extra, o `;` é um separador de comandos, logo o segundo comando vai ser executado sem 
-# importar o status do primeiro
+# De extra, o `;` é um separador de comandos, logo o segundo comando vai ser executado,
+# independentemente do status do primeiro
 
 false ; echo "Sou imbatível"
 ```
@@ -489,8 +489,8 @@ decide se vai avaliar o resto ou não.
 #### if-elif-else-fi
 
 Além das variáveis, também temos as condicionais, que funcionam de um jeito um pouco diferente. Os
-valores booleanos, ou seja `true` e `false`, são representados pelos códigos de saída de cada programa,
-como visto no tópico de [operadores lógicos](/primeiroDia.md#operadores-lógicos-no-shell). Consequementemente, o jeito mais imediato de usar condicionais é com os *if statements*, e a sintaxe para
+valores booleanos, ou seja, `true` e `false`, são representados pelos códigos de saída de cada programa,
+como visto no tópico de [operadores lógicos](/primeiroDia.md#operadores-lógicos-no-Shell). Consequementemente, o jeito mais imediato de usar condicionais é com os *if statements*, e a sintaxe para
 isso é:
 
 ```sh
@@ -524,15 +524,15 @@ else
 fi
 ```
 
-Se o `grep` encontrar a expressão `Tue` no output do comando `date`, o código de saída do `grep` vai ser 0,
-logo o dia de hoje será terça, caso contrário, não será.
+Se o `grep` encontrar a expressão `True` no output do comando `date`, o código de saída do `grep` vai ser 0.
+Logo o dia de hoje será terça, caso contrário, não será.
 
 Além disso, temos o `elif`, uma abreviação de `else if`, e é utilizado para adicionar mais condições
 a um `if`.
 
 #### Expressões lógicas
 
-Outra forma de usar condicionais é usar o comando `test`, que avalia expressões lógicas e retorna 0 se a
+Outra forma de usar condicionais é usando o comando `test`, que avalia expressões lógicas e retorna 0 se a
 expressão for verdadeira e 1 se for falsa. A sintaxe é a seguinte:
 
 ```sh
@@ -544,7 +544,7 @@ fi
 
 Naturalmente, as opções que o `test` aceita imitam as expressões que conhecemos na matemática e em outras
 linguagens de programação, por exemplo, o `-eq` representa a igualdade entre dois números
-`1 -eq 0` ≅ `1 == 0`, o `-lt` representa a desigualdade entre dois números `1 -lt 0` ≅ `1 < 0`, e assim
+`(1 -eq 0` ≅ `1 == 0`), o `-lt` representa a desigualdade entre dois números (`1 -lt 0` ≅ `1 < 0`), e assim
 por diante. Você pode verificar todas usando o manual (`man test`).
 
 Alternativamente, os `[]` servem como um alias para o `test`
@@ -623,18 +623,18 @@ que já conhecemos:
 
 #### Nota
 
-Na comparação de strings existe uma certa convenção, pois se o valor da string for vazio, o `test` pode
-ficar confuso, especialmente se você não usar aspas, por exemplo:
+Na comparação de strings existe uma certa convenção, pois, se o valor da string for vazio, o `test` pode
+ficar confuso, especialmente se você não usar aspas. Por exemplo:
 
 ```sh
 #!/bin/sh
 string=""
 test $string = "banana"; echo $?
-# O seu shell vai retornar um error, pois o comando `test` vai receber 3 argumentos
+# O seu Shell vai retornar um error, pois o comando `test` vai receber 3 argumentos
 ```
 
-Então, além de sempre ser recomendado usar aspas, existe uma convenção de prefixar uma string com "X"
-durante a comparação para que esse tipo de erro aconteça, por exemplo:
+Então, além de sempre ser recomendado usar aspas, existe uma convenção de prefixar uma string (conjunto de caracteres) com "X"
+durante a comparação, para que esse tipo de erro aconteça, por exemplo:que facilite
 
 ```sh
 #!/bin/sh
@@ -643,16 +643,16 @@ test "X$string" = "Xbanana"; echo $?
 # Note a diferença no status de saída
 ```
 
-Agora a comparação não vai bugar, pois o `test` vai receber a quantidade certa de argumentos
+Agora, a comparação não vai resultar em um erro, pois o `test` vai receber a quantidade certa de argumentos
 
 ---
 
 ### Funções
 
 Se você está começando agora na programação, provavelmente ainda não deve estar completamente familiarizado
-com o conceito de funções, mas com certeza é algo que você já usou muitas vezes sem se quer perceber. Quando
-você invoca um comando no shell, seja com ou sem argumentos, você sempre espera uma determinada saída ou
-resultado. E é exatamente esse o comportamento de uma função, exceto que no contexto de linguagem de programação,
+com o conceito de funções, mas com certeza é algo que você já usou muitas vezes sem perceber. Quando
+você invoca um comando no Shell, seja com ou sem argumentos, você sempre espera uma determinada saída ou
+resultado. E é exatamente esse o comportamento de uma função, exceto que, no contexto de linguagem de programação,
 geralmente nos referimos a funções como blocos de código independentes que realizam uma tarefa específica
 quando são invocados.
 
@@ -674,7 +674,7 @@ que ela aceita, a aplicação de $f$ em $x$ é representada por $f(x)$, e o resu
 - Imagem retirada do livro *Matemática Funcional para Computação*, Thanos Tsouanas. Disponível em:
 <https://www.tsouanas.org/fmcbook/>
 
-#### Funções no shell
+#### Funções no Shell
 
 Tradicionalmente, para conseguirmos usar uma função, precisamos defini-la, seja no início do script
 ou em um arquivo separado. A sintaxe para definir e usar uma função é a seguinte:
@@ -699,7 +699,7 @@ Alguns exemplos de funções seriam:
 mcd() {
   mkdir -p "$1"
   cd "$1"
-  # O retorno de funções do shell sempre são seu código de saída,
+  # O retorno de funções do Shell sempre são seu código de saída,
   return "$?"
   # Essencialmente podemos emitir esse campo, ou usar um código de saída personalizado
 }
@@ -732,7 +732,7 @@ contém e invocá-las.
 Outro recurso muito característico de linguagens de programação no geral são os *loops*: blocos de
 códigos que são executados repetidamente até que uma condição de parada seja satisfeita (ou não).
 
-Essencialmente, no shell, existem 3 tipos de loop, mas veremos apenas 2, o `for` e o `while`.
+Essencialmente, no Shell, existem 3 tipos de loop, mas veremos apenas 2, o `for` e o `while`.
 
 #### `while` loop
 
@@ -806,7 +806,7 @@ Baixe o arquivo compactado com o binário [daqui](https://github.com/sxyazi/yazi
 versão `yazi-x86_64-unknown-linux-gnu.zip` e faça o que for necessário para que o programa `yazi` seja
 executável em qualquer lugar do seu sistema.
 
-- Para descompactar use o comando `unzip`.
+- Para descompactar, use o comando `unzip`.
 
 Como resolução, descreva os passos que você fez para instalar o programa em um arquivo de texto, por exemplo: `ans0201.txt`.
 
@@ -839,14 +839,14 @@ Um exemplo de saída seria:
  drwx------+ 47 user group 1.5K Jan 12 18:08 ..
 ```
 
-Como resolução será aceita o a linha de comando que você usou para criar o alias em formato de arquivo
+Como resolução será aceita a linha de comando que você usou para criar o alias em formato de arquivo
 de texto.
 
 ### Exercício 4
 
 Faça um script para backup!
 
-O seu programa deve receber apenas um argumento, o nome do arquivo ou diretório que você quer fazer backup.
+O seu programa deve receber apenas um argumento: o nome do arquivo ou diretório que você quer fazer backup.
 
 ```terminal
 bak.sh FILE 
@@ -862,7 +862,7 @@ Downloads Documents Pictures
 Downloads Downloads.bak Documents Pictures
 ```
 
-Se o argumento passado for um diretório todos os seus arquivos e sub-diretórios também devem sofrer backup.
+Se o argumento passado for um diretório, todos os seus arquivos e sub-diretórios também devem sofrer backup.
 Caso contrário, apenas o arquivo passado como argumento deve ser copiado.
 
 Além disso, o arquivo gerado deve ter a extensão `.bak` e deve ser salvo no mesmo diretório que o arquivo.
@@ -876,9 +876,9 @@ Escreva funções `sh`, chamadas `marco` e `polo` que fazem o seguinte:
 - Toda vez que você chamar a função `marco`, ela salva o diretório atual de alguma forma.
 - Toda vez que você chamar a função `polo`, ela muda para o diretório salvo pela função `marco`.
 
-Lembre-se de usar o `source` para recarregar as definições para seu shell.
+Lembre-se de usar o `source` para recarregar as definições para seu Shell.
 
-Como resolução será aceita o(s) arquivo de código que você usou para implementar as funções
+Como resolução, aceitaremos o(s) arquivo(s) de código que você usou para implementar as funções
 
 ### Exercício 6
 
@@ -886,7 +886,7 @@ Crie um programa para ser usado na linha de comando que permita os usuários rea
 como criar, listar e excluir arquivos e diretórios. O aplicativo deve aceitar opções e argumentos para
 especificar a ação a ser realizada.
 
-Supondo que `$` é o prompt do seu shell, o programa deve funcionar da seguinte maneira:
+Supondo que `$` é o prompt do seu Shell, o programa deve funcionar da seguinte maneira:
 
 ```terminal
 $ ./fm
@@ -899,9 +899,9 @@ Options:
   -d, --delete   Delete a file
 ```
 
-Note, que seu programa pode recber multiplos arquivos e opções, além de que a ordem dos argumentos não deve
+Note que seu programa pode receber múltiplos arquivos e opções, além de que a ordem dos argumentos não deve
 importar.
 
 - Dica: Use o caminho do `bash` no shebang, para ter acesso ao operador `+=` que concatena elementos em um array.
 
-Será aceito como resolução o arquivo de código que você usou para implementar o programa.
+Será aceito como resolução, o arquivo de código que você usou para implementar o programa.
