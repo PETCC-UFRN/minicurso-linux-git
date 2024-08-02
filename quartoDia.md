@@ -468,7 +468,7 @@ O comportamento padrão do script é gerar uma senha de 8 caracteres minúsculos
 ```bash
 #!/bin/bash
 # Função para exibir a ajuda
-function show_help() {
+show_help() {
   # Implementação vai aqui
 }
 
