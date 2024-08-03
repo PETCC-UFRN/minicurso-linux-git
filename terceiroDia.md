@@ -64,7 +64,7 @@ title: Minicurso de Linux e Git
 
 Um processo é um <span class="destaque">programa em execução</span> .
 
-O sistema operaçional lida com uma infinidade de processos, que possuem as seguintes características:
+Um sistema operacional lida com uma infinidade de processos, que possuem as seguintes características:
 
 - Proprietário do processo;
 - Estado do processo (em espera, em execução, etc);
@@ -83,7 +83,7 @@ Cada processo possui um número identificador, chamado de <span class="destaque"
 
 #### Visualizando processos estaticamente com `ps`
 
-O comando `ps` mostra quais os processos em execução atualmente, mostrando quais os UIDs e PIDs de cada processo.
+O comando `ps` mostra os processos em execução atualmente e exibe os UIDs e PIDs de cada um.
 
 Ao executar o `ps` sem nenhuma opção, serão apresentados os processos em execução no terminal.
 
@@ -105,10 +105,10 @@ As opções mais importantes para o comando `ps` são:
 
 <span class="destaque">u</span> - exibe o nome do <span class="destaque">usuário</span> que iniciou determinado processo e a hora em que isso ocorreu;
 
-<span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no consoledo terminal.
+<span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no console do terminal.
 
 ##### O uso do `ps` com o `grep`
-O `ps` é uma ferramenta essencial e corriqueira, e já usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
+O `ps` é uma ferramenta essencial e corriqueira. Já a usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
 Por exemplo, para ver os processos systemd:
 
 ```shell
@@ -214,7 +214,7 @@ No Linux, um processo pode estar em <span class="destaque">foreground</span> ou 
 ```bash
 $ ping google.com
 ```
-Quando você executa o comando ping em <span class="destaque">primeiro plano</span> (sem o & no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você <span class="destaque">não poderá usar o terminal</span> para outros comandos até que o ping termine ou seja interrompido.
+Quando você executa o comando ping em <span class="destaque">primeiro plano</span> (sem o '&' no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você <span class="destaque">não poderá usar o terminal</span> para outros comandos até que o ping termine ou seja interrompido.
 
 Seu terminal ficará assim:
 
@@ -244,7 +244,7 @@ Você verá uma mensagem que indica o <span class="destaque">número do trabalho
 
 ##### Ver lista de processos em segundo Plano
 
-Para poder ver quais processos em segundo plano é só digitar 
+Para poder ver quais processos em segundo plano, digite:
 
 ```shell
 $ jobs
@@ -256,11 +256,11 @@ Irá aparecer algo como:
 $ [1]+  Running          ping 127.0.0.1 &
 ```
 
-Note que se você fizer <span class="destaque">CTRL + C</span>  o processo <span class="destaque">não será interrompido</span>, pois ele não está em primeiro plano(foreground).
+Note que, se você fizer <span class="destaque">CTRL + C</span>, o processo <span class="destaque">não será interrompido</span>, pois ele não está em primeiro plano(foreground).
 
 ##### Trazer para foreground
 
-Vamos supor que você pretende trazer o processo para primeiro plano. Para isso utilize o seguinte comando :
+Vamos supor que você pretende trazer o processo para primeiro plano. Para isso, utilize o seguinte comando :
 
 ```bash
 $ fg %1
@@ -277,24 +277,24 @@ rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
 
 ##### Retomando processos suspensos em background
 
-Vamos agora digitar o seguinte comando:
+Agora, digite o seguinte comando:
 ```bash
 $ ping 127.0.0.1
 ```
 
-Agora vamos pressionar  <span class="destaque">`CTRL + Z`</span> para <span class="destaque">suspender</span> o comando bing. Esse comando pausa o processo e o colocar em <span class="destaque">segundo plano</span> em estado de pausa(suspenso).
+Em seguida, digite  <span class="destaque">`CTRL + Z`</span> para <span class="destaque">suspender</span> o comando bing. Esse comando pausa o processo e o colocar em <span class="destaque">segundo plano</span> em estado de pausa(suspenso).
 
 ```bash
 ^Z
 [1]+  Stopped                 ping 127.0.0.1
 ```
-Para retomar o Processo em segundo plano é necessário utilizar o comando bg da seguinte forma.
+Para retomar o processo em segundo plano, é necessário utilizar o comando bg da seguinte forma:
 
 ```bash
 $ bg %1
 ```
 
-agora vamos digitar o comando <span class="destaque">jobs</span> para ver o estado dos processos em background.
+Agora, vamos digitar o comando <span class="destaque">jobs</span> para ver o estado dos processos em background.
 
 
 ```bash
@@ -309,7 +309,7 @@ Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembr
 
 Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
 
-Nohup - abreviação de '*no hang up*' - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+Nohup - abreviação de '*no hang up*', ou 'não desligar', em Português - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
 ##### Sintaxe do comando Nohup
 A sintaxe para usar o comando Nohup é direta:
@@ -324,7 +324,7 @@ $ nohup command [options] &
 
 ##### Iniciando um processo usando o Nohup
 
-Para iniciar um processo usando o Nohup, basta preceder o comando desejado com `nohup`. Por exemplo, se você deseja executar o comando `sleep 60`(faz o sistema esperar 60segundos) chamado usando Nohup, você deve usar o seguinte comando:
+Para iniciar um processo usando o Nohup, basta preceder o comando desejado com `nohup`. Por exemplo, se você deseja executar o comando `sleep 60`(que faz o sistema esperar 60 segundos) chamado usando Nohup, você deve usar o seguinte comando:
 
 ```bash
 $ nohup sleep 60 &
@@ -338,9 +338,9 @@ $ nohup : ignoring input and appending output to 'nohup.out'
 
 ##### Deixando de fora o caractere '&'
 
-Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o <span class="destaque">processo será executado</span> em primeiro plano e que você <span class="destaque">não poderá fazer nenhum outro trabalho no terminal</span> até que ele seja concluído. Geralmente, para tarefas de <span class="destaque">longa duração</span>, o usuário sempre envia para segundo plano, porque quem quer esperar por aí sem fazer nada por longos períodos?
+Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o processo para o segundo plano. Mas isso simplesmente significa que o <span class="destaque">processo será executado</span> em primeiro plano e que você <span class="destaque">não poderá fazer nenhum outro trabalho no terminal</span> até que ele seja concluído. Geralmente, para tarefas de <span class="destaque">longa duração</span>, o usuário envia para segundo plano, já que não faz sentido esperar sem necessidade.
 
-Mas caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se <span class="destaque">fechar o terminal</span>, ou perder a <span class="destaque">conectividade com a Internet</span>, ou algo mais acontecer, o processo <span class="destaque">não será interrompido</span>. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
+Caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se <span class="destaque">o terminal for fechado</span>, ou a <span class="destaque">conectividade com a Internet for perdida</span>, ou algo mais acontecer, o processo <span class="destaque">não será interrompido</span>. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
 
 #### Uso do wait
 
@@ -361,21 +361,23 @@ $ wait 5010
 
 #### Compactando diretórios com zip
 
-Compactar arquivos significa <span class="destaque">juntar</span> todos em um único arquivo de modo que ocupem um <span class="destaque">espaço menor</span>.
+Compactar arquivos significa <span class="destaque">juntar</span> todos eles em um único arquivo de modo que eles ocupem um <span class="destaque">espaço menor</span>.
 
-Provavelmente você já viu algum arquivo com a <span class="destaque">extensão .zip</span>. No Linux, para compactar arquivos no formato .zip é utilizado o comando <span class="destaque">`zip`</span>.
+Provavelmente você já viu algum arquivo com a <span class="destaque">extensão .zip</span>. No Linux, para compactar arquivos no formato .zip, é utilizado o comando <span class="destaque">`zip`</span>.
 
-Vamos supor que temos a pasta chamada "projetos" e dentro dela tenha dois subdiretórios chamados "ITP" e "PC", com todos os programas que você fez durante as disciplinas. O seguinte problema surgiu : você gostaria de mandar pelo whats up para um colega recém chegado no curso, porém o Whats UP não permite mandar devido ao tamanho dos arquivos e, por isso, você descidiu compactar os projetos.
+Vamos supor que temos uma pasta chamada "projetos" e, dentro dela, dois subdiretórios chamados "ITP" e "PC", onde estão todos os programas que você fez durante as disciplinas. Surgiu o seguinte problema: você gostaria de enviar esses arquivos pelo WhatsApp para um colega recém-chegado no curso, mas o WhatsApp não permite o envio devido ao tamanho dos arquivos. Por isso, você decidiu compactar os projetos.
 
-Para isso fez o seguinte comando :
+Para isso, digitou:
+
 ```shell
     $ zip projetos.zip projetos/
 ```
-depois executou o seguinte comando para poder <span class="destaque">visualizar</span> se todos os <span class="destaque">diretórios </span>foram armazenados no arquivo compactado "projetos.zip" :
+depois, executou o seguinte comando para poder <span class="destaque">visualizar</span> se todos os <span class="destaque">diretórios </span>foram armazenados no arquivo compactado "projetos.zip":
+
 ```shell
     $ unzip -l projetos.zip 
 ```
-e viu o senguinte:
+e viu o seguinte:
 
 ```shell
   $ Archive:  projetos.zip
@@ -385,15 +387,16 @@ e viu o senguinte:
     ---------                     -------
             0                     1 file
 ```
-Note que ocorreu um problema, pois <span class="destaque">os subdiretórios não foram inseridos</span> na compactação e isso ocorre, porque por padrão o comando `zip` não inclui os arquivos e subdiretórios de um diretório, por isso nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver isso é fácil: basta passar o argumento <span class="destaque">-r</span>(recursive).
+Note que ocorreu um problema, pois <span class="destaque">os subdiretórios não foram inseridos</span> na compactação. Isso ocorre pois, por padrão, o comando `zip` não inclui os arquivos e subdiretórios de um diretório. Assim, nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver, basta passar o argumento <span class="destaque">-r</span>(recursive).
 
-O -r vai fazer com que o comando zip <span class="destaque">processe recursivamente</span> todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que <span class="destaque">tudo seja incluído</span> no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
+O -r fará com que o comando zip <span class="destaque">processe recursivamente</span> todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que <span class="destaque">tudo seja incluído</span> no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
 
 ```shell
     $ zip -r projetos.zip projetos/
 ```
 
-Agora vamos ver se tudo foi compactado
+Agora, vamos ver se tudo foi compactado:
+
 ```shell
     $ unzip -l projetos.zip 
     Archive:  projetos.zip
@@ -411,12 +414,12 @@ Agora vamos ver se tudo foi compactado
 
 #### Compactando arquivos e diretórios com tar e gzip
 
-Outra forma de compactar arquivo é utilizando <span class="destaque">tar</span> e <span class="destaque">gzip</span>. Quando nos deparamos com arquivos do tipo <span class="destaque">arquivo.tar.gz</span>, significa que ocorreram <span class="destaque">dois processos</span>. 
-- Primeiramente ocorreu o <span class="destaque">empacotamento dos arquivos</span> no formato `.tar ` e depois foi feita a <span class="destaque">compactação dos arquivo</span> no formato `gzip`.
+Outra forma de compactar arquivos é utilizando <span class="destaque">tar</span> e <span class="destaque">gzip</span>. Quando nos deparamos com arquivos do tipo <span class="destaque">arquivo.tar.gz</span>, significa que ocorreram <span class="destaque">dois processos</span>. 
+- Primeiro, ocorreu o <span class="destaque">empacotamento dos arquivos</span> no formato `.tar ` e depois foi feita a <span class="destaque">compactação dos arquivo</span> no formato `gzip`.
 
 ##### Qual a vantagem do tar?
 
-A vantagem é que o tar consegue manter as <span class="destaque">permissões dos arquivos</span>, bem como <span class="destaque">links diretos</span> e <span class="destaque">simbólicos</span>, sendo interessante por exemplo para realizar <span class="destaque">backups</span>.
+A vantagem é que o tar consegue manter as <span class="destaque">permissões dos arquivos</span>, bem como <span class="destaque">links diretos</span> e <span class="destaque">simbólicos</span>, sendo interessante, por exemplo, para realizar <span class="destaque">backups</span>.
 
 Utilizamos o comando tar para realizar as compactações. A compactação do diretório "projetos/" ficaria da seguinte forma:
 
@@ -424,20 +427,20 @@ Utilizamos o comando tar para realizar as compactações. A compactação do dir
 $ tar -czf projetos.tar.gz projetos/
 ```
 
-- <span class="destaque">-c</span> - create: indica que desejamos <span class="destaque">criar</span> um arquivo
+- <span class="destaque">-c</span> - create: indica que desejamos <span class="destaque">criar</span> um arquivo.
 
-- <span class="destaque">-z</span> - gzip: indica que queremos <span class="destaque">compactar</span> com gzip
+- <span class="destaque">-z</span> - gzip: indica que queremos <span class="destaque">compactar</span> com gzip.
 
--  <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo compactado
+-  <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo compactado.
 
 
-Note que não precisamos usar o `-r` e isso acontece, pois o `tar` age de forma <span class="destaque">recursiva por padrão</span>.
+Note que não precisamos usar o `-r`. Isso acontece pois o `tar` age de forma <span class="destaque">recursiva por padrão</span>.
 
 ### Descompactação 
 
 #### Descompactando diretórios com unzip
 
-Vamos supor que seu colega, que recebeu o arquivo <span class="destaque">projetos.zip</span>, deseja <span class="destaque">descompactar </span>os arquivos. Para isso, ele erá executar os seguintes passos :
+Vamos supor que seu colega, que recebeu o arquivo <span class="destaque">projetos.zip</span>, deseja <span class="destaque">descompactá-los </span>. Para isso, ele executará os seguintes passos:
 
 ```shell
 $ unzip projetos.zip
@@ -448,7 +451,7 @@ Isso irá <span class="destaque">extrair</span> todos os <span class="destaque">
 $ unzip projetos.zip -d /home/ubuntu/Music
 ```
 
-Se você quiser que <span class="destaque">não apareça o progresso</span> e sua tela fique cheia de informações, pode utilizar o <span class="destaque">-q</span>, que significa <span class="destaque">quiet</span>, para que ele apenas descompacte e não mostre cada coisa que fez:
+Se você quiser que <span class="destaque">o progresso não apareça</span> e sua tela fique cheia de informações, é possível utilizar o <span class="destaque">-q</span>, que significa <span class="destaque">quiet</span>, para que ele apenas descompacte e não mostre cada coisa que fez:
 
 ```shell
 $ unzip -q projetos.zip -d /home/ubuntu/Music
@@ -462,9 +465,9 @@ Para descompactar um arquivo <span class="destaque">tarball comprimido com gzip<
 $ tar -xzf projetos.tar.gz
 ```
 
-- <span class="destaque">-x</span> - extract: <span class="destaque">extrai</span> o conteúdo do arquivo tar
-- <span class="destaque">-z</span> - gzip: <span class="destaque">descomprime</span> o arquivo usando gzip
-- <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo tar
+- <span class="destaque">-x</span> - extract: <span class="destaque">extrai</span> o conteúdo do arquivo tar.
+- <span class="destaque">-z</span> - gzip: <span class="destaque">descomprime</span> o arquivo usando gzip.
+- <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo tar.
 
 ## Versionadores e Git: Fundamentos e Conceitos
 
@@ -472,7 +475,7 @@ $ tar -xzf projetos.tar.gz
 
 #### O que são Versionadores?
 
-Versionadores são sistemas que registram <span class="destaque">alterações</span> em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar <span class="destaque">versões</span> específicas mais tarde. Surgiram devido à necessidade de aumentar a <span class="destaque">eficiência</span>, gerenciar um número maior de <span class="destaque">colaboradores</span> e projetos de <span class="destaque">software moderno</span>.
+Versionadores são sistemas que registram <span class="destaque">alterações</span> em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo lembrar <span class="destaque">versões</span> específicas mais tarde. Eles surgiram devido à necessidade de aumentar a <span class="destaque">eficiência</span>, gerenciar um número maior de <span class="destaque">colaboradores</span> e projetos de <span class="destaque">software moderno</span>.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/ryblu7zSR.png" width="70%">
 
@@ -487,15 +490,15 @@ Utilizam um <span class="destaque">banco de dados simples</span> para manter tod
 ##### 2. Sistemas Centralizados
 
 Têm um <span class="destaque">único servidor</span> que contém todos os arquivos de controle de versão e um número de clientes que usam esses arquivos a partir desse lugar central.
-<span class="destaque">Desvantagens</span> incluem a necessidade de estar <span class="destaque">sempre conectado</span> ao servidor e a paralisação em caso de <span class="destaque">falha do servidor</span>.
+Suas <span class="destaque">desvantagens</span> incluem a necessidade de estar <span class="destaque">sempre conectado</span> ao servidor e a paralisação em caso de <span class="destaque">falha do servidor</span>.
+
+São utilizados por plataformas como a Wikipédia.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/By_qMTBHR.png" width="70%">
 
 - **Vantagens dos Sistemas Centralizados**
 
     - <span class="destaque">Simples</span> de utilizar, ideal para <span class="destaque">equipes pequenas</span>.
-
-    - Utilizados por plataformas como a Wikipédia.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
 
@@ -527,23 +530,23 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 A criação do <span class="destaque">Linux</span> foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza <span class="destaque">colaborativa</span> e <span class="destaque">open-source</span>. <span class="destaque">Linus Torvalds</span>, o criador do Linux, enfrentou desafios significativos ao <span class="destaque">coordenar as contribuições</span> de inúmeros desenvolvedores ao redor do mundo. 
 
-Durante os anos iniciais do <span class="destaque">Linux Kernel</span> as mudanças eram gerenciadas através do envio de arquivos entre desenvolvedores. Posteriormente, usou-se o versionador BitKeeper, mas quando este se tornou pago, a comunidade Linux, liderada por <span class="destaque">Torvalds</span>, decidiu criar o Git, aprendendo com as lições adquiridas durante o uso do BitKeeper e com um desafio de fazer um sistema de versionamento mais eficiente e com funcionalidades que acelerassem o processo de desenvolvimento de software.
+Durante os anos iniciais do <span class="destaque">Linux Kernel</span>, as mudanças eram gerenciadas através do envio de arquivos entre desenvolvedores. Posteriormente, usou-se o versionador BitKeeper, mas quando este se tornou pago, a comunidade Linux, liderada por <span class="destaque">Torvalds</span>, decidiu criar o Git, aprendendo com as lições adquiridas durante o uso do BitKeeper e com um desafio de fazer um sistema de versionamento mais eficiente e com funcionalidades que acelerassem o processo de desenvolvimento de software.
 
 Os objetivos principais para o novo sistema incluíam:
 
-<span class="destaque">**Velocidade**</span>
+<span class="destaque">**Velocidade**</span>;
 
-<span class="destaque">**Design simples**</span>
+<span class="destaque">**Design simples**</span>;
 
-**Forte suporte para o <span class="destaque">desenvolvimento não linear </span>** (milhares de branches paralelas)
+**Forte suporte para o <span class="destaque">desenvolvimento não linear </span>** (milhares de branches paralelas);
 
-**<span class="destaque">Alta distribuição</span>**
+**<span class="destaque">Alta distribuição</span>**;
 
-**Capacidade de lidar com <span class="destaque">grandes projetos</span>** como o kernel do Linux de forma eficiente
+**Capacidade de lidar com <span class="destaque">grandes projetos</span>**, como o kernel do Linux, de forma eficiente.
 
 ### De onde vem o nome "Git"?
 
-O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos <span class="destaque">em sua homenagem</span> , sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa <span class="destaque">"pessoa desagradável"</span>. Além disso, há uma interpretação alternativa em que "Git" pode significar "Global Information Tracker" quando você estiver de bom humor.
+O nome "Git" tem uma origem curiosa. Em uma entrevista, Linus Torvalds explicou sarcasticamente que ele nomeia todos os seus projetos <span class="destaque">em sua homenagem</span> , sendo "Linux" o primeiro e "Git" o segundo. Na gíria britânica, "git" significa <span class="destaque">"pessoa desagradável"</span>. Além disso, há uma interpretação alternativa em que "Git" pode significar <span class="destaque">"Global Information Tracker"</span>  quando você estiver de bom humor.
 
 Para mais detalhes, você pode consultar o manual do Git no terminal usando o comando `man git`.
 
@@ -613,7 +616,7 @@ No contexto do Git, a autenticação via chave SSH é especialmente útil ao int
 
 ### Um pouco mais sobre Git
 
-O Git é um sistema de controle de versão <span class="destaque">distribuído</span> que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui <span class="destaque">blobs</span> (conteúdo de arquivos), <span class="destaque">trees</span> (diretórios), <span class="destaque">commits</span> (mudanças com metadados) e <span class="destaque">tags</span> (marcadores de versão). <span class="destaque">Cada objeto</span> é identificado por um <span class="destaque">hash SHA-1</span>, garantindo a integridade dos dados. Git permite a criação de <span class="destaque">branches</span> para <span class="destaque">desenvolvimento paralelo</span> e <span class="destaque">merges</span> para combinar mudanças. As modificações são preparadas na <span class="destaque">staging area</span> antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, Git suporta <span class="destaque">operações offline</span> e <span class="destaque">sincronização</span> com repositórios <span class="destaque">remotos</span> através de comandos como push e pull, facilitando o trabalho simultâneo de <span class="destaque">múltiplos desenvolvedores</span>.
+O Git é um sistema de controle de versão <span class="destaque">distribuído</span> que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui <span class="destaque">blobs</span> (conteúdo de arquivos), <span class="destaque">trees</span> (diretórios), <span class="destaque">commits</span> (mudanças com metadados) e <span class="destaque">tags</span> (marcadores de versão). <span class="destaque">Cada objeto</span> é identificado por um <span class="destaque">hash SHA-1</span>, garantindo a integridade dos dados. Git permite a criação de <span class="destaque">branches</span> para <span class="destaque">desenvolvimento paralelo</span> e <span class="destaque">merges</span> para combinar mudanças. As modificações são preparadas na <span class="destaque">staging area</span> antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, o Git suporta <span class="destaque">operações offline</span> e <span class="destaque">sincronização</span> com repositórios <span class="destaque">remotos</span> através de comandos como push e pull, facilitando o trabalho simultâneo de <span class="destaque">múltiplos desenvolvedores</span>.
 
 #### Workflow básico
 
@@ -627,16 +630,16 @@ O Git é um sistema de controle de versão <span class="destaque">distribuído</
 
 Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
-<span class="destaque">***modified***</span> - quando o arquivo foi modificado e não está rastreado pelo Git
+<span class="destaque">***modified***</span> - quando o arquivo foi modificado e não está rastreado pelo Git.
 
-<span class="destaque">***staged***</span> - quando a modificação foi colocada na staging área - uma área que armazenamos as mudanças antes de tê-las como definitiva para a próxima versão , ou seja, para o próximo commit.
+<span class="destaque">***staged***</span> - quando a modificação foi colocada na 'staging area' - uma área na qual armazenamos as mudanças antes de tê-las como definitiva para a próxima versão, ou seja, para o próximo commit.
 
-<span class="destaque">***commited***</span> - Mudanças que são definitivar, ou seja o snapshot permanente foi guardado na linha do tempo do Git
+<span class="destaque">***commited***</span> - Mudanças que são definitivas, ou seja, a snapshot permanente foi guardada na linha do tempo do Git.
 
 ### Comandos e Práticas do Git
 
 #### Inicializando o git no repositório `git init`.
-Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório git e em seguida vamos inicializar o git com o comando <span class="destaque"> git init </span>
+Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório Git e, em seguida, vamos inicializar o Git com o comando <span class="destaque"> git init </span>
 ```shell
 $ cd OneDrive/Documentos/projeto
 $ git init
@@ -673,7 +676,7 @@ On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
-Digamos que você adiciona um novo arquivo no seu projeto, um simples arquivo chamado 'chat'. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
+Digamos que você adicionou um simples arquivo chamado 'chat' ao seu projeto. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
 ```sh
 $ echo 'código do chat' > chat
@@ -712,7 +715,7 @@ Changes to be committed:
 #### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
 Vamos modificar um arquivo que já está sendo rastreado.
 
-Se por exemplo adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
+Se, por exemplo, adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
 ```sh
 $ git status
 On branch master
@@ -733,6 +736,7 @@ Isso significa que o arquivo rastreado foi modificado no diretório mas ainda n�
 Para isso, vamos usar o <span class="destaque">`git add`</span>.
 
 Pode ser útil pensar nesse comando mais como “adicione este conteúdo ao próximo commit”.
+
 ```sh
 $ git add .
 $ git status
@@ -759,13 +763,13 @@ Alternativamente, podemos fazer:
 ```sh
 $ git commit -m "mensagem"
 ```
-Lembre-se de que o commit grava o <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Toda vez que você executa um commit, você está gravando um snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
+Lembre-se que o commit grava a <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Sempre que você executa um commit, você está gravando uma snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
 
 <a href="#exercício-01---iniciando-um-novo-repositório-git"><spam class="destaque" style="font-size:20px;">Exercícios : 1-2</spam></a>
 
 #### Configurando o Repositório Remoto git remote
 
-Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso vamos usar o comando <span class="destaque">git remote</span>
+Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso, vamos usar o comando <span class="destaque">git remote</span>
 
 ```shell
 git remote add origin https://github.com/seu-usuario/seu-repositorio.git
@@ -798,13 +802,13 @@ Depois de executar esses comandos, o repositório local estará desconectado do 
 
 ##### Como renomear o repositório remoto 
 
-Use o comando git remote rename para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear origin para novo-nome.
+Use o comando 'git remote rename' para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear 'origin' para 'novo-nome'.
 
 ```shell
 $ git remote rename origin novo-nome
 ```
 
-Note o seguinte:
+Note que:
 
 ```shell
 $ git remote -v
@@ -835,9 +839,9 @@ Date:   Thu Jun 29 09:12:10 2024 +0000
     adicionando a funcionalidade chat
 ```
 ##### Uma flag eficiente
-Existe uma forma mais simplificada de visualizar os commits e esta forma é utilizando o comando <span class="destaque">"git log --oneline"</span>
+Utilizando o comando <span class="destaque">"git log --oneline"</span>, podemos ver os commits de forma mais simplificada.
 
-Ele ira mostrar o número <span class="destaque">hash</span> ou sha que é que é o <span class="destaque">identificador (ID)</span> do commit e em seguida a sua <span class="destaque">mensagem</span>.
+Ele irá mostrar o número <span class="destaque">hash</span> ou sha que é o <span class="destaque">identificador (ID)</span> do commit e em seguida a sua <span class="destaque">mensagem</span>.
 
 ```sh 
 $ git log --oneline
@@ -901,7 +905,7 @@ Dessa forma, você está enviando o conteúdo da sua <spam class="destaque">cóp
 
 #### Trazendo alterações para o repositório local `git pull`
 
-Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e deseja trazê-las para o seu repositório local, basta digitar o comando <span class="destaque">git pull</span>:
+Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e você deseja trazê-las para o seu repositório local, basta digitar o comando <span class="destaque">git pull</span>:
 
 ```sh
 $ git pull
@@ -922,7 +926,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 ####  Exercício 01 - Iniciando um novo repositório Git
 
-<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para volta ao conteúdo</a>
+<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para voltar ao conteúdo</a>
 
 1. Crie um novo diretório chamado calculadora_python.
 
@@ -934,7 +938,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 #### Exercício 02
 
-<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para volta ao conteúdo</a>
+<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para r ao conteúdo</a>
 
 1. Adicione arquivos ao seu repositório Git
 
@@ -944,28 +948,26 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 4. Adicione o arquivo README.md ao repositório Git.
 
-5.Faça um commit no repositório Git  com a mensagem "Adicionei o README.md".
-
+5.Faça um commit no repositório Git com a mensagem "Adicionei o README.md".
 
 6. Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
 #### Exercício 03 - Configurando um repositório remoto e enviando os commits
 
-<a href="#como-desconectar-o-repositório-local-do-remoto">Clique para volta ao conteúdo</a>
+<a href="#como-desconectar-o-repositório-local-do-remoto">Clique para voltar ao conteúdo</a>
 
-1. No GitHub crie um novo repositório chamado calculadora_pyton.
+1. No GitHub, crie um novo repositório chamado calculadora_pyton.
 
 2. No terminal, dentro do diretório calculadora_pyton, configure seu repositório Git local para apontar para este repositório remoto.
 
 3. Envie seus commits para o repositório remoto:
 
-
 Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
-<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para volta ao conteúdo</a>
+<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para voltar ao conteúdo</a>
 
 1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
 
@@ -977,7 +979,6 @@ def soma(a, b):
 
 2. Adicione o arquivo ao repositório:
 
-
 3. Faça um commit com a mensagem "Adiciona função de soma".
 
 4. Adicione a função de multiplicação ao arquivo calculadora.py:
@@ -987,37 +988,37 @@ def multiplicacao(a, b):
     c+b=4
     return a * b
 ```
-5. Adicione e comite as mudanças com a seguinte mentagem "Adicionei a função de multiplicação"
+5. Adicione e "comite" as mudanças com a seguinte mentagem: "Adicionei a função de multiplicação"
 
 6. Verifique o erro após o commit e corrija-o apagando o "c+b=4" no arquivo.
 
-7. adicione a modificação ao repositório e faça o commit com a mensagem "Correção de bug na função de multiplicação"
+7. Adicione a modificação ao repositório e faça o commit com a mensagem "Correção de bug na função de multiplicação"
 
-6. Use o comando que sobe as auterações locais para o repositório remoto para subir os seus commits.
+6. Use o comando que sobe as alterações locais para o repositório remoto para subir os seus commits.
 
 Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de textocom o nome dia3exercicio4.txt
 
 
 #### Exercício 05 - Clonando um repositório
 
-<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para volta ao conteúdo</a>
+<a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para voltar ao conteúdo</a>
 
 1. Clone o repositório que está neste link: [link do repositório central]
 
-2. crie uma pasta com o seu numero de matrícula e seu primeiro nome como 201003948_luiz
+2. Crie uma pasta com o seu numero de matrícula e seu primeiro nome como 201003948_luiz
 
-3. Adicione a pasta ao git depois comite com a mensagem "Adicionei a pasta 201003948_luiz"
+3. Adicione a pasta ao Git depois "comite" com a mensagem "Adicionei a pasta 201003948_luiz"
 
-4. Aqui você poderá fazer o projeto que almejar, aplicando o que foi  aprendido
+4. Aqui, você poderá fazer o projeto que quiser, aplicando o que foi aprendido. Você pode, por exemplo:
 
-    - Você pode criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou modificação de personagem.
+    - Criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou a cada  modificação de personagem.
 
-    - Você pode fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+    - Fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
 
-    - Você pode fazer um mini-site básico, fazendo commits a cada funcionalidade implementada.
+    - Fazer um site pequeno e básico, fazendo commits a cada funcionalidade implementada.
 
-5. Traga para o seu repositório as auterações que estão no remoto(para ver se alguém já subiu algum arquivo).
+5. Traga para o seu repositório as alterações que estão no remoto(para ver se alguém já subiu algum arquivo).
 
 6. Após isso, suba todas os commits para o nosso repositório remoto.
 
-O que será avaliado aqui são os commits (faça no mínimo uns 3 commits)
+O que será avaliado aqui são os commits (faça, no mínimo, 3).

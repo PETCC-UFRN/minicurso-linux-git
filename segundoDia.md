@@ -634,7 +634,7 @@ test $string = "banana"; echo $?
 ```
 
 Então, além de sempre ser recomendado usar aspas, existe uma convenção de prefixar uma string (conjunto de caracteres) com "X"
-durante a comparação, para que esse tipo de erro aconteça, por exemplo:que facilite
+durante a comparação, para que esse tipo de erro aconteça, por exemplo:
 
 ```sh
 #!/bin/sh
