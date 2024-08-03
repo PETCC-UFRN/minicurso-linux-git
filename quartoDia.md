@@ -48,12 +48,12 @@ title: Minicurso de Linux e Git
 
 No [último tópico](/terceiroDia.md), tivemos o nosso primeiro contato com o `git`, e aprendemos a criar
 repositórios para nos ajudar a rastrear as alterações feitas no nosso projeto localmente e remotamente.
-Entretanto, durante o desenvolvimento de um projeto, não é incomum cometer erros ou fazer alterações
+Entretanto, durante o desenvolvimento de um projeto, é comum que ocorra erros ou alterações
 indesejáveis. Por exemplo, alterar um arquivo sem querer, ou adicionar um arquivo que não deveria ser
 adicionado, ou até mesmo fazer um commit com uma mensagem errada.
 
 Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git` é muito comum
-tomar medidas extremas, para solucionar diferentes tipos de problemas, sem de fato usar os meios que a
+tomar medidas extremas para solucionar diferentes tipos de problemas, sem de fato usar os meios que a
 ferramenta nos oferece. Por exemplo, quem nunca deletou e baixou o repositório novamente para se livrar de
 um simples `commit` errado?
 
@@ -98,7 +98,7 @@ Para isso, existem algumas possibilidades, dentre as quais:
 
 #### `git reset`
 
-A primeira ideia é usar o comando `git reset`, visto que, ele tem a capacidade de mover o `HEAD`, para um
+A primeira ideia é usar o comando `git reset`, visto que ele tem a capacidade de mover o `HEAD`, para um
 commit anterior, onde por padrão, arquivos alterados são preservados mas não ficam na *stagin area*.
 
 Então, para simplesmente voltar para o commit anterior, podemos fazer:
@@ -137,7 +137,7 @@ editor, o commit será alterado.
 Todas essas funcionalidades que vimos até agora sobre o `git` são muito úteis, mas, até então, só
 trabalhamos individualmente em pequenos projetos num ambiente controlado. Nesse sentido, é dada a hora
 de finalmente começarmos a apreciar todo o potencial das ferramentas oferecidas pelo `git` para trabalhar
-em ambientes de coloboração, onde, a primeira dessas ferramentas que vamos explorar são as *branches*.
+em ambientes de coloboração. A primeira dessas ferramentas que vamos explorar são as *branches*.
 
 ### Git branching
 
@@ -169,7 +169,7 @@ em novas funcionalidades para o projeto.
   git init --initial-branch=main
   ```
 
-2. Logo após, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
+2. LEM seguida, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
 
   ```terminal
   git branch feature-legal main
@@ -194,8 +194,8 @@ Quando estamos trabalhando com repositórios remotos, é importante ficar claro 
 a *branch* que estamos trabalhando atualmente, uma local e outra remota, e quando criamos uma nova branch
 essa referência remota não é criada automaticamente, então, cabe a nós fazer isso manualmente.
 
-Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal` e fizemos alguns commits nela, e
-então, quero compartilhar essa branch com meus colegas de trabalho ou apenas salvar o progresso na nuvem.
+Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal', fizemos alguns commits nela, e
+então, queremos compartilhar essa branch com colegas de trabalho ou apenas salvar o progresso na nuvem.
 Para isso, podemos criar a referência remota com o seguinte comando:
 
 ```terminal
