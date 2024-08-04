@@ -5,6 +5,7 @@ title: Minicurso de Linux e Git
 
 
 
+
 ## GitHub e boas práticas de Git
 
 Na aula anterior, começamos a trabalhar conceitos mais avançados de Git e Github, os quais permitem
@@ -256,7 +257,8 @@ para o gerador de senhas? As funcionalidades seriam:
 
 - Adicionar um `CHANGELOG.md` ao projeto.
 - Armazenar as senhas geradas em um arquivo.
-- Ler desse arquivo e deletar se necessário.
+- Listar as senhas armazenadas.
+- Nomear as senhas geradas.
 
 ### Sumário
 
@@ -264,13 +266,11 @@ para o gerador de senhas? As funcionalidades seriam:
 - [Visão geral](#visão-geral)
 - [Sumário](#sumário)
 - [Definição da continuação do projeto](#definição-da-continuação-do-projeto)
-- [Requisitos do projeto](#requisitos-do-projeto)
-  - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
-  - [Listar senhas armazenadas](#listar-senhas-armazenadas)
-  - [Deletar senhas armazenadas](#deletar-senhas-armazenadas)
-- [Novas funcionalidades na interface e em como usar](#novas-funcionalidades-na-interface-e-em-como-usar)
-  - [Exemplos de uso](#exemplos-de-uso)
 - [Implementação](#implementação)
+  - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
+  - [Nomear senhas](#nomear-senhas)
+  - [Listar senhas armazenadas](#listar-senhas-armazenadas)
+- [Novas funcionalidades na interface](#novas-funcionalidades-na-interface)
 - [Colaboração](#colaboração)
 - [Submissão](#submissão)
 <!--toc:end-->
@@ -283,20 +283,75 @@ isso pode ser feito. Porém, com um caveat, ao invés de continuarem diretamente
 vocês devem fazer um fork do repositório de outra dupla e trabalhar a partir dele (Caso não tenha, continue
 no seu).
 
-### Requisitos do projeto
+### Implementação
+
+A implementação das funcionalidades, naturalmente, também devem ser em shell script. Abaixo, detalhamos
+como cada funcionalidade pode ser implementada.
 
 #### Armazenar senhas em um arquivo
 
+Implemente a funcionalidade de armazenar as senhas geradas em um arquivo, por exemplo, um arquivo `.txt`.
+
+```terminal
+$ ./pwd-gen.bash -o
+weebvicv
+Senha salva em passwords.txt
+```
+
+Alternativamente, não é necessário passar o feedback de que a senha foi salva em um arquivo.
+
+#### Nomear senhas
+
+Implemente uma funcionalidade para nomear as senhas geradas.
+
+```terminal
+$ ./pwd-gen.bash -n SIGAA
+zaaugxkh
+```
+
 #### Listar senhas armazenadas
 
-#### Deletar senhas armazenadas
+Adicione uma funcionalidade para listar as senhas armazenadas nesse arquivo.
 
-### Novas funcionalidades na interface e em como usar
+```terminal
+./pwd-gen.bash -p
+miogptoy
+Netflix: tzccfdlj
+PrimeVideo: jroucqus
+SIGAA: wohzsrhe
+SitePet: nommyigz
+```
 
-#### Exemplos de uso
+### Novas funcionalidades na interface
 
-### Implementação
+A interface de help do script deve ser atualizada para refletir as novas funcionalidades.
+
+```terminal
+$ ./pwd-gen.bash -h
+Bem vindo ao password generator! Versão 1.0, (c) 2024, Cicrano, DIMAp, UFRN
+Uso ./pwd-gen.bash [OPTIONS]
+Opções:
+  -l LENGTH  Especifica o tamanho da senha (padrão: 8)
+  -u         Inclui letras maiúsculas na senha
+  -d         Inclui dígitos na senha
+  -s         Inclui símbolos na senha
+  -h         Exibe essa ajuda
+  -o         Salva a senha gerada em um arquivo
+  -n NAME    Adiciona um nome a senha gerada
+  -p         Exibe senhas geradas
+
+O comporatemento padrão é gerar uma senha de 8 caracteres minúsculos
+```
 
 ### Colaboração
 
+A continuação do projeto também deve ser feita em duplas, e a colaboração deve ser feita através do uso
+das ferramentas Git e Github.
+
 ### Submissão
+
+Um email para <linuxgitpetcc@gmail.com>, com o link do fork do repositório e nome completo dos autores é
+suficiente. Apenas um membro da dupla deve realizar a submissão.
+
+---
+&copy; PET-CC, DIMAp, UFRN
