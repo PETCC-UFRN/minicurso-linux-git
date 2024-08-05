@@ -302,6 +302,7 @@ td {
 }
 .inactive {
     pointer-events: none;
+    color: #fff;
 }
 .sumario-oldschool{
     color: #00e300;
