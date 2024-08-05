@@ -300,6 +300,9 @@ td {
 #sumario ul{
     list-style-type: square; 
 }
+.inactive {
+    pointer-events: none;
+}
 .sumario-oldschool{
     color: #00e300;
     border-right: 1px solid #00e300;
