@@ -48,16 +48,16 @@ title: Minicurso de Linux e Git
 
 No [último tópico](/terceiroDia.md), tivemos o nosso primeiro contato com o `git`, e aprendemos a criar
 repositórios para nos ajudar a rastrear as alterações feitas no nosso projeto localmente e remotamente.
-Entretanto, durante o desenvolvimento de um projeto, não é incomum cometer erros ou fazer alterações
-indesejáveis. Por exemplo, alterar um arquivo sem querer, ou adicionar um arquivo que não deveria ser
-adicionado, ou até mesmo fazer um commit com uma mensagem errada.
+Entretanto, durante o desenvolvimento de um projeto, é comum que ocorram erros ou alterações
+indesejáveis. Por exemplo, podemos alterar um arquivo sem querer, ou adicionar um arquivo que não deveria 
+ser adicionado, ou até mesmo fazer um commit com uma mensagem errada.
 
-Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git` é muito comum
-tomar medidas extremas, para solucionar diferentes tipos de problemas, sem de fato usar os meios que a
-ferramenta nos oferece. Por exemplo, quem nunca deletou e baixou o repositório novamente para se livrar de
+Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git`, é muito comum
+tomar medidas extremas para solucionar diferentes tipos de problemas, sem de fato usar os meios que a
+ferramenta nos oferece. Quem nunca deletou e baixou o repositório novamente para se livrar de
 um simples `commit` errado?
 
-Por isso, gostaria de apresentar algumas formas seguras e mais "elegantes" de lidar com alguns tipos de
+Por isso, vamos apresentar algumas formas seguras e mais "elegantes" de lidar com alguns tipos de
 problemas que podem surgir durante o desenvolvimento de um projeto.
 
 ### Desfazendo *commits* sem ter publicado
@@ -98,8 +98,8 @@ Para isso, existem algumas possibilidades, dentre as quais:
 
 #### `git reset`
 
-A primeira ideia é usar o comando `git reset`, visto que, ele tem a capacidade de mover o `HEAD`, para um
-commit anterior, onde por padrão, arquivos alterados são preservados mas não ficam na *stagin area*.
+A primeira ideia é usar o comando `git reset`, visto que ele tem a capacidade de mover o `HEAD` para um
+commit anterior, onde, por padrão, arquivos alterados são preservados mas não ficam na *stagin area*.
 
 Então, para simplesmente voltar para o commit anterior, podemos fazer:
 
@@ -107,13 +107,13 @@ Então, para simplesmente voltar para o commit anterior, podemos fazer:
 git reset HEAD~1
 ```
 
-onde, o `~1` indica a quantidade de commits que queremos voltar, no caso, 1 commit. Agora, nosso histórico
+aqui, o `~1` indica a quantidade de commits que queremos voltar, no caso, 1 commit. Agora, nosso histórico
 de commits fica assim:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem3.jpeg" width="70%">
 <br>
 
-Note que, o commit "R" fica inacessível, mas o arquivo `E` continua presente no nosso diretório de trabalho.
+Note que o commit "R" fica inacessível, mas o arquivo `E` continua presente no nosso diretório de trabalho.
 Naturalmente, podemos corrigir o nome do commit e fazer um novo commit:
 
 ```terminal
@@ -137,7 +137,7 @@ editor, o commit será alterado.
 Todas essas funcionalidades que vimos até agora sobre o `git` são muito úteis, mas, até então, só
 trabalhamos individualmente em pequenos projetos num ambiente controlado. Nesse sentido, é dada a hora
 de finalmente começarmos a apreciar todo o potencial das ferramentas oferecidas pelo `git` para trabalhar
-em ambientes de coloboração, onde, a primeira dessas ferramentas que vamos explorar são as *branches*.
+em ambientes de coloboração. A primeira dessas ferramentas que vamos explorar são as *branches*.
 
 ### Git branching
 
@@ -159,8 +159,8 @@ cumprem o seu propósito, são incorporadas na *branch* principal e deletadas.
 ramificações que foram criadas para desenvolver novas funcionalidades.
 
 Como você já deve ter visto, por padrão, o quando usamos o comando `git init`, o programa cria
-automaticamente uma branch principal chamada de `master`. Uma vez criada, podemos tanto alterar o nome dela
-para um nome mais significativo, por exemplo, `main`, quanto criar novas branches a partir dela e trabalhar
+automaticamente uma branch principal chamada de `master`. Uma vez criada, podemos alterar o nome dela
+para um nome mais significativo, como `main`, e criar novas branches a partir dela e trabalhar
 em novas funcionalidades para o projeto.
 
 1. Podemos iniciar o repositório com a branch principal chamada de `main`:
@@ -169,7 +169,7 @@ em novas funcionalidades para o projeto.
   git init --initial-branch=main
   ```
 
-2. Logo após, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
+2. Em seguida, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
 
   ```terminal
   git branch feature-legal main
@@ -185,17 +185,16 @@ em novas funcionalidades para o projeto.
 
 Pronto! Já temos quase tudo que precisamos para trabalhar efetivamente com *branches*, podemos "commitar"
 e fazer tudo que já sabemos fazer, mas agora, de forma isolada do restante do projeto, sem correr grandes
-riscos. Contudo, ainda falta algumas nuances que precisamos tomar conhecimento, estas seriam como incorpar
-as mudanças feitas numa branch em outra e como criar *branches* remotas.
+riscos. Porém, ainda não sabemos como incorporar mudanças feias numa branch e como criar branches remotas.
 
 #### Branches locais e remotas
 
-Quando estamos trabalhando com repositórios remotos, é importante ficar claro que existem duas referências
-a *branch* que estamos trabalhando atualmente, uma local e outra remota, e quando criamos uma nova branch
+Quando trabalhamos com repositórios remotos, é importante saber que existem duas referências
+à *branch* que estamos trabalhando atualmente: uma local e outra remota. Quando criamos uma nova branch,
 essa referência remota não é criada automaticamente, então, cabe a nós fazer isso manualmente.
 
-Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal` e fizemos alguns commits nela, e
-então, quero compartilhar essa branch com meus colegas de trabalho ou apenas salvar o progresso na nuvem.
+Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal', fizemos alguns commits nela, e,
+então, queremos compartilhar essa branch com colegas de trabalho ou apenas salvar o progresso na nuvem.
 Para isso, podemos criar a referência remota com o seguinte comando:
 
 ```terminal
@@ -211,9 +210,9 @@ equipe, mas, como que podemos concretizar um projeto usando *branches*, se não 
 que foi feito em cada uma delas?
 
 Dada essa preocupação, o `git` nos oferece o `git merge` que serve para integrar as alterações feitas em
-uma *branch* a outra. Em qualquer "merge" ou mescla, a *branch* que está sendo mesclada é chamada de *
-source branch*  e a *branch* que está recebendo as alterações é chamada de *target branch*, e seu uso
-consiste em:
+uma *branch* a outra. Em qualquer "merge" ou "mesclagem", a *branch* que está sendo mesclada é chamada de *
+source branch* (ou "ramificação fonte", em Português) e a *branch* que está recebendo as alterações é chamada
+de *target branch* (ou "ramificação alvo"), e seu uso consiste em:
 
 - Estando na *target branch*:
 
@@ -221,7 +220,7 @@ consiste em:
   git merge <source_branch> 
   ```
 
-Mas, nem sempre é tão simples assim, e existem diferentes formas em que o `git` pode realizar essa
+Mas, nem sempre é tão simples assim, e existem diferentes formas que o `git` pode realizar essa
 mesclagem, as quais impactam diretamente no seu histórico de commits.
 
 ### Fast-forward merge
@@ -246,13 +245,13 @@ mesclagem  apenas descendo essas bolinhas vermelhas e deixando equiparadas com a
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem7.jpeg" width="70%">
 <br>
 
-Mas e se a divergência não for assim tão simples e seu histórico estiver análogo a
+Mas, e se a divergência não for assim tão simples e seu histórico estiver análogo a
 [essa figura](#git-branching), seria possível fazer esse avanço?
 
 ### Three-way merge
 
-A outra forma que o `git` realiza merges é o *three-way merge*, que acontece quando é impossível alcançar a
-cabeça da *target branch*, seguindo os commits parentes a partir da cabeça da *source branch*, visualmente,
+A outra forma de o `git` realizar merges é o *three-way merge*. Ele acontece quando é impossível alcançar a
+cabeça da *target branch* seguindo os commits parentes a partir da cabeça da *source branch*. Visualmente,
 isso seria:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem8.jpeg" width="70%">
@@ -308,7 +307,7 @@ Para resolver esse tipo de conflito, voce vai precisar:
 #### Estado do repositório local e repositório remoto
 
 Em qualquer projeto que envolva mais de uma pessoa, naturalmente, ocorrerão mudanças recorrentes no
-repositório, e sempre alguem vai terminar antes ou depois de outra pessoa. Nesse sentido, tente visualizar
+repositório, e sempre alguém vai terminar antes ou depois de outra pessoa. Nesse sentido, tente visualizar
 comigo o seguinte cenário:
 
 - Você e seu colega estão trabalhando em duas funcionalidades diferentes no mesmo projeto, e o histórico
@@ -334,23 +333,24 @@ o que foi feito remotamente.
 - Entretanto, o `git` não vai permitir que você publique as alterações remotamente, visto que, o histórico
 de commits da sua branch `main` divergiu completamente da versão remota.
 
-Dada, a problemática, o que fazer?
+Dada a problemática, o que fazer?
 
 O `git` vai te dar a oportunidade de mesclar a sua branch local com a remota via *three-way merge*, para
 que você consiga publicar as alterações com sucesso. Mas, note que, será criado um commit desnecessário
 por descuido, além da alta chance de haver conflitos por possíveis alterações no mesmo arquivo.
 
-Num cenário ideal, sempre antes e depois de trabalhar atualize o seu repositório local com os comandos que
+Num cenário ideal, sempre antes e depois de trabalhar, atualize o seu repositório local com os comandos que
 já aprendeu, para evitar esse tipo de problema.
 
 #### Divergências significativas
 
-Mais comum do que se imagina, principalmente em grandes equipes ou novatos no uso do `git` é a criação de
-divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em uma branch
-`feature` equanto seu colega está na `main` e ambos fizeram mudanças significativas que afetaram o mesmo
-arquivo, certamente, não vai ser possível incorporar suas mudanças na branch principal.
+É mais comum do que se imagina, especialmente em equipes grandes ou entre novatos no uso do git, a 
+criação de divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em 
+uma branch feature enquanto seu colega está na main e ambos fazem mudanças significativas que afetam o 
+mesmo arquivo, é provável que não será possível incorporar suas alterações na branch principal sem enfrentar
+conflitos.
 
-E a causa desse tipo de conflito, é principalmente a falta de comunicação e planejamento entre as partes.
+A causa desse tipo de conflito, é, principalmente, a falta de comunicação e planejamento entre as partes.
 
 #### Prevenindo conflitos
 
@@ -371,9 +371,9 @@ longa-duração tendem a se desviar significantemente de outras e criar conflito
 
 ### Visão geral
 
-Nessa altura, você provavelmente já deve estar familiarizado com o `git`, como usar, investigar comandos
+Nessa altura, você provavelmente já deve estar familiarizado com o `git`: como usar, investigar comandos
 no terminal e até mesmo criar seus próprios comandos. Portanto, para se familiarizar mais com o workflow
-do `git`, lhe convido a desenvolver um gerador de senhas seguras com vase em critérios definidos pelo
+da ferramente, lhe convido a desenvolver um gerador de senhas seguras com base em critérios definidos pelo
 usuário. Este projeto deverá ser realizado em duplas, e deve ser feito usando o `git` como versionador
 e GitHub como serviço de hospedagem.
 
@@ -415,8 +415,8 @@ O script deve permitir a geração de senhas aleatórias com base nos seguintes 
 - Inclusão de números.
 - Inclusão de símbolos.
 
-Para gerar a senha, faça uso do `/dev/urandom`, é um arquivo que se atualiza com bytes aleatórios, uma
-vez filtrados esses bytes podem se tornar uma senha segura, para isso pesquise sobre o comando `tr` e o
+Para gerar a senha, faça uso do `/dev/urandom`, um arquivo que se atualiza com bytes aleatórios. Uma
+vez filtrados, esses bytes podem se tornar uma senha segura. Para isso, pesquise sobre o comando `tr` e o
 `head` para traçar um plano de como fazer isso.
 
 #### Armazenamento seguro
@@ -428,7 +428,7 @@ investigue o uso da ferramenta `openssl`.
 
 ```terminal
 $ ./password-generator.sh -h
-Bem vindo o password-generator! Versão 1.0, (c) 2024, Fulano de Tal, DIMAp, UFRN
+Bem vindo ao password-generator! Versão 1.0, (c) 2024, Fulano de Tal, DIMAp, UFRN
 Uso: ./password-generator.sh [OPÇÕES]
 Opções:
   -l [COMPRIMENTO] : comprimento da senha
@@ -509,5 +509,5 @@ argumentos da linha de comando e a segunda parte seria a investigação de como 
 
 ### Submissão
 
-Um email para [inserir email aqui], com o link do repositório e nome completo dos autores é suficiente.
-Apenas  um membro da dupla deve realizar a submissão
+Um email para linuxgitpetcc@gmail.com, com o link do repositório e nome completo dos autores é suficiente.
+Apenas um membro da dupla deve realizar a submissão
