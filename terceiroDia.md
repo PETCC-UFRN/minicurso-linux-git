@@ -525,7 +525,6 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 ## Introdução ao Git
 
-
 ### Surgimento do Git
 
 A criação do <span class="destaque">Linux</span> foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza <span class="destaque">colaborativa</span> e <span class="destaque">open-source</span>. <span class="destaque">Linus Torvalds</span>, o criador do Linux, enfrentou desafios significativos ao <span class="destaque">coordenar as contribuições</span> de inúmeros desenvolvedores ao redor do mundo. 
@@ -534,15 +533,15 @@ Durante os anos iniciais do <span class="destaque">Linux Kernel</span>, as mudan
 
 Os objetivos principais para o novo sistema incluíam:
 
-<span class="destaque">**Velocidade**</span>;
+- <span class="destaque">**Velocidade**</span>;
 
-<span class="destaque">**Design simples**</span>;
+- <span class="destaque">**Design simples**</span>;
 
-**Forte suporte para o <span class="destaque">desenvolvimento não linear </span>** (milhares de branches paralelas);
+- **Forte suporte para o <span class="destaque">desenvolvimento não linear </span>** (milhares de branches paralelas);
 
-**<span class="destaque">Alta distribuição</span>**;
+- **<span class="destaque">Alta distribuição</span>**;
 
-**Capacidade de lidar com <span class="destaque">grandes projetos</span>**, como o kernel do Linux, de forma eficiente.
+- **Capacidade de lidar com <span class="destaque">grandes projetos</span>**, como o kernel do Linux, de forma eficiente.
 
 ### De onde vem o nome "Git"?
 
@@ -556,10 +555,10 @@ Para mais detalhes, você pode consultar o manual do Git no terminal usando o co
 
 O Git é um dos sistemas de controle de versão mais utilizados no mundo, conhecido por ser:
 
-1. **Open Source**
-2. **Ideal para trabalho em equipe**
-3. **Adequado para o desenvolvimento de todos os tipos de software**
-4. **O versionador mais utilizado atualmente**
+- **Open Source**
+- **Ideal para trabalho em equipe**
+- **Adequado para o desenvolvimento de todos os tipos de software**
+- **O versionador mais utilizado atualmente**
 
 ### Como o Git Funciona?
 
@@ -581,11 +580,11 @@ Essas plataformas permitem que você <span class="destaque">armazene</span>, <sp
 #### Algumas diferentes plataformas: GitLab, BitBucket, Codeberg.
 Existem várias plataformas de hospedagem remota que suportam Git, cada uma com suas características únicas.
 
-**GitLab**
+- **GitLab**
 
-**BitBucket**
+- **BitBucket**
 
-**Codeberg**
+- **Codeberg**
 
 #### Git e Github : diferenças.
 Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a mesma coisa. Aqui estão as principais diferenças:
@@ -934,23 +933,22 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 3. Inicialize um repositório Git vazio no diretório.
 
-4. Como resolução, descreva todos os comandos que você fez para inicializar o repositório em um arquivo de texto com o nome dia3exercicio1.txt
+Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt
 
-#### Exercício 02
+#### Exercício 02 - Adicionando arquivos ao seu repositório Git
 
-<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para r ao conteúdo</a>
+<a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para voltar ao conteúdo</a>
 
-1. Adicione arquivos ao seu repositório Git
 
-2. Crie um arquivo chamado 'README.md' dentro do diretório calculadora_pyton.
+1. Crie um arquivo chamado 'README.md' dentro do diretório calculadora_pyton.
 
-3. Adicione o conteúdo "Este é um projeto de uma calculadora em Python que realiza operações básicas." ao README.md.
+2. Adicione o conteúdo "Este é um projeto de uma calculadora em Python que realiza operações básicas." ao README.md.
 
 4. Adicione o arquivo README.md ao repositório Git.
 
 5.Faça um commit no repositório Git com a mensagem "Adicionei o README.md".
 
-6. Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
+Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
 #### Exercício 03 - Configurando um repositório remoto e enviando os commits
@@ -972,6 +970,7 @@ Como resolução, descreva os passos que você fez para configurar o repositóri
 1. Adicione um novo arquivo chamado calculadora.py com a função de soma:
 
 Copie o seguinte código:
+
 ```py
 def soma(a, b):
     return a + b
@@ -979,10 +978,11 @@ def soma(a, b):
 
 2. Adicione o arquivo ao repositório:
 
-3. Faça um commit com a mensagem "Adiciona função de soma".
+3. Faça um commit com a mensagem "Adicionei a função de soma".
 
 4. Adicione a função de multiplicação ao arquivo calculadora.py:
 Copie o código da mesma forma que está aqui abaixo (mesmo com o erro): 
+
 ```py
 def multiplicacao(a, b):
     c+b=4
@@ -996,7 +996,7 @@ def multiplicacao(a, b):
 
 6. Use o comando que sobe as alterações locais para o repositório remoto para subir os seus commits.
 
-Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de textocom o nome dia3exercicio4.txt
+Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de texto com o nome dia3exercicio4.txt
 
 
 #### Exercício 05 - Clonando um repositório
@@ -1011,7 +1011,7 @@ Como resolução, descreva os passos que você fez para adicionar e comitar os a
 
 4. Aqui, você poderá fazer o projeto que quiser, aplicando o que foi aprendido. Você pode, por exemplo:
 
-    - Criar uma história fictícia com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou a cada  modificação de personagem.
+    - Criar uma história fictícia em um arquivo txt com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou a cada  modificação de personagem.
 
     - Fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
 
@@ -1021,4 +1021,4 @@ Como resolução, descreva os passos que você fez para adicionar e comitar os a
 
 6. Após isso, suba todas os commits para o nosso repositório remoto.
 
-O que será avaliado aqui são os commits (faça, no mínimo, 3).
+O que será avaliado aqui são os commits e não se os códigos estão corretos (faça, no mínimo, 3).
