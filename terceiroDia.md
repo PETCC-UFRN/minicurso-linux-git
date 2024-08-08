@@ -961,6 +961,7 @@ Como resolução, descreva os passos que você fez em um arquivo de texto com o 
 
 3. Envie seus commits para o repositório remoto.
 
+Para a avaliação mande o link do repositório pelo email.
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
