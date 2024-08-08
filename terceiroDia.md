@@ -95,17 +95,17 @@ $ ps
 ```
 As opções mais importantes para o comando `ps` são:
 
-<span class="destaque">a</span> - mostra os processos existentes de todos os <span class="destaque">usuários</span>;
+<span class="destaque"> -u [username]</span> - mostra os processos existentes de um <span class="destaque">usuário</span> específico;
 
-<span class="destaque">f</span> - exibe a <span class="destaque">árvore</span> de execução dos processos;
+<span class="destaque"> -f</span> -  Exibe uma lista completa com informações adicionais como <span class="destaque">PPID</span> (ID do processo pai).
 
-<span class="destaque">l</span> - exibe mais <span class="destaque">campos</span> no resultado;
+<span class="destaque"> -l</span> - exibe mais <span class="destaque">campos</span> no resultado;
 
-<span class="destaque">m</span> - mostra a quantidade de <span class="destaque">memória</span> ocupada por cada processo;
+<span class="destaque"> -e</span> ou <span class="destaque">-A</span> : Lista <span class="destaque">todos</span> os processos no sistema.
 
-<span class="destaque">u</span> - exibe o nome do <span class="destaque">usuário</span> que iniciou determinado processo e a hora em que isso ocorreu;
+<span class="destaque">aux</span>: Exibe uma listagem detalhada com o uso de memória por cada processo.
 
-<span class="destaque">x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no console do terminal.
+<span class="destaque"> -x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no console do terminal.
 
 ##### O uso do `ps` com o `grep`
 O `ps` é uma ferramenta essencial e corriqueira. Já a usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
