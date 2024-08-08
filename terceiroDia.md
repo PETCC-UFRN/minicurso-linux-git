@@ -102,9 +102,9 @@ As opções mais importantes para o comando `ps` são:
 
 <span class="destaque"> -e</span> ou <span class="destaque">-A</span> : Lista <span class="destaque">todos</span> os processos no sistema.
 
-<span class="destaque">aux</span>: Exibe uma listagem detalhada com o uso de memória por cada processo.
+<span class="destaque"> -x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no console do terminal junto com os inicializados no console.
 
-<span class="destaque"> -x</span> - exibe os processos que <span class="destaque">não iniciados</span>  no console do terminal.
+<span class="destaque">aux</span>: Exibe uma listagem detalhada com o uso de memória por cada processo.
 
 ##### O uso do `ps` com o `grep`
 O `ps` é uma ferramenta essencial e corriqueira. Já a usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
@@ -926,11 +926,13 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 <a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para voltar ao conteúdo</a>
 
-1. Crie um novo diretório chamado calculadora_python.
+1. Crie um novo diretório chamado projetos.
 
-2. Entre no diretório calculadora_pyhon.
+2. Entre no diretório projetos e crie outro diretório chamado calculadora_pyton.
 
-3. Inicialize um repositório Git vazio no diretório.
+3. Inicialize um repositório Git vazio no diretório calculadora_pyton.
+
+4. Faça o comando para visualizar a pasta oculta que foi criada.
 
 Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt
 
@@ -947,7 +949,6 @@ Como resolução, descreva os passos que você fez em um arquivo de texto com o 
 
 5.Faça um commit no repositório Git com a mensagem "Adicionei o README.md".
 
-Como resolução, descreva os passos que você fez para adicionar o arquivo ao repositório em um arquivo de texto com o nome dia3exercicio2.txt
 
 
 #### Exercício 03 - Configurando um repositório remoto e enviando os commits
@@ -958,9 +959,8 @@ Como resolução, descreva os passos que você fez para adicionar o arquivo ao r
 
 2. No terminal, dentro do diretório calculadora_pyton, configure seu repositório Git local para apontar para este repositório remoto.
 
-3. Envie seus commits para o repositório remoto:
+3. Envie seus commits para o repositório remoto.
 
-Como resolução, descreva os passos que você fez para configurar o repositório remoto e enviar seus commits em um arquivo de texto com o nome dia3exercicio3.txt e coloque também no arquivo o link para o seu repositório.
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
@@ -995,29 +995,35 @@ def multiplicacao(a, b):
 
 6. Use o comando que sobe as alterações locais para o repositório remoto para subir os seus commits.
 
-Como resolução, descreva os passos que você fez para adicionar e comitar os arquivos em um arquivo de texto com o nome dia3exercicio4.txt
 
 
 #### Exercício 05 - Clonando um repositório
 
 <a href="#trazendo-alterações-para-o-repositório-local-git-pull">Clique para voltar ao conteúdo</a>
 
-1. Clone o repositório que está neste link: [link do repositório central]
+1. **Criar e clonar o repositório:**
+   - O aluno responsável pelo primeiro repositório remoto deve criar um novo repositório no GitHub com o nome "projeto 02" e compartilhar o link com o colega de dupla.
+   - O colega deve clonar esse repositório usando o comando `git clone [link do repositório]`.
 
-2. Crie uma pasta com o seu numero de matrícula e seu primeiro nome como 201003948_luiz
+2. **Criar uma pasta no repositório:**
+   - Cada aluno deve criar uma pasta com seu número de matrícula e primeiro nome, seguindo o formato `201003948_luiz`.
+   - Adicione a pasta ao Git com `git add [nome da pasta]` e "comite" com a mensagem "Adicionei a pasta 201003948_luiz".
 
-3. Adicione a pasta ao Git depois "comite" com a mensagem "Adicionei a pasta 201003948_luiz"
+3. **Desenvolver o projeto individualmente:**
+   - Dentro da pasta criada, cada aluno pode desenvolver o projeto que quiser, aplicando o que foi aprendido:
+     - Criar uma história fictícia em um arquivo `.txt` com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou a cada modificação de personagem.
+     - Fazer uma calculadora ou qualquer outro programa em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+     - Fazer um site pequeno e básico, fazendo commits a cada funcionalidade implementada.
 
-4. Aqui, você poderá fazer o projeto que quiser, aplicando o que foi aprendido. Você pode, por exemplo:
+4. **Sincronizar as alterações com o repositório remoto:**
+   - Traga para o repositório local as alterações que estão no remoto com `git pull` (para verificar se o colega já subiu algum arquivo).
+   - Após isso, suba todos os commits para o repositório remoto com `git push`.
 
-    - Criar uma história fictícia em um arquivo txt com 3 capítulos, fazendo commits a cada capítulo, a cada erro ortográfico corrigido ou a cada  modificação de personagem.
+5. **Criar o segundo repositório:**
+   - O outro aluno da dupla deve criar um novo repositório no GitHub com o nome **"projeto 03"** e repetir os passos 1 a 4, criando sua própria pasta no novo repositório do colega.
 
-    - Fazer uma calculadora ou qualquer outro programa, em qualquer linguagem de programação, fazendo commits a cada funcionalidade implementada.
+6. **Envio dos links dos repositórios:**
+   - Ao final do exercício, cada aluno deve enviar por e-mail os links de ambos os repositórios (**projeto 02** e **projeto03**) para a avaliação.
 
-    - Fazer um site pequeno e básico, fazendo commits a cada funcionalidade implementada.
 
-5. Traga para o seu repositório as alterações que estão no remoto(para ver se alguém já subiu algum arquivo).
-
-6. Após isso, suba todas os commits para o nosso repositório remoto.
-
-O que será avaliado aqui são os commits e não se os códigos estão corretos (faça, no mínimo, 3).
+O que será avaliado aqui são os commits, e não se os códigos estão corretos. Cada aluno deve fazer, no mínimo, 3 commits em cada projeto.
