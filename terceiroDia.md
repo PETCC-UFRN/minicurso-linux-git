@@ -38,7 +38,6 @@ title: Minicurso de Linux e Git
   <details>
   <summary><a href="#exercícios">Exercícios</a></summary>
   <ul class="section-content">
-   <li><a href="#exercícios-de-fixação">Exercícios de Fixação</a></li>
    <li><a href="#exercícios-obrigatórios">Exercícios Obrigatórios</a></li>
   </ul>
   </details>
