@@ -131,7 +131,7 @@ Este comando irá mostrar uma página do <span class="destaque">manual</span> co
 
 ##### Significados dos principais sinais
 
-<span class="destaque">SIGHUP (1)</span>: Costuma ser utilizado para <span class="destaque">reiniciar</span> processos (o processo lê novamente os seus arquivos de configuração), bem como <span class="destaque">desconectar</span> um processo do processo pai.
+<span class="destaque">SIGHUP (1)</span>: Ocorre <span class="destaque">quando o terminal fecha</span> ou quando o processo pai finaliza sua execução.
 
 <span class="destaque">SIGINT (2)</span>: <span class="destaque">Interrompe</span> ou <span class="destaque">para</span> um processo, geralmente gerado pelo usuário pressionando <span class="destaque">Ctrl+C</span> no terminal.
 
