@@ -636,7 +636,7 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
 ### Comandos e Práticas do Git
 
-#### Inicializando o git no repositório `git init`.
+#### Inicializando o git no repositório git init.
 Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório Git e, em seguida, vamos inicializar o Git com o comando <span class="destaque"> git init </span>
 ```shell
 $ cd OneDrive/Documentos/projeto
