@@ -571,7 +571,7 @@ O Git, em geral, apenas **adiciona** informações. É <span class="destaque">di
 ## Hospedagem Remota e Conexões SSH
 
 ### Introdução a plataformas de hospedagem remota 
-#### Gancho com a parte de versionadores
+#### Voltando aos versionadores
 A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota. 
 
 Essas plataformas permitem que você <span class="destaque">armazene</span>, <span class="destaque">compartilhe</span> e <span class="destaque">colabore</span> em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para <span class="destaque">gerenciamento de projetos</span>, <span class="destaque">integração contínua</span>, e muito mais.
