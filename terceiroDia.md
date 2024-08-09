@@ -614,7 +614,13 @@ No contexto do Git, a autenticação via chave SSH é especialmente útil ao int
 
 ### Um pouco mais sobre Git
 
-O Git é um sistema de controle de versão <span class="destaque">distribuído</span> que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui <span class="destaque">blobs</span> (conteúdo de arquivos), <span class="destaque">trees</span> (diretórios), <span class="destaque">commits</span> (mudanças com metadados) e <span class="destaque">tags</span> (marcadores de versão). <span class="destaque">Cada objeto</span> é identificado por um <span class="destaque">hash SHA-1</span>, garantindo a integridade dos dados. Git permite a criação de <span class="destaque">branches</span> para <span class="destaque">desenvolvimento paralelo</span> e <span class="destaque">merges</span> para combinar mudanças. As modificações são preparadas na <span class="destaque">staging area</span> antes de serem commitadas. Com funcionalidades robustas de colaboração e resolução de conflitos, o Git suporta <span class="destaque">operações offline</span> e <span class="destaque">sincronização</span> com repositórios <span class="destaque">remotos</span> através de comandos como push e pull, facilitando o trabalho simultâneo de <span class="destaque">múltiplos desenvolvedores</span>.
+O Git é um sistema de controle de versão <span class="destaque">distribuído</span> que gerencia informações armazenando cada versão do projeto como um snapshot completo, em vez de apenas as diferenças entre versões. Ele utiliza uma estrutura de objetos que inclui <span class="destaque">blobs</span> (conteúdo de arquivos), <span class="destaque">trees</span> (diretórios), <span class="destaque">commits</span> (mudanças com metadados) e <span class="destaque">tags</span> (marcadores de versão).
+
+<span class="destaque">Cada objeto</span> é identificado por um <span class="destaque">hash SHA-1</span>, garantindo a integridade dos dados. Git permite a criação de <span class="destaque">branches</span> para <span class="destaque">desenvolvimento paralelo</span> e <span class="destaque">merges</span> para combinar mudanças.
+
+As modificações são preparadas na <span class="destaque">staging area</span> antes de serem commitadas.
+
+Com funcionalidades robustas de colaboração e resolução de conflitos, o Git suporta <span class="destaque">operações offline</span> e <span class="destaque">sincronização</span> com repositórios <span class="destaque">remotos</span> através de comandos como push e pull, facilitando o trabalho simultâneo de <span class="destaque">múltiplos desenvolvedores</span>.
 
 #### Workflow básico
 
