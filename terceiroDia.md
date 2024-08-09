@@ -80,7 +80,7 @@ Cada processo possui um número identificador, chamado de <span class="destaque"
 
 ### Interrompendo e listando processos
 
-#### Visualizando processos estaticamente com `ps`
+#### Visualizando processos estaticamente com "ps"
 
 O comando `ps` mostra os processos em execução atualmente e exibe os UIDs e PIDs de cada um.
 
@@ -106,7 +106,7 @@ As opções mais importantes para o comando `ps` são:
 
 <span class="destaque">aux</span>: Exibe uma listagem detalhada com o uso de memória por cada processo.
 
-##### O uso do `ps` com o `grep`
+##### O uso do "ps" com o "grep"
 O `ps` é uma ferramenta essencial e corriqueira. Já a usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
 Por exemplo, para ver os processos systemd:
 
@@ -116,7 +116,7 @@ $ ps aux | grep systemd
 
 Primeiro, o  comando <span class="destaque">`ps aux`</span> mostra <span class="destaque">todos os processos em execução</span>, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
 
-#### Uso do `kill`
+#### Uso do "kill"
 
 O comando `kill` é usado no Linux para <span class="destaque">enviar sinais a processos</span>. Esses sinais podem instruir o processo a realizar várias ações, como <span class="destaque">terminar</span>, <span class="destaque">parar</span> ou <span class="destaque">continuar</span> a execução. Quando usamos `kill` para matar um processo, estamos enviando um sinal específico que informa o processo que ele deve encerrar.
 
@@ -187,11 +187,11 @@ Para encerrar processos de um <span class="destaque">usuário específico</span>
 $ killall -u usuario firefox
 ```
 
-#### Uso e visualização processos dinâmicamente com htop
+#### Uso e visualização processos dinâmicamente com "htop"
 
 O comando HTOP é um utilitário de linha de comando que tem como objetivo auxiliar o usuário a monitorar de forma interativa e em <span class="destaque">tempo real</span> os recursos de seu sistema operacional Linux.
 
-##### Instalar htop no Ubuntu
+##### Instalar "htop" no Ubuntu
 
 ```shell
 $ sudo apt install htop
@@ -241,7 +241,7 @@ O símbolo <span class="destaque"> & </span> indica que o comando deve ser execu
 
 Você verá uma mensagem que indica o <span class="destaque">número do trabalho</span> ([1]) e o <span class="destaque">PID</span> do processo (1234):
 
-##### Ver lista de processos em segundo Plano
+##### Ver lista de processos em segundo plano
 
 Para poder ver quais processos em segundo plano, digite:
 
@@ -257,7 +257,7 @@ $ [1]+  Running          ping 127.0.0.1 &
 
 Note que, se você fizer <span class="destaque">CTRL + C</span>, o processo <span class="destaque">não será interrompido</span>, pois ele não está em primeiro plano(foreground).
 
-##### Trazer para foreground
+##### Trazer para "foreground"
 
 Vamos supor que você pretende trazer o processo para primeiro plano. Para isso, utilize o seguinte comando :
 
@@ -300,7 +300,7 @@ Agora, vamos digitar o comando <span class="destaque">jobs</span> para ver o est
 $ jobs
  [1]+  Running                 ping 127.0.0.1 &
 ```
-#### Uso do nohup
+#### Uso do "nohup"
 
 Mesmo que um processo esteja em <span class="destaque">segundo plano</span>, ele pode ser <span class="destaque">interrompido</span> por vários motivos.
 
@@ -310,7 +310,7 @@ Há outras maneiras, é claro, para um processo ser encerrado, mas o comando noh
 
 Nohup - abreviação de '*no hang up*', ou 'não desligar', em Português - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
 
-##### Sintaxe do comando Nohup
+##### Sintaxe do comando nohup
 A sintaxe para usar o comando Nohup é direta:
 ```bash
 $ nohup command [options] &
@@ -341,7 +341,7 @@ Você pode até mesmo usar o comando nohup sem o caractere "&" enviando o proces
 
 Caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza de que, se <span class="destaque">o terminal for fechado</span>, ou a <span class="destaque">conectividade com a Internet for perdida</span>, ou algo mais acontecer, o processo <span class="destaque">não será interrompido</span>. Mas, como mencionado acima, você quase sempre vai querer executar o comando em segundo plano.
 
-#### Uso do wait
+#### Uso do "wait"
 
 O comando <span class="destaque">"wait"</span> é uma ferramenta poderosa no  Linux que permite que os scripts <span class="destaque">aguardem a conclusão</span> de outros processos antes de <span class="destaque">continuar a execução</span>.
 
