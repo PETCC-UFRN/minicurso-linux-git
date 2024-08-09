@@ -940,7 +940,8 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 4. Faça o comando para visualizar a pasta oculta que foi criada.
 
-Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt
+Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt para o email "linuxgitpetcc@gmail.com".
+Lembre-se de adicionar seu nome ao arquivo!
 
 #### Exercício 02 - Adicionando arquivos ao seu repositório Git
 
@@ -955,8 +956,6 @@ Como resolução, descreva os passos que você fez em um arquivo de texto com o 
 
 5.Faça um commit no repositório Git com a mensagem "Adicionei o README.md".
 
-
-
 #### Exercício 03 - Configurando um repositório remoto e enviando os commits
 
 <a href="#como-desconectar-o-repositório-local-do-remoto">Clique para voltar ao conteúdo</a>
@@ -967,7 +966,7 @@ Como resolução, descreva os passos que você fez em um arquivo de texto com o 
 
 3. Envie seus commits para o repositório remoto.
 
-Para a avaliação mande o link do repositório pelo email.
+Para a avaliação, mande o link do repositório pelo email "linuxgitpetcc@gmail.com".
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
@@ -1001,8 +1000,6 @@ def multiplicacao(a, b):
 7. Adicione a modificação ao repositório e faça o commit com a mensagem "Correção de bug na função de multiplicação"
 
 6. Use o comando que sobe as alterações locais para o repositório remoto para subir os seus commits.
-
-
 
 #### Exercício 05 - Clonando um repositório
 
