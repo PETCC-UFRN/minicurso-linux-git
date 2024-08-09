@@ -636,7 +636,7 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 
 ### Comandos e Práticas do Git
 
-#### Inicializando o git no repositório git init.
+#### Inicializando o git no repositório: "git init".
 Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório Git e, em seguida, vamos inicializar o Git com o comando <span class="destaque"> git init </span>
 ```shell
 $ cd OneDrive/Documentos/projeto
@@ -664,7 +664,7 @@ Assim que você <span class="destaque">edita</span> alguns arquivos, Git os cons
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
-#### Verificando o status dos arquivos `git status`.
+#### Verificando o status dos arquivos: "git status".
     
 A principal ferramenta que você vai usar para determinar quais arquivos estão em qual <span class="destaque">estado</span> é o comando git status.
 
@@ -747,7 +747,7 @@ Changes to be committed:
     modified:   feed
 ```        
 
-#### Fazendo o **commit** do que foi feito `git commit`.
+#### Fazendo o **commit** do que foi feito: "git commit".
 
 Agora que a <span class="destaque">área de stage está preparada</span>, podemos fazer <span class="destaque">commit</span> nas alterações.
 
@@ -765,7 +765,7 @@ Lembre-se que o commit grava a <span class="destaque">snapshot</span> que você 
 
 <a href="#exercício-01---iniciando-um-novo-repositório-git"><spam class="destaque" style="font-size:20px;">Exercícios : 1-2</spam></a>
 
-#### Configurando o Repositório Remoto git remote
+#### Configurando o Repositório Remoto: "git remote"
 
 Depois de inicializar o repositório local, você pode querer vinculá-lo a um repositório remoto para facilitar a colaboração e o backup. Para isso, vamos usar o comando <span class="destaque">git remote</span>
 
@@ -816,7 +816,7 @@ novo-nome  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
 
 <a href="#exercício-03---configurando-um-repositório-remoto-e-enviando-os-commits"><spam class="destaque" style="font-size:20px;">Exercício : 3</spam></a>
 
-#### Como ver todos os commit feitos com `git log`
+#### Como ver todos os commit feitos com "git log"
 
 É um comando feito para exibir os <span class="destaque">históricos de commits</span> do projeto.
 
@@ -881,7 +881,7 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 
 
-#### Subindo alterações para o repositório remoto `git push`
+#### Subindo alterações para o repositório remoto: "git push"
 Se você tem um commit pronto e quer <span class="destaque">adiciona-lo ao repositório remoto</span>, podemos fazer:
 
 ```sh
@@ -901,7 +901,7 @@ $ git push origin master:main
 
 Dessa forma, você está enviando o conteúdo da sua <spam class="destaque">cópia local</spam> chamada <spam class="destaque">master</spam> para a <spam class="destaque">cópia no repositório remoto</spam> que é chamada de <spam class="destaque">main</spam>.
 
-#### Trazendo alterações para o repositório local `git pull`
+#### Trazendo alterações para o repositório local: "git pull"
 
 Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e você deseja trazê-las para o seu repositório local, basta digitar o comando <span class="destaque">git pull</span>:
 
