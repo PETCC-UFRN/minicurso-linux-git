@@ -232,8 +232,8 @@ Uma das formas que o `merge` ocorre é *fast-foward*, e a ideia é que a *target
 
 Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer <span class="destaque"> mesclar o que foi feito
 nela a linha de desenvolvimento principal (`main`).</span> Pensando de forma lúdica, o `git` realizaria a
-mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="destaque"> equiparadas com a `main` </span> e avançando o
-`HEAD` para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
+mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="destaque"> equiparadas com a `main` </span> e <span class="destaque"> avançando o
+`HEAD`</span> para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
 
 1. É alinhado à linha de desenvolvimento principal:
 
