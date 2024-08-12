@@ -53,12 +53,12 @@ indesejáveis</span>. Por exemplo, podemos alterar um arquivo sem querer, ou adi
 ser adicionado, ou até mesmo fazer um commit com uma mensagem errada.
 
 Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git`, é muito comum
-tomar medidas extremas para solucionar diferentes tipos de problemas, <span class="destaque">sem de fato usar os meios que a
+tomar <span class="destaque">medidas extremas</span> para solucionar diferentes tipos de problemas, <span class="destaque">sem de fato usar os meios que a
 ferramenta nos oferece </span>. Quem nunca deletou e baixou o repositório novamente para se livrar de
 um simples `commit` errado?
 
-Por isso, vamos apresentar algumas formas seguras e mais "elegantes" de lidar com alguns tipos de
-problemas que podem surgir durante o desenvolvimento de um projeto.
+Por isso, vamos apresentar algumas formas <span class="destaque">seguras</span> e mais "elegantes" de <span class="destaque">lidar com alguns tipos de
+problemas</span> que podem surgir durante o desenvolvimento de um projeto.
 
 ### Desfazendo *commits* sem ter publicado
 
@@ -85,7 +85,7 @@ $ git add E ; git commit -m R
  create mode 100644 E
 ```
 
-Porém, imediatamente após fazer o *commit*, você percebe que cometeu um erro e que o nome do commit na
+Porém, imediatamente após fazer o *commit*, você percebe que <span class="destaque">cometeu um erro</span> e que <span class="destaque">o nome do commit</span> na
 verdade deveria ser "E" ao invés de "R". E agora, o que fazer?
 
 Revisitando o nosso histórico de commits (podemos fazer isso com o comando `git log --oneline`), urge
@@ -158,8 +158,8 @@ cumprem o seu propósito, são <span class="destaque">incorporadas na *branch* p
 - A branch `main` é a linha de desenvolvimento principal, e as branches `feature1` e `feature2` são
 ramificações que foram criadas para desenvolver novas funcionalidades.
 
-Como você já deve ter visto, por padrão, o quando usamos o comando `git init`, o programa cria
-automaticamente uma branch principal chamada de `master`. Uma vez criada, podemos alterar o nome dela
+Como você já deve ter visto, por padrão, o quando usamos o comando `git init`, o programa <span class="destaque">cria
+automaticamente uma branch principal</span> chamada de `master`. Uma vez criada, podemos alterar o nome dela
 para um nome mais significativo, como `main`, e criar novas branches a partir dela e trabalhar
 em novas funcionalidades para o projeto.
 
@@ -185,12 +185,12 @@ em novas funcionalidades para o projeto.
 
 Pronto! Já temos quase tudo que precisamos para trabalhar efetivamente com *branches*, podemos "commitar"
 e fazer tudo que já sabemos fazer, mas agora, de forma isolada do restante do projeto, sem correr grandes
-riscos. Porém, ainda não sabemos como incorporar mudanças feias numa branch e como criar branches remotas.
+riscos. Porém, ainda não sabemos <span class="destaque">como incorporar mudanças feias numa branch</span> e <span class="destaque">como criar branches remotas.</span>
 
 #### Branches locais e remotas
 
 Quando trabalhamos com <span class="destaque">repositórios remotos</span>, é importante saber que existem <span class="destaque">duas referências
-à *branch*<span> que estamos trabalhando atualmente: <span class="destaque">uma local e outra remota</span>. Quando criamos uma nova branch,
+à *branch*</span> que estamos trabalhando atualmente: <span class="destaque">uma local e outra remota</span>. Quando criamos uma nova branch,
 essa referência remota <span class="destaque">não é criada automaticamente</span>, então, cabe a nós fazer isso manualmente.
 
 Por exemplo, suponha que <span class="destaque">criamos uma nova branch local</span> chamada `feature-legal', fizemos alguns commits nela, e,
@@ -230,10 +230,10 @@ Uma das formas que o `merge` ocorre é *fast-foward*, e a ideia é que a *target
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem5.jpeg" width="70%">
 <br>
 
-Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer <span class="destaque">mesclar o que foi feito
+Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer <span class="destaque"> mesclar o que foi feito
 nela a linha de desenvolvimento principal (`main`).</span> Pensando de forma lúdica, o `git` realizaria a
-mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="destaque">equiparadas com a `main</span> e <span class="destaque">avançando o
-`HEAD`</span> para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
+mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="destaque"> equiparadas com a `main </span> e avançando o
+`HEAD` para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
 
 1. É alinhado à linha de desenvolvimento principal:
 
