@@ -610,6 +610,8 @@ Ao configurar uma chave SSH, você cria um <span class="destaque">par de chaves<
 
 No contexto do Git, a autenticação via chave SSH é especialmente útil ao interagir com repositórios remotos hospedados em plataformas como GitHub, GitLab e Bitbucket. Essas plataformas suportam autenticação por chave SSH, permitindo que os desenvolvedores <span class="destaque">enviem </span>(push) e <span class="destaque">busquem</span> (pull) alterações de forma segura.
 
+<p><a style="background: #fff;padding:10px;  color: black;" href="https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">CLique aqui para ver o manual de como configurar a chave SSH para a sua máquina</a></p>
+
 ## Workflow e primeiro repositório
 
 ### Um pouco mais sobre Git
