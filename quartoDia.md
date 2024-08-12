@@ -245,7 +245,7 @@ mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="dest
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem7.jpeg" width="70%">
 <br>
 
-Mas, e se a divergência não for assim tão simples e seu histórico estiver análogo à figura abaixo(#git-branching), seria possível fazer esse avanço?
+Mas, e se a divergência não for assim tão simples e seu histórico estiver análogo à figura abaixo, seria possível fazer esse avanço?
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem4.jpeg" width="70%">
 
