@@ -47,14 +47,14 @@ title: Minicurso de Linux e Git
 ## Desfazendo alterações
 
 No [último tópico](/terceiroDia.md), tivemos o nosso primeiro contato com o `git`, e aprendemos a criar
-repositórios para nos ajudar a rastrear as alterações feitas no nosso projeto localmente e remotamente.
-Entretanto, durante o desenvolvimento de um projeto, é comum que ocorram erros ou alterações
-indesejáveis. Por exemplo, podemos alterar um arquivo sem querer, ou adicionar um arquivo que não deveria 
+repositórios para nos ajudar a <span class="destaque">rastrear as alterações feitas no nosso projeto localmente e remotamente</span>.
+Entretanto, durante o desenvolvimento de um projeto, é comum que ocorram <span class="destaque">erros ou alterações
+indesejáveis</span>. Por exemplo, podemos alterar um arquivo sem querer, ou adicionar um arquivo que não deveria 
 ser adicionado, ou até mesmo fazer um commit com uma mensagem errada.
 
 Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git`, é muito comum
-tomar medidas extremas para solucionar diferentes tipos de problemas, sem de fato usar os meios que a
-ferramenta nos oferece. Quem nunca deletou e baixou o repositório novamente para se livrar de
+tomar medidas extremas para solucionar diferentes tipos de problemas, <span class="destaque">sem de fato usar os meios que a
+ferramenta nos oferece </span>. Quem nunca deletou e baixou o repositório novamente para se livrar de
 um simples `commit` errado?
 
 Por isso, vamos apresentar algumas formas seguras e mais "elegantes" de lidar com alguns tipos de
@@ -89,17 +89,17 @@ Porém, imediatamente após fazer o *commit*, você percebe que cometeu um erro 
 verdade deveria ser "E" ao invés de "R". E agora, o que fazer?
 
 Revisitando o nosso histórico de commits (podemos fazer isso com o comando `git log --oneline`), urge
-a necessidade de voltar para o commit anterior e corrigir o nome do commit.
+a necessidade de <span class="destaque">voltar para o commit anterior</span> e corrigir o nome do commit.
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem2.jpeg" width="70%">
 <br>
 
 Para isso, existem algumas possibilidades, dentre as quais:
 
-#### `git reset`
+#### "git reset"
 
-A primeira ideia é usar o comando `git reset`, visto que ele tem a capacidade de mover o `HEAD` para um
-commit anterior, onde, por padrão, arquivos alterados são preservados mas não ficam na *stagin area*.
+A primeira ideia é usar o comando `git reset`, visto que ele tem a capacidade de <span class="destaque">mover o `HEAD` para um
+commit anterior </span>, onde, por padrão, arquivos alterados são preservados mas não ficam na *stagin area*.
 
 Então, para simplesmente voltar para o commit anterior, podemos fazer:
 
@@ -107,7 +107,7 @@ Então, para simplesmente voltar para o commit anterior, podemos fazer:
 git reset HEAD~1
 ```
 
-aqui, o `~1` indica a quantidade de commits que queremos voltar, no caso, 1 commit. Agora, nosso histórico
+aqui, o `~1` indica a <span class="destaque">quantidade de commits</span> que queremos voltar, no caso, 1 commit. Agora, nosso histórico
 de commits fica assim:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem3.jpeg" width="70%">
@@ -120,7 +120,7 @@ Naturalmente, podemos corrigir o nome do commit e fazer um novo commit:
 git add E ; git commit -m E
 ```
 
-### `git commit --amend`
+#### "git commit --amend"
 
 Alternativamente, podemos usar o comando `git commit --amend`, que nos permite alterar o commit mais
 recente, inclusive os arquivos que foram adicionados a ele.
@@ -129,7 +129,7 @@ recente, inclusive os arquivos que foram adicionados a ele.
 git commit --amend
 ```
 
-Será aberto um editor de texto, onde você poderá alterar a mensagem do commit e após salvar e fechar o
+Será aberto um editor de texto, onde você poderá alterar a mensagem do commit e, após salvar e fechar o
 editor, o commit será alterado.
 
 ## Workflow avançado
@@ -137,20 +137,20 @@ editor, o commit será alterado.
 Todas essas funcionalidades que vimos até agora sobre o `git` são muito úteis, mas, até então, só
 trabalhamos individualmente em pequenos projetos num ambiente controlado. Nesse sentido, é dada a hora
 de finalmente começarmos a apreciar todo o potencial das ferramentas oferecidas pelo `git` para trabalhar
-em ambientes de coloboração. A primeira dessas ferramentas que vamos explorar são as *branches*.
+em <span class="destaque">ambientes de coloboração</span>. A primeira dessas ferramentas que vamos explorar são as <span class="destaque">*branches*</span>.
 
 ### Git branching
 
 Se você pensar no seu histórico de commits como uma árvore, você pode visualizar *branches* como
-ramificações ou galhos dessa árvore, e a ideia por trás das *branches* é permitir que você e seus
-companheiros de projeto, trabalhem em diferentes partes do projeto, sem interferir diretamente no trabalho
-dos outros.
+ramificações ou galhos dessa árvore. A ideia por trás das *branches* é permitir que você e seus
+companheiros de projeto <span class="destaque">trabalhem em diferentes partes do projeto, sem interferir diretamente no trabalho
+dos outros</span>.
 
 O uso dessa ferramenta pode variar a depender da necessidade e política de desenvolvimento de cada projeto,
-entretanto, uma pratica comum é definir uma *branch* principal, geralmente chamada de `master` ou `main`,
-e a cada nova funcionalidade ou correção de bug, criar uma nova *branch* a partir da principal.
+entretanto, uma pratica comum é <span class="destaque">definir uma *branch* principal</span>, geralmente chamada de `master` ou `main`,
+e <span class="destaque">a cada nova funcionalidade</span> ou correção de bug, <span class="destaque">criar uma nova *branch* a partir da principal.</span>
 Essas *branches* secundárias são o que chamamos de *topic branches* ou *feature branches*, e assim que elas
-cumprem o seu propósito, são incorporadas na *branch* principal e deletadas.
+cumprem o seu propósito, são <span class="destaque">incorporadas na *branch* principal e deletadas.</span>
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem4.jpeg" width="70%">
 <br>
@@ -163,21 +163,21 @@ automaticamente uma branch principal chamada de `master`. Uma vez criada, podemo
 para um nome mais significativo, como `main`, e criar novas branches a partir dela e trabalhar
 em novas funcionalidades para o projeto.
 
-1. Podemos iniciar o repositório com a branch principal chamada de `main`:
+- 1) Podemos iniciar o repositório com a branch principal chamada de `main`:
 
   ```terminal
   git init --initial-branch=main
   ```
 
-2. Em seguida, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
+- 2) Em seguida, podemos criar uma nova branch a partir dela com o `git branch <nome_da_branch> <branch_base>`:
 
   ```terminal
   git branch feature-legal main
   ```
 
-- Alternativamente, podemos omitir o nome da *branch* base, e o `git` vai assumir que queremos criar a nova branch a partir da qual estamos atualmente.
+- Alternativamente, podemos omitir o nome da *branch* base, e o `git` vai assumir que queremos criar a nova branch <span class="destaque">a partir da qual estamos</span> atualmente.
 
-3. Precisamos mudar para a nova branch para começar a trabalhar nela, então usamos o comando `git switch <branch>` (que serve apenas para trocar de branches) ou `git checkout` (mais sobre ele no futuro):
+- 3) Precisamos <span class="destaque"> mudar para a nova branch para começar a trabalhar nela</span>, então usamos o comando `git switch <branch>` (que serve apenas para trocar de branches) ou `git checkout` (mais sobre ele no futuro):
 
   ```terminal
   git switch feature-legal
@@ -189,13 +189,13 @@ riscos. Porém, ainda não sabemos como incorporar mudanças feias numa branch e
 
 #### Branches locais e remotas
 
-Quando trabalhamos com repositórios remotos, é importante saber que existem duas referências
-à *branch* que estamos trabalhando atualmente: uma local e outra remota. Quando criamos uma nova branch,
-essa referência remota não é criada automaticamente, então, cabe a nós fazer isso manualmente.
+Quando trabalhamos com <span class="destaque">repositórios remotos</span>, é importante saber que existem <span class="destaque">duas referências
+à *branch*<span> que estamos trabalhando atualmente: <span class="destaque">uma local e outra remota</span>. Quando criamos uma nova branch,
+essa referência remota <span class="destaque">não é criada automaticamente</span>, então, cabe a nós fazer isso manualmente.
 
-Por exemplo, suponha que criamos uma nova branch local chamada `feature-legal', fizemos alguns commits nela, e,
+Por exemplo, suponha que <span class="destaque">criamos uma nova branch local</span> chamada `feature-legal', fizemos alguns commits nela, e,
 então, queremos compartilhar essa branch com colegas de trabalho ou apenas salvar o progresso na nuvem.
-Para isso, podemos criar a referência remota com o seguinte comando:
+Para isso, podemos <span class="destaque">criar a referência remota</span> com o seguinte comando:
 
 ```terminal
 git push -u origin feature-legal
@@ -206,12 +206,12 @@ git push -u origin feature-legal
 ## Git merging
 
 Nos últimos tópicos, vimos um punhado sobre *branches*, e como elas podem ser úteis para trabalhar em
-equipe, mas, como que podemos concretizar um projeto usando *branches*, se não sabemos como juntar o
-que foi feito em cada uma delas?
+equipe, mas, como que podemos concretizar um projeto usando *branches*, se não sabemos <span class="destaque">como juntar o
+que foi feito em cada uma delas?</span>
 
-Dada essa preocupação, o `git` nos oferece o `git merge` que serve para integrar as alterações feitas em
-uma *branch* a outra. Em qualquer "merge" ou "mesclagem", a *branch* que está sendo mesclada é chamada de *
-source branch* (ou "ramificação fonte", em Português) e a *branch* que está recebendo as alterações é chamada
+Dada essa preocupação, o `git` nos oferece o `git merge` que serve para <span class="destaque">integrar as alterações feitas em
+uma *branch* a outra.</span> Em qualquer "merge" ou "mesclagem", a *branch* que está <span class="destaque">sendo mesclada</span> é chamada de *
+source branch* (ou "ramificação fonte", em Português) e a *branch* que está <span class="destaque">recebendo as alterações</span> é chamada
 de *target branch* (ou "ramificação alvo"), e seu uso consiste em:
 
 - Estando na *target branch*:
@@ -221,21 +221,21 @@ de *target branch* (ou "ramificação alvo"), e seu uso consiste em:
   ```
 
 Mas, nem sempre é tão simples assim, e existem diferentes formas que o `git` pode realizar essa
-mesclagem, as quais impactam diretamente no seu histórico de commits.
+mesclagem, as quais impactam diretamente no seu <span class="destaque">histórico de commits.</span>
 
 ### Fast-forward merge
 
-Uma das formas que o `merge` ocorre é *fast-foward*, e a ideia é que a *target branch* vai apenas avançar o seu histórico em relação a *source branch*, por exemplo, imagine o seguinte histórico de commits:
+Uma das formas que o `merge` ocorre é *fast-foward*, e a ideia é que a *target branch* vai apenas <span class="destaque">avançar o seu histórico</span> em relação a *source branch*, por exemplo, imagine o seguinte histórico de commits:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem5.jpeg" width="70%">
 <br>
 
-Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer mesclar o que foi feito
-nela a linha de desenvolvimento principal (`main`). Pensando de forma lúdica, o `git` realizaria a
-mesclagem  apenas descendo essas bolinhas vermelhas e deixando equiparadas com a `main` e avançando o
-`HEAD` para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
+Suponha que a *branch* vermelha (`feature`) cumpriu seu propósito e agora você quer <span class="destaque">mesclar o que foi feito
+nela a linha de desenvolvimento principal (`main`).</span> Pensando de forma lúdica, o `git` realizaria a
+mesclagem  apenas descendo essas bolinhas vermelhas e deixando <span class="destaque">equiparadas com a `main</span> e <span class="destaque">avançando o
+`HEAD`</span> para o commit mais recente da `feature`. Visualmente, isso ocorre da seguinte maneira:
 
-1. E alinhado a linha de desenvolvimento principal:
+1. É alinhado à linha de desenvolvimento principal:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem6.jpeg" width="70%">
 <br>
@@ -245,50 +245,51 @@ mesclagem  apenas descendo essas bolinhas vermelhas e deixando equiparadas com a
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem7.jpeg" width="70%">
 <br>
 
-Mas, e se a divergência não for assim tão simples e seu histórico estiver análogo a
-[essa figura](#git-branching), seria possível fazer esse avanço?
+Mas, e se a divergência não for assim tão simples e seu histórico estiver análogo à figura abaixo(#git-branching), seria possível fazer esse avanço?
+
+<img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem4.jpeg" width="70%">
 
 ### Three-way merge
 
-A outra forma de o `git` realizar merges é o *three-way merge*. Ele acontece quando é impossível alcançar a
-cabeça da *target branch* seguindo os commits parentes a partir da cabeça da *source branch*. Visualmente,
+A outra forma de o `git` realizar merges é o *three-way merge*. Ele acontece quando é <span class="destaque">impossível alcançar a
+cabeça da *target branch*</span> seguindo os commits parentes a partir da cabeça da *source branch*. Visualmente,
 isso seria:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem8.jpeg" width="70%">
 <br>
 
-- Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que as branches
-divergiram e que o `git` precisará realizar o *three-way merge*.
+- Note que, de fato, é impossível alcançar o commit F, a partir do commit E, logo, isso significa que <span class="destaque">as branches
+divergiram</span> e que o `git` precisará realizar o *three-way merge*.
 
-Para conseguir realizar a mesclagem, o `git` precisa criar um novo commit que tenha como parente os dois
+Para conseguir realizar a mesclagem, o `git` precisa <span class="destaque">criar um novo commit</span> que tenha como parente os dois
 últimos commits da *source* e *target* branch, de forma que o histórico das duas fiquem acessíveis a partir
 da mesma branch.
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem9.jpeg" width="70%">
 <br>
 
-E esse processo só ocorre, se alterações feitas em uma branch não interferirem diretamente nas alterações
-feitas na outra, caso contrário, o `git` não conseguirá realizar a mesclagem e você terá que resolver
-cada conflito manualmente, para consolidar o *merge commit*.
+E esse processo só ocorre se <span class="destaque">alterações feitas em uma branch não interferirem diretamente nas alterações
+feitas na outra</span>, caso contrário, o `git` não conseguirá realizar a mesclagem e você terá que <span class="destaque">resolver
+cada conflito manualmente</span>, para consolidar o *merge commit*.
 
 ### Lidando com conflitos
 
-Para além do *three-way merge* e do `git`, um dos desafios mais clássicos que enfretamos ao trabalhar com
-projetos e com outras pessoas é a resolução de conflitos. Seja por falta de comunicação entre a equipe,
+Para além do *three-way merge* e do `git`, um dos desafios mais clássicos que enfretamos ao <span class="destaque">trabalhar com
+projetos e com outras pessoas</span> é a resolução de conflitos. Seja por <span class="destaque">falta de comunicação entre a equipe</span>,
 planejamento, erro humano, ou qualquer outra razão, é muito comum que duas ou mais pessoas acabem
 trabalhando na mesma parte do projeto ao mesmo tempo e isso resultar em conflitos.
 
-Consequentemente, com o `git` não é diferente, e conflitos ocorrem no momento em que o `git` não consegue
-mesclar duas branches automaticamente via *three-way merge*. Para resolver o conflito, você precisa
+Consequentemente, com o `git` não é diferente, e conflitos ocorrem no momento em que o `git` <span class="destaque">não consegue
+mesclar duas branches automaticamente</span> via *three-way merge*. Para resolver o conflito, você precisa
 intervir diretamente na parte do arquivo que é conflitante entre as *branches* e decidir o que será mantido.
 
 Portanto, vamos investigar quais são algumas das principais causas de conflitos e como resolvê-los.
 
 #### Alterações no mesmo arquivo
 
-Um conflito no *three-way merge* é dado quando duas ou mais pessoas trabalham na mesma parte
-de um arquivo, visto que, ao mesclar as alterações, o `git` é incapaz de decidir qual versão manter. Dessa
-forma, O `git` vai te dizer em qual arquivo houve conflito, e vai decorar o arquivo com marcações especiais
+Um conflito no *three-way merge* é dado quando duas ou mais pessoas trabalham <span class="destaque">na mesma parte
+de um arquivo</span>, visto que, ao mesclar as alterações, o `git` é incapaz de decidir <span class="destaque">qual versão manter.</span> Dessa
+forma, o `git` vai te dizer em qual arquivo houve conflito, e vai decorar o arquivo com <span class="destaque">marcações especiais</span>
 para lhe mostrar as diferentes versões de determinadas linhas do arquivo. Essas marcações são:
 
 ```terminal
@@ -301,7 +302,7 @@ para lhe mostrar as diferentes versões de determinadas linhas do arquivo. Essas
 
 Para resolver esse tipo de conflito, voce vai precisar:
 
-- Decidir o que manter, editar o arquivo e remover a decoração de conflito.
+- <span class="destaque">Decidir o que manter<span>, editar o arquivo e remover a decoração de conflito.
 - Adicionar o arquivo ao *stage* e consolidar o *merge commit*.
 
 #### Estado do repositório local e repositório remoto
@@ -310,13 +311,13 @@ Em qualquer projeto que envolva mais de uma pessoa, naturalmente, ocorrerão mud
 repositório, e sempre alguém vai terminar antes ou depois de outra pessoa. Nesse sentido, tente visualizar
 comigo o seguinte cenário:
 
-- Você e seu colega estão trabalhando em duas funcionalidades diferentes no mesmo projeto, e o histórico
+- Você e seu colega estão trabalhando em duas <span class="destaque">funcionalidades diferentes</span> no mesmo projeto, e o histórico
 de commits se parece com isso:
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia4_imagem010.jpeg" width="70%">
 <br>
 
-- Seu colega terminou antes de você e publicou a branch dele remotamente, e já incorporou as alterações
+- Seu colega terminou antes de você e <span class="destaque">publicou a branch dele remotamente</span>, e já incorporou as alterações
 dele na `main`.
 
   | Sua versão local| Versão remota |
@@ -336,18 +337,18 @@ de commits da sua branch `main` divergiu completamente da versão remota.
 Dada a problemática, o que fazer?
 
 O `git` vai te dar a oportunidade de mesclar a sua branch local com a remota via *three-way merge*, para
-que você consiga publicar as alterações com sucesso. Mas, note que, será criado um commit desnecessário
-por descuido, além da alta chance de haver conflitos por possíveis alterações no mesmo arquivo.
+que você consiga publicar as alterações com sucesso. Mas, note que será criado <span class="destaque">um commit desnecessário
+por descuido</span>, além da alta chance de haverem <span class="destaque">conflitos por possíveis alterações no mesmo arquivo.</span>
 
-Num cenário ideal, sempre antes e depois de trabalhar, atualize o seu repositório local com os comandos que
+Num cenário ideal, sempre antes e depois de trabalhar, <span class="destaque">atualize o seu repositório local</span> com os comandos que
 já aprendeu, para evitar esse tipo de problema.
 
 #### Divergências significativas
 
 É mais comum do que se imagina, especialmente em equipes grandes ou entre novatos no uso do git, a 
-criação de divergências significativas em uma ou mais branches. Por exemplo, se você está trabalhando em 
-uma branch feature enquanto seu colega está na main e ambos fazem mudanças significativas que afetam o 
-mesmo arquivo, é provável que não será possível incorporar suas alterações na branch principal sem enfrentar
+criação de <span class="destaque">divergências significativas em uma ou mais branches.</span> Por exemplo, se você está trabalhando em 
+uma branch feature enquanto seu colega está na main e ambos fazem mudanças significativas que afetam <span class="destaque">o 
+mesmo arquivo</span>, é provável que não será possível incorporar suas alterações na branch principal sem enfrentar
 conflitos.
 
 A causa desse tipo de conflito, é, principalmente, a falta de comunicação e planejamento entre as partes.
@@ -357,14 +358,14 @@ A causa desse tipo de conflito, é, principalmente, a falta de comunicação e p
 A maioria dos conflitos no `git` não fogem muito do que foi apresentado até agora, então, para previnir
 esses tipos de conflitos, alguma práticas são recomendadas:
 
-- **Comunique-se constatemente e abertamente com a equipe** sobre quais partes do projeto cada um está trabalhando.
+- <span class="destaque">**Comunique-se constatemente e abertamente com a equipe**</span> sobre quais partes do projeto cada um está trabalhando.
 
-- Faça **commits frequentes** e pequenos assim como a
+- Faça <span class="destaque">**commits frequentes**</span> e pequenos assim como a
 [filosofia do Unix](/primeiroDia.md#filosofia-unix-programas-simples-e-combináveis) sugere para o
 desenvolver de software. Isso mantém o repositório atualizado, diminui a chance de conflitos e facilita
 revisitar o commit no futuro.
 
-- **Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**, pois branches de
+- <span class="destaque">**Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**,</span> pois branches de
 longa-duração tendem a se desviar significantemente de outras e criar conflitos.
 
 ## Projeto pt.1
