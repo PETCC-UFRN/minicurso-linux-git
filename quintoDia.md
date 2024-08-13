@@ -4,6 +4,8 @@ title: Minicurso de Linux e Git
 ---
 
 
+
+
 ## GitHub e boas práticas de Git
 
 Na aula anterior, começamos a trabalhar conceitos mais avançados de Git e Github, os quais permitem trabalhar de forma colaborativa em projetos de software. Nesta aula, vamos explorar <spam class="destaque">boas práticas</spam> envolvendo esses conceitos além de descobrir algumas novas funcionalidades do Git.
@@ -219,7 +221,7 @@ Um exemplo de commit seguindo a convenção seria:
 
 ```
 
-## Projeto Final pt.2
+## Projeto final parte final
 
 ### Visão geral
 
@@ -234,37 +236,39 @@ para o gerador de senhas? As funcionalidades seriam:
 ### Sumário
 
 <!--toc:start-->
-- [Projeto Final pt.2](#projeto-final-pt2)
-  - [Visão geral](#visão-geral)
-  - [Sumário](#sumário)
-  - [Definição da continuação do projeto](#definição-da-continuação-do-projeto)
-  - [Implementação](#implementação)
-    - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
-    - [Nomear senhas](#nomear-senhas)
-    - [Listar senhas armazenadas](#listar-senhas-armazenadas)
-  - [Novas funcionalidades na interface](#novas-funcionalidades-na-interface)
-  - [Colaboração](#colaboração)
-  - [Submissão](#submissão)
+- [Visão geral](#visão-geral)
+- [Sumário](#sumário)
+- [Definição da continuação do projeto](#definição-da-continuação-do-projeto)
+- [Implementação](#implementação)
+  - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
+  - [Nomear senhas](#nomear-senhas)
+  - [Listar senhas armazenadas](#listar-senhas-armazenadas)
+- [Novas funcionalidades na interface](#novas-funcionalidades-na-interface)
+- [Colaboração](#colaboração)
+- [Submissão](#submissão)
 <!--toc:end-->
 
 ### Definição da continuação do projeto
 
-O projeto final será a continuação do que foi feito no último dia, onde vocês devem adicionar as funcionalidades que foram  especificadas na visão geral. Nos tópicos seguintes, será detalhado como isso pode ser feito. Porém, com um *caveat*, ao invés de continuarem diretamente na sua versão do projeto, vocês devem fazer um fork do repositório de outra dupla e trabalhar a partir dele (Caso não tenha, continue no seu).
+O projeto final será a continuação do que foi feito no último dia, onde vocês devem adicionar as
+funcionalidades que foram especificadas na visão geral. Nos tópicos seguintes, será detalhado como
+isso pode ser feito. Porém, com um caveat, ao invés de continuarem diretamente na sua versão do projeto,
+vocês devem fazer um fork do repositório de outra dupla e trabalhar a partir dele (Caso não tenha, continue
+no seu).
 
 ### Implementação
 
-A implementação das funcionalidades, naturalmente, também devem ser em shell script. Abaixo, detalhamos como cada funcionalidade pode ser implementada.
+A implementação das funcionalidades, naturalmente, também devem ser em shell script. Abaixo, detalhamos
+como cada funcionalidade pode ser implementada.
 
 #### Armazenar senhas em um arquivo
 
 Implemente a funcionalidade de armazenar as senhas geradas em um arquivo, por exemplo, um arquivo `.txt`.
 
 ```terminal
-
- $ ./pwd-gen.bash -o
- weebvicv
- Senha salva em passwords.txt
-
+$ ./pwd-gen.bash -o
+weebvicv
+Senha salva em passwords.txt
 ```
 
 Alternativamente, não é necessário passar o feedback de que a senha foi salva em um arquivo.
@@ -274,10 +278,8 @@ Alternativamente, não é necessário passar o feedback de que a senha foi salva
 Implemente uma funcionalidade para nomear as senhas geradas.
 
 ```terminal
-
- $ ./pwd-gen.bash -n SIGAA
- zaaugxkh
-
+$ ./pwd-gen.bash -n SIGAA
+zaaugxkh
 ```
 
 #### Listar senhas armazenadas
@@ -285,14 +287,12 @@ Implemente uma funcionalidade para nomear as senhas geradas.
 Adicione uma funcionalidade para listar as senhas armazenadas nesse arquivo.
 
 ```terminal
-
- ./pwd-gen.bash -p
- miogptoy
- Netflix: tzccfdlj
- PrimeVideo: jroucqus
- SIGAA: wohzsrhe
- SitePet: nommyigz
-
+$ ./pwd-gen.bash -p
+miogptoy
+Netflix: tzccfdlj
+PrimeVideo: jroucqus
+SIGAA: wohzsrhe
+SitePet: nommyigz
 ```
 
 ### Novas funcionalidades na interface
@@ -300,11 +300,10 @@ Adicione uma funcionalidade para listar as senhas armazenadas nesse arquivo.
 A interface de help do script deve ser atualizada para refletir as novas funcionalidades.
 
 ```terminal
-
- $ ./pwd-gen.bash -h
- Bem vindo ao password generator! Versão 1.0, (c) 2024, Cicrano, DIMAp, UFRN
- Uso ./pwd-gen.bash [OPTIONS]
- Opções:
+$ ./pwd-gen.bash -h
+Bem vindo ao password generator! Versão 1.0, (c) 2024, Cicrano, DIMAp, UFRN
+Uso ./pwd-gen.bash [OPTIONS]
+Opções:
   -l LENGTH  Especifica o tamanho da senha (padrão: 8)
   -u         Inclui letras maiúsculas na senha
   -d         Inclui dígitos na senha
@@ -313,8 +312,8 @@ A interface de help do script deve ser atualizada para refletir as novas funcion
   -o         Salva a senha gerada em um arquivo
   -n NAME    Adiciona um nome a senha gerada
   -p         Exibe senhas geradas
- O comporatemento padrão é gerar uma senha de 8 caracteres minúsculos
- 
+
+O comporatemento padrão é gerar uma senha de 8 caracteres minúsculos
 ```
 
 ### Colaboração

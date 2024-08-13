@@ -469,7 +469,7 @@ O comportamento padrão do script é gerar uma senha de 8 caracteres minúsculos
 ```bash
 #!/bin/bash
 # Função para exibir a ajuda
-function show_help() {
+show_help() {
   # Implementação vai aqui
 }
 
@@ -489,6 +489,7 @@ DIGITS="0123456789"
 SYMBOLS="!@#$%^&*()-_=+[]{}|;:,.<>?/~"
 
 # Construir a lista de caracteres permitidos
+# { Implementação vem aqui }
 
 # Gerar a senha: 
 # o /dev/urandom gera bytes aleatórios, para conseguir
@@ -510,5 +511,7 @@ argumentos da linha de comando e a segunda parte seria a investigação de como 
 
 ### Submissão
 
+
 Um email para linuxgitpetcc@gmail.com, com o link do repositório e nome completo dos autores é suficiente.
 Apenas um membro da dupla deve realizar a submissão
+
