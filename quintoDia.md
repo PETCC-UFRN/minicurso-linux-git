@@ -6,29 +6,18 @@ title: Minicurso de Linux e Git
 
 ## GitHub e boas práticas de Git
 
-Na aula anterior, começamos a trabalhar conceitos mais avançados de Git e Github, os quais permitem
-trabalhar de forma colaborativa em projetos de software. Nesta aula, vamos explorar <spam class="destaque">boas práticas</spam> envolvendo
-esses conceitos além de descobrir algumas novas funcionalidades do Git.
+Na aula anterior, começamos a trabalhar conceitos mais avançados de Git e Github, os quais permitem trabalhar de forma colaborativa em projetos de software. Nesta aula, vamos explorar <spam class="destaque">boas práticas</spam> envolvendo esses conceitos além de descobrir algumas novas funcionalidades do Git.
 
 ### Pull requests
 
-Primeiro, vamos relembrar o que sabemos sobre branches e o workflow tradicional
-do Git, no qual temos uma branch principal e criamos branches paralelas para desenvolver novas funcionalidades
-que são posteriormente integradas à branch principal. Num workflow tradicional, o processo de integração
-ocorre através de merges, e esses merges são <spam class="destaque">executados primeiro localmente</spam> e depois publicados no
-<spam class="destaque">repositório remoto</spam>. Entretanto, essa não é a única forma de integrar novas funcionalidades ao projeto,
-ferramentas de hospedagem remota como o <spam class="destaque">GitHub</spam> , por exemplo, permitem que os desenvolvedores criem o que
-chamamos de <spam class="destaque">pull requests</spam> .
+Primeiro, vamos relembrar o que sabemos sobre branches e o workflow tradicional do Git, no qual temos uma branch principal e criamos branches paralelas para desenvolver novas funcionalidades que são posteriormente integradas à branch principal. Num workflow tradicional, o processo de integração ocorre através de merges, e esses merges são <spam class="destaque">executados primeiro localmente</spam> e depois publicados no <spam class="destaque">repositório remoto</spam>. Entretanto, essa não é a única forma de integrar novas funcionalidades ao projeto,ferramentas de hospedagem remota como o <spam class="destaque">GitHub</spam>, por exemplo, permitem que os desenvolvedores criem o que chamamos de <spam class="destaque">pull requests</spam>.
 
-O pull request (merge requests), ou PR, nada mais é que uma <spam class="destaque">solicitação para que as alterações que foram feitas<spam class="destaque"> em uma
-<spam class="destaque">branch</spam> sejam <spam class="destaque">incorporadas</spam> a outra branch do projeto, e a grande vantagem do PR é que ele favorece a
-<spam class="destaque">comunicação</spam> e a<spam class="destaque">transparência</spam> entre os desenvolvedores. Pois, quando um pull request é criado, dentro da
-plataforma de hospedagem, os <spam class="destaque">colaboradores são notificados</spam> e podem <spam class="destaque">visualizar</spam>, <spam class="destaque">comentar</spam> e <spam class="destaque">revisar</spam> as alterações feitas na branch.
+O pull request (merge requests), ou PR, nada mais é que uma <spam class="destaque">solicitação</spam> para que as <spam class= "destaque">alterações</spam> que foram feitas <spam class="destaque">em uma branch</spam> sejam <spam class="destaque">incorporadas</spam> a outra branch do projeto. A grande vantagem do PR é que ele favorece a <spam class="destaque">comunicação</spam> e a <spam class="destaque">transparência</spam> entre os desenvolvedores, pois, quando um pull request é criado, dentro da plataforma de hospedagem, os <spam class="destaque">colaboradores são notificados</spam> e podem <spam class="destaque">visualizar</spam>, <spam class="destaque">comentar</spam> e <spam class="destaque">revisar</spam> as alterações feitas na branch.
 
 O processo de pull request é muito simples e pode ser quebrado em alguns passos:
 
 1. Crie uma <spam class="destaque">branch local</spam> e faça as <spam class="destaque">alterações</spam> desejadas.
-2. <spam class="destaque">Publique a branch</spam> local no repositório remoto.
+2. Faça a <spam class="destaque">publicação da branch</spam> local no repositório remoto.
 3. Acesse o repositório remoto e <spam class="destaque">crie um pull request</spam>.
 4. Peça para um ou mais colaboradores <spam class="destaque">revisarem</spam> seu código e faça alguma alteração se necessário.
 5. Após aprovado e revisado, o pull request pode ser <spam class="destaque">integrado</spam> ao projeto.
@@ -36,59 +25,52 @@ O processo de pull request é muito simples e pode ser quebrado em alguns passos
 
 Algumas boas práticas envolvendo a criação de pull requests são:
 
-1. <spam class="destaque">Revisar bem</spam> seu código e pull request antes de submetê-lo.
-2. Escrever um <spam class="destaque">bom título</spam> e <spam class="destaque">descrição consisa</spam> e com propósito claro.
+1. Faça uma <spam class="destaque">boa revisão</spam> do seu código e pull request antes de submetê-lo.
+2. Escrever um <spam class="destaque">bom título</spam> e <spam class="destaque">descrição concisa</spam> e com propósito claro.
 3. Prover <spam class="destaque">contexto</spam> e <spam class="destaque">informações</spam> adicionais que possam ajudar o <spam class="destaque">revisor</spam>.
 
 ## *Rebase*
 
-Até então, vimos que o Git possui um comando chamado <spam class="destaque">merge</spam> que é usado para <spam class="destaque">integrar alterações</spam> de uma branch, e que também podemos fazer isso remotamente usando um <spam class="destaque">pull request</spam>. Contudo, existe uma outra forma
-de fazer isso que, em muitos casos, pode ser mais interessante: o <spam class="destaque">rebase</spam>.
+Até então, vimos que o Git possui um comando chamado <spam class="destaque">merge</spam> que é usado para <spam class="destaque">integrar alterações</spam> de uma branch, e que também podemos fazer isso remotamente usando um <spam class="destaque">pull request</spam>. Contudo, existe uma outra forma de fazer isso que, em muitos casos, pode ser mais interessante: o <spam class="destaque">rebase</spam>.
 
-Assim como o <spam class="destaque">merge</spam> o <spam class="destaque">rebase</spam> também explora o conceito de <spam class="destaque">source branch</spam> e <spam class="destaque">target branch</spam>, mas, ao invés
-de tentar conectar o histórico das duas branches, esse comando <spam class="destaque">reaplica as alterações</spam> da <spam class="destaque">source branch</spam>
-no <spam class="destaque">topo da target</spam>. Agora, vamos visualizar isso:
+Assim como o <spam class="destaque">merge</spam>, o <spam class="destaque">rebase</spam> também explora o conceito de <spam class="destaque">source branch</spam> e <spam class="destaque">target branch</spam>, mas, ao invés
+de tentar conectar o histórico das duas branches, esse comando <spam class="destaque">reaplica as alterações</spam> da <spam class="destaque">source branch</spam> no <spam class="destaque">topo da target</spam>. Agora, vamos visualizar isso:
 
 - Primeiro, imagine o seguinte histórico de commits:
 
   <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem1.jpeg" width="70%">
   <br>
 
-- Agora, invés de criar um commit extra, quando usamos o comando <spam class="destaque">git rebase feature</spam> todos os commits da <spam class="destaque">branch feature</spam>
+- Agora, ao invés de criar um commit extra, quando usamos o comando <spam class="destaque">git rebase feature</spam> todos os commits da <spam class="destaque">branch feature</spam>
   são reaplicados no <spam class="destaque">topo da branch main</spam>:
 
   <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem2.jpeg" width="70%">
   <br>
 
-Assim como o *three-way merge*, o `rebase` só funciona dessa forma se <spam class="destaque">não houverem conflitos</spam> entre as branches e o processo
-de resolução de conflitos for análogo ao que vimos anteriormente. A grande <spam class="destaque">vantagem do `rebase` </spam> é que ele mantém o <spam class="destaque">histórico
+Assim como o *three-way merge*, o `rebase` só funciona dessa forma se <spam class="destaque">não houverem conflitos</spam> entre as branches e o processo de resolução de conflitos for análogo ao que vimos anteriormente. A grande <spam class="destaque">vantagem do `rebase` </spam> é que ele mantém o <spam class="destaque">histórico
 de commits mais limpo e linear</spam>, o que pode ser a preferência de muitas equipes. Entretanto, apesar de ser intuitivamente
 mais simples, o `rebase` é uma operação <spam class="destaque">relativamente mais complexa</spam> que o `merge` e, se não for usada com cuidado, pode lhe
 causar muita dor de cabeça.
 
 ### Cuidados com o *rebase*
 
-Como foi dito anteriormente, o `rebase` é uma operação mais complexa que o `merge` e deve ser usada com cuidado, pois essa operação
-<spam class="destaque">reescreve o histórico de commits</spam>, e isso pode causar problemas chatos de resolver.
-Por isso, existe uma regrinha de ouro que podemos seguir para evitar esse tipo de problema:
-
-*Não utilize o comando rebase em uma branch que outras pessoas estão usando*: Por exemplo, se você publicou uma branch no repositório
-remoto, agora ela é de domínio público e outras pessoas podem estar trabalhando nela, se você fizer um rebase nessa branch
+Como foi dito anteriormente, o `rebase` é uma operação mais complexa que o `merge` e deve ser usada com cuidado, pois essa operação <spam class="destaque">reescreve o histórico de commits</spam>, e isso pode causar problemas chatos de resolver.
+Por isso, existe uma regrinha de ouro que podemos seguir para evitar esse tipo de problema: **Não utilize  rebase em uma branch que outras pessoas estão usando**. Por exemplo, se você publicou uma branch no repositório remoto, agora ela é de domínio público e outras pessoas podem estar trabalhando nela, se você fizer um rebase nessa branch
 as pessoas vão ter que lidar com um histórico de commits completamente diferente e haverão conflitos.
 
-Para sempre <spam class="destaque">evitar problemas </spam>envolvendo `rebase`, use-o se somente se:
+Para estar sempre <spam class="destaque">evitando problemas</spam> com o `rebase`, use-o se, e somente se:
 
 - Você tem uma <spam class="destaque">branch local que não foi publicada</spam> no repositório remoto.
-- Você está trabalhando em uma branch local ou remota que você tem <spam class="destaque">certeza</spam>que <spam class="destaque">ninguém mais está usando</spam>.
+- Você está trabalhando em uma branch local ou remota que você tem <spam class="destaque">certeza</spam> que <spam class="destaque">ninguém mais está usando</spam>.
 
 ## Stash
 
 Saindo um pouco do assunto de branches e pull requests, vamos falar agora sobre um comando que pode ser muito útil em
-algumas situações do dia-a-dia. O comando <spam class="destaque">git stash</spam> é usado para <spam class="destaque">salvar, de forma temporária</spam> e rápida as <spam class="destaque">alterações</spam> que
+algumas situações do dia-a-dia. O comando <spam class="destaque">git stash</spam> é usado para <spam class="destaque">salvar temporária e rapidamente</spam> as <spam class="destaque">alterações</spam> que
 você estava fazendo na sua <spam class="destaque">branch local</spam>, permitindo que você possa mudar de branch ou fazer outras operações sem ter que
 "commitar" ou descartar as alterações. Seu uso é extremamente simples e pode ser quebrado em alguns passos:
 
-1. Salve as alterações que você estava fazendo com <spam class="destaque">git stash</spam>, alternativamente, use a flag <spam class="destaque">-u</spam> ou <spam class="destaque">-m</spam> para salvar suas
+1. Salve as alterações que você estava fazendo com <spam class="destaque">git stash</spam>. Alternativamente, use a flag <spam class="destaque">-u</spam> ou <spam class="destaque">-m</spam> para salvar suas
 suas alterações <spam class="destaque">não rastreadas</spam> ou salvar as alterações <spam class="destaque">com mensagens</spam>, respectivamente.
 
 2. <spam class="destaque">Troque de branch</spam> ou faça as operações que você deseja.
@@ -110,7 +92,7 @@ Para os propósitos do curso, finalmente exploramos tudo que nós do PET conside
 
 Geralmente, quando começamos no Github e passamos a trabalhar em projetos, seguir outros desenvolvedores e ver o que eles
 estão fazendo, é muito comum nos depararmos com arquivos chamados `CHANGELOG.md` e `README.md` (inclusive, fizemos um deles
-no último projeto). Por exemplo, no repositório do `yazi` (**github.com/sxyazi/yazi**):
+no último projeto). Por exemplo, no repositório do [yazi](https://github.com/sxyazi/yazi):
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem3.png" width="70%">
 <br>
@@ -162,33 +144,35 @@ A depender do projeto, pode ser necessário que as issues sigam algum <spam clas
 guia geral para criar uma issue é:
 
 ```markdown
-**Descrição do bug**
-Uma descrição <spam class="destaque">clara </spam>e <spam class="destaque">concisa</spam> do que se trata o bug.
 
-**Para reproduzir**
-Passos para reproduzir o comportamento:
-1. Vá até
-2. Execute
-3. Veja o erro
+ # Descrição do bug
+ Uma descrição clara e concisa sobre o bug.
 
-**Comportamento esperado**
-Uma descrição clara e concisa do que você esperava que acontecesse.
+ # Para reproduzir
+ Passos para reproduzir o comportamento:
+ 1. Vá até
+ 2. Execute
+ 3. Veja o erro
 
-**Fotos/Screenshots**
-Se viável, adicione fotos ou screenshots para ajudar a explicar seu problema.
+ # Comportamento esperado
+ Uma descrição clara e concisa do comportamento esperado.
 
-**Informações do seu sistema**
-- Sistema operacional: ArchLinux
-- Navegador: Firefox
-- Versão do software: 22.0.0
+ # Fotos/Screenshots
+ Se viável, adicione fotos ou screenshots para ajudar a explicar seu problema.
 
-**Logs de erro**
-Se aplicável, adicione logs de erro.
+ # Informações do seu sistema
+ - Sistema operacional: ArchLinux
+ - Navegador: Firefox
+ - Versão do software: 22.0.0
+
+ # Logs de erro
+ Se aplicável, adicione logs de erro.
+
 ```
 
 ### Forks
 
-Além de issues, outra forma de <spam class="destaque">colaborar</spam> com projetos de software no Github é através dos forks. O fork consiste em <spam class="destaque">adotar uma versão cópia</spam> de algum projeto, e a partir dessa cópia, fazer <spam class="destaque">alterações</spam> que você acha interessante e possívelmente benéficas. Após fazer as alterações, você pode submeter um <spam class="destaque">pull request</spam>para o projeto original, e se os mantenedores do projeto acharem que suas alterações são interessantes, elespodem incorporá-las ao projeto original.
+Além de issues, outra forma de <spam class="destaque">colaborar</spam> com projetos de software no Github é através dos forks. O fork consiste em <spam class="destaque">adotar uma versão cópia</spam> de algum projeto, e a partir dessa cópia, fazer <spam class="destaque">alterações</spam> que você acha interessante e possívelmente benéficas. Após fazer as alterações, você pode submeter um <spam class="destaque">pull request</spam> para o projeto original, e se os mantenedores do projeto acharem que suas alterações são interessantes, eles podem incorporá-las ao projeto original.
 
 <img style=" display: block;margin: 0 auto;" src="assets/images/git_dia5_imagem6.png" width="70%">
 <br>
@@ -201,14 +185,16 @@ um conjunto de regrinhas que padronizam a forma que você escreve suas mensagens
 seguinte estrutura:
 
 ```plaintext
-<tipo>[escopo opcional]: <descrição>
 
-[corpo opcional]
+ <tipo>[escopo (opcional)]: <descrição>
 
-[rodapé opcional]
+ [corpo (opcional)]
+
+ [rodapé (opcional)]
+
 ```
 
-Os tipos de commit seguem o [*Angular convention*](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines), que em síntese são:
+Em síntese, os tipos de commit que surgem do [*Angular convention*](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines), são:
 
 1. **fix**: <spam class="destaque">Correção de um bug</spam> ou problema.
 2. **feat**: Adição de uma <spam class="destaque">nova funcionalidade</spam>.
@@ -221,14 +207,125 @@ Os tipos de commit seguem o [*Angular convention*](https://github.com/angular/an
 9. **ci**: Mudanças em <spam class="destaque">arquivos de configuração e scripts</spam>.
 10. **BREAKING CHANGE**: Mudanças que <spam class="destaque">quebram a compatibilidade</spam>.
 
-Antes do <spam class="destaque">:</spam> você pode adicionar um <spam class="destaque">! </spam>para sinalizar que o commit é uma mudança significativa.
+Antes do <spam class="destaque">:</spam> você pode adicionar um <spam class="destaque">!</spam> para sinalizar que o commit é uma mudança significativa.
 
 Um exemplo de commit seguindo a convenção seria:
 
 ```plaintext
-feat: allow provided config object to extend other configs
 
-BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+ feat: allow provided config object to extend other configs
+
+ BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+
 ```
 
-## Projeto final pt.2
+## Projeto Final pt.2
+
+### Visão geral
+
+Agora que aprendemos diversos conceitos novos, que tal aplicá-los trabalhando em duas novas funcionalidades
+para o gerador de senhas? As funcionalidades seriam:
+
+- Adicionar um `CHANGELOG.md` ao projeto.
+- Armazenar as senhas geradas em um arquivo.
+- Listar as senhas armazenadas.
+- Nomear as senhas geradas.
+
+### Sumário
+
+<!--toc:start-->
+- [Projeto Final pt.2](#projeto-final-pt2)
+  - [Visão geral](#visão-geral)
+  - [Sumário](#sumário)
+  - [Definição da continuação do projeto](#definição-da-continuação-do-projeto)
+  - [Implementação](#implementação)
+    - [Armazenar senhas em um arquivo](#armazenar-senhas-em-um-arquivo)
+    - [Nomear senhas](#nomear-senhas)
+    - [Listar senhas armazenadas](#listar-senhas-armazenadas)
+  - [Novas funcionalidades na interface](#novas-funcionalidades-na-interface)
+  - [Colaboração](#colaboração)
+  - [Submissão](#submissão)
+<!--toc:end-->
+
+### Definição da continuação do projeto
+
+O projeto final será a continuação do que foi feito no último dia, onde vocês devem adicionar as funcionalidades que foram  especificadas na visão geral. Nos tópicos seguintes, será detalhado como isso pode ser feito. Porém, com um *caveat*, ao invés de continuarem diretamente na sua versão do projeto, vocês devem fazer um fork do repositório de outra dupla e trabalhar a partir dele (Caso não tenha, continue no seu).
+
+### Implementação
+
+A implementação das funcionalidades, naturalmente, também devem ser em shell script. Abaixo, detalhamos como cada funcionalidade pode ser implementada.
+
+#### Armazenar senhas em um arquivo
+
+Implemente a funcionalidade de armazenar as senhas geradas em um arquivo, por exemplo, um arquivo `.txt`.
+
+```terminal
+
+ $ ./pwd-gen.bash -o
+ weebvicv
+ Senha salva em passwords.txt
+
+```
+
+Alternativamente, não é necessário passar o feedback de que a senha foi salva em um arquivo.
+
+#### Nomear senhas
+
+Implemente uma funcionalidade para nomear as senhas geradas.
+
+```terminal
+
+ $ ./pwd-gen.bash -n SIGAA
+ zaaugxkh
+
+```
+
+#### Listar senhas armazenadas
+
+Adicione uma funcionalidade para listar as senhas armazenadas nesse arquivo.
+
+```terminal
+
+ ./pwd-gen.bash -p
+ miogptoy
+ Netflix: tzccfdlj
+ PrimeVideo: jroucqus
+ SIGAA: wohzsrhe
+ SitePet: nommyigz
+
+```
+
+### Novas funcionalidades na interface
+
+A interface de help do script deve ser atualizada para refletir as novas funcionalidades.
+
+```terminal
+
+ $ ./pwd-gen.bash -h
+ Bem vindo ao password generator! Versão 1.0, (c) 2024, Cicrano, DIMAp, UFRN
+ Uso ./pwd-gen.bash [OPTIONS]
+ Opções:
+  -l LENGTH  Especifica o tamanho da senha (padrão: 8)
+  -u         Inclui letras maiúsculas na senha
+  -d         Inclui dígitos na senha
+  -s         Inclui símbolos na senha
+  -h         Exibe essa ajuda
+  -o         Salva a senha gerada em um arquivo
+  -n NAME    Adiciona um nome a senha gerada
+  -p         Exibe senhas geradas
+ O comporatemento padrão é gerar uma senha de 8 caracteres minúsculos
+ 
+```
+
+### Colaboração
+
+A continuação do projeto também deve ser feita em duplas, e a colaboração deve ser feita através do uso
+das ferramentas Git e Github.
+
+### Submissão
+
+Um email para <linuxgitpetcc@gmail.com>, com o link do fork do repositório e nome completo dos autores é
+suficiente. Apenas um membro da dupla deve realizar a submissão.
+
+---
+&copy; PET-CC, DIMAp, UFRN
