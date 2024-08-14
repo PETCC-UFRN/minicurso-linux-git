@@ -23,7 +23,7 @@ O processo de pull request é muito simples e pode ser quebrado em alguns passos
 3. Acesse o repositório remoto e <spam class="destaque">crie um pull request</spam>.
 4. Peça para um ou mais colaboradores <spam class="destaque">revisarem</spam> seu código e faça alguma alteração se necessário.
 5. Após aprovado e revisado, o pull request pode ser <spam class="destaque">integrado</spam> ao projeto.
-6. <spam class="destaque"> Delete a branch</spam> remota e local.
+6. Faça a exclusãao da <spam class="destaque"> branch</spam> remota e local.
 
 Algumas boas práticas envolvendo a criação de pull requests são:
 
