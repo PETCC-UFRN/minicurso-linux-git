@@ -3,9 +3,6 @@ layout: layoutGit
 title: Minicurso de Linux e Git
 ---
 
-[comment]: <> (Essas páginas que estão vazias são porque elas utilizam layouts que já importam o menu de navegação e o menu dos dias. Você pode ver isso na pasta _includes)
-[comment]: <> (Sendo assim, basta escrever em markdown mesmo que vai ser tudo estilizado pelos layouts)
-
 
 <div id="sumario" class="sumario-git">
     <h1>Sumário</h1>
@@ -43,17 +40,13 @@ title: Minicurso de Linux e Git
   </details>
 </ul>
 
-
   <button class="toggle-button" id="toggle-button">
   
       Esconder Sumário
   
   </button>
   
-  
   </div>
-
-
 
 # Processos, compactação e introdução ao GIT
 
@@ -73,6 +66,7 @@ Um sistema operacional lida com uma infinidade de processos, que possuem as segu
 Cada processo possui um número identificador, chamado de <span class="destaque">PID</span> (Process Identifier), que é utilizado para controlá-lo.
 
 #### Estados dos processos
+
 - <span class="destaque">Executável</span>(R): o processo pode ser executado imediatamente;
 - <span class="destaque">Dormente</span>(S): o processo precisa <span class="destaque">aguardar</span> algo para ser executado. Só depois desse "algo" acontecer é que ele passa para o estado executável;
 - <span class="destaque">Zumbi</span>(Z): o processo é considerado <span class="destaque">"morto"</span>, mas, por alguma razão, ainda existe;
@@ -92,6 +86,7 @@ $ ps
  1234 pts/0    00:00:02 bash
  9101 pts/0    00:00:00 ps
 ```
+
 As opções mais importantes para o comando `ps` são:
 
 <span class="destaque"> -u [username]</span> - mostra os processos existentes de um <span class="destaque">usuário</span> específico;
@@ -107,11 +102,12 @@ As opções mais importantes para o comando `ps` são:
 <span class="destaque">aux</span>: Exibe uma listagem detalhada com o uso de memória por cada processo.
 
 ##### O uso do "ps" com o "grep"
+
 O `ps` é uma ferramenta essencial e corriqueira. Já a usamos quase que automaticamente com o `grep`, porém, somos limitados a filtrar um processo por vez.
 Por exemplo, para ver os processos systemd:
 
 ```shell
-$ ps aux | grep systemd  
+ps aux | grep systemd  
 ```
 
 Primeiro, o  comando <span class="destaque">`ps aux`</span> mostra <span class="destaque">todos os processos em execução</span>, enquanto grep systemd filtra apenas os processos que contêm "systemd" em sua descrição.
@@ -125,8 +121,9 @@ O comando `kill` é usado no Linux para <span class="destaque">enviar sinais a p
 Existem múltiplos sinais disponíveis no Linux que podem ser utilizados para interromper, encerrar ou pausar processos. O comando pode ser usado como mostrado abaixo:
 
 ```shell
-    $ kill -l
+    kill -l
 ```
+
 Este comando irá mostrar uma página do <span class="destaque">manual</span> com diferentes sinais do comando kill e seus respectivos números. Embora existam muitos sinais disponíveis, na maioria das vezes utilizamos o SIGKILL (9) e SIGTERM (15).
 
 ##### Significados dos principais sinais
@@ -148,28 +145,29 @@ Este comando irá mostrar uma página do <span class="destaque">manual</span> co
 Por padrão, é enviado o sinal <span class="destaque">SIGTERM</span>, que requisita a finalização do processo, por isso o nome *kill* (matar). Em geral é usado desta forma:
 
 ```shell
-$ kill PID
+kill PID
 ```
+
 Você tamvém pode usar o comando kill seguido pelo número do sinal e o PID (Process ID) do processo que deseja terminar.
 
 ```shell
-    $ kill -8 <PID>
+    kill -8 <PID>
 ```
 
 #### Uso do killall
 
-O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos <span class="destaque">processos filhos</span> executando ao mesmo tempo. 
+O comando `killall` no Linux envia sinais para os processos e recebe como parâmetro não o PID do processo, mas seu nome. Ele é usado geralmente para terminar a execução de processos que possuem diversos <span class="destaque">processos filhos</span> executando ao mesmo tempo.
 
 ##### Sintaxe básica
 
 ```shell
-$ killall [opções] nome_do_processo
+killall [opções] nome_do_processo
 ```
 
 Você pode enviar um sinal específico para os processos de mesmo nome como:
 
 ```shell
-$ killall -9 firefox
+killall -9 firefox
 ```
 
 ##### Verificando antes de Encerrar
@@ -177,14 +175,15 @@ $ killall -9 firefox
 Para <span class="destaque">verificar</span> quais processos seriam encerrados sem realmente matá-los, use a opção <span class="destaque">-i</span> para interação
 
 ```shell
-$ killall -i firefox
+killall -i firefox
 ```
 
 ##### Encerrando Processos de um Usuário Específico
 
 Para encerrar processos de um <span class="destaque">usuário específico</span>, use a opção -u:
+
 ```shell
-$ killall -u usuario firefox
+killall -u usuario firefox
 ```
 
 #### Uso e visualização processos dinâmicamente com "htop"
@@ -194,25 +193,27 @@ O comando HTOP é um utilitário de linha de comando que tem como objetivo auxil
 ##### Instalar "htop" no Ubuntu
 
 ```shell
-$ sudo apt install htop
+sudo apt install htop
 ```
 
 **Iniciar a ferramenta**
 
 ```shell
-$ htop
+htop
 ```
+
 <img style="display: block;margin: 0 auto;" src="https://blog.ironlinux.com.br/images/blog-posts/uploads/2022/05/htop1.png" width="100%">
 
 ### Rodando processos em background
 
-#### Uso do & comercial no shell.
+#### Uso do & comercial no shell
 
 No Linux, um processo pode estar em <span class="destaque">foreground</span> ou em <span class="destaque">background</span>, ou seja, em primeiro plano ou em segundo plano. Por exemplo, ao digitar o comando:
 
 ```bash
-$ ping google.com
+ping google.com
 ```
+
 Quando você executa o comando ping em <span class="destaque">primeiro plano</span> (sem o '&' no final), ele ocupa o terminal até que você interrompa manualmente a execução. Isso significa que você <span class="destaque">não poderá usar o terminal</span> para outros comandos até que o ping termine ou seja interrompido.
 
 Seu terminal ficará assim:
@@ -223,6 +224,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.032 ms
 64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.030 ms
 ```
+
 Para interromper o ping em primeiro plano, use <span class="destaque">Ctrl + C</span>. Isso envia um sinal de interrupção (<span class="destaque">SIGINT</span>) para o processo ping, fazendo com que ele termine a execução e exiba um resumo das estatísticas:
 
 ```shell
@@ -235,8 +237,9 @@ rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
 Para o exemplo acima, é possível liberar o shell para outras atividades enquanto o o processo gerado pelo comando fica em segundo plano. Basta que você digite:
 
 ```bash
-$ ping google.com &
+ping google.com &
 ```
+
 O símbolo <span class="destaque"> & </span> indica que o comando deve ser executado em background, ou seja, em <span class="destaque">segundo plano</span>.
 
 Você verá uma mensagem que indica o <span class="destaque">número do trabalho</span> ([1]) e o <span class="destaque">PID</span> do processo (1234):
@@ -246,13 +249,13 @@ Você verá uma mensagem que indica o <span class="destaque">número do trabalho
 Para poder ver quais processos em segundo plano, digite:
 
 ```shell
-$ jobs
+jobs
 ```
 
 Irá aparecer algo como:
 
 ```bash
-$ [1]+  Running          ping 127.0.0.1 &
+[1]+  Running          ping 127.0.0.1 &
 ```
 
 Note que, se você fizer <span class="destaque">CTRL + C</span>, o processo <span class="destaque">não será interrompido</span>, pois ele não está em primeiro plano(foreground).
@@ -262,7 +265,7 @@ Note que, se você fizer <span class="destaque">CTRL + C</span>, o processo <spa
 Vamos supor que você pretende trazer o processo para primeiro plano. Para isso, utilize o seguinte comando :
 
 ```bash
-$ fg %1
+fg %1
 ```
 
 Agora você pode matá-lo diretamente utilizando o <span class="destaque">CTRL + c</span> , que manda o sinal SIGINT, que faz com que ele <span class="destaque">termine a execução</span> e exiba um resumo das estatísticas :
@@ -277,8 +280,9 @@ rtt min/avg/max/mdev = 0.030/0.035/0.045/0.007 ms
 ##### Retomando processos suspensos em background
 
 Agora, digite o seguinte comando:
+
 ```bash
-$ ping 127.0.0.1
+ping 127.0.0.1
 ```
 
 Em seguida, digite  <span class="destaque">`CTRL + Z`</span> para <span class="destaque">suspender</span> o comando bing. Esse comando pausa o processo e o colocar em <span class="destaque">segundo plano</span> em estado de pausa(suspenso).
@@ -287,19 +291,20 @@ Em seguida, digite  <span class="destaque">`CTRL + Z`</span> para <span class="d
 ^Z
 [1]+  Stopped                 ping 127.0.0.1
 ```
+
 Para retomar o processo em segundo plano, é necessário utilizar o comando bg da seguinte forma:
 
 ```bash
-$ bg %1
+bg %1
 ```
 
 Agora, vamos digitar o comando <span class="destaque">jobs</span> para ver o estado dos processos em background.
-
 
 ```bash
 $ jobs
  [1]+  Running                 ping 127.0.0.1 &
 ```
+
 #### Uso do "nohup"
 
 Mesmo que um processo esteja em <span class="destaque">segundo plano</span>, ele pode ser <span class="destaque">interrompido</span> por vários motivos.
@@ -308,13 +313,16 @@ Digamos que você tenha terminado seu trabalho e feche sua sessão de SSH. Lembr
 
 Há outras maneiras, é claro, para um processo ser encerrado, mas o comando nohup refere-se especificamente aos encerrados devido ao sinal SIGHUP.
 
-Nohup - abreviação de '*no hang up*', ou 'não desligar', em Português - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal. 
+Nohup - abreviação de '*no hang up*', ou 'não desligar', em Português - é um comando em sistemas Linux que <span class="destaque">mantém os processos em execução</span> mesmo depois de <span class="destaque">sair do shell ou terminal</span>. O Nohup impede que os processos ou trabalhos recebam o sinal SIGHUP (Signal Hang UP). Este é um sinal que é enviado para um processo ao fechar ou sair do terminal.
 
 ##### Sintaxe do comando nohup
+
 A sintaxe para usar o comando Nohup é direta:
+
 ```bash
-$ nohup command [options] &
+nohup command [options] &
 ```
+
 <span class="destaque">command</span>: especifica o <span class="destaque">comando</span> ou script que você deseja executar.
 
 <span class="destaque">[options]</span>: argumentos opcionais ou sinalizadores que modificam o <span class="destaque">comportamento</span>  do comando.
@@ -326,9 +334,11 @@ $ nohup command [options] &
 Para iniciar um processo usando o Nohup, basta preceder o comando desejado com `nohup`. Por exemplo, se você deseja executar o comando `sleep 60`(que faz o sistema esperar 60 segundos) chamado usando Nohup, você deve usar o seguinte comando:
 
 ```bash
-$ nohup sleep 60 &
+nohup sleep 60 &
 ```
+
 Com o comando acima, o sistema executa um comando "sleep", que normalmente <span class="destaque">bloqueia todas as entradas</span>, mas isso as envia para o segundo plano, graças ao parâmetro "&". Executá-lo tem a seguinte aparência:
+
 ```bash
 $ nohup sleep 60 &
 [1] 4003
@@ -346,13 +356,14 @@ Caso você use o nohup mantendo o processo em primeiro plano, pode ter certeza d
 O comando <span class="destaque">"wait"</span> é uma ferramenta poderosa no  Linux que permite que os scripts <span class="destaque">aguardem a conclusão</span> de outros processos antes de <span class="destaque">continuar a execução</span>.
 
 Por exemplo:
+
  ```shell
  $ nohup sleep 30 &
  [1] 5010
 $ wait 5010
  ```
- 
- Depois de digitar o comando  <span class="destaque">` wait <PID>`</span>, o terminal irá esperar o proceso ser finalizado.
+
+ Depois de digitar o comando  <span class="destaque">`wait <PID>`</span>, o terminal irá esperar o proceso ser finalizado.
 
 ## Uso de programas de compatação para compartilhar e receber arquivos
 
@@ -369,13 +380,15 @@ Vamos supor que temos uma pasta chamada "projetos" e, dentro dela, dois subdiret
 Para isso, digitou:
 
 ```shell
-    $ zip projetos.zip projetos/
+    zip projetos.zip projetos/
 ```
+
 depois, executou o seguinte comando para poder <span class="destaque">visualizar</span> se todos os <span class="destaque">diretórios </span>foram armazenados no arquivo compactado "projetos.zip":
 
 ```shell
-    $ unzip -l projetos.zip 
+    unzip -l projetos.zip 
 ```
+
 e viu o seguinte:
 
 ```shell
@@ -386,12 +399,13 @@ e viu o seguinte:
     ---------                     -------
             0                     1 file
 ```
+
 Note que ocorreu um problema, pois <span class="destaque">os subdiretórios não foram inseridos</span> na compactação. Isso ocorre pois, por padrão, o comando `zip` não inclui os arquivos e subdiretórios de um diretório. Assim, nosso .zip contém apenas o diretório Projetos/ vazio. Para resolver, basta passar o argumento <span class="destaque">-r</span>(recursive).
 
 O -r fará com que o comando zip <span class="destaque">processe recursivamente</span> todos os subdiretórios e arquivos dentro do diretório especificado, garantindo que <span class="destaque">tudo seja incluído</span> no arquivo compactado. Vamos corrigir o comando para incluir o argumento -r:
 
 ```shell
-    $ zip -r projetos.zip projetos/
+    zip -r projetos.zip projetos/
 ```
 
 Agora, vamos ver se tudo foi compactado:
@@ -413,8 +427,9 @@ Agora, vamos ver se tudo foi compactado:
 
 #### Compactando arquivos e diretórios com tar e gzip
 
-Outra forma de compactar arquivos é utilizando <span class="destaque">tar</span> e <span class="destaque">gzip</span>. Quando nos deparamos com arquivos do tipo <span class="destaque">arquivo.tar.gz</span>, significa que ocorreram <span class="destaque">dois processos</span>. 
-- Primeiro, ocorreu o <span class="destaque">empacotamento dos arquivos</span> no formato `.tar ` e depois foi feita a <span class="destaque">compactação dos arquivo</span> no formato `gzip`.
+Outra forma de compactar arquivos é utilizando <span class="destaque">tar</span> e <span class="destaque">gzip</span>. Quando nos deparamos com arquivos do tipo <span class="destaque">arquivo.tar.gz</span>, significa que ocorreram <span class="destaque">dois processos</span>.
+
+- Primeiro, ocorreu o <span class="destaque">empacotamento dos arquivos</span> no formato `.tar` e depois foi feita a <span class="destaque">compactação dos arquivo</span> no formato `gzip`.
 
 ##### Qual a vantagem do tar?
 
@@ -423,37 +438,37 @@ A vantagem é que o tar consegue manter as <span class="destaque">permissões do
 Utilizamos o comando tar para realizar as compactações. A compactação do diretório "projetos/" ficaria da seguinte forma:
 
 ```shell
-$ tar -czf projetos.tar.gz projetos/
+tar -czf projetos.tar.gz projetos/
 ```
 
 - <span class="destaque">-c</span> - create: indica que desejamos <span class="destaque">criar</span> um arquivo.
 
 - <span class="destaque">-z</span> - gzip: indica que queremos <span class="destaque">compactar</span> com gzip.
 
--  <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo compactado.
-
+- <span class="destaque">-f</span> - file: especifica o <span class="destaque">nome</span> do arquivo compactado.
 
 Note que não precisamos usar o `-r`. Isso acontece pois o `tar` age de forma <span class="destaque">recursiva por padrão</span>.
 
-### Descompactação 
+### Descompactação
 
 #### Descompactando diretórios com unzip
 
 Vamos supor que seu colega, que recebeu o arquivo <span class="destaque">projetos.zip</span>, deseja <span class="destaque">descompactá-los </span>. Para isso, ele executará os seguintes passos:
 
 ```shell
-$ unzip projetos.zip
+unzip projetos.zip
 ```
+
 Isso irá <span class="destaque">extrair</span> todos os <span class="destaque">arquivos</span> e <span class="destaque">diretórios</span> contidos no arquivo "projetos.zip" para o <span class="destaque">diretório atual</span>. Se desejar extrair para um diretório <span class="destaque">específico</span>, você pode usar a opção <span class="destaque">`-d`</span>:
 
 ```shell
-$ unzip projetos.zip -d /home/ubuntu/Music
+unzip projetos.zip -d /home/ubuntu/Music
 ```
 
 Se você quiser que <span class="destaque">o progresso não apareça</span> e sua tela fique cheia de informações, é possível utilizar o <span class="destaque">-q</span>, que significa <span class="destaque">quiet</span>, para que ele apenas descompacte e não mostre cada coisa que fez:
 
 ```shell
-$ unzip -q projetos.zip -d /home/ubuntu/Music
+unzip -q projetos.zip -d /home/ubuntu/Music
 ```
 
 #### Descompactando arquivos e diretórios com tar e gunzip
@@ -461,7 +476,7 @@ $ unzip -q projetos.zip -d /home/ubuntu/Music
 Para descompactar um arquivo <span class="destaque">tarball comprimido com gzip</span>, utilizamos o comando tar novamente, desta vez com a opção <span class="destaque">-x</span> para <span class="destaque">extrair</span> o conteúdo. Vamos supor que você recebeu o arquivo "projetos.tar.gz" e deseja extrair seu conteúdo:
 
 ```shell
-$ tar -xzf projetos.tar.gz
+tar -xzf projetos.tar.gz
 ```
 
 - <span class="destaque">-x</span> - extract: <span class="destaque">extrai</span> o conteúdo do arquivo tar.
@@ -497,10 +512,9 @@ São utilizados por plataformas como a Wikipédia.
 
 - **Vantagens dos Sistemas Centralizados**
 
-    - <span class="destaque">Simples</span> de utilizar, ideal para <span class="destaque">equipes pequenas</span>.
+  - <span class="destaque">Simples</span> de utilizar, ideal para <span class="destaque">equipes pequenas</span>.
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/HJUGsZzB0.png" width="70%">
-
 
 ##### 3. Sistemas Distribuídos
 
@@ -526,7 +540,7 @@ Não dependem de um servidor central, oferecendo maior eficiência e segurança 
 
 ### Surgimento do Git
 
-A criação do <span class="destaque">Linux</span> foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza <span class="destaque">colaborativa</span> e <span class="destaque">open-source</span>. <span class="destaque">Linus Torvalds</span>, o criador do Linux, enfrentou desafios significativos ao <span class="destaque">coordenar as contribuições</span> de inúmeros desenvolvedores ao redor do mundo. 
+A criação do <span class="destaque">Linux</span> foi um marco importante na história do desenvolvimento de software, principalmente por sua natureza <span class="destaque">colaborativa</span> e <span class="destaque">open-source</span>. <span class="destaque">Linus Torvalds</span>, o criador do Linux, enfrentou desafios significativos ao <span class="destaque">coordenar as contribuições</span> de inúmeros desenvolvedores ao redor do mundo.
 
 Durante os anos iniciais do <span class="destaque">Linux Kernel</span>, as mudanças eram gerenciadas através do envio de arquivos entre desenvolvedores. Posteriormente, usou-se o versionador BitKeeper, mas quando este se tornou pago, a comunidade Linux, liderada por <span class="destaque">Torvalds</span>, decidiu criar o Git, aprendendo com as lições adquiridas durante o uso do BitKeeper e com um desafio de fazer um sistema de versionamento mais eficiente e com funcionalidades que acelerassem o processo de desenvolvimento de software.
 
@@ -567,16 +581,18 @@ O Git é uma ferramenta de versionamento que gerencia diferentes versões de um 
 
 O Git, em geral, apenas **adiciona** informações. É <span class="destaque">difícil</span> que o sistema <span class="destaque">apague dados</span> ou <span class="destaque">faça algo irreversível</span>, especialmente se você enviar suas alterações para o servidor remoto regularmente (push). Esse comportamento garante a integridade e a segurança do histórico do projeto.
 
-
 ## Hospedagem Remota e Conexões SSH
 
-### Introdução a plataformas de hospedagem remota 
+### Introdução a plataformas de hospedagem remota
+
 #### Voltando aos versionadores
-A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota. 
+
+A utilização de versionadores como o Git se torna ainda mais poderosa quando combinada com plataformas de hospedagem remota.
 
 Essas plataformas permitem que você <span class="destaque">armazene</span>, <span class="destaque">compartilhe</span> e <span class="destaque">colabore</span> em projetos de software com desenvolvedores de todo o mundo. Elas não só armazenam o código, mas também oferecem ferramentas para <span class="destaque">gerenciamento de projetos</span>, <span class="destaque">integração contínua</span>, e muito mais.
 
-#### Algumas diferentes plataformas: GitLab, BitBucket, Codeberg.
+#### Algumas diferentes plataformas: GitLab, BitBucket, Codeberg
+
 Existem várias plataformas de hospedagem remota que suportam Git, cada uma com suas características únicas.
 
 - **GitLab**
@@ -585,15 +601,18 @@ Existem várias plataformas de hospedagem remota que suportam Git, cada uma com 
 
 - **Codeberg**
 
-#### Git e Github : diferenças.
+#### Git e Github : diferenças
+
 Embora Git e GitHub sejam frequentemente mencionados juntos, eles não são a mesma coisa. Aqui estão as principais diferenças:
 
 ##### Git
+
 - Git é um <span class="destaque">sistema de controle de versão</span> distribuído.
 - Ferramenta de linha de comando utilizada para <span class="destaque">gerenciar</span> o histórico de versões de arquivos.
 - Funciona localmente, <span class="destaque">independentemente</span> de uma plataforma de <span class="destaque">hospedagem remota</span>.
 
 ##### GitHub
+
 - Hospedagem de Repositórios
 - Se utiliza do Git para fazer o controle de versão dos respositórios hospedados
 - Comunidade ativa
@@ -645,14 +664,15 @@ Assim, podemos perceber que um arquivo pode estar em um dos 3 estados:
 ### Comandos e Práticas do Git
 
 #### Inicializando o git no repositório: "git init"
+
 Para criar um repositório local, vamos ir ao diretório onde queremos criar o resositório Git e, em seguida, vamos inicializar o Git com o comando <span class="destaque"> git init </span>
+
 ```shell
-$ cd OneDrive/Documentos/projeto
-$ git init
+cd OneDrive/Documentos/projeto
+git init
 ```
 
-Agora, temos um <span class="destaque">subdiretório</span> chamado <span class="destaque">.git</span> que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git. 
-
+Agora, temos um <span class="destaque">subdiretório</span> chamado <span class="destaque">.git</span> que contém todos os arquivos necessários de seu repositório – um esqueleto de repositório Git.
 
 Nada em seu projeto é monitorado ainda.
 
@@ -672,8 +692,8 @@ Assim que você <span class="destaque">edita</span> alguns arquivos, Git os cons
 
 <img style="display: block;margin: 0 auto;" src="https://hackmd.io/_uploads/SJWWiARzC.png" width="70%">
 
-#### Verificando o status dos arquivos: "git status".
-    
+#### Verificando o status dos arquivos: "git status"
+
 A principal ferramenta que você vai usar para determinar quais arquivos estão em qual <span class="destaque">estado</span> é o comando git status.
 
 ```sh
@@ -682,6 +702,7 @@ On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
+
 Digamos que você adicionou um simples arquivo chamado 'chat' ao seu projeto. Se o arquivo não existia antes, e você executar git status, você verá seu arquivo não rastreado da seguinte forma:
 
 ```sh
@@ -697,16 +718,18 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-
 Nós queremos incluir esse arquivo 'chat', então vamos rastreá-lo.
 
+#### Rastreando arquivos novos
 
-#### Rastreando arquivos novos 
 Para começar a rastrear um novo arquivo, você deve usar o comando git add
+
 ```sh
-$ git add chat
-``` 
+git add chat
+```
+
 Executando o comando status novamente, você pode ver que seu README agora está sendo rastreado e preparado (staged) para o commit:
+
 ```sh
 $ git status
 On branch master
@@ -715,13 +738,16 @@ Changes to be committed:
     (use "git reset HEAD <file>..." to unstage)
 
     new file:   chat
-```     
+```
+
 É possível saber que o arquivo <span class="destaque">está preparado</span> porque ele aparece sob o título <span class="destaque">“Changes to be committed”</span>. Se você fizer um commit neste momento, a versão do arquivo que existia no instante em que você executou git add, é a que será armazenada no histórico de snapshots.
 
 #### Preparando Arquivos Modificados (Adicionando arquivos modificados à staging area)
+
 Vamos modificar um arquivo que já está sendo rastreado.
 
 Se, por exemplo, adicionarmos mais uma linha de código ao arquivo 'feed' que já era rastreado e estava dentro do projeto, e executarmos o `git status`, teremos isso:
+
 ```sh
 $ git status
 On branch master
@@ -736,7 +762,8 @@ Changes not staged for commit:
     (use "git checkout -- <file>..." to discard changes in working directory)
 
     modified:   feed
-``` 
+```
+
 Isso significa que o arquivo rastreado foi modificado no diretório mas ainda não foi mandado para o stage (preparado).
 
 Para isso, vamos usar o <span class="destaque">`git add`</span>.
@@ -753,22 +780,26 @@ Changes to be committed:
 
     new file:   chat
     modified:   feed
-```        
+```
 
-#### Fazendo o **commit** do que foi feito: "git commit".
+#### Fazendo o **commit** do que foi feito: "git commit"
 
 Agora que a <span class="destaque">área de stage está preparada</span>, podemos fazer <span class="destaque">commit</span> nas alterações.
 
 O jeito mais simples de fazer commit é digitar o seguinte comando:
+
 ```sh
-$ git commit
+git commit
 ```
+
 e adicionar uma mensagem no editor de texto.
 
 Alternativamente, podemos fazer:
+
 ```sh
-$ git commit -m "mensagem"
+git commit -m "mensagem"
 ```
+
 Lembre-se que o commit grava a <span class="destaque">snapshot</span> que você deixou na <span class="destaque">área de stage</span>. Qualquer alteração que você não tiver mandado para o stage permanecerá como estava, em seu lugar; você pode executar outro commit para adicioná-la ao seu histórico. Sempre que você executa um commit, você está gravando uma snapshot do seu projeto que você pode usar posteriormente para fazer comparações, ou mesmo restaurá-lo.
 
 <a href="#exercício-01---iniciando-um-novo-repositório-git"><spam class="destaque" style="font-size:20px;">Exercícios : 1-2</spam></a>
@@ -782,36 +813,36 @@ git remote add origin https://github.com/seu-usuario/seu-repositorio.git
 ```
 
 ##### Como verificar os repositórios remotos configurados?
+
 Basta utilizar a opção -v
 
 ```shell
-$ git remote -v
+git remote -v
 ```
-note o que seguinte aparecerá:
 
+note o que seguinte aparecerá:
 
 ```shell
 origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (fetch)
 origin  git@github.com:SEU_USUARIO/SEU_REPOSITORIO.git (push)
 ```
+
 Isso indica que o repositório remoto chamado origin está configurado para <span class="destaque">buscar (fetch)</span> e <span class="destaque">enviar (push)</span> atualizações para a URL especificada, que é onde o seu repositório remoto está.
 
 ##### Como desconectar o repositório local do remoto?
 
 ```shell
-$ git remote remove origin
+git remote remove origin
 ```
 
 Depois de executar esses comandos, o repositório local estará desconectado do repositório remoto.
 
-
-
-##### Como renomear o repositório remoto 
+##### Como renomear o repositório remoto
 
 Use o comando 'git remote rename' para alterar o nome do repositório remoto. No exemplo abaixo, vamos renomear 'origin' para 'novo-nome'.
 
 ```shell
-$ git remote rename origin novo-nome
+git remote rename origin novo-nome
 ```
 
 Note que:
@@ -844,13 +875,15 @@ Date:   Thu Jun 29 09:12:10 2024 +0000
 
     adicionando a funcionalidade chat
 ```
+
 ##### Uma flag eficiente
+
 Utilizando o comando <span class="destaque">"git log --oneline"</span>, podemos ver os commits de forma mais simplificada.
 
 Ele irá mostrar o número <span class="destaque">hash</span> ou sha que é o <span class="destaque">identificador (ID)</span> do commit e em seguida a sua <span class="destaque">mensagem</span>.
 
-```sh 
-$ git log --oneline
+```sh
+git log --oneline
 ```
 
 ```sh
@@ -859,6 +892,7 @@ $ git log --oneline
 b75f610 adicionando a funcionalidade chat
 c1b4d83 Commit inicial com arquivos de configuração do projeto   
 ```
+
 #### Clonando um repositório
 
 Para começar a trabalhar com um repositório que já existe em um servidor remoto, você pode cloná-lo para o seu ambiente local usando o comando <span class="destaque">git clone</span>. Este comando cria uma cópia completa do repositório, incluindo todo o histórico de commits e branches.
@@ -867,7 +901,7 @@ Para clonar um repositório que está por exemplo no GitHub, faça:
 
 1. No GitHub.com, navegue até a página principal do repositório e faça o seguinte:
 
-    - Para clonar o repositório usando HTTPS, em "HTTPS", clique no ícone de cópia 
+    - Para clonar o repositório usando HTTPS, em "HTTPS", clique no ícone de cópia
     - Para clonar o repositório usando uma chave SSH, clique em "SSH" e depois no ícone de cópia.
     - Para clonar um repositório usando a GitHub CLI, clique em "GitHub CLI" e depois no ícone de cópia.
 
@@ -888,23 +922,24 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 > Unpacking objects: 100% (10/10), done.
 ```
 
-
 #### Subindo alterações para o repositório remoto: "git push"
+
 Se você tem um commit pronto e quer <span class="destaque">adiciona-lo ao repositório remoto</span>, podemos fazer:
 
 ```sh
-$ git push 
+git push 
 ```
+
 Fazendo o git push os seus commits irão subir para o seu repositório remoto que foi configurado inicialmente por padrão.
 
 ```shell
-$ git push origin master
+git push origin master
 ```
+
 Vamos supor que o nome no repositório remoto seja <spam class="destaque">main</spam>, mas sua cópia local é chamada de <spam class="destaque">master</spam>. Para corrigir essa diferença, você pode <spam class="destaque">referenciar diretamente</spam> a branch (que é o local onde estamos desenvolvendo e enviando as modificações para o Git) do repositório remoto usando o seguinte comando:
 
-
 ```shell
-$ git push origin master:main
+git push origin master:main
 ```
 
 Dessa forma, você está enviando o conteúdo da sua <spam class="destaque">cópia local</spam> chamada <spam class="destaque">master</spam> para a <spam class="destaque">cópia no repositório remoto</spam> que é chamada de <spam class="destaque">main</spam>.
@@ -914,14 +949,15 @@ Dessa forma, você está enviando o conteúdo da sua <spam class="destaque">cóp
 Se foram feitas alterações no repositório remoto por outros desenvolvedores ou por você mesmo e você deseja trazê-las para o seu repositório local, basta digitar o comando <span class="destaque">git pull</span>:
 
 ```sh
-$ git pull
+git pull
 ```
+
 Por padrão, esse comando irá puxar as alterações do <span class="destaque">origin</span>, que é o nome padrão do repositório remoto referenciado quando você conectou o repositório local com o remoto pela primeira vez. No caso de um clone, o <span class="destaque">origin</span> é o repositório de onde você fez o <span class="destaque">git clone</span>.
 
 Para atualizar uma <span class="destaque">branch</span> local com as alterações da branch remota sem usar diretamente <span class="destaque">git pull</span>, você pode usar o comando <span class="destaque">git pull</span> com a especificação direta da branch remota, o que é na prática uma forma direta de realizar a operação. Aqui está como fazer isso:
 
 ```sh
-$ git pull origin nome-da-branch:nome-da-branch-local
+git pull origin nome-da-branch:nome-da-branch-local
 ```
 
 <a href="#exercício-04---adicionando-funções-de-soma-e-multiplicação-à-calculadora"><spam class="destaque" style="font-size:20px;">Exercícios : 4- 5</spam></a>
@@ -930,7 +966,7 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 ### Exercícios Obrigatórios
 
-####  Exercício 01 - Iniciando um novo repositório Git
+#### Exercício 01 - Iniciando um novo repositório Git
 
 <a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para voltar ao conteúdo</a>
 
@@ -942,13 +978,12 @@ $ git pull origin nome-da-branch:nome-da-branch-local
 
 4. Faça o comando para visualizar a pasta oculta que foi criada.
 
-Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt para o email "linuxgitpetcc@gmail.com".
+Como resolução, descreva os passos que você fez em um arquivo de texto com o nome dia3exercicio1.txt para o email "<linuxgitpetcc@gmail.com>".
 Lembre-se de adicionar seu nome ao arquivo!
 
 #### Exercício 02 - Adicionando arquivos ao seu repositório Git
 
 <a href="#fazendo-o-commit-do-que-foi-feito-git-commit">Clique para voltar ao conteúdo</a>
-
 
 1. Crie um arquivo chamado 'README.md' dentro do diretório calculadora_pyton.
 
@@ -968,7 +1003,7 @@ Lembre-se de adicionar seu nome ao arquivo!
 
 3. Envie seus commits para o repositório remoto.
 
-Para a avaliação, mande o link do repositório pelo email "linuxgitpetcc@gmail.com".
+Para a avaliação, mande o link do repositório pelo email "<linuxgitpetcc@gmail.com>".
 
 #### Exercício 04 - Adicionando funções de soma e multiplicação à calculadora
 
@@ -988,13 +1023,14 @@ def soma(a, b):
 3. Faça um commit com a mensagem "Adicionei a função de soma".
 
 4. Adicione a função de multiplicação ao arquivo calculadora.py:
-Copie o código da mesma forma que está aqui abaixo (mesmo com o erro): 
+Copie o código da mesma forma que está aqui abaixo (mesmo com o erro):
 
 ```py
 def multiplicacao(a, b):
     c+b=4
     return a * b
 ```
+
 5. Adicione e "comite" as mudanças com a seguinte mentagem: "Adicionei a função de multiplicação"
 
 6. Verifique o erro após o commit e corrija-o apagando o "c+b=4" no arquivo.
@@ -1031,5 +1067,7 @@ def multiplicacao(a, b):
 6. **Envio dos links dos repositórios:**
    - Ao final do exercício, cada aluno deve enviar por e-mail os links de ambos os repositórios (**projeto 02** e **projeto03**) para a avaliação.
 
+O que será avaliado aqui são os commits, e não se os códigos estão corretos. Cada aluno deve fazer, no mínimo, 3 commits em cada projeto
+---
 
-O que será avaliado aqui são os commits, e não se os códigos estão corretos. Cada aluno deve fazer, no mínimo, 3 commits em cada projeto.
+{% include petcccopyright.html %}

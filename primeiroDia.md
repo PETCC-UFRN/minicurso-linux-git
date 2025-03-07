@@ -114,7 +114,7 @@ chamada Unix, e chamamos essa descêndencia de Unix-Like.
 
 A coisa interessante sobre o Unix é que sua filosofia de desenvolvimento de software e implementação foi tão
 revolucionária que inspirou e inspira até hoje diversos paradigmas de programação, ao ponto de o chamarmos
-de *o pai* de todos os sistemas operacionais. Mas por que ele foi e é tão importante? 
+de *o pai* de todos os sistemas operacionais. Mas por que ele foi e é tão importante?
 
 Primeiro, porque foi o primeiro sistema escrito em C, ou seja, ele podia facilmente ser portado para qualquer arquitetura.
 Segundo, também por ser escrito em C, o código do sistema é muito acessível e fácil de manter e melhorar.
@@ -317,7 +317,7 @@ não correspondem diretamente ao formato do arquivo, mas sim ao seu tipo.
 #### Current working directory
 
 Como já dito anteriormente, o sistema de arquivos funciona como uma árvore: você possui um diretório de origem, o `/`
-(chamado de **root**, ou "raíz", em Português) que seria o tronco, enquanto os galhos são os outros diretórios do computador. 
+(chamado de **root**, ou "raíz", em Português) que seria o tronco, enquanto os galhos são os outros diretórios do computador.
 A partir de um diretório,
 é possível ver os diretórios diretamente ligados a ele, seja "descendo" ou "subindo" a árvore. Quando você acessa um
 diretório e passa a ter acesso a todos os arquivos dentro dele, aquele passa a ser seu **Working Directory**. Na prática, imagine que seu sistema de arquivos é a seguinte árvore de cabeça para baixo.
@@ -348,7 +348,7 @@ Ao navegar pelo sistema utilizando o shell, geralmente utilizamos caminhos absol
 
 > (Perceba o `~` mudando)
 
-Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola`. Para isso, é necessário utilizar 
+Porém, digamos que você está na pasta `/downloads` e deseja ir até a pasta `/escola`. Para isso, é necessário utilizar
 o diretório especial `..`
 
 Os dois pontos representam o **diretório pai** de forma relativa, e podem ser utilizados para *voltar* enquanto se navega pelo sistema de arquivos:
@@ -422,8 +422,8 @@ E... pronto! A pasta agora não existe mais no computador, e você está pronto 
 No Linux, e mais geralmente, no próprio Unix, cada programa e comando segue a filosofia de cumprir um
 único propósito e cumprir bem esse propósito. Assim, cabe ao próprio usuário combinar esses comandos para
 realizar a tarefa que ele deseja. Por exemplo, não faria sentido um comando específico para mandar um
-email, que ao mesmo tempo encomenda um tênis no varejo. É muito mais prático, e faz muito mais sentido, 
-existir um programa que envia emails e um que encomenda coisas na internet, visto que 
+email, que ao mesmo tempo encomenda um tênis no varejo. É muito mais prático, e faz muito mais sentido,
+existir um programa que envia emails e um que encomenda coisas na internet, visto que
 diversos usuários vão usar o sistema de maneiras diferentes.
 
 Mas também seria interessante que seu programa mudasse ligeiramente
@@ -538,7 +538,7 @@ algo novo, apesar de as vezes ser difícil de entender... (a galera que escreveu
 ### Long listing format e permissões
 
 Continuando nossa exploração, uma opção muito utilizada com o comando `ls` é o `-l`
-(**L**ong listing format, ou "Formato de Listagem Longa", em Português), que lista uma série de informações 
+(**L**ong listing format, ou "Formato de Listagem Longa", em Português), que lista uma série de informações
 extra sobre o conteúdo de um diretório. Vejamos um exemplo:
 
 ```terminal
@@ -1129,3 +1129,6 @@ Seu arquivo no final deve ficar assim:
     ```
 
 4. Para escrever linhas no arquivo, use apenas comandos de redirecionamento, escreva quais foram esses comandos no `/tmp/petcc/ex006/answer.txt`
+
+---
+{% include petcccopyright.html %}

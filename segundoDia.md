@@ -313,7 +313,7 @@ executa o `/bin/sh` e passa o seu script como argumento para ele.
 
 ### Variáveis
 
-Independentemente das linguagens de programação que você já estudou, provavelmente você já se deparou com o conceito de variável - um objeto capaz de reter e representar um valor ou expressão. 
+Independentemente das linguagens de programação que você já estudou, provavelmente você já se deparou com o conceito de variável - um objeto capaz de reter e representar um valor ou expressão.
 Inclusive, você já se deparou com algumas, lembra do `$PATH`? Pois bem, essa é uma das
 variáveis que são compartilhadas entre todos os programas, as chamadas variáveis de ambiente, mas veremos
 mais sobre isso no futuro.
@@ -381,6 +381,7 @@ Outra variável interessante é a `$PWD`, que armazena o diretório atual que o 
 ### Expansões
 
 #### Expansão de comandos e variáveis
+
 O que observamos até agora sobre o Shell, em relação às variáveis, é o que chamamos de expansão. O símbolo $, precedendo o nome da variável, faz com que o Shell substitua o nome da variável pelo seu valor. No entanto, o Shell não se limita apenas a isso. Voltando ao exemplo da declaração de variáveis, podemos utilizar a sintaxe `$()` para expandir o valor produzido como saída por um determinado comando.
 
 ```sh
@@ -904,4 +905,7 @@ importar.
 
 - Dica: Use o caminho do `bash` no shebang, para ter acesso ao operador `+=` que concatena elementos em um array.
 
-Será aceito como resolução, o arquivo de código que você usou para implementar o programa.
+Será aceito como resolução, o arquivo de código que você usou para implementar o programa
+---
+
+{% include petcccopyright.html %}

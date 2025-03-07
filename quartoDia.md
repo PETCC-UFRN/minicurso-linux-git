@@ -6,7 +6,7 @@ title: Minicurso de Linux e Git
 
 # Git avançado
 
-<div id="sumario" class="sumario-oldschool">
+<div id="sumario" class="sumario-git">
     <h1>Sumário</h1>
     <summary><a href="#git-avancado">Git avançado</a></summary>
     <ul>
@@ -49,7 +49,7 @@ title: Minicurso de Linux e Git
 No [último tópico](/terceiroDia.md), tivemos o nosso primeiro contato com o `git`, e aprendemos a criar
 repositórios para nos ajudar a <span class="destaque">rastrear as alterações feitas no nosso projeto localmente e remotamente</span>.
 Entretanto, durante o desenvolvimento de um projeto, é comum que ocorram <span class="destaque">erros ou alterações
-indesejáveis</span>. Por exemplo, podemos alterar um arquivo sem querer, ou adicionar um arquivo que não deveria 
+indesejáveis</span>. Por exemplo, podemos alterar um arquivo sem querer, ou adicionar um arquivo que não deveria
 ser adicionado, ou até mesmo fazer um commit com uma mensagem errada.
 
 Além disso, quando ainda estamos desenvolvendo certa maturidade em relação ao uso do `git`, é muito comum
@@ -345,9 +345,9 @@ já aprendeu, para evitar esse tipo de problema.
 
 #### Divergências significativas
 
-É mais comum do que se imagina, especialmente em equipes grandes ou entre novatos no uso do git, a 
-criação de <span class="destaque">divergências significativas em uma ou mais branches.</span> Por exemplo, se você está trabalhando em 
-uma branch feature enquanto seu colega está na main e ambos fazem mudanças significativas que afetam <span class="destaque">o 
+É mais comum do que se imagina, especialmente em equipes grandes ou entre novatos no uso do git, a
+criação de <span class="destaque">divergências significativas em uma ou mais branches.</span> Por exemplo, se você está trabalhando em
+uma branch feature enquanto seu colega está na main e ambos fazem mudanças significativas que afetam <span class="destaque">o
 mesmo arquivo</span>, é provável que não será possível incorporar suas alterações na branch principal sem enfrentar
 conflitos.
 
@@ -368,150 +368,5 @@ revisitar o commit no futuro.
 - <span class="destaque">**Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**,</span> pois branches de
 longa-duração tendem a se desviar significantemente de outras e criar conflitos.
 
-## Projeto pt.1
-
-### Visão geral
-
-Nessa altura, você provavelmente já deve estar familiarizado com o `git`: como usar, investigar comandos
-no terminal e até mesmo criar seus próprios comandos. Portanto, para se familiarizar mais com o workflow
-da ferramente, lhe convido a desenvolver um gerador de senhas seguras com base em critérios definidos pelo
-usuário. Este projeto deverá ser realizado em duplas, e deve ser feito usando o `git` como versionador
-e GitHub como serviço de hospedagem.
-
-### Sumário
-
-- [Definição do projeto](#definição-do-projeto)
-- [Requisitos do projeto](#requisitos-do-projeto)
-- [Funcionalidades](#funcionalidades)
-  - [Geração de senhas](#geração-de-senhas)
-  - [Armazenamento seguro](#armazenamento-seguro)
-- [Interface e como usar o script](#interface-e-como-usar-o-script)
-  - [Exemplos de uso](#exemplos-de-uso)
-- [Estrutura do código](#estrutura-do-código)
-- [Colaboração](#colaboração)
-- [Submissão](#submissão)
-
-### Definição do projeto
-
-O nosso gerador de senhas deve permitir ao usuário especificar o comprimento da senha e os tipos de
-caracteres a serem incluídos (letras maiúsculas, minúsculas, números e símbolos). Além disso, deve fornecer
-uma simples interface de `help` no terminal, para que o usuário possa entender como o programa pode ser
-usado.
-
-### Requisitos do projeto
-
-- O programa deve ser escrito em Shell script.
-- Os autores devem usar o `git` e o GitHub para versionar o projeto.
-- Os autores devem incluir um arquivo `README.md` com uma descrição do projeto instruções de uso e exemplos.
-
-### Funcionalidades
-
-#### Geração de senhas
-
-O script deve permitir a geração de senhas aleatórias com base nos seguintes critérios:
-
-- Comprimento da senha.
-- Inclusão de letras maiúsculas.
-- Inclusão de letras minúsculas.
-- Inclusão de números.
-- Inclusão de símbolos.
-
-Para gerar a senha, faça uso do `/dev/urandom`, um arquivo que se atualiza com bytes aleatórios. Uma
-vez filtrados, esses bytes podem se tornar uma senha segura. Para isso, pesquise sobre o comando `tr` e o
-`head` para traçar um plano de como fazer isso.
-
-#### Armazenamento seguro
-
-Opcionalmente, o script deve permitir armazenar senhas de forma criptografada em um arquivo. Para isso,
-investigue o uso da ferramenta `openssl`.
-
-### Interface e como usar o script
-
-```terminal
-$ ./password-generator.sh -h
-Bem vindo ao password-generator! Versão 1.0, (c) 2024, Fulano de Tal, DIMAp, UFRN
-Uso: ./password-generator.sh [OPÇÕES]
-Opções:
-  -l [COMPRIMENTO] : comprimento da senha
-  -u               : incluir letras maiúsculas
-  -d               : incluir números
-  -s               : incluir símbolos
-  -h               : exibir essa mensagem de ajuda
-
-O comportamento padrão do script é gerar uma senha de 8 caracteres minúsculos.
-```
-
-#### Exemplos de uso
-
-- Gerar uma senha de 8 caracteres com letras minúsculas:
-
-    ```terminal
-    $ ./password-generator.sh
-    Senha gerada: drmeaypb
-    ```
-
-- Gerar uma senha de 12 caracteres com letras maiúsculas:
-
-    ```terminal
-    $ ./password-generator.sh -l 12 -u
-    Senha gerada: jQaAukomyhkS
-    ```
-
-- Gerar uma senha com tamanho 42 com letras maiúsculas, números e símbolos:
-
-    ```terminal
-    $ ./password-generator.sh -l 42 -u -d -s
-    Senha gerada: d5,|J-sB,$+=KiV/dSs6CpV35OmI]c9|cZk.Qzpq8M
-    ```
-
-### Estrutura do código
-
-```bash
-#!/bin/bash
-# Função para exibir a ajuda
-show_help() {
-  # Implementação vai aqui
-}
-
-# Definir variáveis padrão
-LENGTH=8
-USE_UPPERCASE=false
-USE_DIGITS=false
-USE_SYMBOLS=false
-
-# Parsear argumentos
-# { Implementação vai aqui }
-
-# Definir conjuntos de caracteres
-LOWERCASE="abcdefghijklmnopqrstuvwxyz"
-UPPERCASE="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-DIGITS="0123456789"
-SYMBOLS="!@#$%^&*()-_=+[]{}|;:,.<>?/~"
-
-# Construir a lista de caracteres permitidos
-# { Implementação vem aqui }
-
-# Gerar a senha: 
-# o /dev/urandom gera bytes aleatórios, para conseguir
-# uma senha precisamos limpar esses bytes de alguma forma
-PASSWORD=$(cat /dev/urandom) 
-
-# Exibir a senha gerada
-echo "Senha gerada: $PASSWORD"
-
-# Opcional: salvar a senha em um arquivo criptografado
-# Implemente como essa senha será criptografada com o openssl
-echo $PASSWORD >> password.txt.enc
-```
-
-### Colaboração
-
-Esse projeto pode ser divido em duas partes, a primeira parte seria a interface e o processamento de
-argumentos da linha de comando e a segunda parte seria a investigação de como usar o `/dev/urandom`.
-
-### Submissão
-
-
-Um email para linuxgitpetcc@gmail.com, com o link do repositório e nome completo dos autores é suficiente.
-Apenas um membro da dupla deve realizar a submissão
-
+---
+{% include petcccopyright.html %}
