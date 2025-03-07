@@ -17,9 +17,10 @@ O Minicurso de Linux e Git é um projeto do PETCC, e as aulas serão ministradas
 
 - Adriel Costa
 - Ana Paula Lima
+- Carolina Nascimento
 - José Ivo Schwade
-- Marina Medeiros
-- Vinicius de Lima
+- Heitor Campos
+- Osvaldo Heitor
 
 {% include petcclink.html %}
 
