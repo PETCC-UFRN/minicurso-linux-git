@@ -13,7 +13,7 @@ title: Minicurso de Linux e Git
 
 Bem vindo ao site oficial do Minicurso de Linux e Git ofertado pelo PET de Ciência da Computação.
 
-O Minicurso será ofertado do perído de 05/08/2024 até 14/08/2024, e as aulas serão das 14h até as 18h, no
+O Minicurso será ofertado do perído de 10/03/2025 até 14/03/2025, e as aulas serão das 14h até as 18h, no
 Departamento de Informática e Matemática Aplicada (DIMAp), UFRN, na sala Laboratório de Ensino.
 
 Você pode consultar o material das aulas que foram ministradas até agora em [`/aulas`](/aulas.md) e saber mais sobre o Minicurso em geral em [`/sobre`](/sobre.md).
