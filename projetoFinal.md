@@ -40,7 +40,6 @@ title: Projeto Final
           </ul>
         </details>
       </li>
-      <li><a href="#projeto-pt1">Projeto pt.1</a></li>
     </ul>
   <button class="toggle-button" id="toggle-button">
   
