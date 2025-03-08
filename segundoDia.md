@@ -797,7 +797,56 @@ for arquivo in /caminho/para/diretório/*; do
 done
 ```
 
-## Exercícios
+# Exercícios
+
+## Exercícios de Revisão da aula passada
+
+### Exercício 1
+
+Em programas em C que envolvem muitos arquivos, é comum querermos configurar nosso projeto de modo que facilite o gerenciamento de multiplos arquivos. Entretanto, como você gosta de iniciar muitos projetos, você não quer precisar criar, repetidas vezes, arquivos que sempre vão estar no seu projeto. Por isso, vamos criar um programa que automatize isso.
+
+Imagine que você sempre organiza seu projeto baseado nessa estrutura.
+
+```
+.
+├── build
+├── test
+├── lib
+│   └── text_color.h
+├── src
+│   ├── include
+│   │   └── header.h
+│   └── main.c
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
+```
+
+1. No diretório `/tmp/petcc/ex006`, crie o arquivo `c_project_cfg.sh`.
+2. Dentro desse arquivo, adicione a seguinte linha.
+
+    ```bash
+    #!/bin/bash
+    ```
+
+3. Após essa linha, anexe os comandos necessários para criar a estrutura do projeto acima.
+Seu arquivo no final deve ficar assim:
+
+    ```bash
+    #!/bin/bash
+    # Comando 1
+    # Comando 2
+    # Comando 3
+    ```
+
+4. Para escrever linhas no arquivo, use apenas comandos de redirecionamento, escreva quais foram esses comandos no `/tmp/petcc/ex006/answer.txt`
+
+### Exercício 2
+
+1. Em uma linha, digite a combinação de comando que cria um diretório chamado `myfolder` em `/tmp` e, somente se esse diretório tenha sido criado com sucesso, crie um arquivo chamado `myinfo.txt`.
+3. Escreva essa linha de comando no arquivo `/tmp/petcc/ex003/resposta.sh`
+
+## Exercícios da aula de hoje
 
 ### Exercício 1
 
@@ -906,6 +955,7 @@ importar.
 - Dica: Use o caminho do `bash` no shebang, para ter acesso ao operador `+=` que concatena elementos em um array.
 
 Será aceito como resolução, o arquivo de código que você usou para implementar o programa
+
 ---
 
 {% include petcccopyright.html %}
