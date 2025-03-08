@@ -964,6 +964,10 @@ git pull origin nome-da-branch:nome-da-branch-local
 
 ## Exercícios
 
+### Orientações sobre os exercícios
+
+Envie os exercícios de cada dia *separados* para o email `linuxgitpetcc@gmail.com` com o assunto sempre sendo: `Dia (dia de aula) - (Nome do aluno)`
+
 ### Exercícios Obrigatórios
 
 #### Exercício 01 - Iniciando um novo repositório Git
@@ -1070,4 +1074,13 @@ def multiplicacao(a, b):
 O que será avaliado aqui são os commits, e não se os códigos estão corretos. Cada aluno deve fazer, no mínimo, 3 commits em cada projeto
 ---
 
+<script>
+const dataDia3 = new Date('2025-03-12');
+const agora = new Date();
+
+if (agora < dataDia3) {
+    document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%;">Página Indisponível</h1>' +
+                              '<p style="text-align:center;">Esta página estará disponível a partir de ' + dataDia3.toLocaleDateString() + '.</p>';
+}
+</script>
 {% include petcccopyright.html %}

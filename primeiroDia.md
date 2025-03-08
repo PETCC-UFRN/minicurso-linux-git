@@ -961,7 +961,11 @@ compactação, você quer deletar o arquivo original e mandar um email (supondo 
 apenas uma linha de comando e sem precisar se preocupar sentado na frente do computador esperando cada
 comando terminar?
 
-## Exercícios
+# Exercícios
+
+## Orientações sobre os exercícios
+
+Envie os exercícios de cada dia *separados* para o email `linuxgitpetcc@gmail.com` com o assunto sempre sendo: `Dia (dia de aula) - (Nome do aluno)`
 
 #### Exercício 0
 

@@ -247,4 +247,13 @@ Um exemplo de commit seguindo a convenção seria:
 ```
 
 ---
+<script>
+const dataDia5 = new Date('2025-03-14');
+const agora = new Date();
+
+if (agora < dataDia5) {
+    document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%;">Página Indisponível</h1>' +
+                              '<p style="text-align:center;">Esta página estará disponível a partir de ' + dataDia5.toLocaleDateString() + '.</p>';
+}
+</script>
 {% include petcccopyright.html %}

@@ -369,4 +369,13 @@ revisitar o commit no futuro.
 longa-duração tendem a se desviar significantemente de outras e criar conflitos.
 
 ---
+<script>
+const dataDia4 = new Date('2025-03-13');
+const agora = new Date();
+
+if (agora < dataDia4) {
+    document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%;">Página Indisponível</h1>' +
+                              '<p style="text-align:center;">Esta página estará disponível a partir de ' + dataDia4.toLocaleDateString() + '.</p>';
+}
+</script>
 {% include petcccopyright.html %}

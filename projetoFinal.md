@@ -227,5 +227,14 @@ Um email para <linuxgitpetcc@gmail.com>, com o link do repositório e nome compl
 Apenas um membro da dupla deve realizar a submissão
 
 ----
+<script>
+const dataDia5 = new Date('2025-03-14');
+const agora = new Date();
+
+if (agora < dataDia5) {
+    document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%;">Página Indisponível</h1>' +
+                              '<p style="text-align:center;">Esta página estará disponível a partir de ' + dataDia5.toLocaleDateString() + '.</p>';
+}
+</script>
 
 {% include petcccopyright.html %}

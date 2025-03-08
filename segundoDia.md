@@ -799,6 +799,10 @@ done
 
 # Exercícios
 
+## Orientações sobre os exercícios
+
+Envie os exercícios de cada dia *separados* para o email `linuxgitpetcc@gmail.com` com o assunto sempre sendo: `Dia (dia de aula) - (Nome do aluno)`
+
 ## Exercícios de Revisão da aula passada
 
 ### Exercício 1
@@ -957,5 +961,13 @@ importar.
 Será aceito como resolução, o arquivo de código que você usou para implementar o programa
 
 ---
+<script>
+const dataDia2 = new Date('2025-03-11');
+const agora = new Date();
 
+if (agora < dataDia2) {
+    document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%;">Página Indisponível</h1>' +
+                              '<p style="text-align:center;">Esta página estará disponível a partir de ' + dataDia2.toLocaleDateString() + '.</p>';
+}
+</script>
 {% include petcccopyright.html %}
