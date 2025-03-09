@@ -120,6 +120,8 @@ Naturalmente, podemos corrigir o nome do commit e fazer um novo commit:
 git add E ; git commit -m E
 ```
 
+Note que também podemos usar o comando `git restore` para restaurar qualquer arquivo que esteja no estado `staged` para fazer alterações antes de commitar novamente.
+
 #### "git commit --amend"
 
 Alternativamente, podemos usar o comando `git commit --amend`, que nos permite alterar o commit mais
@@ -367,6 +369,32 @@ revisitar o commit no futuro.
 
 - <span class="destaque">**Mantenha suas branches de *feature* curtas e mescle-as na `main` frequentemente**,</span> pois branches de
 longa-duração tendem a se desviar significantemente de outras e criar conflitos.
+
+# Exercícios
+
+### Exercício 1
+
+1. Baixe o arquivo [exercicio1.zip](./assets/downloads/exercicio1.zip)
+
+2. Descompacte o arquivo onde preferir
+
+3. Vá até a pasta `exercicio1/` e tente executar o arquivo `exercicio1.sh` para ver o que acontece.
+
+4. O arquivo está cheio de erros! Sua missão é corrigir o arquivo sem alterá-lo diretamente em um editor de texto, apenas com os conhecimentos que aprendemos hoje em sala. Quando terminar, insira os comandos utilizados num arquivo `resposta.txt` para a submissão do exercício.
+
+### Exercício 2
+
+1. Baixe o arquivo [exercicio2.zip](./assets/downloads/exercicio2.zip)
+
+2. Descompacte o arquivo onde preferir
+
+3. Execute o arquivo `responderpergunta.sh`
+
+4. Explore os *branches* do repositório utilizando os comandos `git branch` para ver os *branches* disponíveis e `git checkout` para navegar entre eles.
+
+5. Após analisar o conteúdo de cada *branch*, utilize os aprendizados da aula de hoje para responder corretamente a pergunta feita pelo arquivo!
+
+6. Insira os comandos utilizados num arquivo .txt para a submissão do exercício.
 
 ---
 <script>
