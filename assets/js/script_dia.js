@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "segundoDia": new Date("2025-03-11"), // A partir de 11/03/2025
     "terceiroDia": new Date("2025-03-12"), // A partir de 12/03/2025
     "quartoDia": new Date("2025-03-13"), // A partir de 13/03/2025
-    "quintoDia": new Date("2025-03-14"), // A partir de 14/03/2025
+    "quintoDia": new Date("2025-03-13"), // A partir de 14/03/2025
     "projetoFinal": new Date("2025-03-14") // A partir de 14/03/2025
   };
 
