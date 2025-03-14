@@ -3,7 +3,7 @@ layout: layoutGit
 title: Projeto Final
 ---
 
-# Rascunho da explicação do projeto final
+# Projeto final
 
 ### Visão geral
 
