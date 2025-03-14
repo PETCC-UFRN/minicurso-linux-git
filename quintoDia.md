@@ -248,7 +248,7 @@ Um exemplo de commit seguindo a convenção seria:
 
 ---
 <script>
-const dataDia5 = new Date('2025-03-14');
+const dataDia5 = new Date('2025-03-13');
 const agora = new Date();
 
 if (agora < dataDia5) {
