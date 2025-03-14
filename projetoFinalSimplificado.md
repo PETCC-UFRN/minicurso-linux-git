@@ -1,3 +1,8 @@
+---
+layout: layoutGit
+title: Projeto Final
+---
+
 # Rascunho da explicação do projeto final
 
 ### Visão geral
@@ -9,8 +14,8 @@ Nessa altura, você provavelmente já deve estar familiarizado com o `git`, como
 - [Definição do projeto](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
 - [Requisitos do projeto](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
 - [Funcionalidades](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
-    - [Geração de senhas](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
-    - [Armazenamento seguro](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
+  - [Geração de senhas](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
+  - [Armazenamento seguro](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
 - [Interface e como usar o script](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
 - [Estrutura do código](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
 - [Submissão](https://www.notion.so/Rascunho-da-explica-o-do-projeto-final-1b5bbc5ec31a80b89dcbdbf4c3e4fd85?pvs=21)
@@ -35,7 +40,7 @@ Explicaremos no início desse texto as funcionalidades e certas coisas que devem
 - Os autores devem usar o `git` e o GitHub para versionar o projeto.
 - Os autores devem incluir um arquivo `README.md` com uma descrição do projeto instruções de uso e exemplos. Caso o trabalho seja feito em mais de uma sessão (por ex. começar em sala e terminar em casa) os autores também devem incluir um arquivo `CHANGELOG.md` com a descrição das mudanças feitas em cada commit.
 
-### Funcionalidades
+## Funcionalidades
 
 ### Geração de senhas
 
